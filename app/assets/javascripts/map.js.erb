@@ -1,6 +1,5 @@
 //= require jquery
 
-
 var map;
 function myMap() {
   var mapProp= {
@@ -48,7 +47,7 @@ c = document.createElement('div')
 $(c).appendTo($(a))
   .attr('id', 'googleMap')
   .height('400px')
-  .width('100%')
+  .width('80%')
   .position('relative')
 
 while (index < ids.length)
@@ -66,6 +65,7 @@ while (index < ids.length)
   index++;
 }
 
+
 $('#bouton:eq(0)')[0].innerHTML = "Ajout marqueur";
 $('#bouton:eq(0)').click(function() {
   if (verif()) {
@@ -81,3 +81,21 @@ $('#bouton:eq(0)').click(function() {
     marker.setMap(map);
   }
 });
+
+c = document.createElement('button');
+$(c).appendTo($('body'))
+  .click(function() {
+    console.log("ta fonction marche");
+ 
+    $.ajax({url: "/", type: 'POST', data: 'latlong=' + map.getCenter().lat(), dataType: 'JSON', body: 'caca', complete: ( function(data) {
+      let place;
+      for (let local of data.responseJSON.caca) {
+       place = new google.maps.LatLng(local.longitude, local.latitude);
+        let marker = new google.maps.Marker({position: place});
+        marker.setMap(map);
+      };
+      map.setCenter({lat: data.responseJSON.caca[0].longitude, lng: data.responseJSON.caca[0].latitude });
+    })
+    });})
+  .attr('id', 'coucou')
+  .placeholder = "coucou les mais"
