@@ -1,9 +1,10 @@
 source 'https://rubygems.org'
 
-ruby '2.4.3'
+ruby '2.5.1'
 #gem'pundit'
 #gem 'stripe'
 gem 'dotenv'
+gem 'geocoder'
 #gem 'devise'
 gem 'faker'
 #gem 'pry'

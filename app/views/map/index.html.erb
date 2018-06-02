@@ -1,7 +1,23 @@
 
-<h1>My First Google Map</h1>
-
 
 <%= javascript_include_tag "map" %>
 
-  </body>
+
+<h1>My First Google Map</h1>
+
+<div id='mapid' style='width: 80%; height: 800px;'></div>
+
+<script charset="utf-8">  
+  var mymap = L.map('mapid').setView([51.505, -0.09], 13);
+</script>
+
+<script>
+  L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    maxZoom: 18,
+    id: 'mapbox.streets',
+    accessToken: 'pk.eyJ1IjoiYmZyYWlraW4iLCJhIjoiY2podWxwc21pMG5udjNqdDZpZGluaGhxeSJ9.WaMLYylJhk6ULiaGSWNuAA',
+  }).addTo(mymap);
+</script>
+
+

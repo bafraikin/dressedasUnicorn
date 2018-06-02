@@ -10,12 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_24_162102) do
+ActiveRecord::Schema.define(version: 2018_06_02_185516) do
 
   create_table "places", force: :cascade do |t|
     t.string "name"
     t.float "longitude"
     t.float "latitude"
+    t.string "address"
+    t.integer "average_price"
+    t.integer "map_id"
+    t.integer "town_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["map_id"], name: "index_places_on_map_id"
+    t.index ["town_id"], name: "index_places_on_town_id"
+  end
+
+  create_table "tag_to_places", force: :cascade do |t|
+    t.integer "place_id"
+    t.integer "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["place_id"], name: "index_tag_to_places_on_place_id"
+    t.index ["tag_id"], name: "index_tag_to_places_on_tag_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

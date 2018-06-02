@@ -1,6 +1,8 @@
 //= require jquery
+//= require leaflet
+//= require leaflet.map
 
-var map;
+/* var map;
 function myMap() {
   var mapProp= {
     center:new google.maps.LatLng(51.508742,-0.120850),
@@ -9,7 +11,8 @@ function myMap() {
 
   map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
 }
-
+ */
+/*
 let verif = function() {
 
   let index = 0;
@@ -86,11 +89,10 @@ c = document.createElement('button');
 $(c).appendTo($('body'))
   .click(function() {
     console.log("ta fonction marche");
- 
-    $.ajax({url: "/", type: 'POST', data: 'latlong=' + map.getCenter().lat(), dataType: 'JSON', body: 'caca', complete: ( function(data) {
+    $.ajax({url: "/", type: 'POST', data: 'lat=' + map.getCenter().lat() + "&long=" + map.getCenter().lng() + "&r=" + 500, dataType: 'JSON', body: 'caca', complete: ( function(data) {
       let place;
       for (let local of data.responseJSON.caca) {
-       place = new google.maps.LatLng(local.longitude, local.latitude);
+       place = new google.maps.LatLng(local.latitude, local.longitude);
         let marker = new google.maps.Marker({position: place});
         marker.setMap(map);
       };
@@ -98,4 +100,4 @@ $(c).appendTo($('body'))
     })
     });})
   .attr('id', 'coucou')
-  .placeholder = "coucou les mais"
+*/

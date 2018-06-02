@@ -96,6 +96,7 @@ GEM
     faker (1.8.7)
       i18n (>= 0.7)
     ffi (1.9.23)
+    geocoder (1.4.9)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     http (3.3.0)
@@ -292,6 +293,7 @@ DEPENDENCIES
   dotenv-rails
   factory_bot_rails
   faker
+  geocoder
   jbuilder
   jquery-rails
   json
@@ -319,7 +321,7 @@ DEPENDENCIES
   web-console
 
 RUBY VERSION
-   ruby 2.4.3p205
+   ruby 2.5.1p57
 
 BUNDLED WITH
    1.16.2

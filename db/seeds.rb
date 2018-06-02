@@ -12,7 +12,7 @@ index = 0
 3.times do 
   700.times do 
     puts "ça y'est #{index}"
-    Place.create(name: Faker::Book.author, longitude: Faker::Address.latitude, latitude: Faker::Address.longitude)
+    Place.create(name: Faker::Book.author, longitude: Faker::Address.longitude, latitude: Faker::Address.latitude)
     index += 1
   end
 end

@@ -4,9 +4,15 @@ class MapController < ApplicationController
   end
 
   def testons
-    puts params[:"latlong"].to_f
+    lat = params[:"lat"].to_f
+    long = params[:"long"].to_f
 
-    @a = Place.find([1,10]) 
+    Place.create(longitude: long, latitude: lat)
+
+    latitude = 100 / 111.111 
+    longitude =  100 / (lat * Math.cos(lat))
+    @a = Place.all
+      Place.where("latitude <= #{latitude + lat} AND latitude >= #{lat - latitude} AND longitude >= #{long - longitude} AND longitude <= #{long + longitude}")
 
     render json: {caca: @a }
   end
