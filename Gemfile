@@ -14,12 +14,10 @@ gem 'rails'
 gem 'puma'
 gem 'sass-rails'
 gem 'uglifier'
-gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder'
 gem 'mail'
-gem 'twitter'
 gem 'json'
 
 group :development, :test do
