@@ -1,9 +1,21 @@
 
 <%= render 'layouts/navbar'%>
 
-<div class="add"><i class="fa fa-plus"></i></div>
+<button class="add" onclick="toggleModal()"><i class="fa fa-plus"></i></button>
+<div id="modal-add-shop" style="display:none;"></div>
 
 <div id='mapid'></div>
+
+<script>
+function toggleModal() {
+    var x = document.getElementById("modal-add-shop");
+    if (x.style.display === "none") {
+        $(x).show(700);        
+    } else {
+      $(x).hide(700);  
+    }
+}
+</script>
 <%= javascript_include_tag "map" %>
 
 

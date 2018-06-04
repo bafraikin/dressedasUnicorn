@@ -2,7 +2,7 @@
         /* BOUTONS */
 /*******************************/
 $main-color:rgba(102, 51, 153,1);
-
+/* Bouton en haut à gauche + pour ajouter une boutique */
 .add {
     height: 50px;
     width: 50px;
@@ -16,10 +16,28 @@ $main-color:rgba(102, 51, 153,1);
         text-align: center;
         font-size: 40px;
         color:white;
-        margin-top:7px;
-        margin-left: 10px;
+        margin-top:4px;
+        margin-left: 1px;
     }
     @media screen and (min-width: 0px) and (min-width: 800px) {
-        margin-top:-20px;   /* show it on small screens */
+        margin-top:100px;   
       }
   }
+
+  /*******************************/
+        /* MODALS */
+/*******************************/
+#modal-add-shop{
+    position: fixed;
+    background-color: white;
+    border-radius: 10px;
+    margin-top: 150px;
+    margin-left: 4px;
+    height: 250px;
+    max-width: 100%;
+    min-width: 98%;
+    z-index: 10000;
+    -webkit-box-shadow: 6px 7px 5px 0px rgba(0,0,0,0.36);
+    -moz-box-shadow: 6px 7px 5px 0px rgba(0,0,0,0.36);
+    box-shadow: 6px 7px 5px 0px rgba(0,0,0,0.36);
+}

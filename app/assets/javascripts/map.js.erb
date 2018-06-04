@@ -14,7 +14,7 @@ let layer = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?ac
 
 // musée du 1er call ajax
 
-$(".add").click(function() {
+$("c").click(function() {
     bound = mymap.getBounds(); 
     $.ajax({url: "/", type: 'POST', data: 'Nlat=' + bound.getNorthEast().lat + "&Nlong=" + bound.getNorthWest().lng + "&Slat=" + bound.getSouthEast().lat + "&Slong=" + bound.getSouthWest().lng  , dataType: 'JSON', body: 'caca', complete: ( function(data) {
       let place;
