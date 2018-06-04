@@ -5,7 +5,8 @@ ruby '2.5.1'
 #gem 'stripe'
 gem 'dotenv'
 gem 'geocoder'
-#gem 'devise'
+gem 'devise'
+gem 'bootstrap-sass'
 gem 'faker'
 #gem 'pry'
 gem 'bootsnap'
@@ -19,6 +20,8 @@ gem 'turbolinks'
 gem 'jbuilder'
 gem 'mail'
 gem 'json'
+gem 'font-awesome-rails'
+
 
 group :development, :test do
   gem 'sqlite3'
