@@ -21,8 +21,7 @@ class MapController < ApplicationController
   
 
     @a = Place.all
-      Place.where("latitude <= #{north_lat} AND latitude >= #{south_lat} AND longitude >= #{south_long} AND longitude <= #{north_long}")
-
+    Place.where("latitude <= #{north_lat} AND latitude >= #{south_lat} AND longitude >= #{south_long} AND longitude <= #{north_long}")
       render json: {caca: @a }
   end
 end

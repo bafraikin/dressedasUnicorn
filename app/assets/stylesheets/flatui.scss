@@ -1,0 +1,25 @@
+/*******************************/
+        /* BOUTONS */
+/*******************************/
+$main-color:rgba(102, 51, 153,1);
+
+.add {
+    height: 50px;
+    width: 50px;
+    background-color:$main-color ;
+    border-radius: 50%;
+    z-index: 10000;
+    right: 15px;
+    position: fixed;
+    margin-top: 50px;
+    i{
+        text-align: center;
+        font-size: 40px;
+        color:white;
+        margin-top:7px;
+        margin-left: 10px;
+    }
+    @media screen and (min-width: 0px) and (min-width: 800px) {
+        margin-top:-20px;   /* show it on small screens */
+      }
+  }
