@@ -1,85 +1,6 @@
 //= require leaflet
 //= require leaflet.map
 
-
-
-// fonction pour les inputs
-/*
-let verif = function() {
-
-  let index = 0;
-  let length = $('#input')[0].childNodes.length - 1
-  let bool = true;
-  while (index < length ) {
-    if ( $('#input')[0].childNodes[index].childNodes[0].value == "" )
-      bool = false;
-    index++;
-  }
-
-  if (bool)
-    return (1);
-  else {
-    alert('Il manque un/des parametres pour ajouter le marqueur');
-    return (0);
-  }
-}
-
-let index = 0;
-let ids = ['latitude', 'longitude', 'message', 'bouton'];
-let type = ['input', 'input', 'input' , 'button'];
-
-a = document.createElement('div');
-$(a).addClass("Map")
-  .appendTo($('body'))
-
-b = document.createElement('ul');
-$(b).addClass("Map")
-  .attr('id', 'input')
-  .appendTo($(a))
-
-c = document.createElement('div')
-$(c).appendTo($(a))
-  .attr('id', 'googleMap')
-  .height('400px')
-  .width('80%')
-  .position('relative')
-
-
-while (index < ids.length)
-{
-  a = document.createElement('li');
-  $(a).appendTo($(b));
-
-  c = document.createElement(type[index])
-  $(c).appendTo($(a))
-    .attr('id', ids[index])
-
-  if (type[index] === 'input' )
-    $(c)[0].placeholder = ids[index];
-
-  index++;
-}
-
-
-$('#bouton:eq(0)')[0].innerHTML = "Ajout marqueur";
-$('#bouton:eq(0)').click(function() {
-  if (verif()) {
-    let latitude = $('#input')[0].childNodes[0].childNodes[0].value;
-    let longitude = $('#input')[0].childNodes[1].childNodes[0].value;
-    var place = new google.maps.LatLng(latitude, longitude);
-    var marker = new google.maps.Marker({position: place});
-    var infowindow = new google.maps.InfoWindow({
-      content: longitude = $('#input')[0].childNodes[2].childNodes[0].value });
-    google.maps.event.addListener(marker, 'click', function() {
-      infowindow.open(map,marker);
-    }); 
-    marker.setMap(map);
-  }
-});
-
-*/
-
-let container = $('#mapid:eq(0)')
 let mymap = L.map('mapid').setView([51.505, -0.09], 13);
 
 let layer = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
@@ -100,12 +21,11 @@ $(c).appendTo($('body'))
     $.ajax({url: "/", type: 'POST', data: 'Nlat=' + bound.getNorthEast().lat + "&Nlong=" + bound.getNorthWest().lng + "&Slat=" + bound.getSouthEast().lat + "&Slong=" + bound.getSouthWest().lng  , dataType: 'JSON', body: 'caca', complete: ( function(data) {
       let place;
       //    for (let local of data.responseJSON.caca) {
-
       place = new L.latLng(bound.getNorthEast().lat, bound.getNorthWest().lng);
-      let myIcon = new L.icon({ iconUrl: '//app/assets/images/Dogepic.png', iconSize: [38, 40],  iconAnchor: [22, 94] });
+      let myIcon = new L.icon({ iconUrl: '//app/assets/images/Dogepic.png' , iconSize: [38, 40],  iconAnchor: [22, 94] });
       let marker = new L.Marker(place, {icon: myIcon, autoPan: true}).addTo(mymap);
       marker.addTo(mymap);
-      mymap.setView(place);
+      mymap.setView(place, 15 ,{pan: {animate: true}});
       //  };
       //   map.setCenter({lat: data.responseJSON.caca[0].longitude, lng: data.responseJSON.caca[0].latitude });
     })
