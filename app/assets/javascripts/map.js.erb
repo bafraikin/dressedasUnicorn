@@ -1,4 +1,3 @@
-//= require jquery
 //= require leaflet
 //= require leaflet.map
 
@@ -92,21 +91,32 @@ $('#bouton:eq(0)').click(function() {
 */
 
 // musée du 1er call ajax
+let container = $('#mapid:eq(0)')
+
+let mymap = L.map('mapid').setView([51.505, -0.09], 13);
+
+let layer = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+  attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+  maxZoom: 18,
+  transparent: true,
+  id: 'mapbox.streets',
+  accessToken: 'pk.eyJ1IjoiYmZyYWlraW4iLCJhIjoiY2podWxwc21pMG5udjNqdDZpZGluaGhxeSJ9.WaMLYylJhk6ULiaGSWNuAA',
+}).addTo(mymap);
 
 
-c = document.createElement('button');
+  c = document.createElement('button');
 $(c).appendTo($('body'))
   .click(function() {
     bound = mymap.getBounds(); 
     $.ajax({url: "/", type: 'POST', data: 'Nlat=' + bound.getNorthEast().lat + "&Nlong=" + bound.getNorthWest().lng + "&Slat=" + bound.getSouthEast().lat + "&Slong=" + bound.getSouthWest()  , dataType: 'JSON', body: 'caca', complete: ( function(data) {
       let place;
-   //    for (let local of data.responseJSON.caca) {
-        place = new L.latLng(bound.getNorthEast().lat, bound.getNorthWest().lng);
-        let myIcon = L.icon({ iconUrl: '//app/assets/images/boutique.png', iconSize: [38, 95],  iconAnchor: [22, 94],});
-        let marker = new L.Marker(place, {icon: myIcon});
-        marker.addTo(mymap);
-   //  };
-   //   map.setCenter({lat: data.responseJSON.caca[0].longitude, lng: data.responseJSON.caca[0].latitude });
+      //    for (let local of data.responseJSON.caca) {
+      place = new L.latLng(bound.getNorthEast().lat, bound.getNorthWest().lng);
+      let myIcon = new L.icon({ iconUrl: '//app/assets/images/boutique.jpg', iconSize: [38, 40],  iconAnchor: [22, 94] });
+      let marker = new L.Marker(place, {icon: myIcon, autoPan: true}).addTo(mymap);
+      marker.addTo(mymap);
+      //  };
+      //   map.setCenter({lat: data.responseJSON.caca[0].longitude, lng: data.responseJSON.caca[0].latitude });
     })
     });})
   .attr('id', 'coucou')
