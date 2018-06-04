@@ -19,6 +19,8 @@ gem 'turbolinks'
 gem 'jbuilder'
 gem 'mail'
 gem 'json'
+gem 'nokogiri'
+gem 'watir'
 
 group :development, :test do
   gem 'sqlite3'
