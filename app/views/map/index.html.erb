@@ -1,11 +1,9 @@
 
+<%= render 'layouts/navbar'%>
+
 
 <%= javascript_include_tag "map" %>
-
-
-<h1>My First Google Map</h1>
-
-<div id='mapid' style='width: 80%; height: 800px;'></div>
+<div id='mapid'></div>
 
 <script charset="utf-8">  
   var mymap = L.map('mapid').setView([51.505, -0.09], 13);
