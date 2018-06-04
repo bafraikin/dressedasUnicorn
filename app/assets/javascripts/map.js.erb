@@ -20,7 +20,7 @@ $(c).appendTo($('body'))
   .click(function() {
     bound = mymap.getBounds();
     console.log(bound);
-    $.ajax({url: "/", type: 'POST', data: 'Nlat=' + bound.getNorth() + "&Nlong=" + bound.getWest() + "&Slat=" + bound.getSouth() + "&Slong=" + bound.getEast()  , dataType: 'JSON', body: 'caca', complete: ( function(data) {
+    $.ajax({url: "/", type: 'POST', data: 'Nlat=' + bound.getNorth() + "&Nlong=" + bound.getWest() + "&Slat=" + bound.getSouth() + "&Slong=" + bound.getEast() + '&test1=' + mymap.getCenter().lat + '&test2=' + mymap.getCenter().lng  , dataType: 'JSON', body: 'caca', complete: ( function(data) {
       for (let local of data.responseJSON.caca) {
         console.log(local);
         let place = new L.latLng(local.latitude, local.longitude );
