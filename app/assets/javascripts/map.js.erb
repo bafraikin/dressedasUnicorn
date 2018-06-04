@@ -14,20 +14,17 @@ let layer = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?ac
 
 // musée du 1er call ajax
 
-c = document.createElement('button');
-$(c).appendTo($('body'))
-  .click(function() {
+$(".add").click(function() {
     bound = mymap.getBounds(); 
     $.ajax({url: "/", type: 'POST', data: 'Nlat=' + bound.getNorthEast().lat + "&Nlong=" + bound.getNorthWest().lng + "&Slat=" + bound.getSouthEast().lat + "&Slong=" + bound.getSouthWest().lng  , dataType: 'JSON', body: 'caca', complete: ( function(data) {
       let place;
       //    for (let local of data.responseJSON.caca) {
       place = new L.latLng(bound.getNorthEast().lat, bound.getNorthWest().lng);
-      let myIcon = new L.icon({ iconUrl: '//app/assets/images/Dogepic.png' , iconSize: [38, 40],  iconAnchor: [22, 94] });
+      let myIcon = new L.icon({ iconUrl: '//app/assets/images/boutique.png' , iconSize: [38, 40],  iconAnchor: [22, 94] });
       let marker = new L.Marker(place, {icon: myIcon, autoPan: true}).addTo(mymap);
       marker.addTo(mymap);
       mymap.setView(place, 15 ,{pan: {animate: true}});
       //  };
       //   map.setCenter({lat: data.responseJSON.caca[0].longitude, lng: data.responseJSON.caca[0].latitude });
     })
-    });})
-  .attr('id', 'coucou')
+    });});
