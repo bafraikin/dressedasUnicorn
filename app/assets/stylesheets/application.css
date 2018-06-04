@@ -12,4 +12,10 @@
  *
  *= require_tree .
  *= require_self
+*= require font-awesome
+
  */
+
+body{
+    margin:0;
+}

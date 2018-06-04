@@ -1,0 +1,107 @@
+$main-color:rgba(102, 51, 153,1);
+$main-color-opacity:rgba(102, 51, 153,0.8);
+/*******************************/
+/* VERSION PC DE LA NAVBAR */
+/*******************************/
+.navbar {
+    overflow: hidden;
+    background-color: $main-color-opacity;  
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index:10000;
+    display: inline-block;
+    text-align: center;
+    ul{
+        margin:0;
+    }
+    li{
+        display: inline;
+    }
+     a {
+        display:inline-block;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 10px 14px;
+        text-decoration: none;
+        font-size: 17px;
+
+
+      }
+       a:hover {
+        background-color: #ddd;
+        color: black;
+      }
+      a.active {
+        background-color: #4CAF50;
+        color: white;
+      }
+      .icon {
+        display: block;
+      }
+}
+/*******************************/
+/* VERSION MOBILE DE LA NAVBAR */
+/*******************************/
+
+.navbar-mobile{
+    overflow: hidden;
+    background-color: $main-color-opacity;  
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index:10000;
+    display: none;
+    z-index:10000;
+    text-align: center;
+
+    ul{
+        margin:0;
+    }
+    li{
+        display: inline;
+    }
+     a {
+        display:inline-block;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 13px 17px;
+        text-decoration: none;
+        font-size: 20px;
+
+
+      }
+       a:hover {
+        background-color: #ddd;
+        color: black;
+      }
+      a.active {
+        background-color: #4CAF50;
+        color: white;
+      }
+      .icon {
+        display: block;
+      }
+      i{
+          font-size: 25px;
+      }
+  }
+/*******************************/
+/* MEDIA QUERIES */
+/*******************************/
+  @media screen and (min-width: 0px) and (max-width: 800px) {
+    .navbar-mobile { display: inline-block!important; }  /* show it on small screens */
+    .navbar { display: none!important; }  /* show it on small screens */
+  }
+  @media screen and (min-width: 801px) and (max-width: 801px) {
+    .navbar-mobile { display: none!important; }  /* show it on small screens */
+  }
+  
+ 
+  
+  
+  
+  
+  
+  
+

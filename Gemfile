@@ -20,6 +20,8 @@ gem 'turbolinks'
 gem 'jbuilder'
 gem 'mail'
 gem 'json'
+gem 'font-awesome-rails'
+
 
 group :development, :test do
   gem 'sqlite3'
