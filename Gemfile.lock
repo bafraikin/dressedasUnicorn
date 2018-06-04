@@ -252,12 +252,10 @@ GEM
       thread_safe (~> 0.1)
     uglifier (4.1.10)
       execjs (>= 0.3.0, < 3)
-
-    watir (6.11.0)
-      selenium-webdriver (~> 3.4, >= 3.4.1)
     warden (1.2.7)
       rack (>= 1.0)
-
+    watir (6.11.0)
+      selenium-webdriver (~> 3.4, >= 3.4.1)
     web-console (3.6.2)
       actionview (>= 5.0)
       activemodel (>= 5.0)
@@ -303,6 +301,7 @@ DEPENDENCIES
   rake
   rspec-rails
   sass-rails
+  selenium-webdriver
   shoulda-matchers
   simplecov
   spring

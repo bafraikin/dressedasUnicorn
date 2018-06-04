@@ -25,7 +25,7 @@ gem 'nokogiri'
 gem 'watir'
 
 gem 'font-awesome-rails'
-
+gem 'selenium-webdriver'
 
 
 group :development, :test do
