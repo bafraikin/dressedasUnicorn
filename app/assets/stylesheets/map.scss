@@ -16,3 +16,22 @@
 li {
   margin-left: 10px;
 }
+#mapid{
+width:100%;
+height:800px;
+margin-top: -20px;
+}
+.leaflet-top .leaflet-control {
+  margin-top: 100px;
+  margin-left:20px;
+}
+/*******************************/
+/* MEDIA QUERIES */
+/*******************************/
+@media screen and (min-width: 0px) and (max-width: 800px) {
+  #mapid { margin-top:-20px; }  /* show it on small screens */
+  .leaflet-top .leaflet-control {
+    margin-top: 20px;
+  }
+}
+
