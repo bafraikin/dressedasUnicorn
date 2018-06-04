@@ -2,17 +2,6 @@
 //= require leaflet.map
 
 
-// ancienne fonction pour generer la map google.maps
-/* var map;
-function myMap() {
-  var mapProp= {
-    center:new google.maps.LatLng(51.508742,-0.120850),
-    zoom:5,
-  };
-
-  map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-}
- */
 
 // fonction pour les inputs
 /*
@@ -108,14 +97,15 @@ c = document.createElement('button');
 $(c).appendTo($('body'))
   .click(function() {
     bound = mymap.getBounds(); 
-    $.ajax({url: "/", type: 'POST', data: 'Nlat=' + bound.getNorthEast().lat + "&Nlong=" + bound.getNorthWest().lng + "&Slat=" + bound.getSouthEast().lat + "&Slong=" + bound.getSouthWest()  , dataType: 'JSON', body: 'caca', complete: ( function(data) {
+    $.ajax({url: "/", type: 'POST', data: 'Nlat=' + bound.getNorthEast().lat + "&Nlong=" + bound.getNorthWest().lng + "&Slat=" + bound.getSouthEast().lat + "&Slong=" + bound.getSouthWest().lng  , dataType: 'JSON', body: 'caca', complete: ( function(data) {
       let place;
       //    for (let local of data.responseJSON.caca) {
 
       place = new L.latLng(bound.getNorthEast().lat, bound.getNorthWest().lng);
-      let myIcon = new L.icon({ iconUrl: '//app/assets/images/boutique.jpg', iconSize: [38, 40],  iconAnchor: [22, 94] });
+      let myIcon = new L.icon({ iconUrl: '//app/assets/images/Dogepic.png', iconSize: [38, 40],  iconAnchor: [22, 94] });
       let marker = new L.Marker(place, {icon: myIcon, autoPan: true}).addTo(mymap);
       marker.addTo(mymap);
+      mymap.setView(place);
       //  };
       //   map.setCenter({lat: data.responseJSON.caca[0].longitude, lng: data.responseJSON.caca[0].latitude });
     })
