@@ -1,16 +1,21 @@
 .page{
     background-image: url("photos/boutique-clothes.jpg");
     height: 100%; 
+    width: 100%;
     /* Center and scale the image nicely */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    position: fixed;
+    z-index: -1;
+    
+   
 
 }
 
 .user_form{
     display: inline-block;
-    margin-left: 40%;
+    margin-left: 38%;
     margin-top: 100px;
     padding: 5px;
     text-align: center;
