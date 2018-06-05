@@ -13,7 +13,23 @@
   <body>
 
     <%= yield %>
-  
+  <div class="user-menu" id="menu-user" style="display:none" >
+      <h2><i>John Doe</i></h2>
+    <%=image_tag("photos/purple(1).jpg", class: "profile-pic")%>   
+
+    <hr class="style14">
+    <a>EDITER MON PROFIL</a>
+    <hr class="style13">
+    <a>MES BOUTIQUES</a>
+    <hr class="style13">
+    <a>CHANGER MON MOT DE PASSE</a>
+    <hr class="style13">
+
+    <a> ME DÉCONNECTER </a>
+    
+
+  </ul>
+</div>
   </body>
 
 
