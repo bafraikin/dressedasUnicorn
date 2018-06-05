@@ -32,7 +32,7 @@ input[type=submit] {
     font-weight: normal;
     border-radius: 4px;
     color: white;
-    background-color: rgba(102, 51, 153, 0.8);
+    background-color: $main-color;
     height: 40px;
 }
   /*******************************/
@@ -68,7 +68,7 @@ input[type=email] {
     border: none;
     border-width:1px;  
     border-bottom-style:ridge;
-    border-color: rgba(102, 51, 153, 0.8);
+    border-color: $main-color;
 }
 
 
