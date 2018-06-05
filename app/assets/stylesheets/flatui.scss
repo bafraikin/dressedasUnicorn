@@ -23,7 +23,9 @@ $main-color:rgba(102, 51, 153,1);
         margin-top:100px;   
       }
   }
-
+.add_places{
+    padding:5px;
+}
   /*******************************/
         /* MODALS */
 /*******************************/
@@ -50,42 +52,9 @@ $main-color:rgba(102, 51, 153,1);
         height: 300px;
      }  
   }
-
-  .page{
-    background-image: url("photos/boutique-clothes.jpg");
-    height: 100%; 
-    /* Center and scale the image nicely */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-
-}
-
-.user_form{
-    display: inline-block;
-    margin-left: 40%;
-    margin-top: 100px;
-    padding: 5px;
-    text-align: center;
-    padding: 100px;
-    background-color: white;
-    box-shadow: 2px 2px 1px 0px rgba(0, 0, 0, 0.29);
-    border-radius: 5px;
-
-    // Bouton retour accueil
-    .btn-back{
-        padding-top: 2%;
-
-    }
-}
-h2{
-    font-family: Lato; 
-}
-body{
-    font-family: Merriweather;
-}
-
-    // inputs
+/*******************************/
+        /* MODALS */
+/*******************************/
 input[type=email] {
 }
 input[type=password] {
@@ -99,3 +68,12 @@ input[type=submit] {
     background-color: rgba(102, 51, 153, 0.8);
     height: 40px;
 }
+/*******************************/
+        /* TITRE */
+/*******************************/
+
+h2{
+}
+
+
+
