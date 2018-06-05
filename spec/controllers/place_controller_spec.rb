@@ -1,6 +1,4 @@
 require 'rails_helper'
-require 'faker'
-require 'geocoder'
 
 RSpec.describe PlaceController, type: :controller do
 
@@ -24,4 +22,13 @@ RSpec.describe PlaceController, type: :controller do
     expect(boutique.address).to eq('Waterloo Bridge, London, UK')
   end
 
+  it 'should associate 2tags to a place' do
+    selma = Place.create!
+    cool = Tag.create!
+    sympa = Tag.create!
+    cool.places << selma
+    sympa.places << selma
+    expect(selma.tags).to include(cool)
+    expect(selma.tags).to include(sympa)
+  end
 end
