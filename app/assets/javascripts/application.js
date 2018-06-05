@@ -14,6 +14,8 @@
 //= require activestorage
 //= require turbolinks
 //= require jquery
+//= require leaflet/dist/leaflet.js
+
 function toggleModal() {
     var x = document.getElementById("modal-add-shop");
     if (x.style.display === "none") {
