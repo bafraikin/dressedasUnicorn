@@ -65,8 +65,22 @@ input[type=submit] {
         /* MODALS */
 /*******************************/
 input[type=email] {
+    border: none;
+    border-width:1px;  
+    border-bottom-style:ridge;
+    border-color: rgba(102, 51, 153, 0.8);
 }
+
+
 input[type=password] {
+    border: none;
+    border-width:1px;  
+    border-bottom-style:ridge;
+    border-color: rgba(102, 51, 153, 0.8);
+}
+// Supprime le border highlight
+*:focus {
+    outline: none;
 }
 
 /*******************************/
