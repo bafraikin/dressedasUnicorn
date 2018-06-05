@@ -14,18 +14,18 @@ let layer = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?ac
 /* -------------------------------------------------------------------   */
 
 // musée du 1er call ajax
-c = document.createElement('button');
-$(c).appendTo($('body'))
-  .click(function() {
-    bound = mymap.getBounds();
-    console.log(bound);
-    $.ajax({url: "/", type: 'POST', data: 'Nlat=' + bound.getNorth() + "&Nlong=" + bound.getWest() + "&Slat=" + bound.getSouth() + "&Slong=" + bound.getEast() + '&test1=' + mymap.getCenter().lat + '&test2=' + mymap.getCenter().lng  , dataType: 'JSON', body: 'caca', complete: ( function(data) {
-      for (let local of data.responseJSON.caca) {
-        console.log(local);
-        let place = new L.latLng(local.latitude, local.longitude );
-        let myIcon = new L.icon({ iconUrl: "<%= asset_path("douge.png") %>" , iconSize: [45, 50] });
-        let marker = new L.Marker(place, {icon: myIcon, autoPan: true});
-        marker.addTo(mymap);
-      }
-    })
-    });})
+
+ mymap.on('zoomend', function() {
+  bound = mymap.getBounds();
+  console.log(bound);
+  $.ajax({url: "/", type: 'POST', data: 'Nlat=' + bound.getNorth() + "&Nlong=" + bound.getWest() + "&Slat=" + bound.getSouth() + "&Slong=" + bound.getEast() + '&test1=' + mymap.getCenter().lat + '&test2=' + mymap.getCenter().lng  , dataType: 'JSON', body: 'caca', complete: ( function(data) {
+    for (let local of data.responseJSON.caca) {
+      console.log(local);
+      let place = new L.latLng(local.latitude, local.longitude);
+      let myIcon = new L.icon({ iconUrl: "<%= asset_path("douge.png") %>" , iconSize: [45, 50] });
+      let marker = new L.Marker(place, {icon: myIcon, autoPan: true});
+      marker.addTo(mymap);
+    }
+  })
+  });});
+
