@@ -30,11 +30,30 @@ $main-color:rgba(102, 51, 153,1);
 input[type=submit] {
     border: none;
     font-size: 18px;
-    font-weight: normal;
+    font-weight: lighter;
     border-radius: 4px;
     color: white;
-    background-color: $main-color;
+    background-color: #00b894;
     height: 40px;
+    width:80%;
+}
+/* Bouton des shared links de devise */
+.connect{
+    border: none;
+    font-size: 18px;
+    font-weight: lighter;
+    border-radius: 4px;
+    color: white;
+    background-color: #0984e3;
+    height: 40px;
+    width:80%;
+    text-align: center;
+    margin-top:-30px;
+    a{
+        text-decoration: none;
+        color:white;
+        
+    }
 }
   /*******************************/
         /* MODALS */
@@ -65,31 +84,28 @@ input[type=submit] {
 /*******************************/
         /* Inputs */
 /*******************************/
-input[type=email] {
+input{
+    height: 25px;
     border: none;
     border-width:1px;  
     border-bottom-style:ridge;
     border-color: $main-color;
+    width:80%;
+    margin-bottom: 20px;
 }
 
-
-input[type=password] {
-    border: none;
-    border-width:1px;  
-    border-bottom-style:ridge;
-    border-color: rgba(102, 51, 153, 0.8);
-}
-input[type=text-field] {
-    border: none;
-    border-width:1px;  
-    border-bottom-style:ridge;
-    border-color: rgba(102, 51, 153, 0.8);
-}
 // Supprime le border highlight
 *:focus {
     outline: none;
 }
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    opacity: 0.8;
+    font-size: 12px;
+    font-style: oblique;
+    margin-bottom: 10px;
 
+  }
+ 
 /*******************************/
         /* TITRE */
 /*******************************/

@@ -1,5 +1,6 @@
 require 'rails_helper'
 require 'faker'
+require 'geocoder'
 
 RSpec.describe PlaceController, type: :controller do
 
@@ -14,14 +15,13 @@ end
 
 
 RSpec.describe PlaceController, type: :controller do
-  it 'should generate the right adress' do
-    boutique = Place.new (name: '')
-    boutique.Place.longitude << Place.longitude.new ('longitude' => Faker::Address.longitude)
-    boutique.Place.latitude << Place.latitude.new (latitude: 'Faker::Address.latitude')
-    boutique.save
-   
-    expect(Place.adress).to_eq()
-    expect(Place.adress).to_include()
+
+  it 'should generate the right address' do
+    boutique = Place.new
+    boutique.longitude = -0.118092
+    boutique.latitude = 51.509865 
+    boutique.save 
+    expect(boutique.address).to eq('Waterloo Bridge, London, UK')
   end
 
 end
