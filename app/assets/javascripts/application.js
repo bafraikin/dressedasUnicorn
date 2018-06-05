@@ -26,3 +26,11 @@ function toggleModal() {
       $(x).hide(700);  
     }
 }
+function toggleUserMenu() {
+    var z = document.getElementById("menu-user");
+    if (z.style.display === "none") {
+        $(z).slideToggle(400);        
+    } else {
+      $(z).slideToggle(400);  
+    }
+}

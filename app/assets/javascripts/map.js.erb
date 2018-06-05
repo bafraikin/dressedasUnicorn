@@ -1,7 +1,23 @@
 
+
+
+let masuperfonction =  function() {
+  bound = mymap.getBounds();
+  $.ajax({url: "/", type: 'POST', data: 'Nlat=' + bound.getNorth() + "&Nlong=" + bound.getWest() + "&Slat=" + bound.getSouth() + "&Slong=" + bound.getEast() + '&test1=' + mymap.getCenter().lat + '&test2=' + mymap.getCenter().lng  , dataType: 'JSON', body: 'rendu', complete: ( 
+    function(data) {
+      for (let local of data.responseJSON.rendu) {
+        if (timestamp.includes(local["created_at"]) != true ) {
+          timestamp.push(local["created_at"]);
+          console.log(timestamp);
+          let place = new L.latLng(local.latitude, local.longitude);
+          let myIcon = new L.icon({ iconUrl: "<%= asset_path("douge.png") %>" , iconSize: [45, 50] });
+          let marker = new L.Marker(place, {icon: myIcon, autoPan: true});
+          marker.addTo(mymap); }}})});};
+
 /* ----------------------------------------------------------------- */
 // Cree la map 
 let mymap = L.map('mapid').setView([51.505, -0.09], 13);
+let timestamp = new Array; 
 
 let layer = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
   attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -14,35 +30,13 @@ let layer = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?ac
 
 // musée du 1er call ajax
 
- mymap.on('zoomend', function() {
-  bound = mymap.getBounds();
-  console.log(bound);
-  $.ajax({url: "/", type: 'POST', data: 'Nlat=' + bound.getNorth() + "&Nlong=" + bound.getWest() + "&Slat=" + bound.getSouth() + "&Slong=" + bound.getEast() + '&test1=' + mymap.getCenter().lat + '&test2=' + mymap.getCenter().lng  , dataType: 'JSON', body: 'caca', complete: ( function(data) {
-    for (let local of data.responseJSON.caca) {
-      console.log(local);
-      let place = new L.latLng(local.latitude, local.longitude);
-      let myIcon = new L.icon({ iconUrl: "<%= asset_path("douge.png") %>" , iconSize: [45, 50] });
-      let marker = new L.Marker(place, {icon: myIcon, autoPan: true});
-      marker.addTo(mymap);
-    }
-  })
-  });});
+mymap.on('zoomend', masuperfonction );
 
 // quand la map arrête de bouger
 
- mymap.on('moveend', function() {
-  bound = mymap.getBounds();
-  console.log(bound);
-  $.ajax({url: "/", type: 'POST', data: 'Nlat=' + bound.getNorth() + "&Nlong=" + bound.getWest() + "&Slat=" + bound.getSouth() + "&Slong=" + bound.getEast() + '&test1=' + mymap.getCenter().lat + '&test2=' + mymap.getCenter().lng  , dataType: 'JSON', body: 'caca', complete: ( function(data) {
-    for (let local of data.responseJSON.caca) {
-      console.log(local);
-      let place = new L.latLng(local.latitude, local.longitude);
-      let myIcon = new L.icon({ iconUrl: "<%= asset_path("douge.png") %>" , iconSize: [45, 50] });
-      let marker = new L.Marker(place, {icon: myIcon, autoPan: true});
-      marker.addTo(mymap);
-    }
-  })
-  });});
+mymap.on('moveend', masuperfonction );
+
+
 
 
 
