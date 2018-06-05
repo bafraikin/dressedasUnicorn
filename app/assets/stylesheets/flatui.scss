@@ -26,6 +26,15 @@ $main-color:rgba(102, 51, 153,1);
 .add_places{
     padding:5px;
 }
+input[type=submit] {
+    border: none;
+    font-size: 18px;
+    font-weight: normal;
+    border-radius: 4px;
+    color: white;
+    background-color: rgba(102, 51, 153, 0.8);
+    height: 40px;
+}
   /*******************************/
         /* MODALS */
 /*******************************/
@@ -59,15 +68,7 @@ input[type=email] {
 }
 input[type=password] {
 }
-input[type=submit] {
-    border: none;
-    font-size: 18px;
-    font-weight: normal;
-    border-radius: 4px;
-    color: white;
-    background-color: rgba(102, 51, 153, 0.8);
-    height: 40px;
-}
+
 /*******************************/
         /* TITRE */
 /*******************************/

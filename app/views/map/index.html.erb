@@ -6,9 +6,9 @@
 <!-- Fenêtre modale -->
 <div id="modal-add-shop" style="display:none;">
   <div class="form-modale">
-    Nom de la boutique :<%= text_field :name, placeholder: "placeholder text" %><br>
-    Description de la boutique : <%= text_field :description, placeholder: "placeholder text" %><br>
-    Adresse de la boutique : <%= text_field :adress, placeholder: "placeholder text" %><br>
+    Nom de la boutique :<%= text_field :name, placeholder: "Nom de la boutique" %><br>
+    Description de la boutique : <%= text_area :description, placeholder: "Description" %><br>
+    Adresse de la boutique : <%= text_field :adress, placeholder: "Adresse" %><br>
     <%= submit_tag("Search") %>
     <button class="add_places">J'y suis</button>
 
