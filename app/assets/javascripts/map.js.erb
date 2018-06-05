@@ -1,6 +1,7 @@
 //= require leaflet
 //= require leaflet.map
-
+/* ----------------------------------------------------------------- */
+// Cree la map 
 let mymap = L.map('mapid').setView([51.505, -0.09], 13);
 
 let layer = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
@@ -10,21 +11,21 @@ let layer = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?ac
   id: 'mapbox.streets',
   accessToken: 'pk.eyJ1IjoiYmZyYWlraW4iLCJhIjoiY2podWxwc21pMG5udjNqdDZpZGluaGhxeSJ9.WaMLYylJhk6ULiaGSWNuAA',
 }).addTo(mymap);
-
+/* -------------------------------------------------------------------   */
 
 // musée du 1er call ajax
-
-$("c").click(function() {
-    bound = mymap.getBounds(); 
-    $.ajax({url: "/", type: 'POST', data: 'Nlat=' + bound.getNorthEast().lat + "&Nlong=" + bound.getNorthWest().lng + "&Slat=" + bound.getSouthEast().lat + "&Slong=" + bound.getSouthWest().lng  , dataType: 'JSON', body: 'caca', complete: ( function(data) {
-      let place;
-      //    for (let local of data.responseJSON.caca) {
-      place = new L.latLng(bound.getNorthEast().lat, bound.getNorthWest().lng);
-      let myIcon = new L.icon({ iconUrl: '//app/assets/images/boutique.png' , iconSize: [38, 40],  iconAnchor: [22, 94] });
-      let marker = new L.Marker(place, {icon: myIcon, autoPan: true}).addTo(mymap);
-      marker.addTo(mymap);
-      mymap.setView(place, 15 ,{pan: {animate: true}});
-      //  };
-      //   map.setCenter({lat: data.responseJSON.caca[0].longitude, lng: data.responseJSON.caca[0].latitude });
+c = document.createElement('button');
+$(c).appendTo($('body'))
+  .click(function() {
+    bound = mymap.getBounds();
+    console.log(bound);
+    $.ajax({url: "/", type: 'POST', data: 'Nlat=' + bound.getNorth() + "&Nlong=" + bound.getWest() + "&Slat=" + bound.getSouth() + "&Slong=" + bound.getEast() + '&test1=' + mymap.getCenter().lat + '&test2=' + mymap.getCenter().lng  , dataType: 'JSON', body: 'caca', complete: ( function(data) {
+      for (let local of data.responseJSON.caca) {
+        console.log(local);
+        let place = new L.latLng(local.latitude, local.longitude );
+        let myIcon = new L.icon({ iconUrl: "<%= asset_path("douge.png") %>" , iconSize: [45, 50] });
+        let marker = new L.Marker(place, {icon: myIcon, autoPan: true});
+        marker.addTo(mymap);
+      }
     })
-    });});
+    });})
