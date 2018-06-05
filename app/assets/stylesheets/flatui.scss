@@ -26,6 +26,7 @@ $main-color:rgba(102, 51, 153,1);
 .add_places{
     padding:5px;
 }
+/* Button Submit */
 input[type=submit] {
     border: none;
     font-size: 18px;
@@ -62,7 +63,7 @@ input[type=submit] {
      }  
   }
 /*******************************/
-        /* MODALS */
+        /* Inputs */
 /*******************************/
 input[type=email] {
     border: none;
@@ -78,6 +79,12 @@ input[type=password] {
     border-bottom-style:ridge;
     border-color: rgba(102, 51, 153, 0.8);
 }
+input[type=text-field] {
+    border: none;
+    border-width:1px;  
+    border-bottom-style:ridge;
+    border-color: rgba(102, 51, 153, 0.8);
+}
 // Supprime le border highlight
 *:focus {
     outline: none;
@@ -88,6 +95,8 @@ input[type=password] {
 /*******************************/
 
 h2{
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
 }
 
 
