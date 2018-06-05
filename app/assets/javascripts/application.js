@@ -15,6 +15,8 @@
 //= require turbolinks
 //= require jquery
 //= require leaflet/dist/leaflet.js
+//=require require/require.js
+
 
 function toggleModal() {
     var x = document.getElementById("modal-add-shop");
