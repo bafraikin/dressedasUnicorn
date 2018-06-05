@@ -1,12 +1,14 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 
-
-
-a = document.createElement('button')
+l = document.createElement('ul');
+li = document.createElement('li');
+$(l).appendTo($('body'))
+$(li).appendTo($(l))
+a = document.createElement('button');
 $(a).click(function() {
-  center = mymap.getCenter;
-  $.ajax({url: "/", type: 'POST', data: 'lati=' + center.lat + "&long=" + center.lat   , dataType: 'JSON', body: 'rendu', complete: ( function(data) {
+  center = mymap.getCenter();
+  $.ajax({url: "/add_place", type: 'POST', data: 'lati=' + center.lat + "&long=" + center.lng   , dataType: 'JSON', body: 'rendu', complete: ( function(data) {
     let local = data.responseJSON.rendu
     let place = new L.latLng(local.latitude, local.longitude );
     let myIcon = new L.icon({ iconUrl: "<%= asset_path("douge.png") %>" , iconSize: [45, 50] });
@@ -14,5 +16,7 @@ $(a).click(function() {
     marker.addTo(mymap);
   })
   });})
+  .appendTo($(li));
+
 
 

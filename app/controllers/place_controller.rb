@@ -5,7 +5,6 @@ class PlaceController < ApplicationController
     lng = params[:"long"]
 
     @a = Place.create(latitude: lat, longitude: lng)
-
-    render json {rendu: @a}
+    render json: {rendu: @a}
   end
 end
