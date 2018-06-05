@@ -1,30 +1,30 @@
 <%= render 'layouts/navbar'%>
 
 <div class="page">
-  <%= image_tag("photos/purple(1).png") %>
-  <div class="user_signup">
+  <%= image_tag("photos/purple(2).jpg") %>
+  <div class="form_connection">
     <h2>URBAN EMPORIUM</h2>
-    <h4><i>Connectez-vous pour commencer</i></h4>
+    <h4><i>Inscrivez-vous pour commencer</i></h4>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= devise_error_messages! %>
 
       <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        <%= f.label :EMAIL.capitalize %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" , placeholder: "Votre e-mail"%>
       </div>
       <br>      
       <div class="field">
-        <%= f.label :mot_de_passe %>
+        <%= f.label :MOT_DE_PASSE %>
         <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> caractères minimum)</em>
+        <i><em>(<%= @minimum_password_length %> caractères minimum)</em></i>
         <% end %><br />
-        <%= f.password_field :password, autocomplete: "off" %>
+        <%= f.password_field :password, autocomplete: "off", placeholder: "Votre mot de passe" %>
       </div>
       <br>      
       <div class="field">
-        <%= f.label :confirmation_du_mot_de_passe %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+        <%= f.label :CONFIRMATION_DU_MOT_DE_PASSE %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirmez votre mot de passe" %>
       </div>
       <br>      
       <div class="actions">
