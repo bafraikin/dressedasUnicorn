@@ -6,6 +6,6 @@ class Place < ApplicationRecord
   geocoded_by :address
 
 
-  has_many :tag_to_places
+  has_many :tag_to_places 
   has_many :tags, through: :tag_to_places 
 end
