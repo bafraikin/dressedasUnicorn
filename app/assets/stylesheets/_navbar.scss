@@ -90,11 +90,11 @@ $main-color-opacity:rgba(102, 51, 153,0.8);
 /* MEDIA QUERIES */
 /*******************************/
   @media screen and (min-width: 0px) and (max-width: 800px) {
-    .navbar-mobile { display: inline-block!important; }  /* show it on small screens */
-    .navbar { display: none!important; }  /* show it on small screens */
+    .navbar-mobile { display: inline-block!important; }  
+    .navbar { display: none!important; }  
   }
   @media screen and (min-width: 801px) and (max-width: 801px) {
-    .navbar-mobile { display: none!important; }  /* show it on small screens */
+    .navbar-mobile { display: none!important; }  /* Cache sur écran au deli de 801 px */
   }
   
  

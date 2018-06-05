@@ -14,3 +14,11 @@
 //= require activestorage
 //= require turbolinks
 //= require jquery
+function toggleModal() {
+    var x = document.getElementById("modal-add-shop");
+    if (x.style.display === "none") {
+        $(x).show(700);        
+    } else {
+      $(x).hide(700);  
+    }
+}

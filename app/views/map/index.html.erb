@@ -1,21 +1,22 @@
 
 <%= render 'layouts/navbar'%>
-
+<!-- bouton add -->
 <button class="add" onclick="toggleModal()"><i class="fa fa-plus"></i></button>
-<div id="modal-add-shop" style="display:none;"></div>
+
+<!-- Fenêtre modale -->
+<div id="modal-add-shop" style="display:none;">
+  <div class="form-modale">
+    Nom de la boutique :<%= text_field :name, placeholder: "placeholder text" %><br>
+    Description de la boutique : <%= text_field :description, placeholder: "placeholder text" %><br>
+    Adresse de la boutique : <%= text_field :adress, placeholder: "placeholder text" %><br>
+    <%= submit_tag("Search") %>
+
+  </div>
+</div>
 
 <div id='mapid'></div>
 
-<script>
-function toggleModal() {
-    var x = document.getElementById("modal-add-shop");
-    if (x.style.display === "none") {
-        $(x).show(700);        
-    } else {
-      $(x).hide(700);  
-    }
-}
-</script>
+
 <%= javascript_include_tag "map" %>
 
 
