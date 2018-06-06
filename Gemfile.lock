@@ -310,6 +310,7 @@ DEPENDENCIES
   requirejs-rails
   rspec-rails
   sass-rails
+  selenium-webdriver
   shoulda-matchers
   simplecov
   spring
