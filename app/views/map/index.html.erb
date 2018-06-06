@@ -1,57 +1,27 @@
 
 <%= render 'layouts/navbar'%>
 
-<% if %>
-<% user_signed_in? %>
-<h3><%= current_user.username %></h3>
-<!-- bouton add -->
-<button class="add" onclick="toggleModal()"><i class="fa fa-plus"></i></button>
+  <!-- bouton add -->
+  <button class="add" onclick="toggleModal()"><i class="fa fa-plus"></i></button>
 
-<!-- DEBUT FENETRE MODALE -->
-<div id="modal-add-shop" style="display:none;">
-  <div class="form-modale">
-    Nom de la boutique :<%= text_field :name, placeholder: "Nom de la boutique" %><br>
-    Description de la boutique : <%= text_area :description, placeholder: "Description" %><br>
-    Adresse de la boutique : <%= text_field_tag :adress, placeholder: "Adresse" %><br>
-    <%= submit_tag("Search") %>
-    <button class="add_places">J'y suis</button>
-
+  <!-- DEBUT FENETRE MODALE -->
+  <div id="modal-add-shop" style="display:none;">
+    <div class="form-modale">
+      <%= form_tag do  %>
+      Nom de la boutique: <%= text_field_tag(:name, '', placeholder: 'Nom de la boutique') %> <br>
+      Description de la boutique: <br> <%= text_area_tag(:description, nil, placeholder: 'Description')%> <br>
+      Adresse de la boutique: <%= text_field_tag(:address, nil, placeholder: 'Some text') %> <br>
+      <%= submit_tag("Search") %>
+      <button class="add_places">J'y suis</button>
+    <% end %>
+    </div>
   </div>
-</div>
-<!-- FIN DE LA FENETRE MODALE -->
+  <!-- FIN DE LA FENETRE MODALE -->
 
 
-<div id='mapid'></div>
+  <div id='mapid'></div>
 
 
-<%= javascript_include_tag "map" %>
-<%= javascript_include_tag "place" %>
-
-<%else%>
-
-<button class="add" onclick="toggleModal()"><i class="fa fa-plus"></i></button>
-
-<!-- DEBUT FENETRE MODALE -->
-<div id="modal-add-shop" style="display:none;">
-  <div class="form-modale">
-    Nom de la boutique :<%= text_field :name, placeholder: "Nom de la boutique" %><br>
-    Description de la boutique : <%= text_area :description, placeholder: "Description" %><br>
-    Adresse de la boutique : <%= text_field :adress, placeholder: "Adresse" %><br>
-    <%= submit_tag("Search") %>
-    <button class="add_places">J'y suis</button>
-
-  </div>
-</div>
-<!-- FIN DE LA FENETRE MODALE -->
-
-
-<div id='mapid'></div>
-
-
-<%= javascript_include_tag "map" %>
-<%= javascript_include_tag "place" %>
-
-<%end%>
-
-
+  <%= javascript_include_tag "map" %>
+  <%= javascript_include_tag "place" %>
 
