@@ -19,15 +19,20 @@
     <%=image_tag("photos/purple(1).jpg", class: "profile-pic")%>   
 
     <hr class="style14">
-    <a>EDITER MON PROFIL</a>
-    <hr class="style13">
-    <a>MES BOUTIQUES</a>
-    <hr class="style13">
-    <a>CHANGER MON MOT DE PASSE</a>
-    <hr class="style13">
-
-    <a> ME DÉCONNECTER </a>
-    
+    <% if user_signed_in? %>
+      <%= link_to edit_user_registration_path do%> EDITER MON PROFIL <%end%> 
+      <hr class="style13">
+      <a>MES BOUTIQUES</a>
+      <hr class="style13">
+      
+      <br><br> <br><br><br><br> <br><br>
+      <%= link_to('ME DECONNECTER', destroy_user_session_path, method: :delete) %> 
+    <% else %>
+      <%= link_to('ME CONNECTER', new_user_session_path)  %>  
+        <hr class="style13">
+      <%= link_to new_user_registration_path do%> M'INSCRIRE <%end%> 
+        <hr class="style13">
+    <% end %>
 
   </ul>
 </div>
