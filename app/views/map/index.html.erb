@@ -1,27 +1,30 @@
-
 <%= render 'layouts/navbar'%>
 
-  <!-- bouton add -->
+<% if user_signed_in? %>
   <button class="add" onclick="toggleModal()"><i class="fa fa-plus"></i></button>
+<%else%>
+<%end%>
 
-  <!-- DEBUT FENETRE MODALE -->
-  <div id="modal-add-shop" style="display:none;">
-    <div class="form-modale">
-      <%= form_tag do  %>
+<!-- DEBUT FENETRE MODALE -->
+<div id="modal-add-shop" style="display:none;">
+  <div class="form-modale">
+    <h2>Ajouter une boutique</h2>
+    <hr class="style13">
+    <%= form_tag do  %>
       Nom de la boutique: <%= text_field_tag(:name, '', placeholder: 'Nom de la boutique') %> <br>
       Description de la boutique: <br> <%= text_area_tag(:description, nil, placeholder: 'Description')%> <br>
       Adresse de la boutique: <%= text_field_tag(:address, nil, placeholder: 'Some text') %> <br>
-      <%= submit_tag("Search") %>
-      <button class="add_places">J'y suis</button>
+      <%= submit_tag"Ajouter", :class => "add_places", :id => "add" %>
     <% end %>
-    </div>
+    <button class="add_places" id="add">J'y suis</button>
   </div>
-  <!-- FIN DE LA FENETRE MODALE -->
+</div>
+<!-- FIN DE LA FENETRE MODALE -->
 
 
-  <div id='mapid'></div>
+<div id='mapid'></div>
 
 
-  <%= javascript_include_tag "map" %>
-  <%= javascript_include_tag "place" %>
+<%= javascript_include_tag "map" %>
+<%= javascript_include_tag "place" %>
 

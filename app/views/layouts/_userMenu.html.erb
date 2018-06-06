@@ -1,5 +1,9 @@
 <div class="user-menu" id="menu-user" style="display:none" >
-      <h2><i>John Doe</i></h2>
+    <% if user_signed_in? %>
+      <h2><i><%current_user.username%></i></h2>
+      <%else%>
+       <h2><i>Bienvenue</i></h2>
+    <%end%>
     <%=image_tag("photos/purple(1).jpg", class: "profile-pic")%>   
 
     <hr class="style14">
