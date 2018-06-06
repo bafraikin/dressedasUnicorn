@@ -11,14 +11,15 @@
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Votre e-mail" %>
   </div>
 
   <div class="actions">
     <%= f.submit "Nouveau mot de passe" %>
   </div>
 <% end %>
-
+<%= link_to('Connexion', new_user_session_path)  %> <br> <br>
+Pas encore inscrit ?<%= link_to new_user_session_path do%> S'inscrire <%end%> 
 
 </div>
 </div>
