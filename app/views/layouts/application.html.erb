@@ -8,11 +8,35 @@
 
     <link href='http://fonts.googleapis.com/css?family=Lato:200,700' rel='stylesheet' type='text/css'>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => "reload" %>
   </head>
   <body>
 
     <%= yield %>
+
+  <div class="user-menu" id="menu-user" style="display:none" >
+      <h2><i>John Doe</i></h2>
+    <%=image_tag("photos/purple(1).jpg", class: "profile-pic")%>   
+
+    <hr class="style14">
+    <% if user_signed_in? %>
+      <%= link_to edit_user_registration_path do%> EDITER MON PROFIL <%end%> 
+      <hr class="style13">
+      <a>MES BOUTIQUES</a>
+      <hr class="style13">
+      
+      <br><br> <br><br><br><br> <br><br>
+      <%= link_to('ME DECONNECTER', destroy_user_session_path, method: :delete) %> 
+    <% else %>
+      <%= link_to('ME CONNECTER', new_user_session_path)  %>  
+        <hr class="style13">
+      <%= link_to new_user_registration_path do%> M'INSCRIRE <%end%> 
+        <hr class="style13">
+    <% end %>
+
+  </ul>
+</div>
+  </body>
 
 
 </html>
