@@ -1,6 +1,5 @@
 
 
-
 let masuperfonction =  function() {
   bound = mymap.getBounds();
   $.ajax({url: "/", type: 'POST', data: 'Nlat=' + bound.getNorth() + "&Nlong=" + bound.getWest() + "&Slat=" + bound.getSouth() + "&Slong=" + bound.getEast() + '&test1=' + mymap.getCenter().lat + '&test2=' + mymap.getCenter().lng  , dataType: 'JSON', body: 'rendu', complete: ( 
@@ -36,10 +35,3 @@ mymap.on('zoomend', masuperfonction );
 
 mymap.on('moveend', masuperfonction );
 
-
-
-
-
-mymap.on('viewreset', function(ev) {
-    alert(ev.latlng); 
-});

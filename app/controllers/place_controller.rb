@@ -7,4 +7,8 @@ class PlaceController < ApplicationController
     @a = Place.create(latitude: lat, longitude: lng)
     render json: {rendu: @a}
   end
+
+  def find_with_address
+  	Geocoder.coordinates()
+  end
 end
