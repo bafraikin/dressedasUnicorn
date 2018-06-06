@@ -3,6 +3,8 @@ class MapController < ApplicationController
   def index
 
   end
+  def list
+  end
 
   def explore
      north_lat = params[:"Nlat"].to_f
