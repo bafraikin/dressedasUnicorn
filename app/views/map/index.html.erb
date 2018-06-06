@@ -11,12 +11,11 @@
     <h2>Ajouter une boutique</h2>
     <hr class="style13">
     <%= form_tag do  %>
-      Nom de la boutique: <%= text_field_tag(:name, '', placeholder: 'Nom de la boutique') %> <br>
-      Description de la boutique: <br> <%= text_area_tag(:description, nil, placeholder: 'Description')%> <br>
-      Adresse de la boutique: <%= text_field_tag(:address, nil, placeholder: 'Some text') %> <br>
-      <%= submit_tag"Ajouter", :class => "add_places", :id => "add" %>
+      Nom de la boutique <br> <%= text_field_tag(:name, '', placeholder: 'Saisir le nom de la boutique') %> <br>
+      Description de la boutique <br> <%= text_area_tag(:description, nil, placeholder: 'Saisir une description')%> <br>
+      Adresse de la boutique <%= text_field_tag(:address, nil, placeholder: 'Saisir une adresse') %> <br>
+      <%= submit_tag"Ajouter", :class => "add_places", :id => "find"%> 
     <% end %>
-    <button class="add_places" id="add">J'y suis</button>
   </div>
 </div>
 <!-- FIN DE LA FENETRE MODALE -->
