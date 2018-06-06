@@ -15,3 +15,29 @@ $(".add_places").click(function() {
 
 
 
+$("#find").click(function () {
+  if ($("#address")[0].value === "" ) {
+    alert("champs address vide");
+    return (0);
+  }
+
+  $.ajax({url: "/find_address", type: 'POST', data: 'address=' + $("#address")[0].value , dataType: 'JSON', body: 'rendu', complete: ( function(data) {
+    let local = data.responseJSON.rendu;
+    let place = new L.latLng(local.latitude, local.longitude );
+    let myIcon = new L.icon({ iconUrl: "<%= asset_path("douge.png") %>", iconSize: [45, 50]});
+    let marker = new L.Marker(place, {icon: myIcon, autoPan: true, draggable: true});
+      marker.addTo(mymap);
+      toggleModal();
+    a = document.createElement("div");
+      $(a).addClass("add")
+      .value("OK ?")
+      .margin-top = "80px"
+      .border-radius = "80%"
+      .addTo(mymap);
+  })});
+
+
+
+
+
+
