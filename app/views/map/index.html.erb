@@ -1,19 +1,18 @@
 
 <%= render 'layouts/navbar'%>
 
-<% if %>
-<% user_signed_in? %>
-<h3><%= current_user.username %></h3>
-<!-- bouton add -->
+<% if user_signed_in? %>
 <button class="add" onclick="toggleModal()"><i class="fa fa-plus"></i></button>
+<%else%>
+<%end%>
 
 <!-- DEBUT FENETRE MODALE -->
 <div id="modal-add-shop" style="display:none;">
   <div class="form-modale">
-
     <h2>Ajouter une boutique</h2>
+    
     <hr class="style13">
-    Nom de la boutique : <%= text_field :name, placeholder: "Nom de la boutique" %><br>
+    Nom de la boutique : <br><%= text_field :name, placeholder: "Nom de la boutique" %><br>
 
     Description de la boutique  <%= text_area :description, placeholder: "Description" %><br>
 
@@ -21,8 +20,8 @@
     
     <hr class="style13">
 
-   <%= submit_tag("Ajouter") %>
-    <button class="add_places">J'y suis</button>
+   <%= submit_tag"Ajouter", :class => "add_places", :id => "add" %>
+   <button class="add_places" id="add">J'y suis</button>
 
   </div>
 </div>
@@ -34,32 +33,6 @@
 
 <%= javascript_include_tag "map" %>
 <%= javascript_include_tag "place" %>
-
-<%else%>
-
-<button class="add" onclick="toggleModal()"><i class="fa fa-plus"></i></button>
-
-<!-- DEBUT FENETRE MODALE -->
-<div id="modal-add-shop" style="display:none;">
-  <div class="form-modale">
-    Nom de la boutique :<%= text_field :name, placeholder: "Nom de la boutique" %><br>
-    Description de la boutique : <%= text_area :description, placeholder: "Description" %><br>
-    Adresse de la boutique : <%= text_field :adress, placeholder: "Adresse" %><br>
-    <%= submit_tag("Search") %>
-    <button class="add_places">J'y suis</button>
-
-  </div>
-</div>
-<!-- FIN DE LA FENETRE MODALE -->
-
-
-<div id='mapid'></div>
-
-
-<%= javascript_include_tag "map" %>
-<%= javascript_include_tag "place" %>
-
-<%end%>
 
 
 
