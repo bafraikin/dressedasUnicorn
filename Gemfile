@@ -24,8 +24,6 @@ gem 'jbuilder'
 gem 'mail'
 gem 'json'
 
-gem 'nokogiri'
-gem 'watir'
 
 gem 'font-awesome-rails'
 gem 'selenium-webdriver'
