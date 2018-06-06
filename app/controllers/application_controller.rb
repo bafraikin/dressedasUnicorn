@@ -1,5 +1,12 @@
 class ApplicationController < ActionController::Base
 protect_from_forgery unless: -> { request.format.json? }
+before_action :sanitize_devise_params, if: :devise_controller?
+	
+
+def sanitize_devise_params
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:username])
+	end
+
 
 
 cache = ActiveSupport::Cache::MemoryStore.new
