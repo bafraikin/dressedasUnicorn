@@ -6,10 +6,18 @@
 <!-- DEBUT FENETRE MODALE -->
 <div id="modal-add-shop" style="display:none;">
   <div class="form-modale">
-    Nom de la boutique :<%= text_field :name, placeholder: "Nom de la boutique" %><br>
-    Description de la boutique : <%= text_area :description, placeholder: "Description" %><br>
+
+    <h2>Ajouter une boutique</h2>
+    <hr class="style13">
+    Nom de la boutique : <%= text_field :name, placeholder: "Nom de la boutique" %><br>
+
+    Description de la boutique  <%= text_area :description, placeholder: "Description" %><br>
+
     Adresse de la boutique : <%= text_field :adress, placeholder: "Adresse" %><br>
-    <%= submit_tag("Search") %>
+    
+    <hr class="style13">
+
+   <%= submit_tag("Ajouter") %>
     <button class="add_places">J'y suis</button>
 
   </div>
