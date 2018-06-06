@@ -15,8 +15,7 @@
       Description de la boutique: <br> <%= text_area_tag(:description, nil, placeholder: 'Description')%> <br>
       Adresse de la boutique: </br> <%= text_field_tag(:address, nil, placeholder: 'Some text') %> <br>
       <%= submit_tag"Ajouter", :class => "add_places", :id => "add" %> 
-    <% end %>
-    <button class="add_places" id="add">J'y suis</button>
+  <% end %>
   </div>
 </div>
 <!-- FIN DE LA FENETRE MODALE -->
@@ -27,3 +26,4 @@
 
 <%= javascript_include_tag "map" %>
 <%= javascript_include_tag "place" %>
+

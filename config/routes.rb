@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     get '/sign-in' => "devise/sessions#new", :as => :login
   end
+  get "list", to:"map#list"
   devise_for :users
   root to: 'map#index'
   post "/", to: 'map#explore'
