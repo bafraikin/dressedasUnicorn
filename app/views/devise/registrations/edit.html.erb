@@ -1,48 +1,56 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<%= render 'layouts/navbar'%>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
- 
- <div class="field">
-       <%= f.label :Pseudo %><br />
-       <%= f.text_field :username, autofocus: true, autocomplete: "Pseudo"%>   
+<div class="page">
+  <%= image_tag("photos/purple(2).jpg") %>
+  <div class="form_connection">
+  
+    <h2>Modifier mon compte<% resource_name.to_s.humanize %></h2>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= devise_error_messages! %>
+  <br>
+    <br>
+
+      <div class="field">
+            <%= f.label :Pseudo %><br />
+            <%= f.text_field :username, autofocus: true, autocomplete: "Pseudo"%>   
+      </div>
+
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+      <!--
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %> -->
+
+      <div class="field">
+        <%= f.label :Nouveau_mot_de_passe %> <!--<br><i>(laissez vide si vous ne souhaitez pas le modifier)</i><br /> -->
+        <!--<% if @minimum_password_length %>
+          <em><%= @minimum_password_length %> caractères minimum</em>
+        <% end %> -->
+        <%= f.password_field :password, autocomplete: "off" %>
+
+      </div>
+
+      <div class="field">
+        <%= f.label :confirmation_du_nouveau_mot_de_passe %><br>
+        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+      </div>
+
+        <div class="field">
+          <%= f.label :mot_de_passe_actuel %> <br><i>(Mot de passe actuel demandé pour toute modification)</i><br>
+          <%= f.password_field :current_password, autocomplete: "off" %>
+        </div>
+
+      <div class="actions">
+        <%= f.submit "Valider" %>
+      </div>
+      <% end %>
+
+    <!-- <h3>Supprimer mon compte</h3> -->
+    <p>Nous quitter ? <%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Etes-vous sûr(e)?" }, method: :delete, id: "delete" %></p>
   </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :mot_de_passe %> <i>(laissez vide si vous ne souhaitez pas le modifier)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :confirmation_du_mot_de_passe %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :mot_de_passe_actuel %> <i>(Merci de saisir votre mot de passe actuel, pour modification)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Valider" %>
-  </div>
-<% end %>
-
-<h3>Supprimer mon compte</h3>
-
-<p>Nous quitter ? <%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Etes-vous sûr(e)?" }, method: :delete %></p>
+</div>
 
 <%= link_to "Retour", :back %>

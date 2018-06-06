@@ -36,7 +36,10 @@ $main-color:rgba(102, 51, 153,1);
 #find{
     width: 30%;
 }
-
+/*Suppression compte*/
+#delete{
+    background-color: red
+}
 
 /* Button Submit */
 input[type=submit] {
