@@ -4,10 +4,10 @@
 
 $(".add_places").click(function() {
   center = mymap.getCenter();
-  $.ajax({url: "/add_place", type: 'POST', data: 'lati=' + center.lat + "&long=" + center.lng   , dataType: 'JSON', body: 'rendu', complete: ( function(data) {
+  $.ajax({url: "/add_place", type: 'POST', data: 'lati=' + center.lat + "&long=" + center.lng, dataType: 'JSON', body: 'rendu', complete: ( function(data) {
     let local = data.responseJSON.rendu
     let place = new L.latLng(local.latitude, local.longitude );
-    let myIcon = new L.icon({ iconUrl: "<%= asset_path("douge.png") %>" , iconSize: [45, 50] });
+    let myIcon = new L.icon({ iconUrl: "<%= asset_path("douge.png") %>", iconSize: [45, 50]});
     let marker = new L.Marker(place, {icon: myIcon, autoPan: true});
     marker.addTo(mymap);
   })
