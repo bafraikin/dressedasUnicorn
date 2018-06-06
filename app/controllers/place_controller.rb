@@ -1,4 +1,6 @@
 class PlaceController < ApplicationController
+  before_action :authenticate_user!
+
   def add_geoloc
 
     lat = params[:"lati"]

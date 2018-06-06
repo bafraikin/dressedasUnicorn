@@ -1,4 +1,12 @@
 /*******************************/
+        /* LINKS */
+/*******************************/
+a{
+    text-decoration:none;
+    color:orange;
+    margin-top:3px;
+}
+/*******************************/
         /* BOUTONS */
 /*******************************/
 $main-color:rgba(102, 51, 153,1);
@@ -64,15 +72,31 @@ input[type=submit] {
     border-radius: 10px;
     margin-top: 150px;
     margin-left: 4px;
-    height: 250px;
+    //height: 250px;
     max-width: 100%;
     min-width: 98%;
     z-index: 10000;
     -webkit-box-shadow: 6px 7px 5px 0px rgba(0,0,0,0.36);
     -moz-box-shadow: 6px 7px 5px 0px rgba(0,0,0,0.36);
     box-shadow: 6px 7px 5px 0px rgba(0,0,0,0.36);
+        /*  jordane*/
+        color:rgba(47, 18, 76, 0.9);
+        display: block;
+        padding-top: 30px;
+        text-align: center;
     
 }
+
+    textarea{
+        height: 25px;
+        border: none;
+        border-width:1px;  
+        border-bottom-style:ridge;
+        border-color: $main-color;
+        width:80%;
+        margin-bottom: 20px;
+    }
+
 @media screen and (min-width: 801px) {
     #modal-add-shop { 
         min-width:800px!important;
@@ -113,11 +137,20 @@ input[type=submit] {
     }
     h2{
         float:right;
-        margin-right:40%;
+        margin-right:35%;
     }
        
 
 }
+@media screen and (min-width: 801px) {
+    .profile-pic{ 
+        margin-top: 70px!important;
+     }  
+     .user-menu h2{
+        margin-top: 70px;
+        margin-right: 45%;
+     }
+  }
 
 /*******************************/
         /* Inputs */

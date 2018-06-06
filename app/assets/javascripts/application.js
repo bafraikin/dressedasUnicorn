@@ -27,9 +27,27 @@ function toggleModal() {
 }
 function toggleUserMenu() {
     var z = document.getElementById("menu-user");
+    var y = document.getElementById("settings-user");
     if (z.style.display === "none") {
-        $(z).slideToggle(400);        
+        $(z).slideToggle(400);   
+            if(y.style.display != "none") {
+                $(y).slideToggle(400);       
+            }    
     } else {
       $(z).slideToggle(400);  
     }
 }
+function toggleSettingsMenu() {
+    var z = document.getElementById("menu-user");
+    var y = document.getElementById("settings-user");
+    if (y.style.display === "none") {
+        $(y).slideToggle(400);   
+            if(z.style.display != "none") {
+                $(z).slideToggle(400);       
+            }    
+    } else {
+      $(y).slideToggle(400);  
+    }
+}
+
+
