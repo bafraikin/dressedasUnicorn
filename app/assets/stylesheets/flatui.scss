@@ -1,4 +1,12 @@
 /*******************************/
+        /* LINKS */
+/*******************************/
+a{
+    text-decoration:none;
+    color:orange;
+    margin-top:3px;
+}
+/*******************************/
         /* BOUTONS */
 /*******************************/
 $main-color:rgba(102, 51, 153,1);
@@ -113,11 +121,20 @@ input[type=submit] {
     }
     h2{
         float:right;
-        margin-right:40%;
+        margin-right:35%;
     }
        
 
 }
+@media screen and (min-width: 801px) {
+    .profile-pic{ 
+        margin-top: 70px!important;
+     }  
+     .user-menu h2{
+        margin-top: 70px;
+        margin-right: 45%;
+     }
+  }
 
 /*******************************/
         /* Inputs */
