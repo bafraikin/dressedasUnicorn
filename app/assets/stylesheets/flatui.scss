@@ -33,6 +33,29 @@ $main-color:rgba(102, 51, 153,1);
         margin-top:100px;   
       }
   }
+  /* Bouton en haut à gauche pour ajouter une position */
+.add-position {
+    height: 50px;
+    width: 50px;
+    background-color:$main-color ;
+    border-radius: 50%;
+    z-index: 3;
+    right: 80px;
+    position: fixed;
+    margin-top: 50px;
+    opacity:0.8;
+    border:none;
+    i{
+        text-align: center;
+        font-size: 40px;
+        color:white;
+        margin-top:4px;
+        margin-left: 1px;
+    }
+    @media screen and (min-width: 0px) and (min-width: 800px) {
+        margin-top:100px;   
+      }
+  }
 
 #find{
     width: 30%;
