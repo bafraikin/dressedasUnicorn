@@ -7,15 +7,15 @@ let masuperfonction =  function() {
       for (let local of data.responseJSON.rendu) {
         if (timestamp.includes(local["created_at"]) != true ) {
           timestamp.push(local["created_at"]);
-          console.log(timestamp);
           let place = new L.latLng(local.latitude, local.longitude);
           let myIcon = new L.icon({ iconUrl: "<%= asset_path("douge.png") %>" , iconSize: [45, 50] });
           let marker = new L.Marker(place, {icon: myIcon, autoPan: true});
-          marker.addTo(mymap); }}})});};
+          marker.addTo(mymap);
+        }}})});};
 
 /* ----------------------------------------------------------------- */
 // Cree la map 
-let mymap = L.map('mapid').setView([48.866667,2.333333], 13);
+let mymap = L.map('mapid').setView([48.866667,2.333333], 14);
 let timestamp = new Array; 
 
 let layer = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
@@ -28,10 +28,7 @@ let layer = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?ac
 /* -------------------------------------------------------------------   */
 
 // musée du 1er call ajax
-
-mymap.on('zoomend', masuperfonction );
-
+mymap.on('zoomend', masuperfonction);
 // quand la map arrête de bouger
-
-mymap.on('moveend', masuperfonction );
+mymap.on('moveend', masuperfonction);
 
