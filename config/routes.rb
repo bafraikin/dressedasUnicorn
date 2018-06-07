@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   end
   get "list", to:"map#list"
   get "created", to:"map#created"
+  get "test", to: "map#test"
   devise_for :users
   root to: 'map#index'
   post "/", to: 'map#explore'
