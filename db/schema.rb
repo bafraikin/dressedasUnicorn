@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_06_100540) do
+ActiveRecord::Schema.define(version: 2018_06_07_124839) do
 
   create_table "places", force: :cascade do |t|
     t.string "name"
@@ -23,8 +23,11 @@ ActiveRecord::Schema.define(version: 2018_06_06_100540) do
     t.integer "tag_to_places_count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "users_id"
+    t.text "description"
     t.index ["map_id"], name: "index_places_on_map_id"
     t.index ["town_id"], name: "index_places_on_town_id"
+    t.index ["users_id"], name: "index_places_on_users_id"
   end
 
   create_table "tag_to_places", force: :cascade do |t|
