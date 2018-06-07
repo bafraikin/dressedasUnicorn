@@ -15,7 +15,7 @@ let masuperfonction =  function() {
 
 /* ----------------------------------------------------------------- */
 // Cree la map 
-let mymap = L.map('mapid').setView([48.866667,2.333333], 13);
+let mymap = L.map('mapid').setView([48.866667,2.333333], 14);
 let timestamp = new Array; 
 
 let layer = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
@@ -28,10 +28,7 @@ let layer = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?ac
 /* -------------------------------------------------------------------   */
 
 // musée du 1er call ajax
-
-mymap.on('zoomend', masuperfonction );
-
+mymap.on('zoomend', masuperfonction);
 // quand la map arrête de bouger
-
-mymap.on('moveend', masuperfonction );
+mymap.on('moveend', masuperfonction);
 
