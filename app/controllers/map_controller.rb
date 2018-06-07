@@ -4,6 +4,7 @@ class MapController < ApplicationController
   end
    
   def list
+    @places = Place.all
   end
 
   def created
