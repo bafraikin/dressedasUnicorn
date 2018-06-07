@@ -17,7 +17,7 @@
 //= require leaflet/dist/leaflet.js
 
 
-function toggleModal() {
+let toggleModal = function() {
     var x = document.getElementById("modal-add-shop");
     if (x.style.display === "none") {
         $(x).show(700);        
