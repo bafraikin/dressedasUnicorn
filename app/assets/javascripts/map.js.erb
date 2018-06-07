@@ -7,11 +7,11 @@ let masuperfonction =  function() {
       for (let local of data.responseJSON.rendu) {
         if (timestamp.includes(local["created_at"]) != true ) {
           timestamp.push(local["created_at"]);
-          console.log(timestamp);
           let place = new L.latLng(local.latitude, local.longitude);
           let myIcon = new L.icon({ iconUrl: "<%= asset_path("douge.png") %>" , iconSize: [45, 50] });
           let marker = new L.Marker(place, {icon: myIcon, autoPan: true});
-          marker.addTo(mymap); }}})});};
+          marker.addTo(mymap);
+        }}})});};
 
 /* ----------------------------------------------------------------- */
 // Cree la map 

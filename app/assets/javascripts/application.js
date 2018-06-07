@@ -16,8 +16,8 @@
 //= require jquery
 //= require leaflet/dist/leaflet.js
 
-// Permet d'afficher ou de cacher la fenetre modal qui ajoute une adresse
-function toggleModal() {
+
+let toggleModal = function() {
     var x = document.getElementById("modal-add-shop");
     if (x.style.display === "none") {
         $(x).slideToggle(400);        
