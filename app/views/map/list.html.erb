@@ -1,18 +1,7 @@
 <%= render 'layouts/navbar'%>
-<!-- bouton add -->
-<button class="add" onclick="toggleModal()"><i class="fa fa-plus"></i></button>
-<!-- DEBUT FENETRE MODALE -->
-<div id="modal-add-shop" style="display:none;">
-  <div class="form-modale">
-    Nom de la boutique :<%= text_field :name, placeholder: "Nom de la boutique" %><br>
-    Description de la boutique : <%= text_area :description, placeholder: "Description" %><br>
-    Adresse de la boutique : <%= text_field :adress, placeholder: "Adresse" %><br>
-    <%= submit_tag("Search") %>
-    <button class="add_places">J'y suis</button>
 
-  </div>
-</div>
-<!-- FIN DE LA FENETRE MODALE -->
+<%= render 'layouts/modale'%>
+
 <div class="wrap-list">
   <div id='liste'>
     <%= image_tag("photos/purple(2).jpg", class: "img-bg") %>
