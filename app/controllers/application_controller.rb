@@ -13,7 +13,7 @@ cache = ActiveSupport::Cache::MemoryStore.new
 
 cache.read('city')   # => nil
 cache.write('city', 'nique ta mere')
-puts cache.read('city')   # => "Duckburgh"
+puts cache.read('city')   # => "nique ta mere"
 
 def after_sign_in_path_for(resource)
     root_path

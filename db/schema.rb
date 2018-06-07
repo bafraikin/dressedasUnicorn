@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_06_100540) do
+ActiveRecord::Schema.define(version: 2018_06_04_170803) do
 
   create_table "places", force: :cascade do |t|
     t.string "name"
@@ -20,8 +20,11 @@ ActiveRecord::Schema.define(version: 2018_06_06_100540) do
     t.integer "average_price"
     t.integer "map_id"
     t.integer "town_id"
+    t.integer "creator_id"
+    t.integer "tag_to_places_count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["creator_id"], name: "index_places_on_creator_id"
     t.index ["map_id"], name: "index_places_on_map_id"
     t.index ["town_id"], name: "index_places_on_town_id"
   end
@@ -37,6 +40,7 @@ ActiveRecord::Schema.define(version: 2018_06_06_100540) do
 
   create_table "tags", force: :cascade do |t|
     t.string "name"
+    t.integer "tag_to_places_count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -44,6 +48,7 @@ ActiveRecord::Schema.define(version: 2018_06_06_100540) do
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.string "username"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -54,7 +59,6 @@ ActiveRecord::Schema.define(version: 2018_06_06_100540) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "username"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

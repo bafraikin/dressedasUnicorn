@@ -3,8 +3,8 @@ class PlaceController < ApplicationController
   def add_geoloc
     lat = params[:"lati"]
     lng = params[:"long"]
-
-    @a = Place.create(latitude: lat, longitude: lng)
+    current_user.places << Place.new(latitude: lat, longitude: lng, address: Geocoder.search([lat,lng])[0].address)
+    @a = current_user.places.last
     render json: {rendu: @a}
   end
 
@@ -16,8 +16,10 @@ class PlaceController < ApplicationController
   end
 
   def put_address
-    @a= Place.create(latitude: params[:"lati"], longitude: params[:"long"], address: params[:"address"], name: params[:"nom"])
- 
+    lat = params[:"lati"]
+    lng = params[:"long"]
+    current_user.places << Place.new(latitude: lat, longitude: lng, address: Geocoder.search([lat,lng])[0].address, name: params[:"nom"])
+    @a = current_user.places.last
  render json: {put: @a}
   end
 end
