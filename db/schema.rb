@@ -26,7 +26,6 @@ ActiveRecord::Schema.define(version: 2018_06_07_152123) do
     t.text "description"
     t.index ["map_id"], name: "index_places_on_map_id"
     t.index ["town_id"], name: "index_places_on_town_id"
-    t.index ["users_id"], name: "index_places_on_users_id"
   end
 
   

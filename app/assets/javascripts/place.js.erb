@@ -5,15 +5,13 @@ let markerTmp;
 
 let callDeux = function() {
   $.ajax({url: '/put_address', type: 'POST', data: 'address=' + $("#address")[0].value + '&long=' + markerTmp._latlng.lng + '&lati=' + markerTmp._latlng.lat + '&nom=' + $("#name")[0].value + '&description=' + $("#description")[0].value, dataType: 'JSON', complete: (function(data) {
-    
-    debugger;
     let locali = data.responseJSON.put;
     let newAdd = new L.latLng(locali.latitude, locali.longitude);
     let myIcon = new L.icon({ iconUrl: "<%= asset_path("douge.png") %>", iconSize: [45, 50]});
     let marker = new L.Marker(newAdd, {icon: myIcon, autoPan: true});
     marker.addTo(mymap);
     markerTmp.remove();
-$(a).remove();
+    $(a).remove();
     $("#add").show();
   })});
 }
@@ -28,15 +26,28 @@ let callUn = function() {
     mymap.setView([local.latitude, local.longitude]);
     toggleModal();
     $("#add").hide();
-    a = document.createElement("button");
-    $(a).addClass("add-position");
-    b = document.createElement("i");
-    $(b).appendTo($(a));
-    $(b).addClass("fa");
-    $(b).addClass("fa-location-arrow")
+
+    a = document.createElement("div");
+    $(a).addClass("add_delete_div");
+    b = document.createElement("button");
+    $(b).addClass("validate-position");
+    c = document.createElement("button");
+    $(c).addClass("cancel-position");
+
     $(a).prependTo($('body'));
-    $(a).css({display: "block", zIndex: "20000", marginTop: "100px"});
-    $(a).click(function() { 
+    $(b).appendTo($(a));
+    $(b).html("Ajouter");
+    $(c).appendTo($(a));
+    $(c).html("Annuler");
+
+   $(c).click(function() {
+      $(a).remove();
+      $("#add").show();
+    markerTmp.remove();
+      return(0);
+    });
+
+    $(b).click(function() { 
       callDeux(); 
     });
   })
