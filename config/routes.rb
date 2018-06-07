@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount ForestLiana::Engine => '/forest'
   devise_scope :user do
     get '/sign-in' => "devise/sessions#new", :as => :login
   end
