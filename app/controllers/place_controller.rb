@@ -11,6 +11,6 @@ class PlaceController < ApplicationController
   end
 
   def find_with_address
-  	Geocoder.coordinates()
+  	render json: {rendu: Geocoder.coordinates(params[:"address"])}
   end
 end
