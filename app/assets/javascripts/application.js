@@ -16,14 +16,16 @@
 //= require jquery
 //= require leaflet/dist/leaflet.js
 
+// Permet d'afficher ou de cacher la fenetre modal qui ajoute une adresse
 function toggleModal() {
     var x = document.getElementById("modal-add-shop");
     if (x.style.display === "none") {
-        $(x).show(700);        
+        $(x).slideToggle(400);        
     } else {
-      $(x).hide(700);  
+      $(x).slideToggle(400);  
     }
 }
+
 function toggleUserMenu() {
     var z = document.getElementById("menu-user");
     var y = document.getElementById("settings-user");
@@ -36,6 +38,7 @@ function toggleUserMenu() {
       $(z).slideToggle(400);  
     }
 }
+
 function toggleSettingsMenu() {
     var z = document.getElementById("menu-user");
     var y = document.getElementById("settings-user");
@@ -49,4 +52,19 @@ function toggleSettingsMenu() {
     }
 }
 
+function closeModal() {
+    var z = document.getElementById("menu-user");
+    var y = document.getElementById("settings-user");
+    var x = document.getElementById("modal-add-shop");
+
+    if (z.style.display !== "none") {
+        $(z).slideToggle(400);       
+        }    
+    else if (y.style.display !== "none") {
+        $(y).slideToggle(400);       
+        } 
+        else if (x.style.display !== "none") {
+        $(x).slideToggle(400);       
+        }
+}
 

@@ -1,9 +1,12 @@
 class MapController < ApplicationController
 
   def index
-
   end
+   
   def list
+  end
+
+  def created
   end
 
   def explore

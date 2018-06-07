@@ -20,7 +20,31 @@ $main-color:rgba(102, 51, 153,1);
     right: 15px;
     position: fixed;
     margin-top: 50px;
-    opacity:0.8;
+    opacity:0.7;
+    border:none;
+    i{
+        text-align: center;
+        font-size: 40px;
+        color:white;
+        margin-top:4px;
+        margin-left: 1px;
+    }
+    @media screen and (min-width: 0px) and (min-width: 800px) {
+        margin-top:100px;   
+      }
+  }
+  /* Bouton en haut à gauche pour ajouter une position */
+.add-position {
+    height: 50px;
+    width: 50px;
+    background-color:$main-color ;
+    border-radius: 50%;
+    z-index: 3;
+    right: 80px;
+    position: fixed;
+    margin-top: 50px;
+    opacity:0.9;
+    border:none;
     i{
         text-align: center;
         font-size: 40px;
@@ -36,8 +60,37 @@ $main-color:rgba(102, 51, 153,1);
 #find{
     width: 30%;
 }
+/*Fermer toutes les modales*/
+.close-modal{
+    float: right;
+    top: 10px;
+    font-size: 25px;
+    padding-right: 10px;
+    position: relative;
+    @media screen and (min-width: 801px) {
+        top: 55px;
+      }
+    &:hover{
+        color:orange;
+        transition: all 0.3s;
+       
+    }
+    &:active{
+        color:orange;
+        transition: all 0.3s;
+    }
+    &:focus{
+        color:orange;
+        transition: all 0.3s;
+    }
+}
 
 
+/* Bouton zoom sur carte */
+.leaflet-touch .leaflet-control-layers, .leaflet-touch .leaflet-bar {
+    border: none!important;
+    background-clip: padding-box;
+}
 /* Button Submit */
 input[type=submit] {
     border: none;
@@ -47,7 +100,7 @@ input[type=submit] {
     color: white;
     background-color: #00b894;
     height: 40px;
-    //width:80%;
+    margin-bottom: 10px;
 }
 /* Bouton des shared links de devise */
 .connect{
@@ -77,7 +130,7 @@ input[type=submit] {
     margin-left: 4px;
     max-width: 100%;
     min-width: 98%;
-    z-index: 10000;
+    z-index: 5;
     -webkit-box-shadow: 6px 7px 5px 0px rgba(0,0,0,0.36);
     -moz-box-shadow: 6px 7px 5px 0px rgba(0,0,0,0.36);
     box-shadow: 6px 7px 5px 0px rgba(0,0,0,0.36);
@@ -86,6 +139,10 @@ input[type=submit] {
     padding-top: 30px;
     text-align: center;
     height:auto;
+    .close-modal{
+        top: -20px!important;
+        
+    }
     
 }
 
@@ -139,8 +196,10 @@ input[type=submit] {
        
     }
     h2{
-        float:right;
-        margin-right:35%;
+        float: right;
+        font-size: 18px;
+        position: relative;
+        margin-right: 20%;
     }
        
 
