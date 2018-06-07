@@ -2,7 +2,10 @@
 
 <% if user_signed_in? %>
   <button class="add" onclick="toggleModal()"><i class="fa fa-plus"></i></button>
-<%else%>
+  <div class="add_delete_div">
+    <button class="validate-position">Ajouter</button>
+    <button class="cancel-position">Annuler</button>
+  </div>
 <%end%>
 
 <%= render 'layouts/modale'%>

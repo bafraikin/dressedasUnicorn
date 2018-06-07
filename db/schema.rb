@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2018_06_04_170803) do
     t.float "latitude"
     t.string "address"
     t.integer "average_price"
+    t.text "description"
     t.integer "map_id"
     t.integer "town_id"
     t.integer "creator_id"
