@@ -7,6 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
+
+=begin 
 require 'faker'
 index = 0
 3.times do 
@@ -16,3 +18,4 @@ index = 0
     index += 1
   end
 end
+=end
