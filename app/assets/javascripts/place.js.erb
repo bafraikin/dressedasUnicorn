@@ -5,8 +5,6 @@ let markerTmp;
 
 let callDeux = function() {
   $.ajax({url: '/put_address', type: 'POST', data: 'address=' + $("#address")[0].value + '&long=' + markerTmp._latlng.lng + '&lati=' + markerTmp._latlng.lat + '&nom=' + $("#name")[0].value + '&description=' + $("#description")[0].value, dataType: 'JSON', complete: (function(data) {
-    
-    debugger;
     let locali = data.responseJSON.put;
     let newAdd = new L.latLng(locali.latitude, locali.longitude);
     let myIcon = new L.icon({ iconUrl: "<%= asset_path("douge.png") %>", iconSize: [45, 50]});

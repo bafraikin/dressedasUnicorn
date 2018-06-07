@@ -1,191 +1,212 @@
 /*******************************/
-/* LINKS */
+        /* LINKS */
 /*******************************/
 a{
-  text-decoration:none;
-  color:orange;
-  margin-top:3px;
+    text-decoration:none;
+    color:orange;
+    margin-top:3px;
 }
 /*******************************/
-/* BOUTONS */
+        /* BOUTONS */
 /*******************************/
 $main-color:rgba(102, 51, 153,1);
 /* Bouton en haut à gauche + pour ajouter une boutique */
 .add {
-  height: 50px;
-  width: 50px;
-  background-color:$main-color ;
-  border-radius: 50%;
-  z-index: 3;
-  right: 15px;
-  position: fixed;
-  margin-top: 50px;
-  opacity:0.7;
-  border:none;
-  i{
-    text-align: center;
-    font-size: 40px;
-    color:white;
-    margin-top:4px;
-    margin-left: 1px;
+    height: 50px;
+    width: 50px;
+    background-color:$main-color ;
+    border-radius: 50%;
+    z-index: 3;
+    right: 15px;
+    position: fixed;
+    margin-top: 50px;
+    opacity:0.7;
+    border:none;
+    i{
+        text-align: center;
+        font-size: 40px;
+        color:white;
+        margin-top:4px;
+        margin-left: 1px;
+    }
+    @media screen and (min-width: 0px) and (min-width: 800px) {
+        margin-top:100px;   
+      }
   }
-  @media screen and (min-width: 0px) and (min-width: 800px) {
-    margin-top:100px;   
-  }
-  @media screen and (min-width: 0px) and (min-width: 800px) {
-    margin-top:100px;   
-  }
-}
-/* Bouton en haut à gauche pour ajouter une position */
+  /* Bouton en haut à gauche pour ajouter une position */
 .add-position {
-  height: 50px;
-  width: 50px;
-  background-color:$main-color ;
-  border-radius: 50%;
-  z-index: 3;
-  right: 80px;
-  position: fixed;
-  margin-top: 50px;
-  opacity:0.9;
-  border:none;
-  i{
-    text-align: center;
-    font-size: 40px;
-    color:white;
-    margin-top:4px;
-    margin-left: 1px;
+    height: 50px;
+    width: 50px;
+    background-color:$main-color ;
+    border-radius: 50%;
+    z-index: 3;
+    right: 80px;
+    position: fixed;
+    margin-top: 50px;
+    opacity:0.9;
+    border:none;
+    i{
+        text-align: center;
+        font-size: 40px;
+        color:white;
+        margin-top:4px;
+        margin-left: 1px;
+    }
+    @media screen and (min-width: 0px) and (min-width: 800px) {
+        margin-top:100px;   
+      }
   }
-  @media screen and (min-width: 0px) and (min-width: 800px) {
-    margin-top:100px;   
-  }
-}
-
-
-@media screen and (min-width: 0px) and (min-width: 800px) {
-  margin-top:100px;   
-}
-
 
 #find{
-  width: 30%;
+    width: 30%;
 }
 /*Fermer toutes les modales*/
 .close-modal{
-  float: right;
-  top: 10px;
-  font-size: 25px;
-  padding-right: 10px;
-  position: relative;
-  @media screen and (min-width: 801px) {
-    top: 55px;
-  }
-  &:hover{
-    color:orange;
-    transition: all 0.3s;
-
-  }
-  &:active{
-    color:orange;
-    transition: all 0.3s;
-  }
-  &:focus{
-    color:orange;
-    transition: all 0.3s;
-  }
+    float: right;
+    top: 10px;
+    font-size: 25px;
+    padding-right: 10px;
+    position: relative;
+    @media screen and (min-width: 801px) {
+        top: 55px;
+      }
+    &:hover{
+        color:orange;
+        transition: all 0.3s;
+       
+    }
+    &:active{
+        color:orange;
+        transition: all 0.3s;
+    }
+    &:focus{
+        color:orange;
+        transition: all 0.3s;
+    }
 }
 
 
 /* Bouton zoom sur carte */
 .leaflet-touch .leaflet-control-layers, .leaflet-touch .leaflet-bar {
-  border: none!important;
-  background-clip: padding-box;
+    border: none!important;
+    background-clip: padding-box;
 }
 /* Button Submit */
 input[type=submit] {
-  border: none;
-  font-size: 18px;
-  font-weight: lighter;
-  border-radius: 4px;
-  color: white;
-  background-color: #00b894;
-  height: 40px;
-  margin-bottom: 10px;
+    border: none;
+    font-size: 18px;
+    font-weight: lighter;
+    border-radius: 4px;
+    color: white;
+    background-color: #00b894;
+    height: 40px;
+    margin-bottom: 10px;
 }
 /* Bouton des shared links de devise */
 .connect{
-  border: none;
-  font-size: 18px;
-  font-weight: lighter;
-  border-radius: 4px;
-  color: white;
-  background-color: #0984e3;
-  height: 40px;
-  width:80%;
-  text-align: center;
-  margin-top:-30px;
-  a{
-    text-decoration: none;
-    color:white;
-  }
+    border: none;
+    font-size: 18px;
+    font-weight: lighter;
+    border-radius: 4px;
+    color: white;
+    background-color: #0984e3;
+    height: 40px;
+    width:80%;
+    text-align: center;
+    margin-top:-30px;
+    a{
+        text-decoration: none;
+        color:white;
+    }
 }
-/*******************************/
-/* MODALS */
+
+/* Boutons annuler / ajouter */
+.add_delete_div{
+    margin-top:80px;
+    z-index: 3;
+    right: 33%;
+    position: fixed;
+    font-size: 15px;
+    .validate-position{
+        padding:10px;
+        background-color: #00b894;
+        color:white;
+        border-radius: 5px;
+        font-size: 16px;
+    
+    }
+    .cancel-position{
+        padding:10px;
+        background-color: rgb(185, 9, 9);
+        color:white;
+        border-radius: 5px;
+    }
+}
+@media screen and (min-width: 801px) {
+    .validate-position{
+        padding:15px;
+        font-size: 19px;
+    
+    }
+    .cancel-position{
+        padding:15px;
+        font-size: 16px;
+
+    }
+    .add_delete_div{
+        right:45%;
+    }
+  }
+  /*******************************/
+        /* MODALS */
 /*******************************/
 #modal-add-shop{
-  position: fixed;
-  background-color: white;
-  border-radius: 10px;
-  margin-top: 150px;
-  margin-left: 4px;
-  max-width: 100%;
-  min-width: 98%;
-  z-index: 5;
-  -webkit-box-shadow: 6px 7px 5px 0px rgba(0,0,0,0.36);
-  -moz-box-shadow: 6px 7px 5px 0px rgba(0,0,0,0.36);
-  box-shadow: 6px 7px 5px 0px rgba(0,0,0,0.36);
-  color:rgba(47, 18, 76, 0.9);
-  display: block;
-  padding-top: 30px;
-  text-align: center;
-  height:auto;
-  .close-modal{
-    top: -20px!important;
-  }
+    position: fixed;
+    background-color: white;
+    border-radius: 10px;
+    margin-top: 150px;
+    margin-left: 4px;
+    max-width: 100%;
+    min-width: 98%;
+    z-index: 5;
+    -webkit-box-shadow: 6px 7px 5px 0px rgba(0,0,0,0.36);
+    -moz-box-shadow: 6px 7px 5px 0px rgba(0,0,0,0.36);
+    box-shadow: 6px 7px 5px 0px rgba(0,0,0,0.36);
+    color:rgba(47, 18, 76, 0.9);
+    display: block;
+    padding-top: 30px;
+    text-align: center;
+    height:auto;
+    .close-modal{
+        top: -20px!important;
+        
+    }
+    
 }
 
-textarea{
-  height: 60px;
-  border: none;
-  border-width:1px;  
-  border-bottom-style:ridge;
-  border-color: $main-color;
-  width:80%;
-  margin-bottom: 20px;
-  line-height: 4;
-}
+    textarea{
+        height: 60px;
+        border: none;
+        border-width:1px;  
+        border-bottom-style:ridge;
+        border-color: $main-color;
+        width:80%;
+        margin-bottom: 20px;
+        line-height: 4;
+    }
 
 @media screen and (min-width: 801px) {
-  #modal-add-shop { 
-    min-width:800px!important;
-    margin-left: 20%;
-    margin-top: 17%;
-    height: auto;
+    #modal-add-shop { 
+        min-width:800px!important;
+        margin-left: 20%;
+        margin-top: 17%;
+        height: auto;
+     }  
   }
-}
+
 /****** MENU DEROULANT USER ******/
 .user-menu
 {
-  width:100%;
-  height:100%;
-  background-color:rgba(47, 18, 76, 0.9);
-  z-index:5;
-  top:0;
-  position: fixed;
-  color:white;
-
-  a{
-    position: relative;
-    text-decoration: none;
     width:100%;
     height:100%;
     background-color:rgba(47, 18, 76, 0.9);
@@ -193,97 +214,94 @@ textarea{
     top:0;
     position: fixed;
     color:white;
+    
+    a{
+        position: relative;
+        text-decoration: none;
+        width:100%;
+        display:block;
+        padding-top: 30px;
+        text-align: center;
 
-  }
-  .profile-pic{
-    border-radius:50%;
-    height: 80px;
-    width:80px;
-    margin-top:15px;
-    margin-left:10px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    .profile-pic{
+        border-radius:50%;
+        height: 80px;
+        width:80px;
+        margin-top:15px;
+        margin-left:10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+       
+    }
+    h2{
+        float: right;
+        font-size: 18px;
+        position: relative;
+        margin-right: 20%;
+    }
+       
 
-  }
-  h2{
-    float: right;
-    font-size: 18px;
-    position: relative;
-    margin-right: 20%;
-  }
 }
-.profile-pic{
-  border-radius:50%;
-  height: 80px;
-  width:80px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
-}
-h2{
-  float:right;
-  margin-right:35%;
-}
-
-
 @media screen and (min-width: 801px) {
-  .profile-pic{ 
-    margin-top: 70px!important;
-  }  
-  .user-menu h2{
-    margin-top: 70px;
-    margin-right: 45%;
+    .profile-pic{ 
+        margin-top: 70px!important;
+     }  
+     .user-menu h2{
+        margin-top: 70px;
+        margin-right: 45%;
+     }
   }
-}
 
 /*******************************/
-/* Inputs */
+        /* Inputs */
 /*******************************/
 input{
-  height: 25px;
-  border: none;
-  border-width:1px;  
-  border-bottom-style:ridge;
-  border-color: $main-color;
-  width:80%;
-  margin-bottom: 20px;
+    height: 25px;
+    border: none;
+    border-width:1px;  
+    border-bottom-style:ridge;
+    border-color: $main-color;
+    width:80%;
+    margin-bottom: 20px;
 }
 
 // Supprime le border highlight
 *:focus {
-  outline: none;
+    outline: none;
 }
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  opacity: 0.8;
-  font-size: 12px;
-  font-style: oblique;
-  margin-bottom: 10px;
+    opacity: 0.8;
+    font-size: 12px;
+    font-style: oblique;
+    margin-bottom: 10px;
 
-}
-
+  }
+ 
 /*******************************/
-/* TITRE */
+        /* TITRE */
 /*******************************/
 
 h1, h2, h3, h4, h5{
-  font-family: 'Lato', sans-serif;
-  font-weight: 200;
+    font-family: 'Lato', sans-serif;
+    font-weight: 200;
 }
 /*******************************/
-/* HR LIGNES */
+        /* HR LIGNES */
 /*******************************/
 hr.style13{
-  width: 70%;
-  border: 0; 
+    width: 70%;
+    border: 0; 
   height: 1px; 
   opacity:0.6;
-  background: -moz-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 31%, rgba(255,255,255,1) 37%, rgba(255,255,255,1) 44%, rgba(255,255,255,1) 50%, rgba(255,255,255,1) 59%, rgba(255,255,255,1) 66%, rgba(255,255,255,0.8) 72%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%,rgba(255,255,255,0.8) 31%,rgba(255,255,255,1) 37%,rgba(255,255,255,1) 44%,rgba(255,255,255,1) 50%,rgba(255,255,255,1) 59%,rgba(255,255,255,1) 66%,rgba(255,255,255,0.8) 72%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to right, rgba(255,255,255,0) 0%,rgba(255,255,255,0.8) 31%,rgba(255,255,255,1) 37%,rgba(255,255,255,1) 44%,rgba(255,255,255,1) 50%,rgba(255,255,255,1) 59%,rgba(255,255,255,1) 66%,rgba(255,255,255,0.8) 72%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+background: -moz-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 31%, rgba(255,255,255,1) 37%, rgba(255,255,255,1) 44%, rgba(255,255,255,1) 50%, rgba(255,255,255,1) 59%, rgba(255,255,255,1) 66%, rgba(255,255,255,0.8) 72%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%,rgba(255,255,255,0.8) 31%,rgba(255,255,255,1) 37%,rgba(255,255,255,1) 44%,rgba(255,255,255,1) 50%,rgba(255,255,255,1) 59%,rgba(255,255,255,1) 66%,rgba(255,255,255,0.8) 72%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to right, rgba(255,255,255,0) 0%,rgba(255,255,255,0.8) 31%,rgba(255,255,255,1) 37%,rgba(255,255,255,1) 44%,rgba(255,255,255,1) 50%,rgba(255,255,255,1) 59%,rgba(255,255,255,1) 66%,rgba(255,255,255,0.8) 72%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
 hr.style14 { 
   border: 0; 
   height: 1px; 
   opacity:0.6;
-  background: -moz-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 31%, rgba(255,255,255,1) 37%, rgba(255,255,255,1) 44%, rgba(255,255,255,1) 50%, rgba(255,255,255,1) 59%, rgba(255,255,255,1) 66%, rgba(255,255,255,0.8) 72%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%,rgba(255,255,255,0.8) 31%,rgba(255,255,255,1) 37%,rgba(255,255,255,1) 44%,rgba(255,255,255,1) 50%,rgba(255,255,255,1) 59%,rgba(255,255,255,1) 66%,rgba(255,255,255,0.8) 72%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to right, rgba(255,255,255,0) 0%,rgba(255,255,255,0.8) 31%,rgba(255,255,255,1) 37%,rgba(255,255,255,1) 44%,rgba(255,255,255,1) 50%,rgba(255,255,255,1) 59%,rgba(255,255,255,1) 66%,rgba(255,255,255,0.8) 72%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+background: -moz-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 31%, rgba(255,255,255,1) 37%, rgba(255,255,255,1) 44%, rgba(255,255,255,1) 50%, rgba(255,255,255,1) 59%, rgba(255,255,255,1) 66%, rgba(255,255,255,0.8) 72%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%,rgba(255,255,255,0.8) 31%,rgba(255,255,255,1) 37%,rgba(255,255,255,1) 44%,rgba(255,255,255,1) 50%,rgba(255,255,255,1) 59%,rgba(255,255,255,1) 66%,rgba(255,255,255,0.8) 72%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to right, rgba(255,255,255,0) 0%,rgba(255,255,255,0.8) 31%,rgba(255,255,255,1) 37%,rgba(255,255,255,1) 44%,rgba(255,255,255,1) 50%,rgba(255,255,255,1) 59%,rgba(255,255,255,1) 66%,rgba(255,255,255,0.8) 72%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
