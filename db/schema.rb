@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2018_06_07_124839) do
+=======
+ActiveRecord::Schema.define(version: 2018_06_07_152123) do
+>>>>>>> 453a8b6bdf28b9360671cf146204e942dea778d7
 
   create_table "places", force: :cascade do |t|
     t.string "name"
@@ -20,7 +24,6 @@ ActiveRecord::Schema.define(version: 2018_06_07_124839) do
     t.integer "average_price"
     t.integer "map_id"
     t.integer "town_id"
-    t.integer "tag_to_places_count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "users_id"
@@ -29,6 +32,7 @@ ActiveRecord::Schema.define(version: 2018_06_07_124839) do
     t.index ["town_id"], name: "index_places_on_town_id"
     t.index ["users_id"], name: "index_places_on_users_id"
   end
+
 
   create_table "tag_to_places", force: :cascade do |t|
     t.integer "place_id"
@@ -41,7 +45,6 @@ ActiveRecord::Schema.define(version: 2018_06_07_124839) do
 
   create_table "tags", force: :cascade do |t|
     t.string "name"
-    t.integer "tag_to_places_count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
