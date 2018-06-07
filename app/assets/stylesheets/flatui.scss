@@ -60,7 +60,31 @@ $main-color:rgba(102, 51, 153,1);
 #find{
     width: 30%;
 }
-/*Suppression compte*/
+/*Fermer toutes les modales*/
+.close-modal{
+    float: right;
+    top: 10px;
+    font-size: 25px;
+    padding-right: 10px;
+    position: relative;
+    @media screen and (min-width: 801px) {
+        top: 55px;
+      }
+    &:hover{
+        color:orange;
+        transition: all 0.3s;
+       
+    }
+    &:active{
+        color:orange;
+        transition: all 0.3s;
+    }
+    &:focus{
+        color:orange;
+        transition: all 0.3s;
+    }
+}
+
 
 /* Bouton zoom sur carte */
 .leaflet-touch .leaflet-control-layers, .leaflet-touch .leaflet-bar {
@@ -115,6 +139,10 @@ input[type=submit] {
     padding-top: 30px;
     text-align: center;
     height:auto;
+    .close-modal{
+        top: -20px!important;
+        
+    }
     
 }
 
@@ -168,8 +196,10 @@ input[type=submit] {
        
     }
     h2{
-        float:right;
-        margin-right:35%;
+        float: right;
+        font-size: 18px;
+        position: relative;
+        margin-right: 20%;
     }
        
 
