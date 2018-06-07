@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     get '/sign-in' => "devise/sessions#new", :as => :login
   end
   get "list", to:"map#list"
+  get "created", to:"map#created"
   devise_for :users
   root to: 'map#index'
   post "/", to: 'map#explore'
