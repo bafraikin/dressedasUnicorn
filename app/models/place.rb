@@ -7,4 +7,5 @@ class Place < ApplicationRecord
 
   has_many :tag_to_places 
   has_many :tags, through: :tag_to_places 
+  belongs_to :creator, class_name: 'User'
 end
