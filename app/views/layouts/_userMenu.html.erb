@@ -1,6 +1,6 @@
 <div class="user-menu" id="menu-user" style="display:none" >
     <% if user_signed_in? %>
-      <h2 style = "text-align:center"><i><%= current_user.username%> <br><%= current_user.email%></i></h2>
+      <h2 style = "text-align:center"><i>Salut <%= current_user.username.capitalize%> !</i></h2>
       <%else%>
        <h2><i>Bienvenue</i></h2>
     <%end%>

@@ -19,6 +19,7 @@ gem 'turbolinks'
 gem 'jbuilder'
 gem 'mail'
 gem 'json'
+gem 'forest_liana'
 
 
 gem 'font-awesome-rails'

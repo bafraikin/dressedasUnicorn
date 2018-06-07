@@ -16,6 +16,7 @@ class MapController < ApplicationController
     # longitude =  100 / (lat * Math.cos(lat))
 
     @a = Place.where("latitude <= #{north_lat} AND latitude >= #{south_lat} AND longitude <= #{south_long} AND longitude >= #{north_long}")
+    puts @a
     render json: {rendu: @a }
   end
 end

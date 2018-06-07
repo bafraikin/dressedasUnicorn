@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2018_06_06_100540) do
     t.integer "average_price"
     t.integer "map_id"
     t.integer "town_id"
+    t.integer "tag_to_places_count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["map_id"], name: "index_places_on_map_id"
@@ -37,6 +38,7 @@ ActiveRecord::Schema.define(version: 2018_06_06_100540) do
 
   create_table "tags", force: :cascade do |t|
     t.string "name"
+    t.integer "tag_to_places_count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
