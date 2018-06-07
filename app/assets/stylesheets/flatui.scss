@@ -119,6 +119,44 @@ input[type=submit] {
         color:white;
     }
 }
+
+/* Boutons annuler / ajouter */
+.add_delete_div{
+    margin-top:80px;
+    z-index: 3;
+    right: 33%;
+    position: fixed;
+    font-size: 15px;
+    .validate-position{
+        padding:10px;
+        background-color: #00b894;
+        color:white;
+        border-radius: 5px;
+        font-size: 16px;
+    
+    }
+    .cancel-position{
+        padding:10px;
+        background-color: rgb(185, 9, 9);
+        color:white;
+        border-radius: 5px;
+    }
+}
+@media screen and (min-width: 801px) {
+    .validate-position{
+        padding:15px;
+        font-size: 19px;
+    
+    }
+    .cancel-position{
+        padding:15px;
+        font-size: 16px;
+
+    }
+    .add_delete_div{
+        right:45%;
+    }
+  }
   /*******************************/
         /* MODALS */
 /*******************************/
