@@ -12,15 +12,9 @@ require 'csv'
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'shopz.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
-  t = Place.new
-  t.shop = row[:Boutique]
-  t.address = row[:Addresse]
-  t.horaire = row[:Horaire]
-  t.metro = row[:Metro]
-puts "#{t.shop}, #{t.address} saved"
-end
+  Place.create(name: boutique)
+  end
 
-puts "There are now #{Place.count} rows in the transactions table"
 
  
 
