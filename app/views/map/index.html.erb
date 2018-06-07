@@ -2,6 +2,7 @@
 
 <% if user_signed_in? %>
   <button class="add" onclick="toggleModal()"><i class="fa fa-plus"></i></button>
+  <button class="add-position"><i class="fa fa-location-arrow"></i></button>
 <%else%>
 <%end%>
 
@@ -20,9 +21,7 @@
 </div>
 <!-- FIN DE LA FENETRE MODALE -->
 
-
 <div id='mapid'></div>
-
 
 <%= javascript_include_tag "map" %>
 <%= javascript_include_tag "place" %>

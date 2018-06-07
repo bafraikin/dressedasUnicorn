@@ -21,6 +21,30 @@ $main-color:rgba(102, 51, 153,1);
     position: fixed;
     margin-top: 50px;
     opacity:0.8;
+    border:none;
+    i{
+        text-align: center;
+        font-size: 40px;
+        color:white;
+        margin-top:4px;
+        margin-left: 1px;
+    }
+    @media screen and (min-width: 0px) and (min-width: 800px) {
+        margin-top:100px;   
+      }
+  }
+  /* Bouton en haut à gauche pour ajouter une position */
+.add-position {
+    height: 50px;
+    width: 50px;
+    background-color:$main-color ;
+    border-radius: 50%;
+    z-index: 3;
+    right: 80px;
+    position: fixed;
+    margin-top: 50px;
+    opacity:0.8;
+    border:none;
     i{
         text-align: center;
         font-size: 40px;
@@ -37,10 +61,12 @@ $main-color:rgba(102, 51, 153,1);
     width: 30%;
 }
 /*Suppression compte*/
-#delete{
-    background-color: red
-}
 
+/* Bouton zoom sur carte */
+.leaflet-touch .leaflet-control-layers, .leaflet-touch .leaflet-bar {
+    border: none!important;
+    background-clip: padding-box;
+}
 /* Button Submit */
 input[type=submit] {
     border: none;
@@ -50,7 +76,7 @@ input[type=submit] {
     color: white;
     background-color: #00b894;
     height: 40px;
-    //width:80%;
+    margin-bottom: 10px;
 }
 /* Bouton des shared links de devise */
 .connect{
@@ -80,7 +106,7 @@ input[type=submit] {
     margin-left: 4px;
     max-width: 100%;
     min-width: 98%;
-    z-index: 10000;
+    z-index: 5;
     -webkit-box-shadow: 6px 7px 5px 0px rgba(0,0,0,0.36);
     -moz-box-shadow: 6px 7px 5px 0px rgba(0,0,0,0.36);
     box-shadow: 6px 7px 5px 0px rgba(0,0,0,0.36);
