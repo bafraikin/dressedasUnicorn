@@ -14,9 +14,10 @@
     min-width: 100%; 
     height:100%;
     overflow: scroll;
+
   }
   #liste .img-bg {
-    position: absolute; 
+    position: fixed; 
     top: 0; 
     left: 0; 
     right: 0; 
@@ -32,6 +33,8 @@
     height: 200px;
     background-color:#ffffffda;
     margin-left: 20%;
+    height: auto;
+    margin-top:5%;
     h3{
       text-align: center;
       padding-top:6px;
@@ -49,6 +52,7 @@
       overflow:scroll;
       margin-right:10px;
       margin-left:10px;
+      padding-bottom: 10px;
     }
   }
 
