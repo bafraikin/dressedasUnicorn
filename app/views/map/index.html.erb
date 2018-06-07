@@ -8,10 +8,13 @@
 
 <!-- DEBUT FENETRE MODALE -->
 <div id="modal-add-shop" style="display:none;">
+<span class="close-modal" onclick="closeModal()">X</span>
   <div class="form-modale">
+  
     <h2>Ajouter une boutique</h2>
     <hr class="style13">
     <%= form_tag do  %>
+    
       Nom de la boutique: </br> <%= text_field_tag(:name, '', placeholder: 'Nom de la boutique') %> <br>
       Description de la boutique: <br> <%= text_area_tag(:description, nil, placeholder: 'Description')%> <br>
       Adresse de la boutique: </br> <%= text_field_tag(:address, nil, placeholder: 'Some text') %> <br>
