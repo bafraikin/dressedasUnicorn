@@ -1,0 +1,29 @@
+$main-color:rgba(102, 51, 153,1);
+$main-color-opacity:rgba(102, 51, 153,0.8);
+/*******************************/
+/*     VERSION PC DU FOOTER    */
+/*******************************/
+.container {
+    position: absolute; 
+    bottom: 0;
+    background-color: rgb(244, 246, 251);
+    width: 100%;
+    display: flex;
+    font-size: 14px;
+    
+}
+
+ul, li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#copyright{
+    font-size: 12px; 
+    display: flex;
+}
+.row{
+    display: inline-block;
+    width: 35%;
+}

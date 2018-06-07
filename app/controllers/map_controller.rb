@@ -12,6 +12,9 @@ class MapController < ApplicationController
   def created
   end
 
+  def test
+  end
+
   def explore
      north_lat = params[:"Nlat"].to_f
      north_long = params[:"Nlong"].to_f
