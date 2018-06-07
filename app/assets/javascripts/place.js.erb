@@ -41,6 +41,8 @@ let callUn = function() {
   });
 }
 
+
+
 $(".EN ATTENTE").click(function() {
   center = mymap.getCenter();
   $.ajax({url: "/add_place", type: 'POST', data: 'lati=' + center.lat + "&long=" + center.lng, dataType: 'JSON', body: 'rendu', complete: (function(data) {
