@@ -1,0 +1,3 @@
+#!/bin/bash
+
+rails s -b "ssl://localhost:3000?key=/home/baptiste/.key/localhost.key&cert=/home/baptiste/.key/localhost.crt"
