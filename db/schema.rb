@@ -50,7 +50,11 @@ ActiveRecord::Schema.define(version: 2018_06_04_170803) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "username"
+<<<<<<< HEAD
+    t.boolean "admin"
+=======
     t.boolean "admin", default: false
+>>>>>>> a58c28a9680c76648d57abd7cc46b41e60e3966a
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

@@ -23,15 +23,47 @@ class PlaceController < ApplicationController
  render json: {put: @a}
   end
 
+  def new
+        @place = Place.new
+    end
+    
 
+    def create
+      @place = Place.new(place_params)
+     
+      place.save
+
+    end
+  
+    
+    def show
+      @place = Place.find(params[:id])
+end
+
+
+ def destroy
+      @place = Place.find(params[:id])
+      @place.destroy
+      redirect_to '/created'
+end
+
+=begin
   def destroy
     @place.destroy
     respond_to do |format|
       format.html { redirect_to myfacts_url, alert: 'Magasin supprimé avec succès.' }
       format.json { head :no_content }
+
+
     end
   end
+=end
+private
 
+    def place_params
+      params.require(:place).permit(:name, :longitude, :latitude, :address, :average_price, :description, :map, :town, :creator,
+:tag_to_places_count)
+    end
 
 
 end
