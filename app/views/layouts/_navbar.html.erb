@@ -2,8 +2,9 @@
   <li><a onclick="toggleUserMenu()">PROFIL <i class="fa fa-user"></i></a>
   <li><a href="<%=root_path%>">CARTE <i class="fa fa-map"></i></a>
   <!-- <li><a href="<%=list_path%>">LISTE <i class="fa fa-list"></i></a> -->
-  <li><a href="<%=created_path%>">MES BOUTIQUES <i class="fa fa-list"></i></a> 
-
+  <% if user_sign_in? %>
+    <li><a href="<%=created_path%>">MES BOUTIQUES <i class="fa fa-list"></i></a> 
+  <%end%>
   <li><a onclick="toggleSettingsMenu()">PARAMÈTRES <i class="fa fa-cog"></i></a>
 </div>
 
@@ -11,7 +12,9 @@
   <li><a onclick="toggleUserMenu()"><i class="fa fa-user"></i></a>
   <li><a href="<%=root_path%>"><i class="fa fa-map"></i></a>
  <!-- <li><a href="<%=list_path%>"><i class="fa fa-list"></i></a> -->
- <li><a href="<%=created_path%>"><i class="fa fa-list"></i></a>
+  <% if user_sign_in? %>
+   <li><a href="<%=created_path%>"><i class="fa fa-list"></i></a>
+  <%end%>
   <li><a onclick="toggleSettingsMenu()"><i class="fa fa-cog"></i></a>
 </div>
 <style>
