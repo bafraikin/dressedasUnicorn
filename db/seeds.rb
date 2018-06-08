@@ -12,7 +12,7 @@ require 'csv'
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'shopz.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
-  Place.create(name: boutique)
+  Place.create(name: "boutique")
   end
 
 
