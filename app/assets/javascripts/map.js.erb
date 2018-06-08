@@ -1,13 +1,18 @@
 let userLoc = new Array;
-let localisable = new Boolean;
+let localisable = false;
 
 let getLocation = (position) => {
   userLoc.push(parseFloat(position.coords.latitude));
   userLoc.push(parseFloat(position.coords.longitude));
   localisable = true;
+  mymap.setView([userLoc[0],userLoc[1]], 13);
+  let place = new L.latLng(userLoc[0], userLoc[1]);
+  let myIcon = new L.icon({ iconUrl: "<%= asset_path("utilisateur.png") %>" , iconSize: [45, 75] });
+  let marker = new L.Marker(place, {icon: myIcon, autoPan: true, draggable: true});
+  marker.addTo(mymap);
 }
 let errorHandler = () => {
-  alert('ça marche');
+  alert('Pas de Geoloc, tu es donc à paris');
 }
 
 $(document).ready(function() {
@@ -19,7 +24,7 @@ $(document).ready(function() {
   }
 });
 
-let masuperfonction =  function() {
+let masuperfonction = function() {
   bound = mymap.getBounds();
   $.ajax({url: "/", type: 'POST', data: 'Nlat=' + bound.getNorth() + "&Nlong=" + bound.getWest() + "&Slat=" + bound.getSouth() + "&Slong=" + bound.getEast() + '&test1=' + mymap.getCenter().lat + '&test2=' + mymap.getCenter().lng  , dataType: 'JSON', body: 'rendu', complete: ( 
     function(data) {
@@ -32,10 +37,8 @@ let masuperfonction =  function() {
           marker.addTo(mymap);
         }}})});}
 
-
 /* ----------------------------------------------------------------- */
 // Cree la map
-let pos = new Array;
 
 let mymap = L.map('mapid').setView([48.866667, 2.333333], 14);
 let timestamp = new Array; 
