@@ -34,7 +34,7 @@ let masuperfonction = function() {
           let place = new L.latLng(local.latitude, local.longitude);
           let myIcon = new L.icon({ iconUrl: "<%= asset_path("pin-mark.png") %>" , iconSize: [45, 50] });
           let marker = new L.Marker(place, {icon: myIcon, autoPan: true});
-          marker.bindPopup("Nique bien ta mere");
+          marker.bindPopup( '<p>' + 'nom de la boutique:' + `${local.name}` + '<br />' + "adresse de la boutique:"  + `${local.address}` + '</p>');
           $(marker).click(function() {
           this.openPopup();
           });
