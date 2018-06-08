@@ -12,7 +12,7 @@ let getLocation = (position) => {
   marker.addTo(mymap);
 }
 let errorHandler = () => {
-  alert('Pas de Geoloc, tu es donc à paris');
+  alert('Ta géolocalisation n'est pas activée, on te redirige vers Paris ;);
 }
 
 $(document).ready(function() {
@@ -42,7 +42,7 @@ let masuperfonction = function() {
         }}})});}
 
 /* ----------------------------------------------------------------- */
-// Cree la map
+// Création de la map
 
 let mymap = L.map('mapid').setView([48.866667, 2.333333], 14);
 let timestamp = new Array; 
