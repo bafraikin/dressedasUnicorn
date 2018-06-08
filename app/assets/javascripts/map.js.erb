@@ -5,7 +5,7 @@ let getLocation = (position) => {
   userLoc.push(parseFloat(position.coords.latitude));
   userLoc.push(parseFloat(position.coords.longitude));
   localisable = true;
-  mymap.setView([userLoc[0],userLoc[1]], 13);
+  mymap.setView([userLoc[0],userLoc[1]], 7);
   let place = new L.latLng(userLoc[0], userLoc[1]);
   let myIcon = new L.icon({ iconUrl: "<%= asset_path("utilisateur.png") %>" , iconSize: [60, 60] });
   let marker = new L.Marker(place, {icon: myIcon, autoPan: true});
@@ -44,11 +44,11 @@ let masuperfonction = function() {
 /* ----------------------------------------------------------------- */
 // Cree la map
 
-let mymap = L.map('mapid').setView([48.866667, 2.333333], 14);
+let mymap = L.map('mapid').setView([48.866667, 2.333333], 8);
 let timestamp = new Array; 
 let layer = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
   attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-  maxZoom: 18,
+  maxZoom: 15,
   transparent: true,
   id: 'mapbox.streets',
   accessToken: 'pk.eyJ1IjoiYmZyYWlraW4iLCJhIjoiY2podWxwc21pMG5udjNqdDZpZGluaGhxeSJ9.WaMLYylJhk6ULiaGSWNuAA',
