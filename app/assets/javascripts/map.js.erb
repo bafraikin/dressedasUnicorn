@@ -1,4 +1,5 @@
-
+let userLoc = new Array;
+let localisable = new Boolean;
 
 let masuperfonction =  function() {
   bound = mymap.getBounds();
@@ -13,15 +14,25 @@ let masuperfonction =  function() {
           marker.addTo(mymap);
         }}})});};
 
+let getLocation = function (position)
+{
+  userLoc.push(parseFloat(position.coords.latitude));
+  userLoc.push(parseFloat(position.coords.latitude));
+  localisable = true;
+}
+let errorLoc = function (position) {
+  userLoc.push(48.866667);
+  userLoc.push(2.333333);
+  localisable = false;
+}
+
 /* ----------------------------------------------------------------- */
 // Cree la map
 let pos = new Array;
 
-
-
-let mymap = L.map('mapid').setView([48.866667,2.333333], 14);
+navigator.geolocation.getCurrentPosition(getLocation, errorLoc);
+let mymap = L.map('mapid').setView([userLoc[0],userLoc[1]], 14);
 let timestamp = new Array; 
-
 let layer = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
   attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
   maxZoom: 18,
@@ -29,6 +40,7 @@ let layer = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?ac
   id: 'mapbox.streets',
   accessToken: 'pk.eyJ1IjoiYmZyYWlraW4iLCJhIjoiY2podWxwc21pMG5udjNqdDZpZGluaGhxeSJ9.WaMLYylJhk6ULiaGSWNuAA',
 }).addTo(mymap);
+debugger;
 /* -------------------------------------------------------------------   */
 
 // musée du 1er call ajax
