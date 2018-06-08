@@ -1,5 +1,4 @@
 
-
 let masuperfonction =  function() {
   bound = mymap.getBounds();
   $.ajax({url: "/", type: 'POST', data: 'Nlat=' + bound.getNorth() + "&Nlong=" + bound.getWest() + "&Slat=" + bound.getSouth() + "&Slong=" + bound.getEast() + '&test1=' + mymap.getCenter().lat + '&test2=' + mymap.getCenter().lng  , dataType: 'JSON', body: 'rendu', complete: ( 
@@ -13,15 +12,13 @@ let masuperfonction =  function() {
           marker.addTo(mymap);
         }}})});};
 
+
 /* ----------------------------------------------------------------- */
 // Cree la map
 let pos = new Array;
 
-
-
-let mymap = L.map('mapid').setView([48.866667,2.333333], 14);
+let mymap = L.map('mapid').setView([48.866667, 2.333333], 14);
 let timestamp = new Array; 
-
 let layer = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
   attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
   maxZoom: 18,
