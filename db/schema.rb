@@ -28,7 +28,6 @@ ActiveRecord::Schema.define(version: 2018_06_04_170803) do
     t.index ["creator_id"], name: "index_places_on_creator_id"
     t.index ["map_id"], name: "index_places_on_map_id"
     t.index ["town_id"], name: "index_places_on_town_id"
-    t.index ["users_id"], name: "index_places_on_users_id"
   end
 
   create_table "tag_to_places", force: :cascade do |t|

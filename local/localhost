@@ -1,0 +1,3 @@
+#!/bin/bash
+
+firefox localhost:3000
