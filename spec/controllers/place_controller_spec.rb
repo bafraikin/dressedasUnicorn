@@ -4,6 +4,8 @@ RSpec.describe PlaceController, type: :controller do
 
   describe "GET #add_geoloc" do
     it "returns http success" do
+      u = user.create!
+      u.places << Place.new(latitude: lat, longitude: lng, address: Geocoder.search([lat,lng])[0].address)
       get :add_geoloc
       expect(response).to have_http_status(:success)
     end
@@ -23,11 +25,12 @@ RSpec.describe PlaceController, type: :controller do
   end
 
   it 'should associate 2tags to a place' do
-    selma = Place.create!
+    selma = Place.new
     cool = Tag.create!
     sympa = Tag.create!
     cool.places << selma
     sympa.places << selma
+    selma.save
     expect(selma.tags).to include(cool)
     expect(selma.tags).to include(sympa)
   end
