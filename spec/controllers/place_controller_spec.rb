@@ -17,6 +17,7 @@ end
 RSpec.describe PlaceController, type: :controller do
 
   it 'should generate the right address' do
+
     boutique = Place.new
     boutique.longitude = -0.118092
     boutique.latitude = 51.509865 
@@ -25,13 +26,13 @@ RSpec.describe PlaceController, type: :controller do
   end
 
   it 'should associate 2tags to a place' do
-    selma = Place.new
+    boutique = Place.new
     cool = Tag.create!
     sympa = Tag.create!
-    cool.places << selma
-    sympa.places << selma
-    selma.save
-    expect(selma.tags).to include(cool)
-    expect(selma.tags).to include(sympa)
+    cool.places << boutique
+    sympa.places << boutique
+    boutique.save
+    expect(boutique.tags).to include(cool)
+    expect(boutique.tags).to include(sympa)
   end
 end
