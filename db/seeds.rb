@@ -12,11 +12,11 @@ require 'csv'
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'shopz.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
-  Place.create(name: "boutique")
+  puts row.to_hash
   end
 
 
- 
+# run rails db:seed pour le scrap/seed  faire en sorte que ça match les données d'une table
 
 =begin require 'csv'
 
@@ -30,22 +30,13 @@ csv.each do |row|
   t.metro = row[:Metro]
   
   
-  create_table :places do |t|
-      t.string :name
-      t.float :longitude
-      t.float :latitude
-      t.string :address
-      t.integer :average_price
-      t.belongs_to :map
-      t.belongs_to :town
-      t.integer :tag_to_places_count
 
   puts "#{t.shop}, #{t.address} saved"
 end
 
-puts "There are now #{Place.count} rows in the transactions table"
+puts "There are now #{Place.count} rows in the table"
 
-#run rails db:seed les kheys
+
 
 
 
