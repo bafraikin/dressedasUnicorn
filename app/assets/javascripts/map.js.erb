@@ -34,7 +34,7 @@ let masuperfonction = function() {
           let place = new L.latLng(local.latitude, local.longitude);
           let myIcon = new L.icon({ iconUrl: "<%= asset_path("pin-mark.png") %>" , iconSize: [45, 50] });
           let marker = new L.Marker(place, {icon: myIcon, autoPan: true});
-          marker.bindPopup(`${local.name}\n`+`${local.address}`);
+          marker.bindPopup( '<p>' + 'nom de la boutique:' + `${local.name}` + '<br />' + "adresse de la boutique:"  + `${local.address}` + '</p>');
           $(marker).click(function() {
           this.openPopup();
           });
@@ -53,6 +53,7 @@ let layer = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?ac
   id: 'mapbox.streets',
   accessToken: 'pk.eyJ1IjoiYmZyYWlraW4iLCJhIjoiY2podWxwc21pMG5udjNqdDZpZGluaGhxeSJ9.WaMLYylJhk6ULiaGSWNuAA',
 }).addTo(mymap);
+//var popup = L.map('mapid')
 /* -------------------------------------------------------------------   */
 
 // musée du 1er call ajax
