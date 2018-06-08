@@ -32,8 +32,12 @@ let masuperfonction = function() {
         if (timestamp.includes(local["created_at"]) != true ) {
           timestamp.push(local["created_at"]);
           let place = new L.latLng(local.latitude, local.longitude);
-          let myIcon = new L.icon({ iconUrl: "<%= asset_path("douge.png") %>" , iconSize: [45, 50] });
+          let myIcon = new L.icon({ iconUrl: "<%= asset_path("pin-mark.png") %>" , iconSize: [45, 50] });
           let marker = new L.Marker(place, {icon: myIcon, autoPan: true});
+          marker.bindPopup( '<p>' + 'nom de la boutique:' + `${local.name}` + '<br />' + "adresse de la boutique:"  + `${local.address}` + '</p>');
+          $(marker).click(function() {
+          this.openPopup();
+          });
           marker.addTo(mymap);
         }}})});}
 
@@ -56,4 +60,5 @@ let layer = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?ac
 mymap.on('zoomend', masuperfonction);
 // quand la map arrête de bouger
 mymap.on('moveend', masuperfonction);
+
 
