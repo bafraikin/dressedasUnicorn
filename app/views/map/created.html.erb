@@ -9,11 +9,11 @@
     <% current_user.places.each do |fiche| %>
         <div id="list_show">
           <i class="fa fa-location-arrow"></i>
-            <h3>Nom de la boutique :<%= fiche.name %> </h3>
+            <h3><%= fiche.name %> </h3>
             <hr>
-            <i>Adresse : <%= fiche.address %> </i>
-            <p>Description : <%= fiche.description %> </p>
-            <!-- <b>Prix moyen : <%= fiche.average_price %></b> -->
+            <p>Adresse : <%= fiche.address %> </p>
+            <p>Description : <%= fiche.description %> <p><%= link_to "Delete", place_path(@places),:data => {:confirm => "You sure?",:method => "delete"} %></p></p>
+
         </div>
       <%end%>
 
