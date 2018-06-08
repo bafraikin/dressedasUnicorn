@@ -1,3 +1,4 @@
 #!/bin/bash
 
+
 rails s -b "ssl://localhost:3000?key=$(pwd)/localhost.key&cert=$(pwd)/localhost.crt"
