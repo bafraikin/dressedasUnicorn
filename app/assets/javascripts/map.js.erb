@@ -32,14 +32,13 @@ let masuperfonction = function() {
         if (timestamp.includes(local["created_at"]) != true ) {
           timestamp.push(local["created_at"]);
           let place = new L.latLng(local.latitude, local.longitude);
-          let myIcon = new L.icon({ iconUrl: "<%= asset_path("douge.png") %>" , iconSize: [45, 50], popupAnchor: [25 ,75]});
+          let myIcon = new L.icon({ iconUrl: "<%= asset_path("douge.png") %>" , iconSize: [45, 50]});
           let marker = new L.Marker(place, {icon: myIcon, autoPan: true});
           marker.bindPopup("Nique bien ta mere");
           $(marker).click(function() {
           this.openPopup();
           });
           marker.addTo(mymap);
-          debugger;
         }}})});}
 
 /* ----------------------------------------------------------------- */
@@ -60,4 +59,5 @@ let layer = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?ac
 mymap.on('zoomend', masuperfonction);
 // quand la map arrête de bouger
 mymap.on('moveend', masuperfonction);
+
 
