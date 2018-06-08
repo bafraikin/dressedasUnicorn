@@ -26,21 +26,24 @@ let callUn = function() {
     mymap.setView([local.latitude, local.longitude]);
     toggleModal();
     $("#add").hide();
-    a = document.createElement("button");
-    $(a).addClass("add-position");
-    b = document.createElement("i");
-    $(b).appendTo($(a));
-    $(b).addClass("fa");
-    $(b).addClass("fa-location-arrow")
-    $(a).prependTo($('body'));
-    $(a).css({display: "block", zIndex: "20000", marginTop: "100px"});
+
+    a = document.createElement("div");
+    $(a).addClass("add_delete_div");
+    b = document.createElement("button");
+    $(b).addClass("validate-position");
+    $(a).prepend($(b));
+    $(a).html("ok");
+    $(b).prependTo($('body'));
+    $(a).css({display: "block", zIndex: "10000"});
+    $(b).css({display: "block", zIndex: "10000"});
+
+
     $(a).click(function() { 
       callDeux(); 
     });
   })
   });
 }
-
 
 
 $(".EN ATTENTE").click(function() {
