@@ -1,15 +1,21 @@
+let userLoc = new Array;
+let localisable = new Boolean;
 
 
-
-
-if(navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showLocation, errorHandler);
+let getLocation = () => {
+  userLoc.push(parseFloat(position.coords.latitude));
+  userLoc.push(parseFloat(position.coords.longitude));
+  localisable = true;
 }
-else {
+
+$(document).ready(function() {
+  if(navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(getLocation, errorHandler);
+  }
+  else {
     alert('Votre navigateur ne prend malheureusement pas en charge la géolocalisation.');
+  }
 }
-
-
 
 
 let masuperfonction =  function() {
