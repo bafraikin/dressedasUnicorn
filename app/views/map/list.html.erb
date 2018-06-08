@@ -5,13 +5,15 @@
 <div class="wrap-list">
   <div id='liste'>
     <%= image_tag("photos/purple(2).jpg", class: "img-bg") %>
-<%@places.each do |fact|%>
+<%@places.reverse.each do |fact|%>
   <div id="list_show">
       <i class="fa fa-location-arrow"></i>
         <h3><%=fact.name%></h3>
         <hr>
         <p class="shop_body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam elementum libero non lacus laoreet ultrices in viverra nibh. Phasellus eu lectus ipsum. Proin eget leo porta, porttitor felis ut, commodo nisl. Pellentesque vitae convallis erat. Integer sit amet porttitor dolor. Mauris mollis bibendum tortor, sit amet vulputate dui.</p>
+        <p><%=fact.address%></p>
         <p>Proposé par : </p>
+
     </div>
     
 <% end %>
