@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_07_152123) do
+ActiveRecord::Schema.define(version: 2018_06_08_120817) do
 
   create_table "places", force: :cascade do |t|
     t.string "name"
@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(version: 2018_06_07_152123) do
     t.index ["map_id"], name: "index_places_on_map_id"
     t.index ["town_id"], name: "index_places_on_town_id"
   end
-
 
   create_table "tag_to_places", force: :cascade do |t|
     t.integer "place_id"
