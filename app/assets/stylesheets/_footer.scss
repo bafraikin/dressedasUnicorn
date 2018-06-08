@@ -3,8 +3,12 @@ $main-color-opacity:rgba(102, 51, 153,0.8);
 /*******************************/
 /*     VERSION PC DU FOOTER    */
 /*******************************/
+footer{
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+}
 .container {
-    position: absolute; 
     bottom: 0;
     background-color: rgb(244, 246, 251);
     width: 100%;
@@ -41,12 +45,17 @@ li {
     cursor: pointer;
     margin-left: 20%;
     margin-bottom: 5px;
+    margin-top: -25px;
 }
 
 // COPYRIGHT
 #copyright{
+
     font-size: 12px; 
-    margin-left: 40%;
+    margin-top: -12px;
+    //margin-left: 40%;
     z-index: 1;
-    display: flex;
+    //display: flex;
+    background-color: rgb(244, 246, 251);
+    text-align: center;
 }
