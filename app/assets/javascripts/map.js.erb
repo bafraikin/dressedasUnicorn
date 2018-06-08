@@ -1,5 +1,30 @@
+let userLoc = new Array;
+let localisable = false;
 
-let masuperfonction =  function() {
+let getLocation = (position) => {
+  userLoc.push(parseFloat(position.coords.latitude));
+  userLoc.push(parseFloat(position.coords.longitude));
+  localisable = true;
+  mymap.setView([userLoc[0],userLoc[1]], 13);
+  let place = new L.latLng(userLoc[0], userLoc[1]);
+  let myIcon = new L.icon({ iconUrl: "<%= asset_path("utilisateur.png") %>" , iconSize: [45, 75], iconAnchor: [25,75] });
+  let marker = new L.Marker(place, {icon: myIcon, autoPan: true});
+  marker.addTo(mymap);
+}
+let errorHandler = () => {
+  alert('Pas de Geoloc, tu es donc à paris');
+}
+
+$(document).ready(function() {
+  if(navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(getLocation, errorHandler);
+  }
+  else {
+    alert('Votre navigateur ne prend malheureusement pas en charge la géolocalisation.');
+  }
+});
+
+let masuperfonction = function() {
   bound = mymap.getBounds();
   $.ajax({url: "/", type: 'POST', data: 'Nlat=' + bound.getNorth() + "&Nlong=" + bound.getWest() + "&Slat=" + bound.getSouth() + "&Slong=" + bound.getEast() + '&test1=' + mymap.getCenter().lat + '&test2=' + mymap.getCenter().lng  , dataType: 'JSON', body: 'rendu', complete: ( 
     function(data) {
@@ -10,12 +35,10 @@ let masuperfonction =  function() {
           let myIcon = new L.icon({ iconUrl: "<%= asset_path("douge.png") %>" , iconSize: [45, 50] });
           let marker = new L.Marker(place, {icon: myIcon, autoPan: true});
           marker.addTo(mymap);
-        }}})});};
-
+        }}})});}
 
 /* ----------------------------------------------------------------- */
 // Cree la map
-let pos = new Array;
 
 let mymap = L.map('mapid').setView([48.866667, 2.333333], 14);
 let timestamp = new Array; 
