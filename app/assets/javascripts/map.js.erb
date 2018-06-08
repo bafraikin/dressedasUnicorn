@@ -7,7 +7,7 @@ let getLocation = (position) => {
   localisable = true;
   mymap.setView([userLoc[0],userLoc[1]], 13);
   let place = new L.latLng(userLoc[0], userLoc[1]);
-  let myIcon = new L.icon({ iconUrl: "<%= asset_path("utilisateur.png") %>" , iconSize: [45, 75], iconAnchor: [25,75] });
+  let myIcon = new L.icon({ iconUrl: "<%= asset_path("utilisateur.png") %>" , iconSize: [60, 60] });
   let marker = new L.Marker(place, {icon: myIcon, autoPan: true});
   marker.addTo(mymap);
 }
