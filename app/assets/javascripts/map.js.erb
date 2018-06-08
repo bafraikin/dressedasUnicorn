@@ -1,11 +1,13 @@
 let userLoc = new Array;
 let localisable = new Boolean;
 
-
-let getLocation = () => {
+let getLocation = (position) => {
   userLoc.push(parseFloat(position.coords.latitude));
   userLoc.push(parseFloat(position.coords.longitude));
   localisable = true;
+}
+let errorHandler = () => {
+  alert('ça marche');
 }
 
 $(document).ready(function() {
@@ -15,7 +17,7 @@ $(document).ready(function() {
   else {
     alert('Votre navigateur ne prend malheureusement pas en charge la géolocalisation.');
   }
-}
+});
 
 let masuperfonction =  function() {
   bound = mymap.getBounds();
@@ -28,7 +30,7 @@ let masuperfonction =  function() {
           let myIcon = new L.icon({ iconUrl: "<%= asset_path("douge.png") %>" , iconSize: [45, 50] });
           let marker = new L.Marker(place, {icon: myIcon, autoPan: true});
           marker.addTo(mymap);
-        }}})});};
+        }}})});}
 
 
 /* ----------------------------------------------------------------- */
