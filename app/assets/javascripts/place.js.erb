@@ -1,9 +1,8 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 
-let markerTmp; 
 
-let callDeux = function() {
+callDeux = function() {
   $.ajax({url: '/put_address', type: 'POST', data: 'address=' + $("#address")[0].value + '&long=' + markerTmp._latlng.lng + '&lati=' + markerTmp._latlng.lat + '&nom=' + $("#name")[0].value + '&description=' + $("#description")[0].value, dataType: 'JSON', complete: (function(data) {
     let locali = data.responseJSON.put;
     let newAdd = new L.latLng(locali.latitude, locali.longitude);
@@ -16,7 +15,7 @@ let callDeux = function() {
   })});
 }
 
-let callUn = function() {
+callUn = function() {
   $.ajax({url: "/find_address", type: 'POST', data: 'address=' + $("#address")[0].value, dataType: 'JSON', complete: (function(data) {
     let local = data.responseJSON.rendu;
     let place = new L.latLng(local.latitude, local.longitude );
