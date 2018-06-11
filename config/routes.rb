@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :place, only: [:destroy]
   get "list", to: "map#list"
-  get "created", to: "map#created"
+  get "created", to: "pages#created"
   get "edit", to: "map#edit"
   get "test", to: "map#test"
 
