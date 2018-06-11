@@ -58,7 +58,7 @@ class PlaceController < ApplicationController
    # if @place == nil 
 
 
-  end 
+  #end 
 
 
 private
