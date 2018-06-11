@@ -3,11 +3,18 @@ Rails.application.routes.draw do
   devise_scope :user do
     get "/sign-in" => "devise/sessions#new", :as => :login
   end
+
   resources :place, only: [:destroy]
   get "list", to: "map#list"
   get "created", to: "map#created"
   get "edit", to: "map#edit"
   get "test", to: "map#test"
+
+  resources :place
+  get "list", to: "pages#list"
+  get "created", to: "pages#created"
+  get "test", to: "pages#test"
+
   devise_for :users
   root to: "map#index"
   post "/", to: "map#explore"

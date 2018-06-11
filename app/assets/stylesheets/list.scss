@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 /*
 */
-
+/* Affichage des listes */
 .wrap-list{
   max-height:300px;
   overflow: scroll;
@@ -42,7 +42,7 @@
     i{
       float:right;
       padding:6px;
-      color:rgb(156, 13, 13);
+      color:grey;
       font-size:35px;
       padding-right:10px;
     }
