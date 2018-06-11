@@ -6,16 +6,27 @@
     <button class="tablink" onclick="openPage('Admins', this, '#f0932b','white','3px solid #cd6133')">Admins <i class="fa fa-bug"></i></button>
 
     <div id="Users" class="tabcontent">
-        <h3>Users</h3>
-        <p>Home is where the heart is..</p>
+        <%@users.each do |user|%>
+            <div class="wrap-shop-admin">
+                
+                <h3 class="accordion"> <%=user.username.capitalize%></h3>
+                <div class="panel" >
+                    <p><%=user.email%></p>
+                    <p>Administrateur : <%= user.admin %></p>
+                </div>
+                
+            </div>
+            <hr>
+        <% end %>
+        
     </div>
 
     <div id="Shops" class="tabcontent">
         <%@places.reverse.each do |shop|%>
             <div class="wrap-shop-admin">
                 
-                <h3 class="admin-item-name"> <%=shop.name%></h3>
-                <div class="admin-item-hide" >
+                <h3 class="accordion"> <%=shop.name%></h3>
+                <div class="panel" >
                     <p><%=shop.address%></p>
                     <p>Proposé par : <%= shop.creator.username %></p>
                 </div>
@@ -26,13 +37,41 @@
     </div>
 
     <div id="Admins" class="tabcontent">
-        <h3>Admins</h3>
-        <p>Get in touch, or swing by for a cup of coffee.</p>
+
+        <%@users.each do |user|%>
+        <% if user.try(:admin?) %>
+
+            <div class="wrap-shop-admin">
+                <h3 class="accordion"> <%=user.username.capitalize%></h3>
+                <div class="panel" >
+                    <p><%=user.email%></p>
+                    <p>Administrateur : <%= user.admin %></p>
+                </div>
+                
+            </div>
+            <hr>
+        <%end%>
+        <% end %>
     </div>
 
 
 <script>
 
 document.getElementById("defaultOpen").click();
+
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+            panel.style.display = "none";
+        } else {
+            panel.style.display = "block";
+        }
+    });
+}
 
 </script>
