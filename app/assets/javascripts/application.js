@@ -25,10 +25,11 @@ let userLoc = new Array;  // localité de l'utilisateur
 let localisable = false;  // geocalisation de l'utilisateur
 let markerTmp;            // sert de jonction entre callUn et callDeux pour le marqueur draggable  
 let mymap;                // la map
-let timestamp;            // tableau qui acceuille tout les lieux chargé par l'user
-let masuperfonction;      // fonction qui charge les lieux renseigné
-let getLocation;          // fonction recuperer la localisation de l'utilisateur 
+let timestamp;            // tableau qui accueille tout les lieux chargé par l'user
+let masuperfonction;      // fonction qui charge les lieux renseignés
+let getLocation;          // fonction récuperer la localisation de l'utilisateur 
 let errorHandler;         // fonction n'a pas pu recuperer la localisation de l'utilisateur
+let favcolor;             // boolean pour changement couleur fav boutique
 
 // Affichage de la fenêtre d'ajout d'une boutique
 let toggleModal = function() {
