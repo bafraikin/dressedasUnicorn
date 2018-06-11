@@ -14,16 +14,6 @@ class MapController < ApplicationController
   def index
   end
 
-  def list
-    @places = Place.all
-  end
-
-  def created
-  end
-
-  def test
-  end
-
   def explore
     north_lat = params[:"Nlat"].to_f
     north_long = params[:"Nlong"].to_f
