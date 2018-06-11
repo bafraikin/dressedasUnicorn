@@ -13,7 +13,7 @@ class User < ApplicationRecord
   
 
 
-validates :username, presence: { message: "veuillez entrer votre prénom" }, format: { without: /\s/, message: "ton prenom ne peut pas contenir d'espace" }
+validates :username, presence: { message: "veuillez entrer votre prénom" }, format: { without: /\s/, message: "ton prénom ne peut pas contenir d'espace" }, uniqueness: { message: "ce pseudo est déjà pris" }
 =begin
   validates :email, presence: { message: "veuillez entrer votre adresse email" }
   validates :email, uniqueness: { message: "cette adresse est déjà prise" }
