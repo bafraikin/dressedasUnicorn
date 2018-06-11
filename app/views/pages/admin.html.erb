@@ -8,11 +8,17 @@
     <div id="Users" class="tabcontent">
         <%@users.each do |user|%>
             <div class="wrap-shop-admin">
-                
-                <h3 class="accordion"> <%=user.username.capitalize%></h3>
+            
+        
+                <h3 class="accordion"> <%=user.username.capitalize%> 
+                    <% if user.try(:admin?) %>
+                    <span class="isadmin">Admin</span>
+                    <%end%>
+                </h3>
                 <div class="panel" >
                     <p><%=user.email%></p>
-                    <p>Administrateur : <%= user.admin %></p>
+                    <p><u>Création :</u> <%=user.created_at%>
+                    <p><u>Dernière connexion :</u> <%=user.last_sign_in_at%>
                 </div>
                 
             </div>
