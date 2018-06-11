@@ -1,6 +1,8 @@
 
 // si l'utilisateur utilise la geolocalisation
-getLocation = (position) => {
+getLocation = (position) => { 
+  userLoc = new Array;
+  console.log(userLoc);
   userLoc.push(parseFloat(position.coords.latitude));
   userLoc.push(parseFloat(position.coords.longitude));
   localisable = true;
@@ -10,6 +12,7 @@ getLocation = (position) => {
   let marker = new L.Marker(place, {icon: myIcon, autoPan: true});
   marker.addTo(mymap);
 }
+
 errorHandler = () => {
   alert('Position non activée, redirection sur Paris');
 }
@@ -18,6 +21,12 @@ errorHandler = () => {
 $(document).ready(function() {
   if(navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(getLocation, errorHandler);
+  d = document.createElement("button");
+  $(d).addClass("imhere");
+  i = document.createElement("i");
+  $(i).addClass("fa fa-crosshairs");
+  $(i).appendTo($(d));
+  $(d).appendTo($("div.form-modale"));
   }
   else {
     alert('Votre navigateur ne prend malheureusement pas en charge la géolocalisation.');
