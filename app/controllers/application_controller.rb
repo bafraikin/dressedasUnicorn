@@ -11,7 +11,7 @@ def sanitize_devise_params
 
 cache = ActiveSupport::Cache::MemoryStore.new
 
-cache.write('city', Faker::Hacker.say_something_smart)
+cache.write('city', Faker::Hacker.say_something_smart + " " + Faker::RickAndMorty.quote)
 cache.write('city1', Faker::Hacker.say_something_smart)
 cache.write('city2', Faker::Hacker.say_something_smart)
 puts cache.read('city')
