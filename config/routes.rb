@@ -16,9 +16,9 @@ Rails.application.routes.draw do
   get "created", to: "pages#created"
   get "test", to: "pages#test"
 
-  devise_for :users, controllers: {
-    omniauth_callbacks: 'users/omniauth_callbacks'
-  }
+  devise_for :users, controllers: {sessions: 'users/sessions'}
+  devise_for :users, contollers: {omniauth_callbacks: 'users/omniauth_callbacks' }
+
   root to: "map#index"
   post "/", to: "map#explore"
   post "/add_place", to: "place#add_geoloc"

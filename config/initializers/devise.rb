@@ -258,6 +258,7 @@ Devise.setup do |config|
   # up on your models and hooks.
   config.omniauth :facebook, '2110884182529409', '19fdc6fa4772855d2e2856a56f86fde4', token_params: { parse: :json }
 
+
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
