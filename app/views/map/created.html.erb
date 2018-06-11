@@ -1,3 +1,6 @@
+<!-- Page qui regroupe tous les shops créés -->
+
+
 <%= render 'layouts/navbar'%>
 
 <%= render 'layouts/modale'%>
@@ -14,6 +17,7 @@
             <p>Adresse : <%= fiche.address %> </p>
             <p>Description : <%= fiche.description %> </p>
             <p>Supprimer cette boutique:  <%= link_to 'ici', '/place/' + fiche.id.to_s , method: :delete, data: {confirm: 'Tu es sûr.e ?'} %> </p>
+            <p>Modifier cette boutique: 
 
         </div>
       <%end%>
