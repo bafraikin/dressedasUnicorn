@@ -38,26 +38,29 @@ class PlaceController < ApplicationController
     
     def show
       @place = Place.find(params[:id])
-end
+    end
 
 
- def destroy
+    def edit
+      @place = Place.find(params[:id])
+    end
+
+
+  def destroy
       @place = Place.find(params[:id])
       @place.destroy
       redirect_to '/created'
-end
-
-=begin
-  def destroy
-    @place.destroy
-    respond_to do |format|
-      format.html { redirect_to myfacts_url, alert: 'Magasin supprimé avec succès.' }
-      format.json { head :no_content }
-
-
-    end
+      flash[:notice] = "Boutique supprimée !"
   end
-=end
+
+  #def add_place
+
+   # if @place == nil 
+
+
+  #end 
+
+
 private
 
     def place_params
