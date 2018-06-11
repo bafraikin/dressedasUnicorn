@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :fav_places, foreign_key: 'faver_id'
-  has_many :places, through: :fav_places
+  has_many :liked_places, through: :fav_places, source: :Place
 
 # Cette méthode envoie un mail à l'admin lorsqu'un utilisateur a été créé
       after_create :new_user_created_mail
