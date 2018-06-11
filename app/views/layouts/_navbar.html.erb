@@ -5,7 +5,11 @@
   <% if user_signed_in? %>
     <li><a href="<%=created_path%>">MES BOUTIQUES <i class="fa fa-list"></i></a> 
   <%end%>
-  <li><a onclick="toggleUserMenu()">PARAMÈTRES <i class="fa fa-cog"></i></a>
+    <% if user_signed_in? %>
+    <li><a onclick="toggleUserMenu()">PARAMÈTRES <i class="fa fa-cog"></i></a>
+    <%else%>
+    <li><a onclick="toggleUserMenu()">CONNEXION <i class="fa fa-cog"></i></a>
+  <%end%>
 </div>
 
 <div class="navbar-mobile" id="navbar">
