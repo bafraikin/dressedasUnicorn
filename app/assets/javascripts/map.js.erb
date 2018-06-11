@@ -10,10 +10,8 @@ getLocation = (position) => {
   let marker = new L.Marker(place, {icon: myIcon, autoPan: true});
   marker.addTo(mymap);
 }
-
-// si il ne l'utilise pas;
 errorHandler = () => {
-  alert('Pas de Geoloc, tu es donc à paris');
+  alert('Position non activée, redirection sur Paris');
 }
 
 //poser la question lorsque l'utilisateur se connecte
@@ -38,7 +36,7 @@ masuperfonction = function() {
           let place = new L.latLng(local.latitude, local.longitude);
           let myIcon = new L.icon({ iconUrl: "<%= asset_path("pin-mark.png") %>" , iconSize: [45, 50] });
           let marker = new L.Marker(place, {icon: myIcon, autoPan: true});
-          marker.bindPopup( '<p>' + 'nom de la boutique:' + `${local.name}` + '<br />' + "adresse de la boutique:"  + `${local.address}` + '</p>');
+          marker.bindPopup( '<p>' + '' + `${local.name}` + '<br />' + ''  + `${local.address}` + '</p>');
           $(marker).click(function() {
           this.openPopup();
           });

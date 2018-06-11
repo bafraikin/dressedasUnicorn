@@ -1,17 +1,13 @@
+<!-- PARAMETRES-->
 <div class="user-menu" id="menu-user" style="display:none" >
 <%= render 'layouts/closecross'%>    
-    <%=image_tag("photos/purple(1).jpg", class: "profile-pic")%>   
-    <% if user_signed_in? %>
-      <h2 style = "text-align:center"><i>Salut <%= current_user.username.capitalize%> !</i></h2>
-      <%else%>
-       <h2><i>Bienvenue</i></h2>
-    <%end%>
+        <h2 style="text-align:center;font-size:60px; float: none;margin-right:0%;margin-bottom:-10px;"><i class="fa fa-cog"></i></h2>
 
-    <hr class="style14">
+    <br><br> <br>
     <% if user_signed_in? %>
-     <%= link_to created_path do%> MES BOUTIQUES <%end%> 
+    <%= link_to created_path do%> MODIFIER MES BOUTIQUES <%end%> 
       <hr class="style13">
-      <%= link_to edit_user_registration_path do%> EDITER MON PROFIL <%end%> 
+    <%= link_to edit_user_registration_path do%> ÉDITER MON PROFIL <%end%> 
       <hr class="style13">
       
       <br><br> <br><br><br><br> <br><br>

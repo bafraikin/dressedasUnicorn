@@ -1,3 +1,6 @@
+<!-- Page qui regroupe tous les shops créés -->
+
+
 <%= render 'layouts/navbar'%>
 
 <%= render 'layouts/modale'%>
@@ -8,11 +11,11 @@
     
     <% current_user.places.reverse_each do |fiche| %>
         <div id="list_show">
-          <i class="fa fa-location-arrow"></i>
+          <i class="fa fa-bookmark"></i>
             <h3><%= fiche.name %> </h3>
             <hr>
             <p>Adresse : <%= fiche.address %> </p>
-            <p>Description : <%= fiche.description %> </p>
+            <p>Description : <%= fiche.description %> </p> 
             <p>Supprimer cette boutique:  <%= link_to 'ici', '/place/' + fiche.id.to_s , method: :delete, data: {confirm: 'Tu es sûr.e ?'} %> </p>
             <p>Modifier cette boutique: 
 
