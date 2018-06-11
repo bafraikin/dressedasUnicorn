@@ -2,6 +2,25 @@
 
 <%= render 'layouts/modale'%>
 
+<% if Place.count == 0 %>
+<div class="wrap-list">
+  <div id='liste'>
+    <%= image_tag("photos/purple(2).jpg", class: "img-bg") %>
+    
+  
+        <div id="list_show">
+          <i class="fa fa-location-arrow"></i>
+            <h3>Vous avez 0 boutique enregistrée :( <br><br>
+            <%= link_to 'Ajouter une boutique',  '/' %> </h3>
+            <br>
+
+        </div>
+  </div>
+</div>
+
+</div>
+
+<% else %>
 <div class="wrap-list">
   <div id='liste'>
     <%= image_tag("photos/purple(2).jpg", class: "img-bg") %>
@@ -13,11 +32,13 @@
             <hr>
             <p>Adresse : <%= fiche.address %> </p>
             <p>Description : <%= fiche.description %> </p>
-            <p>Supprimer cette boutique:  <%= link_to 'ici', '/place/' + fiche.id.to_s , method: :delete, data: {confirm: 'Tu es sûr.e ?'} %> </p>
-            <p>Modifier cette boutique: 
+            <p>Supprimer cette boutique:  <%= link_to 'Supprimer', '/place/' + fiche.id.to_s , method: :delete, data: {confirm: 'Tu es sûr.e ?'} %> </p>
+            <p>Modifier cette boutique: <%= link_to 'Modifier', '/edit' %>
+
 
         </div>
       <%end%>
+   <%end%>
 
     </div>
   </div>
