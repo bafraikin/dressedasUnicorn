@@ -10,10 +10,8 @@ getLocation = (position) => {
   let marker = new L.Marker(place, {icon: myIcon, autoPan: true});
   marker.addTo(mymap);
 }
-
-// si il ne l'utilise pas;
 errorHandler = () => {
-  alert('Pas de Geoloc, tu es donc à paris');
+  alert('Position non activée, redirection sur Paris');
 }
 
 //poser la question lorsque l'utilisateur se connecte

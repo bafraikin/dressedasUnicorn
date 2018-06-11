@@ -30,7 +30,7 @@ let masuperfonction;      // fonction qui charge les lieux renseigné
 let getLocation;          // fonction recuperer la localisation de l'utilisateur 
 let errorHandler;         // fonction n'a pas pu recuperer la localisation de l'utilisateur
 
-
+// Affichage de la fenêtre d'ajout d'une boutique
 let toggleModal = function() {
     var x = document.getElementById("modal-add-shop");
     if (x.style.display === "none") {
@@ -39,7 +39,7 @@ let toggleModal = function() {
       $(x).slideToggle(400);  
     }
 }
-
+// Affichage du menu User, qui se cache si on ouvre le menu settings
 function toggleUserMenu() {
     var z = document.getElementById("menu-user");
     var y = document.getElementById("settings-user");
@@ -52,6 +52,7 @@ function toggleUserMenu() {
       $(z).slideToggle(400);  
     }
 }
+// Affichage du menu Settings, qui se cache si on ouvre le menu User
 
 function toggleSettingsMenu() {
     var z = document.getElementById("menu-user");
@@ -65,7 +66,7 @@ function toggleSettingsMenu() {
       $(y).slideToggle(400);  
     }
 }
-
+// Bouton pour fermer toutes les modales
 function closeModal() {
     var z = document.getElementById("menu-user");
     var y = document.getElementById("settings-user");
