@@ -15,6 +15,20 @@
 //= require turbolinks
 //= require jquery
 //= require leaflet/dist/leaflet.js
+//
+
+
+//declaration de certaine variable ici pour que la carte se recharge quand on clique sur l'onglet carte.
+let callDeux;             // fonction de l'ajout definitif d'une addresse par addresse   
+let callUn;               // fonction de la 1ere phase d'ajout par addresse
+let userLoc = new Array;  // localité de l'utilisateur
+let localisable = false;  // geocalisation de l'utilisateur
+let markerTmp;            // sert de jonction entre callUn et callDeux pour le marqueur draggable  
+let mymap;                // la map
+let timestamp;            // tableau qui acceuille tout les lieux chargé par l'user
+let masuperfonction;      // fonction qui charge les lieux renseigné
+let getLocation;          // fonction recuperer la localisation de l'utilisateur 
+let errorHandler;         // fonction n'a pas pu recuperer la localisation de l'utilisateur
 
 // Affichage de la fenêtre d'ajout d'une boutique
 let toggleModal = function() {
@@ -68,4 +82,5 @@ function closeModal() {
         $(x).slideToggle(400);       
         }
 }
+
 

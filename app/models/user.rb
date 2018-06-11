@@ -10,7 +10,16 @@ class User < ApplicationRecord
 
       after_destroy :user_deleted_mail
 
-  # A la création d'un user
+  
+
+
+validates :username, presence: { message: "veuillez entrer votre prénom" }, format: { without: /\s/, message: "ton prenom ne peut pas contenir d'espace" }
+=begin
+  validates :email, presence: { message: "veuillez entrer votre adresse email" }
+  validates :email, uniqueness: { message: "cette adresse est déjà prise" }
+  validates :password, presence: { message: "veuillez entre votre mot de passe" }
+=end 
+
   def new_user_created_mail
     UserMailer.new_user_email(self).deliver
   end
