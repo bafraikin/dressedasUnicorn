@@ -86,16 +86,9 @@ function closeModal() {
 var $htmlOrBody = $('html, body'), // scrollTop works on <body> for some browsers, <html> for others
     scrollTopPadding = 8;
 
-$('textarea').focus(function() {
-    // get textarea's offset top position
-    var textareaTop = $(this).offset().top;
-    // scroll to the textarea
-    $htmlOrBody.scrollTop(textareaTop - scrollTopPadding);
-});
-
-$('input').focus(function() {
-    // get textarea's offset top position
-    var textareaTop = $(this).offset().top;
-    // scroll to the textarea
-    $htmlOrBody.scrollTop(textareaTop - scrollTopPadding);
-});
+    $('textarea').on('focus', function() {
+        document.body.scrollTop = $(this).offset().top;
+    });
+    $('text-field').on('focus', function() {
+        document.body.scrollTop = $(this).offset().top;
+    });
