@@ -6,7 +6,7 @@
     <button class="tablink" onclick="openPage('Admins', this, '#f0932b','white','3px solid #cd6133')">Admins <i class="fa fa-bug"></i></button>
 
     <div id="Users" class="tabcontent">
-        <%@users.each do |user|%>
+        <%@users.reverse.each do |user|%>
             <div class="wrap-shop-admin">
             
         
@@ -51,7 +51,7 @@
                 <h3 class="accordion"> <%=user.username.capitalize%></h3>
                 <div class="panel" >
                     <p><%=user.email%></p>
-                    <p>Administrateur : <%= user.admin %></p>
+                    <button>X Admin</button>
                 </div>
                 
             </div>
