@@ -20,6 +20,13 @@
     <% else %>
       <%= link_to('ME CONNECTER', new_user_session_path)  %>  
         <hr class="style13">
+          <%= link_to('CONNEXION AVEC FACEBOOK', user_facebook_omniauth_authorize_path)  %>  
+        <hr class="style13">
+      
+       <%= link_to('CONNEXION AVEC FACEBOOK 2', user_facebook_omniauth_callback_path)  %>  
+        <hr class="style13">
+
+        
       <%= link_to new_user_registration_path do%> M'INSCRIRE <%end%> 
         <hr class="style13">
     <% end %>

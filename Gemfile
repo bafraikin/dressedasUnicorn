@@ -20,6 +20,9 @@ gem 'jbuilder'
 gem 'mail'
 gem 'json'
 gem 'forest_liana'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'sinatra'
 
 
 gem 'font-awesome-rails'
