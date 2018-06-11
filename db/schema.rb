@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_04_170803) do
+ActiveRecord::Schema.define(version: 2018_06_11_114814) do
+
+  create_table "fav_places", force: :cascade do |t|
+    t.integer "place_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["place_id"], name: "index_fav_places_on_place_id"
+    t.index ["user_id"], name: "index_fav_places_on_user_id"
+  end
 
   create_table "places", force: :cascade do |t|
     t.string "name"
@@ -21,11 +30,9 @@ ActiveRecord::Schema.define(version: 2018_06_04_170803) do
     t.text "description"
     t.integer "map_id"
     t.integer "town_id"
-    t.integer "creator_id"
     t.integer "tag_to_places_count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["creator_id"], name: "index_places_on_creator_id"
     t.index ["map_id"], name: "index_places_on_map_id"
     t.index ["town_id"], name: "index_places_on_town_id"
   end
@@ -50,11 +57,7 @@ ActiveRecord::Schema.define(version: 2018_06_04_170803) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "username"
-<<<<<<< HEAD
-    t.boolean "admin"
-=======
     t.boolean "admin", default: false
->>>>>>> a58c28a9680c76648d57abd7cc46b41e60e3966a
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

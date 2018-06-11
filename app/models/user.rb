@@ -4,13 +4,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :places, foreign_key: "creator_id"
+  has_many :fav_places, foreign_key: 'faver_id'
+  has_many :places, through: :fav_places
+
 # Cette méthode envoie un mail à l'admin lorsqu'un utilisateur a été créé
       after_create :new_user_created_mail
-
       after_destroy :user_deleted_mail
 
-  
   def new_user_created_mail
     UserMailer.new_user_email(self).deliver
   end
