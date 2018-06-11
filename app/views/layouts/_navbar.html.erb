@@ -10,6 +10,9 @@
     <%else%>
     <li><a onclick="toggleUserMenu()">CONNEXION <i class="fa fa-sign-in"></i></a>
   <%end%>
+  <% if current_user.try(:admin?) %>
+    <li><a href="<%= admin_path%>">DASHBOARD ADMIN <i class="fa fa-bug"></i></a>
+  <%end%>
 </div>
 
 <div class="navbar-mobile" id="navbar">
@@ -20,6 +23,9 @@
    <li><a href="<%=created_path%>"><i class="fa fa-list"></i></a>
   <%end%>
   <li><a onclick="toggleUserMenu()"><i class="fa fa-cog"></i></a>
+  <% if current_user.try(:admin?) %>
+    <li><a href="<%= admin_path%>"><i class="fa fa-bug"></i></a>
+  <%end%>
 </div>
 <style>
 

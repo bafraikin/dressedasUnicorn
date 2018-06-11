@@ -12,13 +12,13 @@
 
     <div class="field">
        <%= f.label :username, "Nom d'utilisateur" %><br />
-       <%= f.text_field :username, autofocus: true, autocomplete: "Nom", placeholder: "Votre nom" %>    
+       <%= f.text_field :username, autofocus: true, autocomplete: "Nom", placeholder: "Votre nom", id: "text-field" %>    
      </div>
      <br>
 
       <div class="field">
         <%= f.label :EMAIL.capitalize %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" , placeholder: "Votre e-mail"%>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" , placeholder: "Votre e-mail", id: "text-field"%>
       </div>
       <br>  
 
@@ -27,12 +27,12 @@
         <% if @minimum_password_length %>
         <i><em>(<%= @minimum_password_length %> caractères minimum)</em></i>
         <% end %><br />
-        <%= f.password_field :password, autocomplete: "off", placeholder: "Votre mot de passe" %>
+        <%= f.password_field :password, autocomplete: "off", placeholder: "Votre mot de passe", id: "text-field" %>
       </div>
       <br>      
       <div class="field">
         <%= f.label :CONFIRMATION_DU_MOT_DE_PASSE %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirmez votre mot de passe" %>
+        <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirmez votre mot de passe", id: "text-field" %>
       </div>
       <br>      
       <div class="actions">
