@@ -16,12 +16,10 @@ class MapController < ApplicationController
 
   def list
     @places = Place.all
+
   end
 
-  def created
-  end
-
-  def test
+  def index
   end
 
   def explore
@@ -37,9 +35,8 @@ class MapController < ApplicationController
     render json: {rendu: @a}
   end
   
-end
-
 def find_place
   @a = Place.find(params[:"id"])
   redirect_to "/:#{@a.latitude}&#{@a.longitude}"
+end
 end

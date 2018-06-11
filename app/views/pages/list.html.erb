@@ -1,0 +1,21 @@
+<%= render 'layouts/navbar'%>
+
+<%= render 'layouts/modale'%>
+
+<div class="wrap-list">
+  <div id='liste'>
+    <%= image_tag("photos/purple(2).jpg", class: "img-bg") %>
+<%@places.reverse.each do |fact|%>
+  <div id="list_show">
+        <i class="fa fa-heart" id="fav"></i>
+        <h3><%=fact.name%></h3>
+        <hr>
+        <p class="shop_body"><%= fact.description %></p>
+        <p><%=fact.address%></p>
+        <p>Proposé par : <%= fact.creator.username %></p>
+    </div>
+<% end %>
+  </div>
+</div>
+
+<%= javascript_include_tag 'list' %> 

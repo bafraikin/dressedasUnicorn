@@ -11,9 +11,12 @@ def sanitize_devise_params
 
 cache = ActiveSupport::Cache::MemoryStore.new
 
-cache.read('city')   # => nil
-cache.write('city', 'nique ta mere')
-puts cache.read('city')   # => "nique ta mere"
+cache.write('city', Faker::Hacker.say_something_smart + " " + Faker::RickAndMorty.quote)
+cache.write('city1', Faker::Hacker.say_something_smart)
+cache.write('city2', Faker::Hacker.say_something_smart)
+puts cache.read('city')
+puts cache.read('city1')
+puts cache.read('city2')
 
 def after_sign_in_path_for(resource)
     root_path

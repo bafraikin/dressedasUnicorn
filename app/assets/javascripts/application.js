@@ -15,8 +15,23 @@
 //= require turbolinks
 //= require jquery
 //= require leaflet/dist/leaflet.js
+//
 
 
+//declaration de certaine variable ici pour que la carte se recharge quand on clique sur l'onglet carte.
+let callDeux;             // fonction de l'ajout definitif d'une addresse par addresse   
+let callUn;               // fonction de la 1ere phase d'ajout par addresse
+let userLoc = new Array;  // localité de l'utilisateur
+let localisable = false;  // geocalisation de l'utilisateur
+let markerTmp;            // sert de jonction entre callUn et callDeux pour le marqueur draggable  
+let mymap;                // la map
+let timestamp;            // tableau qui accueille tout les lieux chargé par l'user
+let masuperfonction;      // fonction qui charge les lieux renseignés
+let getLocation;          // fonction récuperer la localisation de l'utilisateur 
+let errorHandler;         // fonction n'a pas pu recuperer la localisation de l'utilisateur
+let favcolor;             // boolean pour changement couleur fav boutique
+
+// Affichage de la fenêtre d'ajout d'une boutique
 let toggleModal = function() {
     var x = document.getElementById("modal-add-shop");
     if (x.style.display === "none") {
@@ -25,7 +40,7 @@ let toggleModal = function() {
       $(x).slideToggle(400);  
     }
 }
-
+// Affichage du menu User, qui se cache si on ouvre le menu settings
 function toggleUserMenu() {
     var z = document.getElementById("menu-user");
     var y = document.getElementById("settings-user");
@@ -38,6 +53,7 @@ function toggleUserMenu() {
       $(z).slideToggle(400);  
     }
 }
+// Affichage du menu Settings, qui se cache si on ouvre le menu User
 
 function toggleSettingsMenu() {
     var z = document.getElementById("menu-user");
@@ -52,6 +68,7 @@ function toggleSettingsMenu() {
     }
 }
 
+// Bouton pour fermer toutes les modales
 function closeModal() {
     var z = document.getElementById("menu-user");
     var y = document.getElementById("settings-user");
@@ -67,4 +84,36 @@ function closeModal() {
         $(x).slideToggle(400);       
         }
 }
+
+var $htmlOrBody = $('html, body'), // scrollTop works on <body> for some browsers, <html> for others
+    scrollTopPadding = 8;
+
+    $('textarea').on('focus', function() {
+        document.body.scrollTop = $(this).offset().top;
+    });
+    $('text-field').on('focus', function() {
+        document.body.scrollTop = $(this).offset().top;
+    });
+
+// Gestion des tabs page administrateurs
+function openPage(pageName,elmnt,color,font,border) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablink"); // Par défaut
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].style.backgroundColor = "";
+        tablinks[i].style.color = "";
+        tablinks[i].style.border = "none";
+    }
+    document.getElementById(pageName).style.display = "block"; // Actif
+    elmnt.style.backgroundColor = color;
+    elmnt.style.color = font;
+        elmnt.style.borderBottom = border;
+
+}
+
+
 

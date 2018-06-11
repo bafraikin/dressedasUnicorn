@@ -6,30 +6,41 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+#Place.create(name: "blabla", address: "chouchou")
 require 'csv'
 
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'shopz.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
-  t = Place.create
-  t.boutique = row[:Boutique]
+  puts row.to_hash
+  end
+
+
+# run rails db:seed pour le scrap/seed  faire en sorte que ça match les données d'une table
+
+=begin require 'csv'
+
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'shopz.csv'))
+csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
+csv.each do |row|
+  t = Place.new
+  t.shop = row[:Boutique]
   t.address = row[:Addresse]
   t.horaire = row[:Horaire]
   t.metro = row[:Metro]
   
   
-  puts "#{t.boutique}, #{t.address} saved"
+
+  puts "#{t.shop}, #{t.address} saved"
 end
 
-puts "There are now #{Place.count} rows in the transactions table"
-
-#run rails db:seed les kheys
+puts "There are now #{Place.count} rows in the table"
 
 
 
 
 
-=begin 
+
 require 'faker'
 index = 0
 3.times do 
@@ -39,4 +50,5 @@ index = 0
     index += 1
   end
 end
+
 =end

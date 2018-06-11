@@ -1,15 +1,15 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 
-let markerTmp; 
 
 let callDeux = function() {
   $.ajax({url: '/put_address', type: 'POST', data: 'address=' + $("#address")[0].value + '&long=' + markerTmp._latlng.lng + '&lati=' + markerTmp._latlng.lat + '&nom=' + $("#name")[0].value + '&description=' + $("#description")[0].value, dataType: 'JSON', complete: (function(data) {
     
-    debugger;
+callDeux = function() {
+  $.ajax({url: '/put_address', type: 'POST', data: 'address=' + $("#address")[0].value + '&long=' + markerTmp._latlng.lng + '&lati=' + markerTmp._latlng.lat + '&nom=' + $("#name")[0].value, dataType: 'JSON', complete: (function(data) {
     let locali = data.responseJSON.put;
     let newAdd = new L.latLng(locali.latitude, locali.longitude);
-    let myIcon = new L.icon({ iconUrl: "<%= asset_path("douge.png") %>", iconSize: [45, 50]});
+    let myIcon = new L.icon({ iconUrl: "<%= asset_path("pin-mark.png") %>", iconSize: [50, 50]});
     let marker = new L.Marker(newAdd, {icon: myIcon, autoPan: true});
     marker.addTo(mymap);
     markerTmp.remove();
@@ -18,11 +18,11 @@ $(a).remove();
   })});
 }
 
-let callUn = function() {
+callUn = function() {
   $.ajax({url: "/find_address", type: 'POST', data: 'address=' + $("#address")[0].value, dataType: 'JSON', complete: (function(data) {
     let local = data.responseJSON.rendu;
     let place = new L.latLng(local.latitude, local.longitude );
-    let temp = new L.icon({ iconUrl: "<%= asset_path("jul.jpg") %>", iconSize: [45, 50]});
+    let temp = new L.icon({ iconUrl: "<%= asset_path("target.png") %>", iconSize: [50, 50]});
     markerTmp = new L.Marker(place, {icon: temp, autoPan: true, draggable: true});
     markerTmp.addTo(mymap);
     mymap.setView([local.latitude, local.longitude]);
@@ -48,7 +48,7 @@ $(".EN ATTENTE").click(function() {
   $.ajax({url: "/add_place", type: 'POST', data: 'lati=' + center.lat + "&long=" + center.lng, dataType: 'JSON', body: 'rendu', complete: (function(data) {
     let local = data.responseJSON.rendu
     let place = new L.latLng(local.latitude, local.longitude );
-    let myIcon = new L.icon({ iconUrl: "<%= asset_path("douge.png") %>", iconSize: [45, 50]});
+    let myIcon = new L.icon({ iconUrl: "<%= asset_path("pin-mark.png") %>", iconSize: [45, 50]});
     let marker = new L.Marker(place, {icon: myIcon, autoPan: true});
     marker.addTo(mymap);
   })

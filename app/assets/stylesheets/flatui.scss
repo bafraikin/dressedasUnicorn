@@ -157,6 +157,28 @@ input[type=submit] {
         right:45%;
     }
   }
+  /* Bouton i'm here */
+  .imhere{
+    display: inline-block;
+    padding: 4px;
+    font-weight: lighter;
+    border-radius: 4px;
+    color: white;
+    background-color: red;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    width: 30%;
+    margin-left: 20px;
+    border: none;
+    font-size: 20px;
+    font-weight: lighter;
+    &:active{
+        -webkit-box-shadow: inset -2px -2px 26px 0px rgba(0,0,0,0.6);
+        -moz-box-shadow: inset -2px -2px 26px 0px rgba(0,0,0,0.6);
+        box-shadow: inset -2px -2px 26px 0px rgba(0,0,0,0.6);
+        transition:all 0.1s;
+    }
+}
   /*******************************/
         /* MODALS */
 /*******************************/
