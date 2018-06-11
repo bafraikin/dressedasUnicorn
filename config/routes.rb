@@ -5,15 +5,11 @@ Rails.application.routes.draw do
   end
 
   resources :place, only: [:destroy]
-  get "list", to: "map#list"
-  get "created", to: "pages#created"
-  get "edit", to: "pages#edit"
-  get "test", to: "map#test"
-
-  resources :place
   get "list", to: "pages#list"
   get "created", to: "pages#created"
+  get "edit", to: "pages#edit"
   get "test", to: "pages#test"
+
 
   devise_for :users
   root to: "map#index"
