@@ -10,6 +10,9 @@
     <%else%>
     <li><a onclick="toggleUserMenu()">CONNEXION <i class="fa fa-cog"></i></a>
   <%end%>
+  <% if current_user.try(:admin?) %>
+    <li><a onclick="toggleAdminMenu()">DASHBOARD ADMIN <i class="fa fa-cog"></i></a>
+  <%end%>
 </div>
 
 <div class="navbar-mobile" id="navbar">
