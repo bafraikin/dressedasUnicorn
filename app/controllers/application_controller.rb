@@ -11,7 +11,6 @@ def sanitize_devise_params
 
 cache = ActiveSupport::Cache::MemoryStore.new
 
-cache.read('city')   # => nil
 cache.write('city', 'Bonjour les bisounours')
 puts cache.read('city')   # => "nique ta mere"
 

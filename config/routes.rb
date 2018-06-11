@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     get "/sign-in" => "devise/sessions#new", :as => :login
   end
-  resources :places
+  resources :place
   get "list", to: "map#list"
   get "created", to: "map#created"
   get "test", to: "map#test"

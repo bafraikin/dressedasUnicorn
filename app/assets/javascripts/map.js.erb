@@ -1,20 +1,22 @@
-let userLoc = new Array;
-let localisable = false;
 
-let getLocation = (position) => {
+// si l'utilisateur utilise la geolocalisation
+getLocation = (position) => {
   userLoc.push(parseFloat(position.coords.latitude));
   userLoc.push(parseFloat(position.coords.longitude));
   localisable = true;
-  mymap.setView([userLoc[0],userLoc[1]], 13);
+  mymap.setView([userLoc[0],userLoc[1]], 15);
   let place = new L.latLng(userLoc[0], userLoc[1]);
-  let myIcon = new L.icon({ iconUrl: "<%= asset_path("utilisateur.png") %>" , iconSize: [45, 75], iconAnchor: [25,75] });
+  let myIcon = new L.icon({ iconUrl: "<%= asset_path("utilisateur.png") %>" , iconSize: [60, 60] });
   let marker = new L.Marker(place, {icon: myIcon, autoPan: true});
   marker.addTo(mymap);
 }
-let errorHandler = () => {
+
+// si il ne l'utilise pas;
+errorHandler = () => {
   alert('Pas de Geoloc, tu es donc à paris');
 }
 
+//poser la question lorsque l'utilisateur se connecte
 $(document).ready(function() {
   if(navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(getLocation, errorHandler);
@@ -24,7 +26,9 @@ $(document).ready(function() {
   }
 });
 
-let masuperfonction = function() {
+
+// cette fonction sert à charger les lieux qui sont present à l'endroit ou l'utilisateur regarde la carte
+masuperfonction = function() {
   bound = mymap.getBounds();
   $.ajax({url: "/", type: 'POST', data: 'Nlat=' + bound.getNorth() + "&Nlong=" + bound.getWest() + "&Slat=" + bound.getSouth() + "&Slong=" + bound.getEast() + '&test1=' + mymap.getCenter().lat + '&test2=' + mymap.getCenter().lng  , dataType: 'JSON', body: 'rendu', complete: ( 
     function(data) {
@@ -32,27 +36,33 @@ let masuperfonction = function() {
         if (timestamp.includes(local["created_at"]) != true ) {
           timestamp.push(local["created_at"]);
           let place = new L.latLng(local.latitude, local.longitude);
-          let myIcon = new L.icon({ iconUrl: "<%= asset_path("douge.png") %>" , iconSize: [45, 50] });
+          let myIcon = new L.icon({ iconUrl: "<%= asset_path("pin-mark.png") %>" , iconSize: [45, 50] });
           let marker = new L.Marker(place, {icon: myIcon, autoPan: true});
+          marker.bindPopup( '<p>' + 'nom de la boutique:' + `${local.name}` + '<br />' + "adresse de la boutique:"  + `${local.address}` + '</p>');
+          $(marker).click(function() {
+          this.openPopup();
+          });
           marker.addTo(mymap);
         }}})});}
 
 /* ----------------------------------------------------------------- */
 // Cree la map
 
-let mymap = L.map('mapid').setView([48.866667, 2.333333], 14);
-let timestamp = new Array; 
-let layer = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+mymap = L.map('mapid').setView([48.866667, 2.333333], 15);
+timestamp = 0
+timestamp = new Array; 
+layer = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
   attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-  maxZoom: 18,
+  maxZoom: 15,
   transparent: true,
   id: 'mapbox.streets',
   accessToken: 'pk.eyJ1IjoiYmZyYWlraW4iLCJhIjoiY2podWxwc21pMG5udjNqdDZpZGluaGhxeSJ9.WaMLYylJhk6ULiaGSWNuAA',
 }).addTo(mymap);
 /* -------------------------------------------------------------------   */
 
-// musée du 1er call ajax
+// quand le zoom arrete de bouger
 mymap.on('zoomend', masuperfonction);
 // quand la map arrête de bouger
 mymap.on('moveend', masuperfonction);
+
 
