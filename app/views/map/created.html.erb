@@ -15,7 +15,7 @@
             <h3><%= fiche.name %> </h3>
             <hr>
             <p>Adresse : <%= fiche.address %> </p>
-            <p>Description : <%= fiche.description %> </p>
+            <p>Description : <%= fiche.description %> </p> 
             <p>Supprimer cette boutique:  <%= link_to 'ici', '/place/' + fiche.id.to_s , method: :delete, data: {confirm: 'Tu es sûr.e ?'} %> </p>
             <p>Modifier cette boutique: 
 
