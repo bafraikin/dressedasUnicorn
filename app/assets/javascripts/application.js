@@ -84,4 +84,12 @@ function closeModal() {
         }
 }
 
+var $htmlOrBody = $('html, body'), // scrollTop works on <body> for some browsers, <html> for others
+    scrollTopPadding = 8;
 
+    $('textarea').on('focus', function() {
+        document.body.scrollTop = $(this).offset().top;
+    });
+    $('text-field').on('focus', function() {
+        document.body.scrollTop = $(this).offset().top;
+    });
