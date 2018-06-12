@@ -31,10 +31,8 @@ ActiveRecord::Schema.define(version: 2018_06_11_114814) do
     t.integer "map_id"
     t.integer "town_id"
     t.integer "tag_to_places_count"
-    t.integer "creator_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["creator_id"], name: "index_places_on_creator_id"
     t.index ["map_id"], name: "index_places_on_map_id"
     t.index ["town_id"], name: "index_places_on_town_id"
   end
