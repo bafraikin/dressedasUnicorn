@@ -8,12 +8,12 @@
     <div id="Users" class="tabcontent">
         <%@users.reverse.each do |user|%>
             <div class="wrap-shop-admin">
-            
-        
                 <h3 class="accordion"> <%=user.username.capitalize%> 
                     <% if user.try(:admin?) %>
-                    <span class="isadmin">Admin</span>
-                    <%end%>
+                     <%= button_tag 'Admin', class:"isadmin", onclick: "admin(#{user.id})", data: { confirm: "Retirer à #{user.username} le rôle d'administrateur ?" }%>
+                    <%else%>
+                     <%= button_tag 'Non Admin', class:"isntadmin", onclick: "admin(#{user.id})", data: { confirm: "Accorder à #{user.username} le rôle d'administrateur ?" }%>
+                     <%end%>
                 </h3>
                 <div class="panel" >
                     <p><u>E-mail : </u><%=user.email%></p>
@@ -22,9 +22,10 @@
                     <br>
                     <br>
                     <% if user.try(:admin?) %>
-                    <a>Admin <i class="fa fa-minus-circle"></i></span>
+                        <a>Admin <i class="fa fa-minus-circle"></i></a>
                     <%else%>
-                     <%= link_to '/pages/' + user.id.to_s , method: :delete, data: { confirm: "Supprimer le profil ? Action irréversible !" } do%>Supprimer : <i class="fa fa-trash"></i> <%end%>
+                        <%= link_to '/pages/' + user.id.to_s , method: :delete, data: { confirm: "Supprimer le profil ? Action irréversible !" } do%>Supprimer : <i class="fa fa-trash"></i> <%end%>
+                     
                      <%end%>
                 </div>
                 
@@ -73,7 +74,6 @@ document.getElementById("defaultOpen").click();
 
 var acc = document.getElementsByClassName("accordion");
 var i;
-
 for (i = 0; i < acc.length; i++) {
     acc[i].addEventListener("click", function() {
         this.classList.toggle("active");
@@ -84,6 +84,8 @@ for (i = 0; i < acc.length; i++) {
             panel.style.display = "block";
         }
     });
-}
+};
+
+
 
 </script>

@@ -116,4 +116,19 @@ function openPage(pageName,elmnt,color,font,border) {
 }
 
 
+// Fonction pour changer le rôle d'un USER vers Admin et inverse
+let admin = function(id){
+   $.ajax({
+            type    : "POST",
+            url     : "/pages/AdminRole", 
+            dataType: 'script',
+            data    : 'id=' + id  
+           
+    });
+    location.reload();
+
+       
+};
+
+
 

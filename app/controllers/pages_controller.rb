@@ -28,7 +28,7 @@ class PagesController < ApplicationController
   def update_user
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      flash[:success] = "Profile utilisateur mis à jour"
+      flash[:success] = "Profil utilisateur mis à jour"
     else
       render 'edit'
     end
@@ -40,11 +40,30 @@ class PagesController < ApplicationController
 
   def destroy
     User.find(params[:id]).destroy
-    flash[:success] = "User deleted"
+    flash[:success] = "Utilisateur supprimé !"
+    redirect :back
   end
 
-  def change_admin_role
-    
+  def changeAdminRole
+   user = User.find(params[:id])
+    if user.admin == false
+      user.update_attribute :admin, true
+      flash[:success] = "#{user.username} est maintenant administrateur"
+      redirect :admin_path
+
+    else
+      if user.email == 'broussolle.paul@gmail.com'
+      flash[:alert] = "Cet admin ne peut être modifié (BOUYA)"
+      puts "Non lol"
+      redirect :admin_path
+
+      else
+      user.update_attribute :admin, false
+      flash[:alert] = "#{user.username} n'est plus administrateur"
+      redirect :admin_path
+      end
+    end
+
   end
 
 end

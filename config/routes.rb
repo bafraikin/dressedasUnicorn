@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   end
   resources :pages
   get "admin", to: "pages#admin", as: "admin"
+  get "/pages/AdminRole", to: "pages#changeAdminRole"
+  post "/pages/AdminRole", to: "pages#changeAdminRole"
 
   resources :place, only: [:destroy]
   get "list", to: "map#list"
