@@ -16,7 +16,9 @@
 @media screen and (min-width: 801px) {
     .tablink{
         margin-top:45px;
-    
+    .wrap-admin{
+            height:90%;
+        }
     }
   }
 
@@ -29,8 +31,8 @@
     color: black;
     display: none;
     padding: 100px 20px;
-    height: 90%;
 }
+
 /*****************************************/
 /************** ACCORDEON  ****************/
 /*****************************************/
