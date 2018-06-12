@@ -150,6 +150,15 @@ $(document).ready(function(){
         
         });
         
-
-
-
+let viewShop = function () {
+    let z = document.createElement("div");
+    let y = document.createElement("div");
+  $(z).css(heigh: '800px' );
+    if (y.style.display === "none") {
+        $(y).slideToggle(400);   
+            if(z.style.display != "none") {
+                $(z).slideToggle(400);       
+            }    
+    } else {
+      $(y).slideToggle(400);  
+    }
