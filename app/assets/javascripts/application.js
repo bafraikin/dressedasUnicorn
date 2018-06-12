@@ -129,6 +129,25 @@ let admin = function(id){
 
        
 };
+/* FADE OUT DES ALERTES ET NOTICES */
+$(document).ready(function(){
+    setTimeout(function(){
+        $('#notice_wrapper').fadeOut("Slow",function(){
+            $(this).remove();
+        })
+    }, 3500);
+    
+    });
+    
+    $(document).ready(function(){
+        setTimeout(function(){
+            $('#alert_wrapper').fadeOut("Slow",function(){
+                $(this).remove();
+            })
+        }, 3500);
+        
+        });
+        
 
 
 

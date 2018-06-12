@@ -7,6 +7,37 @@ a{
     margin-top:3px;
 }
 /*******************************/
+        /* ALERTES */
+/*******************************/
+#notice_wrapper{
+    background-color: rgba(39,174,96 ,0.8);
+    position: absolute;
+    top: 0;
+    z-index: 100000;
+    text-align: center;
+    width: 100%;
+    p{
+      padding: 17px;
+      text-align: center;
+      color:white;
+    }
+  
+  }
+  #alert_wrapper{
+    background-color: rgba(183,28,28 ,0.8);
+    position: absolute;
+    top: 0;
+    z-index: 100000;
+    text-align: center;
+    width: 100%;
+    p{
+      padding: 17px;
+      text-align: center;
+      color:white;
+    }
+  
+  }
+/*******************************/
         /* BOUTONS */
 /*******************************/
 $main-color:rgba(102, 51, 153,1);

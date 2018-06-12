@@ -5,7 +5,7 @@ class PagesController < ApplicationController
         if current_user.try(:admin?)
           super
         else
-          redirect_to new_user_session_path, :notice => 'Tu dois être admin pour accéder à cette page ;) '
+          redirect_to new_user_session_path, :alert => 'Tu dois être admin pour accéder à cette page ;) '
           ## if you want render 404 page
           ## render :file => File.join(Rails.root, 'public/404'), :formats => [:html], :status => 404, :layout => false
         end
@@ -28,7 +28,7 @@ class PagesController < ApplicationController
   def update_user
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      flash[:success] = "Profil utilisateur mis à jour"
+      flash[:notice] = "Profil utilisateur mis à jour"
     else
       render 'edit'
     end
@@ -40,27 +40,19 @@ class PagesController < ApplicationController
 
   def destroy
     User.find(params[:id]).destroy
-    flash[:success] = "Utilisateur supprimé !"
     redirect :back
+
   end
 
   def changeAdminRole
    user = User.find(params[:id])
     if user.admin == false
       user.update_attribute :admin, true
-      flash[:success] = "#{user.username} est maintenant administrateur"
-      redirect :admin_path
-
     else
       if user.email == 'broussolle.paul@gmail.com'
-      flash[:alert] = "Cet admin ne peut être modifié (BOUYA)"
       puts "Non lol"
-      redirect :admin_path
-
       else
       user.update_attribute :admin, false
-      flash[:alert] = "#{user.username} n'est plus administrateur"
-      redirect :admin_path
       end
     end
 
