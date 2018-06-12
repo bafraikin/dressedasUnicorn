@@ -8,6 +8,6 @@ class Place < ApplicationRecord
   has_many :tag_to_places 
   has_many :tags, through: :tag_to_places
 
-  has_many :fav_places, foreign_key: :liked_place_id
-  has_many :favers, through: :fav_places, source: :User
+  has_many :fav_places
+  has_many :likers, through: :fav_places
 end

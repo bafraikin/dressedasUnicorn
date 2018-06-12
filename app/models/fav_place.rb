@@ -1,4 +1,4 @@
 class FavPlace < ApplicationRecord
-  belongs_to :liked, class_name: :Place, foreign_key: :liked_place_id
-  belongs_to :faver, class_name: :User, foreign_key: :faver_id
+  belongs_to :place
+  belongs_to :liker, class_name: "User", foreign_key: :liker_id
 end
