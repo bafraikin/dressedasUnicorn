@@ -6,11 +6,9 @@
     <h2>Ajouter une boutique</h2>
     <hr class="style13">
       Nom de la boutique: </br> <%= text_field_tag(:name, '', placeholder: 'Nom de la boutique') %> <br>
-      <!-- Description de la boutique: <br> <%= text_area_tag(:description, nil, placeholder: 'Description')%> <br> 
-      MISE DE COTE AU CAS OU DE BESOIN D'AJOUT DESCRIPTION
-      -->
+      Description de la boutique: <br> <%= text_area_tag(:description, nil, placeholder: 'Description')%> <br>
       Adresse de la boutique: </br> <%= text_field_tag(:address, nil, placeholder: "Saisir l\'adresse") %> <br>
-      <%= submit_tag"Ajouter", :class => "add_places", :id => "add", :style => "width:30%;" %>
+      <%= submit_tag"Ajouter", :class => "add_places", :id => "add" %> 
   </div>
 </div>
 
