@@ -1,0 +1,88 @@
+
+/*****************************************/
+/************** TABS      ****************/
+/*****************************************/
+/* Style tab links */
+.tablink {
+    background-color: white;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: 33%;
+}
+@media screen and (min-width: 801px) {
+    .tablink{
+        margin-top:45px;
+    .wrap-admin{
+            height:90%;
+        }
+    }
+  }
+
+.tablink:hover {
+
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+    color: black;
+    display: none;
+    padding: 100px 20px;
+}
+
+/*****************************************/
+/************** ACCORDEON  ****************/
+/*****************************************/
+
+.accordion {
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    -webkit-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.53);
+    -moz-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.53);
+    box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.53);
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .accordion:hover {
+    background-color: white;
+}
+
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+    padding: 0 18px;
+    background-color: rgba(206, 194, 194, 0.247);
+    display: none;
+    overflow: hidden;
+}
+/*****************************************/
+/************** MISC  ****************/
+/*****************************************/
+.isadmin{
+    float: right;
+    font-size: 12px;
+    top: 3px;
+    color: green;
+    border: 1px solid green;
+    padding: 3px;
+    border-radius: 3px;
+    background-color: white;
+}
+.isntadmin{
+    float: right;
+    font-size: 12px;
+    top: 3px;
+    color: red;
+    border: 1px solid red;
+    padding: 3px;
+    border-radius: 3px;
+    background-color: white;
+
+}

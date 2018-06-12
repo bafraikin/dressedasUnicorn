@@ -67,6 +67,7 @@ function toggleSettingsMenu() {
       $(y).slideToggle(400);  
     }
 }
+
 // Bouton pour fermer toutes les modales
 function closeModal() {
     var z = document.getElementById("menu-user");
@@ -93,3 +94,41 @@ var $htmlOrBody = $('html, body'), // scrollTop works on <body> for some browser
     $('text-field').on('focus', function() {
         document.body.scrollTop = $(this).offset().top;
     });
+
+// Gestion des tabs page administrateurs
+function openPage(pageName,elmnt,color,font,border) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablink"); // Par défaut
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].style.backgroundColor = "";
+        tablinks[i].style.color = "";
+        tablinks[i].style.border = "none";
+    }
+    document.getElementById(pageName).style.display = "block"; // Actif
+    elmnt.style.backgroundColor = color;
+    elmnt.style.color = font;
+        elmnt.style.borderBottom = border;
+
+}
+
+
+// Fonction pour changer le rôle d'un USER vers Admin et inverse
+let admin = function(id){
+   $.ajax({
+            type    : "POST",
+            url     : "/pages/AdminRole", 
+            dataType: 'script',
+            data    : 'id=' + id  
+           
+    });
+    location.reload();
+
+       
+};
+
+
+

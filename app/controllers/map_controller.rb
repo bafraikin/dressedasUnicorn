@@ -26,10 +26,10 @@ class MapController < ApplicationController
     @a = Place.where("latitude <= #{north_lat} AND latitude >= #{south_lat} AND longitude <= #{south_long} AND longitude >= #{north_long}")
     render json: {rendu: @a}
   end
-  
-end
+
 
 def find_place
   @a = Place.find(params[:"id"])
   redirect_to "/:#{@a.latitude}&#{@a.longitude}"
+end
 end
