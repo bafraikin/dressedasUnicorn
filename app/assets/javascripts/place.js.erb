@@ -2,16 +2,6 @@
 // All this logic will automatically be available in application.js.
 
 
-// $(".imhere").click(function() {
-//  console.log("ok");
-//  navigator.geolocation.getCurrentPosition(getLocation, errorHandler);
-//  $.ajax({url: "/imhere", type: 'POST', data: 'long=' + userLoc[1] + '&lati=' + userLoc[0], dataType: 'JSON', complete: (function(data) {
-//    let local = data.responseJSON.rendu;
-//    console.log(local);
-//  })
-//  });});
-
-
 callDeux = function() {
   $.ajax({url: '/put_address', type: 'POST', data: 'address=' + $("#address")[0].value + '&long=' + markerTmp._latlng.lng + '&lati=' + markerTmp._latlng.lat + '&nom=' + $("#name")[0].value, dataType: 'JSON', complete: (function(data) {
     let locali = data.responseJSON.put;
@@ -35,16 +25,6 @@ callUn = function() {
     mymap.setView([local.latitude, local.longitude]);
     toggleModal();
     $("#add").hide();
-
-    a = document.createElement("button");
-    $(a).addClass("add-position");
-    b = document.createElement("i");
-    $(b).appendTo($(a));
-    $(b).addClass("fa");
-    $(b).addClass("fa-location-arrow")
-    $(a).prependTo($('body'));
-    $(a).css({display: "block", zIndex: "20000", marginTop: "100px"});
-
 
     a = document.createElement("div");
     $(a).addClass("add_delete_div");
@@ -91,9 +71,4 @@ $("#add").click(function () {
     return (0);
   }
   callUn();
-
 });
-
-=======
-});
->>>>>>> 0a5a1dc037353604d03eeffdcda7416bbc8928fb
