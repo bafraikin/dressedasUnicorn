@@ -5,8 +5,9 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <link href='http://fonts.googleapis.com/css?family=Lato:200,700' rel='stylesheet' type='text/css'>
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag "application", "data-turbolinks-track" => "reload" %>
     <%= favicon_link_tag asset_path('logo.png'), :rel => 'icon', :type =>  'image/png' %>
@@ -16,7 +17,15 @@
   <body>
 
     <%= yield %>
-
+<% if notice %>
+		<div id="notice_wrapper">
+			<p id="notice"><%= notice %></p>
+		</div>
+	<% elsif alert %>
+		<div id="alert_wrapper">
+			<p id="alert"><%= alert %></p>
+		</div>
+	<%end%>
   <%= render 'layouts/userMenu' %>
   <%= render 'layouts/settingsMenu' %>
   </body>
