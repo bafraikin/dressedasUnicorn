@@ -9,9 +9,11 @@ Rails.application.routes.draw do
   post "/pages/AdminRole", to: "pages#changeAdminRole"
 
   resources :place, only: [:destroy, :update]
+  post "update", to: "pages#edit"
   get "list", to: "pages#list"
   get "created", to: "pages#created"
   get "edit", to: "pages#edit"
+  put "edit", to: "pages#edit"
   get "test", to: "pages#test"
 
   devise_for :users
