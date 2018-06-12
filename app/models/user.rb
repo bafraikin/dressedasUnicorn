@@ -4,7 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :places, foreign_key: 'creator_id'
   has_many :fav_places, foreign_key: 'liker_id'
   has_many :liked_places, through: :fav_places, source: :place
 
