@@ -1,9 +1,9 @@
 <%= render 'layouts/navbar'%>
 
 
-    <button class="tablink" onclick="openPage('Users', this, '#686de0','white','3px solid #474787')" id="defaultOpen">Utilisateurs <i class="fa fa-user"></i></button>
-    <button class="tablink" onclick="openPage('Shops', this, '#6ab04c','white','3px solid #218c74')" >Boutiques <i class="fa fa-flag"></i></i></button>
-    <button class="tablink" onclick="openPage('Admins', this, '#f0932b','white','3px solid #cd6133')">Admins <i class="fa fa-bug"></i></button>
+    <button class="tablink" onclick="openPage('Users', this, '#686de0','white','3px solid #474787')" id="defaultOpen">Utilisateurs <br><i class="fa fa-user"></i></button>
+    <button class="tablink" onclick="openPage('Shops', this, '#6ab04c','white','3px solid #218c74')" >Boutiques <br><i class="fa fa-flag"></i></i></button>
+    <button class="tablink" onclick="openPage('Admins', this, '#f0932b','white','3px solid #cd6133')">Admins<br> <i class="fa fa-bug"></i></button>
 
     <div id="Users" class="tabcontent">
         <%@users.reverse.each do |user|%>
