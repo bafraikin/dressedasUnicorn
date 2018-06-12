@@ -21,6 +21,7 @@ gem 'mail'
 gem 'json'
 gem 'forest_liana'
 gem 'omniauth'
+gem 'omniauth-oauth2'
 gem 'omniauth-facebook'
 gem 'sinatra'
 

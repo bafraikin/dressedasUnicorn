@@ -330,6 +330,7 @@ DEPENDENCIES
   mail
   omniauth
   omniauth-facebook
+  omniauth-oauth2
   pg (= 0.20.0)
   poltergeist
   pry-byebug

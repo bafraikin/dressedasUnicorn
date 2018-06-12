@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   mount ForestLiana::Engine => "/forest"
   devise_scope :user do
-    get "/sign-in" => "devise/sessions#new", :as => :login
+  get "/sign-in" => "devise/sessions#new", :as => :login
   end
   get "admin", to: "pages#admin", as: "admin"
 
@@ -16,8 +16,7 @@ Rails.application.routes.draw do
   get "created", to: "pages#created"
   get "test", to: "pages#test"
 
-  devise_for :users, controllers: {sessions: 'users/sessions'}
-  devise_for :users, contollers: {omniauth_callbacks: 'users/omniauth_callbacks' }
+  devise_for :users, contollers: {omniauth_callbacks: 'users/omniauth_callbacks', sessions: 'users/sessions' }
 
   root to: "map#index"
   post "/", to: "map#explore"
