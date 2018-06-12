@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   post "/find_address", to: "place#find_with_address"
   post "/put_address", to: "place#put_address"
   post "/imhere", to: "place#add_imhere"
+  post "/place/favplaces", to: "place#favplaces"
   #devise_for :users, :controllers => {:omniauth_callbacks => "users/omniauth_callbacks"}
 
   #root to: "home#index"

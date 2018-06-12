@@ -64,6 +64,17 @@ class PlaceController < ApplicationController
     flash[:notice] = "Boutique supprimée !"
   end
 
+  def favplaces
+    placee = Place.find(params[:id])
+    usera = User.find(params[:iduser])
+    unless usera.liked_places.where(id: placee.id) == []
+      FavPlace.where("liker_id == #{usera.id} AND place_id == #{placee.id}")[0].destroy
+    else
+      usera.liked_places << placee 
+    end
+  end
+
+
   private
 
   def place_params
