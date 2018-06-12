@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
 
   has_many :fav_places, foreign_key: 'liker_id'
   has_many :liked_places, through: :fav_places, source: :place
@@ -32,3 +32,4 @@ validates :username, presence: { message: "veuillez entrer votre prénom" }, for
     UserMailer.deleted_user_email(self).deliver
   end
 end
+
