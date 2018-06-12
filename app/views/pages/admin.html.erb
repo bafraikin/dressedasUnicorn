@@ -38,13 +38,13 @@
     </div>
 
     <div id="Shops" class="tabcontent">
-        <%@places.reverse.each_with_index do |shop,index|%>
+        <%@places.reverse.each_with_index do |shop, index|%>
             <div class="wrap-shop-admin">
                 
                 <h3 class="accordion"> <%=shop.name%></h3>
                 <div class="panel" >
                     <p><%=shop.address%></p>
-                    <p>Proposé par : <%= @creators[index] %></p>
+                    <p>Proposé par : <%= @creator[index] %></p>
                     <%= link_to '/place/' + shop.id.to_s,  method: :delete, data: {confirm: 'Tu es sûr.e ?'} do %> <i class="fa fa-trash"></i><%end%></p>
 
                 </div>
