@@ -10,7 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_04_170803) do
+ActiveRecord::Schema.define(version: 2018_06_12_103145) do
+
+  create_table "fav_places", force: :cascade do |t|
+    t.integer "place_id"
+    t.integer "liker_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["liker_id"], name: "index_fav_places_on_liker_id"
+    t.index ["place_id"], name: "index_fav_places_on_place_id"
+  end
+
+  create_table "place_creators", force: :cascade do |t|
+    t.integer "creator_id"
+    t.integer "place_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["creator_id"], name: "index_place_creators_on_creator_id"
+    t.index ["place_id"], name: "index_place_creators_on_place_id"
+  end
 
   create_table "places", force: :cascade do |t|
     t.string "name"
@@ -21,11 +39,10 @@ ActiveRecord::Schema.define(version: 2018_06_04_170803) do
     t.text "description"
     t.integer "map_id"
     t.integer "town_id"
-    t.integer "creator_id"
     t.integer "tag_to_places_count"
+    t.integer "place_creators_count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["creator_id"], name: "index_places_on_creator_id"
     t.index ["map_id"], name: "index_places_on_map_id"
     t.index ["town_id"], name: "index_places_on_town_id"
   end
@@ -59,6 +76,8 @@ ActiveRecord::Schema.define(version: 2018_06_04_170803) do
     t.datetime "last_sign_in_at"
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
+    t.integer "tag_to_places_count"
+    t.integer "place_creators_count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

@@ -15,7 +15,9 @@
 //= require turbolinks
 //= require jquery
 //= require leaflet/dist/leaflet.js
-//
+
+
+
 
 
 //declaration de certaine variable ici pour que la carte se recharge quand on clique sur l'onglet carte.
@@ -129,6 +131,25 @@ let admin = function(id){
 
        
 };
+/* FADE OUT DES ALERTES ET NOTICES */
+$(document).ready(function(){
+    setTimeout(function(){
+        $('#notice_wrapper').fadeOut("Slow",function(){
+            $(this).remove();
+        })
+    }, 3500);
+    
+    });
+    
+    $(document).ready(function(){
+        setTimeout(function(){
+            $('#alert_wrapper').fadeOut("Slow",function(){
+                $(this).remove();
+            })
+        }, 3500);
+        
+        });
+        
 
 
 

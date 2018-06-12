@@ -8,5 +8,9 @@ class Place < ApplicationRecord
   has_many :tag_to_places 
   has_many :tags, through: :tag_to_places
 
-  belongs_to :creator, class_name: "User"
+  has_many :fav_places
+  has_many :likers, through: :fav_places
+
+  has_many :place_creators
+  has_many :creators, through: :place_creators
 end
