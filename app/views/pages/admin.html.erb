@@ -15,7 +15,6 @@
                     <%else%>
                      <%= button_tag 'Non Admin', class:"isntadmin", onclick: "admin(#{user.id})", data: { confirm: "Accorder à #{user.username} le rôle d'administrateur ?" }%>
                      <%end%>
-                    <%= image_tag user.avatar %>
 
                 </h3>
                 <div class="panel" >
