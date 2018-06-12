@@ -26,7 +26,7 @@
   <div id='liste'>
     <%= image_tag("photos/purple(2).jpg", class: "img-bg") %>
     
-    <% current_user.places.reverse_each do |fiche| %>
+    <% current_user.place_createds.reverse_each do |fiche| %>
         <div id="list_show">
           <i class="fa fa-bookmark"></i>
             <h3><%= fiche.name %> </h3>

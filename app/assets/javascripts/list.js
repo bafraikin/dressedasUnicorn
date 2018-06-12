@@ -1,22 +1,23 @@
-// Favoriser une boutique
+// Change the icon-heart color 
 $('i#fav').click(function() {
     if (!favcolor) {
         $(this).css("color", 'rgba(103,8,135,1)');
         favcolor = true;
-        // call ajax fav a entrer BDD
     }
     else {
         $(this).css("color", 'grey');
         favcolor = false;
-        // call ajax sup de la BDD
+
     }
         
 }); 
-
-let tamer = function(id){
+// Favorise a place
+let tamer = function(idplace, userId) {
+    console.log("coucou");
     $.ajax({
         url : '/place/favplaces',
         type : 'POST',
-        data : 'id=' + id
+        datatype: 'JSON',
+        data : 'id=' + idplace + '&iduser=' + userId 
     });
-}
+};

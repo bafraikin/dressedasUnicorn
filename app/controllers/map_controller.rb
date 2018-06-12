@@ -16,7 +16,6 @@ class MapController < ApplicationController
 
   def list
     @places = Place.all
-
   end
 
   def index
