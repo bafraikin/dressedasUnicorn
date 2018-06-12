@@ -2,7 +2,6 @@
 // si l'utilisateur utilise la geolocalisation
 getLocation = (position) => { 
   userLoc = new Array;
-  console.log(userLoc);
   userLoc.push(parseFloat(position.coords.latitude));
   userLoc.push(parseFloat(position.coords.longitude));
   localisable = true;
@@ -27,7 +26,14 @@ $(document).ready(function() {
   $(i).addClass("fa fa-crosshairs");
   $(i).appendTo($(d));
   $(d).appendTo($("div.form-modale"));
-  }
+    $(d).click(function() {
+  navigator.geolocation.getCurrentPosition(getLocation, errorHandler);
+  $.ajax({url: "/imhere", type: 'POST', data: 'long=' + userLoc[1] + '&lati=' + userLoc[0], dataType: 'JSON', complete: (function(data) {
+    let local = data.responseJSON.rendu;
+    $("input#address").val(local);
+  })
+  });});
+  } 
   else {
     alert('Votre navigateur ne prend malheureusement pas en charge la géolocalisation.');
   }

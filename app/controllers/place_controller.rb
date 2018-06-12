@@ -1,5 +1,12 @@
 class PlaceController < ApplicationController
 
+  def add_imhere
+    lat = params[:"lati"]
+    lng = params[:"long"]
+    @a = Geocoder.search([lat,lng])[0].address
+    render json: {rendu: @a}
+  end
+
   def add_geoloc
     lat = params[:"lati"]
     lng = params[:"long"]

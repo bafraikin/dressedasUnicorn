@@ -1,14 +1,14 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 
-$("button.imhere").click(function() {
-	console.log("ok");
-	navigator.geolocation.getCurrentPosition(getLocation, errorHandler);
-	$.ajax({url: "/imhere", type: 'POST', data: 'long=' + userLoc[1] + '&lati=' + userLoc[0], dataType: 'JSON', complete: (function(data) {
-		let local = data.responseJSON.rendu;
-		console.log(local);
-	})
-	});});
+// $(".imhere").click(function() {
+// 	console.log("ok");
+// 	navigator.geolocation.getCurrentPosition(getLocation, errorHandler);
+// 	$.ajax({url: "/imhere", type: 'POST', data: 'long=' + userLoc[1] + '&lati=' + userLoc[0], dataType: 'JSON', complete: (function(data) {
+// 		let local = data.responseJSON.rendu;
+// 		console.log(local);
+// 	})
+// 	});});
 
 
 callDeux = function() {
@@ -68,3 +68,5 @@ $("#add").click(function () {
 	}
 	callUn();
 });
+
+

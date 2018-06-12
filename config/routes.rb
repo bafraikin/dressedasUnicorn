@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   post "/add_place", to: "place#add_geoloc"
   post "/find_address", to: "place#find_with_address"
   post "/put_address", to: "place#put_address"
+  post "/imhere", to: "place#add_imhere"
 
   #root to: "home#index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
