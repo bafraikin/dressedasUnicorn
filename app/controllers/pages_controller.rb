@@ -24,14 +24,12 @@ class PagesController < ApplicationController
 
   def test
   end
-
+#Methode pour le dashboard admin qui récupère users et boutiques
   def admin
     @users = User.all
     @places = Place.all
-    @creator = []
-    @places.each_with_index do |place,index| 
-      @creator[index] = place.creators[0]
-    end
+
+    
   end
 
   def update_user
@@ -52,16 +50,23 @@ class PagesController < ApplicationController
     redirect :back
   end
 
+  #Fonction pour changer le rôle d'un user vers admin ou user normal. Impossible de changer l'admin avec mon adresse mail pour avoir au moins 1 admin
   def changeAdminRole
    user = User.find(params[:id])
     if user.admin == false
-      user.update_attribute :admin, true
+      user.update_attribute :admin, true      
+      flash[:notice] = "Impossible de supprimer cet utilisateur"
+
     else
       if user.email == 'broussolle.paul@gmail.com'
-      puts "Non lol"
+      puts "Impossible de changer le rôle de cet admin"
       else
       user.update_attribute :admin, false
       end
     end
   end
+
+ 
+
+
 end
