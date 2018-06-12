@@ -10,7 +10,8 @@ class CreatePlaces < ActiveRecord::Migration[5.2]
       t.belongs_to :map
       t.belongs_to :town
       t.integer :tag_to_places_count
-      t.belongs_to :creator, index: true
+      t.integer :place_creators_count
+
 
 
 
