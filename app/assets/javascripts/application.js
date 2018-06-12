@@ -15,7 +15,9 @@
 //= require turbolinks
 //= require jquery
 //= require leaflet/dist/leaflet.js
-//
+
+
+
 
 
 //declaration de certaine variable ici pour que la carte se recharge quand on clique sur l'onglet carte.
