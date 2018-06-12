@@ -29,21 +29,58 @@
     color: black;
     display: none;
     padding: 100px 20px;
-    height: 100%;
+    height: 90%;
 }
 /*****************************************/
-/************** SHOP TAB  ****************/
+/************** ACCORDEON  ****************/
 /*****************************************/
-.wrap-shop-admin{
-    width:100%;
-    padding:5px;
-    -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.45);
-    -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.45);
-    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.45);
+
+.accordion {
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    -webkit-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.53);
+    -moz-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.53);
+    box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.53);
 }
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .accordion:hover {
+    background-color: white;
+}
+
+/* Style the accordion panel. Note: hidden by default */
 .panel {
     padding: 0 18px;
-    background-color: white;
+    background-color: rgba(206, 194, 194, 0.247);
     display: none;
     overflow: hidden;
+}
+/*****************************************/
+/************** MISC  ****************/
+/*****************************************/
+.isadmin{
+    float: right;
+    font-size: 12px;
+    top: 3px;
+    color: green;
+    border: 1px solid green;
+    padding: 3px;
+    border-radius: 3px;
+    background-color: white;
+}
+.isntadmin{
+    float: right;
+    font-size: 12px;
+    top: 3px;
+    color: red;
+    border: 1px solid red;
+    padding: 3px;
+    border-radius: 3px;
+    background-color: white;
+
 }
