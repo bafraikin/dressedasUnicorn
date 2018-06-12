@@ -1,7 +1,6 @@
 
 // si l'utilisateur utilise la geolocalisation
-getLocation = (position) => { 
-  userLoc = new Array;
+getLocation = (position) => {
   userLoc.push(parseFloat(position.coords.latitude));
   userLoc.push(parseFloat(position.coords.longitude));
   localisable = true;
@@ -11,7 +10,6 @@ getLocation = (position) => {
   let marker = new L.Marker(place, {icon: myIcon, autoPan: true});
   marker.addTo(mymap);
 }
-
 errorHandler = () => {
   alert('Position non activée, redirection sur Paris');
 }
@@ -20,20 +18,7 @@ errorHandler = () => {
 $(document).ready(function() {
   if(navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(getLocation, errorHandler);
-  d = document.createElement("button");
-  $(d).addClass("imhere");
-  i = document.createElement("i");
-  $(i).addClass("fa fa-crosshairs");
-  $(i).appendTo($(d));
-  $(d).appendTo($("div.form-modale"));
-    $(d).click(function() {
-  navigator.geolocation.getCurrentPosition(getLocation, errorHandler);
-  $.ajax({url: "/imhere", type: 'POST', data: 'long=' + userLoc[1] + '&lati=' + userLoc[0], dataType: 'JSON', complete: (function(data) {
-    let local = data.responseJSON.rendu;
-    $("input#address").val(local);
-  })
-  });});
-  } 
+  }
   else {
     alert('Votre navigateur ne prend malheureusement pas en charge la géolocalisation.');
   }

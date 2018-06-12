@@ -2,71 +2,70 @@
 // All this logic will automatically be available in application.js.
 
 // $(".imhere").click(function() {
-// 	console.log("ok");
-// 	navigator.geolocation.getCurrentPosition(getLocation, errorHandler);
-// 	$.ajax({url: "/imhere", type: 'POST', data: 'long=' + userLoc[1] + '&lati=' + userLoc[0], dataType: 'JSON', complete: (function(data) {
-// 		let local = data.responseJSON.rendu;
-// 		console.log(local);
-// 	})
-// 	});});
+//  console.log("ok");
+//  navigator.geolocation.getCurrentPosition(getLocation, errorHandler);
+//  $.ajax({url: "/imhere", type: 'POST', data: 'long=' + userLoc[1] + '&lati=' + userLoc[0], dataType: 'JSON', complete: (function(data) {
+//    let local = data.responseJSON.rendu;
+//    console.log(local);
+//  })
+//  });});
 
 
 callDeux = function() {
-	$.ajax({url: '/put_address', type: 'POST', data: 'address=' + $("#address")[0].value + '&long=' + markerTmp._latlng.lng + '&lati=' + markerTmp._latlng.lat + '&nom=' + $("#name")[0].value, dataType: 'JSON', complete: (function(data) {
-		let locali = data.responseJSON.put;
-		let newAdd = new L.latLng(locali.latitude, locali.longitude);
-		let myIcon = new L.icon({ iconUrl: "<%= asset_path("pin-mark.png") %>", iconSize: [50, 50]});
-		let marker = new L.Marker(newAdd, {icon: myIcon, autoPan: true});
-		marker.addTo(mymap);
-		markerTmp.remove();
-		$(a).remove();
-		$("#add").show();
-	})});
+  $.ajax({url: '/put_address', type: 'POST', data: 'address=' + $("#address")[0].value + '&long=' + markerTmp._latlng.lng + '&lati=' + markerTmp._latlng.lat + '&nom=' + $("#name")[0].value, dataType: 'JSON', complete: (function(data) {
+    let locali = data.responseJSON.put;
+    let newAdd = new L.latLng(locali.latitude, locali.longitude);
+    let myIcon = new L.icon({ iconUrl: "<%= asset_path("pin-mark.png") %>", iconSize: [50, 50]});
+    let marker = new L.Marker(newAdd, {icon: myIcon, autoPan: true});
+    marker.addTo(mymap);
+    markerTmp.remove();
+    $(a).remove();
+    $("#add").show();
+  })});
 }
 
 callUn = function() {
-	$.ajax({url: "/find_address", type: 'POST', data: 'address=' + $("#address")[0].value, dataType: 'JSON', complete: (function(data) {
-		let local = data.responseJSON.rendu;
-		let place = new L.latLng(local.latitude, local.longitude );
-		let temp = new L.icon({ iconUrl: "<%= asset_path("target.png") %>", iconSize: [50, 50]});
-		markerTmp = new L.Marker(place, {icon: temp, autoPan: true, draggable: true});
-		markerTmp.addTo(mymap);
-		mymap.setView([local.latitude, local.longitude]);
-		toggleModal();
-		$("#add").hide();
-		a = document.createElement("button");
-		$(a).addClass("add-position");
-		b = document.createElement("i");
-		$(b).appendTo($(a));
-		$(b).addClass("fa");
-		$(b).addClass("fa-location-arrow")
-		$(a).prependTo($('body'));
-		$(a).css({display: "block", zIndex: "20000", marginTop: "100px"});
-		$(a).click(function() { 
-			callDeux(); 
-		});
-	})
-	});
+  $.ajax({url: "/find_address", type: 'POST', data: 'address=' + $("#address")[0].value, dataType: 'JSON', complete: (function(data) {
+    let local = data.responseJSON.rendu;
+    let place = new L.latLng(local.latitude, local.longitude );
+    let temp = new L.icon({ iconUrl: "<%= asset_path("target.png") %>", iconSize: [50, 50]});
+    markerTmp = new L.Marker(place, {icon: temp, autoPan: true, draggable: true});
+    markerTmp.addTo(mymap);
+    mymap.setView([local.latitude, local.longitude]);
+    toggleModal();
+    $("#add").hide();
+    a = document.createElement("button");
+    $(a).addClass("add-position");
+    b = document.createElement("i");
+    $(b).appendTo($(a));
+    $(b).addClass("fa");
+    $(b).addClass("fa-location-arrow")
+    $(a).prependTo($('body'));
+    $(a).css({display: "block", zIndex: "20000", marginTop: "100px"});
+    $(a).click(function() { 
+      callDeux(); 
+    });
+  })
+  });
 }
 
 $(".EN ATTENTE").click(function() {
-	center = mymap.getCenter();
-	$.ajax({url: "/add_place", type: 'POST', data: 'lati=' + center.lat + "&long=" + center.lng, dataType: 'JSON', body: 'rendu', complete: (function(data) {
-		let local = data.responseJSON.rendu
-		let place = new L.latLng(local.latitude, local.longitude );
-		let myIcon = new L.icon({ iconUrl: "<%= asset_path("pin-mark.png") %>", iconSize: [45, 50]});
-		let marker = new L.Marker(place, {icon: myIcon, autoPan: true});
-		marker.addTo(mymap);
-	})
-	});});
+  center = mymap.getCenter();
+  $.ajax({url: "/add_place", type: 'POST', data: 'lati=' + center.lat + "&long=" + center.lng, dataType: 'JSON', body: 'rendu', complete: (function(data) {
+    let local = data.responseJSON.rendu
+    let place = new L.latLng(local.latitude, local.longitude );
+    let myIcon = new L.icon({ iconUrl: "<%= asset_path("pin-mark.png") %>", iconSize: [45, 50]});
+    let marker = new L.Marker(place, {icon: myIcon, autoPan: true});
+    marker.addTo(mymap);
+  })
+  });});
 
 
 $("#add").click(function () {
-	if($("#address")[0].value === "" ) {
-		alert("champs address vide");
-		return (0);
-	}
-	callUn();
+  if($("#address")[0].value === "" ) {
+    alert("champs address vide");
+    return (0);
+  }
+  callUn();
 });
-
 
