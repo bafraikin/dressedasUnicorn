@@ -42,6 +42,18 @@ let toggleModal = function() {
     $(x).slideToggle(400);  
   }
 }
+
+// Sidenav des boutiques
+function openViewShop() {
+    document.getElementById("viewshop").style.width = "250px";
+    document.getElementById("index").style.marginRight = "250px";
+}
+
+function closeViewShop() {
+    document.getElementById("viewshop").style.width = "0";
+    document.getElementById("index").style.marginRight = "0";
+}
+
 // Affichage du menu User, qui se cache si on ouvre le menu settings
 function toggleUserMenu() {
   var z = document.getElementById("menu-user");

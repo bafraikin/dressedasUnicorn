@@ -10,11 +10,20 @@ class PagesController < ApplicationController
           ## render :file => File.join(Rails.root, 'public/404'), :formats => [:html], :status => 404, :layout => false
         end
       end
+
   def created
   end
 
   def list
     @places = Place.all
+    @creators = []
+    @ids = []
+    @places.each_with_index do |place, index|
+      @creators[index] = place.creators[0].username
+    end
+    current_user.liked_places.each_with_index do |like,index |
+      @ids[index] = like.id
+    end
   end
 
   def test
@@ -23,6 +32,10 @@ class PagesController < ApplicationController
   def admin
     @users = User.all
     @places = Place.all
+    @creator = []
+    @places.each_with_index do |place,index| 
+      @creator[index] = place.creators[0].username
+    end
   end
 
   def update_user
@@ -41,7 +54,6 @@ class PagesController < ApplicationController
   def destroy
     User.find(params[:id]).destroy
     redirect :back
-
   end
 
   def changeAdminRole
@@ -55,7 +67,5 @@ class PagesController < ApplicationController
       user.update_attribute :admin, false
       end
     end
-
   end
-
 end

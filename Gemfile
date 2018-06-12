@@ -20,7 +20,9 @@ gem 'jbuilder'
 gem 'mail'
 gem 'json'
 gem 'forest_liana'
-
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem "aws-sdk-s3", require: false
 
 gem 'font-awesome-rails'
 

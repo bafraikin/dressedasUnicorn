@@ -14,7 +14,6 @@ Rails.application.routes.draw do
   get "edit", to: "pages#edit"
   get "test", to: "pages#test"
 
-
   devise_for :users
   root to: "map#index"
   post "/", to: "map#explore"
@@ -22,6 +21,8 @@ Rails.application.routes.draw do
   post "/find_address", to: "place#find_with_address"
   post "/put_address", to: "place#put_address"
   post "/imhere", to: "place#add_imhere"
+  post "/place/favplaces", to: "place#favplaces"
+  #devise_for :users, :controllers => {:omniauth_callbacks => "users/omniauth_callbacks"}
 
   #root to: "home#index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

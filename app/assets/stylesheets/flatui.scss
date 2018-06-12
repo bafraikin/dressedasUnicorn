@@ -318,6 +318,54 @@ text-shadow: 0 1px 1px rgba(0,0,0,.3);border-radius: .5em;box-shadow: 0 1px 2px 
      }  
   }
 
+/****** VIEWSHOP *****/
+
+#modal-view-shop{
+    position: fixed;
+    background-color: white;
+    border-radius: 10px;
+    margin-top: 150px;
+    margin-left: 4px;
+    max-width: 100%;
+    min-width: 98%;
+    z-index: 5;
+    -webkit-box-shadow: 6px 7px 5px 0px rgba(0,0,0,0.36);
+    -moz-box-shadow: 6px 7px 5px 0px rgba(0,0,0,0.36);
+    box-shadow: 6px 7px 5px 0px rgba(0,0,0,0.36);
+    color:rgba(47, 18, 76, 0.9);
+    display: block;
+    padding-top: 30px;
+    text-align: center;
+    height:auto;
+    .close-view-shop{
+        top: -20px!important;
+        
+    }
+    
+}
+
+    textarea{
+        height: 60px;
+        border: none;
+        border-width:1px;  
+        border-bottom-style:ridge;
+        border-color: $main-color;
+        width:80%;
+        margin-bottom: 20px;
+        line-height: 4;
+    }
+
+@media screen and (min-width: 801px) {
+    #modal-view-shop { 
+        min-width:800px!important;
+        margin-left: 20%;
+        margin-top: 17%;
+        height: auto;
+     }  
+  }
+
+
+
 /****** MENU DEROULANT USER ******/
 .user-menu
 {
