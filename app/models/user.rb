@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
 
   has_many :places, foreign_key: "creator_id"
 # Ces méthodes envoient un mail à l'admin lorsqu'un utilisateur a été créé
@@ -28,3 +28,4 @@ validates :username, presence: { message: "veuillez entrer votre prénom" }, for
     UserMailer.deleted_user_email(self).deliver
   end
 end
+

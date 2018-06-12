@@ -40,6 +40,8 @@ let toggleModal = function() {
       $(x).slideToggle(400);  
     }
 }
+
+
 // Affichage du menu User, qui se cache si on ouvre le menu settings
 function toggleUserMenu() {
     var z = document.getElementById("menu-user");
