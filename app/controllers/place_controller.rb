@@ -69,7 +69,11 @@ end
       flash[:notice] = "Boutique supprimée !"
   end
 
-  
+  def favplaces
+    user = User.find(params[:id])
+     if user.places == true
+     else
+  end 
 
 
 private

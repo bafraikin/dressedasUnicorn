@@ -30,8 +30,8 @@ ActiveRecord::Schema.define(version: 2018_06_11_114814) do
     t.text "description"
     t.integer "map_id"
     t.integer "town_id"
-    t.integer "tag_to_places_count"
     t.integer "creator_id"
+    t.integer "tag_to_places_count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["creator_id"], name: "index_places_on_creator_id"
@@ -68,6 +68,9 @@ ActiveRecord::Schema.define(version: 2018_06_11_114814) do
     t.datetime "last_sign_in_at"
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
+    t.string "facebook_id"
+    t.string "provider"
+    t.string "uid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
