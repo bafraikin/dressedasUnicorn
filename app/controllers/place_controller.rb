@@ -52,7 +52,7 @@ class PlaceController < ApplicationController
       else redirect_to place_path(@place)
         flash[:error] = "La boutique n''a pas été mise à jour ! "
       end
-end
+    end
 
 
   def destroy
