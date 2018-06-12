@@ -16,9 +16,16 @@
                     <%end%>
                 </h3>
                 <div class="panel" >
-                    <p><%=user.email%></p>
-                    <p><u>Création :</u> <%=user.created_at%>
-                    <p><u>Dernière connexion :</u> <%=user.last_sign_in_at%>
+                    <p><u>E-mail : </u><%=user.email%></p>
+                    <p><u>Création :</u> <%=user.created_at%></p>
+                    <p><u>Dernière connexion :</u> <%=user.last_sign_in_at%></p>
+                    <br>
+                    <br>
+                    <% if user.try(:admin?) %>
+                    <a>Admin <i class="fa fa-minus-circle"></i></span>
+                    <%else%>
+                     <%= link_to '/pages/' + user.id.to_s , method: :delete, data: { confirm: "Supprimer le profil ? Action irréversible !" } do%>Supprimer : <i class="fa fa-trash"></i> <%end%>
+                     <%end%>
                 </div>
                 
             </div>
@@ -51,7 +58,6 @@
                 <h3 class="accordion"> <%=user.username.capitalize%></h3>
                 <div class="panel" >
                     <p><%=user.email%></p>
-                    <button>X Admin</button>
                 </div>
                 
             </div>
