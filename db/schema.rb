@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_04_170803) do
+ActiveRecord::Schema.define(version: 2018_06_11_114814) do
+
+  create_table "fav_places", force: :cascade do |t|
+    t.integer "place_id"
+    t.integer "liker_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["liker_id"], name: "index_fav_places_on_liker_id"
+    t.index ["place_id"], name: "index_fav_places_on_place_id"
+  end
 
   create_table "places", force: :cascade do |t|
     t.string "name"
@@ -21,8 +30,8 @@ ActiveRecord::Schema.define(version: 2018_06_04_170803) do
     t.text "description"
     t.integer "map_id"
     t.integer "town_id"
-    t.integer "creator_id"
     t.integer "tag_to_places_count"
+    t.integer "creator_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["creator_id"], name: "index_places_on_creator_id"
