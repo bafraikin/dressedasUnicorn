@@ -1,23 +1,50 @@
 <%= render 'layouts/navbar'%>
 
-
-    <button class="tablink" onclick="openPage('Users', this, '#686de0','white','3px solid #474787')" id="defaultOpen">Utilisateurs <i class="fa fa-user"></i></button>
-    <button class="tablink" onclick="openPage('Shops', this, '#6ab04c','white','3px solid #218c74')" >Boutiques <i class="fa fa-flag"></i></i></button>
-    <button class="tablink" onclick="openPage('Admins', this, '#f0932b','white','3px solid #cd6133')">Admins <i class="fa fa-bug"></i></button>
+<div class="wrap-admin">
+    <button class="tablink" onclick="openPage('Users', this, '#686de0','white','3px solid #474787')" id="defaultOpen">Utilisateurs <br><i class="fa fa-user"></i></button>
+    <button class="tablink" onclick="openPage('Shops', this, '#6ab04c','white','3px solid #218c74')" >Boutiques <br><i class="fa fa-flag"></i></i></button>
+    <button class="tablink" onclick="openPage('Admins', this, '#f0932b','white','3px solid #cd6133')">Admins<br> <i class="fa fa-bug"></i></button>
 
     <div id="Users" class="tabcontent">
-        <h3>Users</h3>
-        <p>Home is where the heart is..</p>
+        <%@users.reverse.each do |user|%>
+            <div class="wrap-shop-admin">
+                <h3 class="accordion"> <%=user.username.capitalize%> 
+                    <% if user.try(:admin?) %>
+                     <%= button_tag 'Admin', class:"isadmin", onclick: "admin(#{user.id})", data: { confirm: "Retirer à #{user.username} le rôle d'administrateur ?" }%>
+                    <%else%>
+                     <%= button_tag 'Non Admin', class:"isntadmin", onclick: "admin(#{user.id})", data: { confirm: "Accorder à #{user.username} le rôle d'administrateur ?" }%>
+                     <%end%>
+                </h3>
+                <div class="panel" >
+                    <p><u>E-mail : </u><%=user.email%></p>
+                    <p><u>Création :</u> <%=user.created_at%></p>
+                    <p><u>Dernière connexion :</u> <%=user.last_sign_in_at%></p>
+                    <br>
+                    <br>
+                    <% if user.try(:admin?) %>
+                        <a>Admin <i class="fa fa-minus-circle"></i></a>
+                    <%else%>
+                        <%= link_to '/pages/' + user.id.to_s , method: :delete, data: { confirm: "Supprimer le profil ? Action irréversible !" } do%><i class="fa fa-trash"></i> <%end%>
+                     
+                     <%end%>
+                </div>
+                
+            </div>
+            <hr>
+        <% end %>
+        
     </div>
 
     <div id="Shops" class="tabcontent">
         <%@places.reverse.each do |shop|%>
             <div class="wrap-shop-admin">
                 
-                <h3 class="admin-item-name"> <%=shop.name%></h3>
-                <div class="admin-item-hide" >
+                <h3 class="accordion"> <%=shop.name%></h3>
+                <div class="panel" >
                     <p><%=shop.address%></p>
                     <p>Proposé par : <%= shop.creator.username %></p>
+                    <%= link_to '/place/' + shop.id.to_s,  method: :delete, data: {confirm: 'Tu es sûr.e ?'} do %> <i class="fa fa-trash"></i><%end%></p>
+
                 </div>
                 
             </div>
@@ -26,13 +53,41 @@
     </div>
 
     <div id="Admins" class="tabcontent">
-        <h3>Admins</h3>
-        <p>Get in touch, or swing by for a cup of coffee.</p>
-    </div>
 
+        <%@users.each do |user|%>
+        <% if user.try(:admin?) %>
+
+            <div class="wrap-shop-admin">
+                <h3 class="accordion"> <%=user.username.capitalize%></h3>
+                <div class="panel" >
+                    <p><%=user.email%></p>
+                </div>
+                
+            </div>
+            <hr>
+        <%end%>
+        <% end %>
+    </div>
+</div>
 
 <script>
 
 document.getElementById("defaultOpen").click();
+
+var acc = document.getElementsByClassName("accordion");
+var i;
+for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+            panel.style.display = "none";
+        } else {
+            panel.style.display = "block";
+        }
+    });
+};
+
+
 
 </script>
