@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require jquery
 //= require leaflet/dist/leaflet.js
+//= require activestorage
 
 
 

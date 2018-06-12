@@ -1,7 +1,14 @@
 <!-- COMMUNAUTE -->
 <div class="user-menu" id="settings-user" style="display:none" >
 <%= render 'layouts/closecross'%>
-        <%=image_tag("photos/purple(1).jpg", class: "profile-pic")%>   
+         <% if user_signed_in? && current_user.avatar.attached? %>
+  
+            <%= image_tag current_user.avatar, :style => "width:60%" %></div>
+ 
+        <% else %> 
+            <%=image_tag("photos/purple(1).jpg", class: "profile-pic")%> 
+        <%end%>
+
     <% if user_signed_in? %>
       <h2 style = "text-align:center"><i>Salut <%= current_user.username.capitalize%> !</i></h2>
       <%else%>

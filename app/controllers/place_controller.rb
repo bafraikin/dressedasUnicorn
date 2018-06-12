@@ -76,7 +76,7 @@ private
 
     def place_params
       params.require(:place).permit(:name, :longitude, :latitude, :address, :average_price, :description, :map, :town, :creator,
-:tag_to_places_count)
+      :tag_to_places_count)
     end
 
 
