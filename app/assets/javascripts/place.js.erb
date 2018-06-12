@@ -1,6 +1,7 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 
+
 // $(".imhere").click(function() {
 //  console.log("ok");
 //  navigator.geolocation.getCurrentPosition(getLocation, errorHandler);
@@ -34,6 +35,7 @@ callUn = function() {
     mymap.setView([local.latitude, local.longitude]);
     toggleModal();
     $("#add").hide();
+
     a = document.createElement("button");
     $(a).addClass("add-position");
     b = document.createElement("i");
@@ -42,7 +44,29 @@ callUn = function() {
     $(b).addClass("fa-location-arrow")
     $(a).prependTo($('body'));
     $(a).css({display: "block", zIndex: "20000", marginTop: "100px"});
-    $(a).click(function() { 
+
+
+    a = document.createElement("div");
+    $(a).addClass("add_delete_div");
+    b = document.createElement("button");
+    $(b).addClass("validate-position");
+    c = document.createElement("button");
+    $(c).addClass("cancel-position");
+
+    $(a).prependTo($('body'));
+    $(b).appendTo($(a));
+    $(b).html("Ajouter");
+    $(c).appendTo($(a));
+    $(c).html("Annuler");
+
+   $(c).click(function() {
+      $(a).remove();
+      $("#add").show();
+    markerTmp.remove();
+      return(0);
+    });
+
+    $(b).click(function() { 
       callDeux(); 
     });
   })
@@ -67,5 +91,9 @@ $("#add").click(function () {
     return (0);
   }
   callUn();
+
 });
 
+=======
+});
+>>>>>>> 0a5a1dc037353604d03eeffdcda7416bbc8928fb
