@@ -24,7 +24,6 @@ class PagesController < ApplicationController
     @users = User.all
     @places = Place.all
     
-    end
   end
 
   def update_user
