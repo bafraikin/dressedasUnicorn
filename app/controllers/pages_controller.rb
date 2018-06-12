@@ -23,9 +23,7 @@ class PagesController < ApplicationController
   def admin
     @users = User.all
     @places = Place.all
-    @creator = []
-    @places.each_with_index do |place,index| 
-      @creator[index] = place.creators[0].username
+    
     end
   end
 
