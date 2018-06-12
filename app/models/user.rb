@@ -6,13 +6,15 @@ class User < ApplicationRecord
 
   has_many :fav_places, foreign_key: 'liker_id'
   has_many :liked_places, through: :fav_places, source: :place
+  has_many :place_creators, foreign_key: 'creator_id'
+  has_many :place_createds, through: :place_creators, source: :place
 
 # Cette méthode envoie un mail à l'admin lorsqu'un utilisateur a été créé
   
   after_create :new_user_created_mail
       after_destroy :user_deleted_mail
 
-  
+
 
 
 validates :username, presence: { message: "veuillez entrer votre prénom" }, format: { without: /\s/, message: "ton prénom ne peut pas contenir d'espace" }, uniqueness: { message: "ce pseudo est déjà pris" }
