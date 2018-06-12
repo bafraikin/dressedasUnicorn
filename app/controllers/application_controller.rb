@@ -4,9 +4,6 @@ class ApplicationController < ActionController::Base
 
   def sanitize_devise_params
     devise_parameter_sanitizer.permit(:sign_up, keys: [:username])
-    devise_parameter_sanitizer.permit(:sign_in) do |user_params|
-      user_params.permit(:username, :email, :avatar)
-    end
   end
 
   cache = ActiveSupport::Cache::MemoryStore.new

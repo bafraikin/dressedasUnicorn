@@ -21,11 +21,7 @@ class User < ApplicationRecord
 validates :username, presence: { message: "veuillez entrer votre prénom" }, format: { without: /\s/, message: "ton prénom ne peut pas contenir d'espace" }, uniqueness: { message: "ce pseudo est déjà pris" }
 validates :avatar, presence: { message: "Veuillez ajouter un avatar" }
 
-=begin
-  validates :email, presence: { message: "veuillez entrer votre adresse email" }
-  validates :email, uniqueness: { message: "cette adresse est déjà prise" }
-  validates :password, presence: { message: "veuillez entre votre mot de passe" }
-=end 
+
 
   def new_user_created_mail
     UserMailer.new_user_email(self).deliver
