@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   end
   get "admin", to: "pages#admin", as: "admin"
 
-  resources :place, only: [:destroy]
+  resources :place, only: [:destroy, :update]
   get "list", to: "pages#list"
   get "created", to: "pages#created"
   get "edit", to: "pages#edit"
