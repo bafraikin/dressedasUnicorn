@@ -10,15 +10,13 @@ $('i#fav').click(function() {
         favcolor = false;
         // call ajax sup de la BDD
     }
+        
 }); 
 
-     // CALL AJAX POUR MODIFIER BDD
-$('i#fav').click(function() {
+let tamer = function(id){
     $.ajax({
-       url : '/place/favplaces',
-       type : 'POST',
-       dataType : '??',
-       
+        url : '/place/favplaces',
+        type : 'POST',
+        data : 'id=' + id
     });
-   
-});
+}

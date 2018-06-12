@@ -70,10 +70,14 @@ end
   end
 
   def favplaces
-    user = User.find(params[:id])
-     if user.places == true
-     else
-  end 
+    place = Place.find(params[:id])
+    if current_user.liked_places.where(id: params[:id]) != []
+      current_user.liked_places << place 
+    else
+      FavPlace.all.where("liker_id == #{current_user.id} AND place_id == #{params[:id]}")
+    end
+  
+  end
 
 
 private

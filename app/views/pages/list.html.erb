@@ -7,7 +7,7 @@
     <%= image_tag("photos/purple(2).jpg", class: "img-bg") %>
 <%@places.reverse.each do |fact|%>
   <div id="list_show">
-        <i class="fa fa-heart" id="fav"></i>
+        <i class="fa fa-heart" id="fav" onclick="tamer(#{fact.id})"></i>
         <h3><%=fact.name%></h3>
         <hr>
         <p class="shop_body"><%= fact.description %></p>
