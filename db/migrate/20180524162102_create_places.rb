@@ -11,10 +11,6 @@ class CreatePlaces < ActiveRecord::Migration[5.2]
       t.belongs_to :town
       t.integer :tag_to_places_count
       t.integer :place_creators_count
-
-
-
-
       t.timestamps
     end
   end

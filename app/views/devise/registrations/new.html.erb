@@ -8,8 +8,12 @@
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= devise_error_messages! %>
-
-
+      <!--
+        <div class="field">
+          <%= f.label :avatar %>
+          <%= f.file_field :avatar %>
+        </div> 
+      -->
     <div class="field">
        <%= f.label :username, "Nom d'utilisateur" %><br />
        <%= f.text_field :username, autofocus: true, autocomplete: "Nom", placeholder: "Votre nom", id: "text-field" %>    
