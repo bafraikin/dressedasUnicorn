@@ -20,7 +20,7 @@ callUn = function() {
     let local = data.responseJSON.rendu;
     let place = new L.latLng(local.latitude, local.longitude );
     let temp = new L.icon({ iconUrl: "<%= asset_path("target.png") %>", iconSize: [50, 50]});
-    markerTmp = new L.Marker(place, {icon: temp, autoPan: true, draggable: true});
+    markerTmp = new L.Marker(place, {icon: temp, autoPan: true});
     markerTmp.addTo(mymap);
     mymap.setView([local.latitude, local.longitude]);
     toggleModal();
@@ -63,7 +63,6 @@ $(".EN ATTENTE").click(function() {
     marker.addTo(mymap);
   })
   });});
-
 
 $("#add").click(function () {
   if($("#address")[0].value === "" ) {
