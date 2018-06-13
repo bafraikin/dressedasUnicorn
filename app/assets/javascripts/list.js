@@ -16,10 +16,3 @@ $('i#fav').click(function() {
     $(this).css("color", 'grey');
   }
 });
-
-// Ajouter un tag
-$('input#tag').click(function() {
-  });
-
-let tagit
-  
