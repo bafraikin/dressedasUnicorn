@@ -21,19 +21,17 @@
             <div class="control-group">
                   <label class="control control-checkbox">
                   Femme
-                  <input type="checkbox" checked="checked"/><div class="control_indicator"></div>
+                  <input type="checkbox" checked="checked" id="tag"/><div class="control_indicator"></div>
                   </label>
                   <label class="control control-checkbox">
                   Homme
-                  <input type="checkbox" checked="checked"/><div class="control_indicator"></div>
+                  <input type="checkbox" checked="checked" id="tag"/><div class="control_indicator"></div>
                   </label>
                   <label class="control control-checkbox">
                   Enfants
-                  <input type="checkbox" checked="checked"/><div class="control_indicator"></div>
+                  <input type="checkbox" checked="checked" id="tag"/><div class="control_indicator"></div>
                   </label>
             </div>
-
-
        </div>
            
           <!--  <input id="checkBox" type="checkbox">
@@ -47,6 +45,7 @@
       <%= submit_tag"Ajouter", :class => "add_places", :id => "add", :style => "width:30%;" %>
   </div>
 </div>
+<%= javascript_include_tag 'list' %> 
 <%= javascript_include_tag "place" %>
 <%= render 'layouts/modale'%>
 <!-- FIN DE LA FENETRE MODALE -->
