@@ -13,4 +13,5 @@ class Place < ApplicationRecord
 
   has_many :place_creators
   has_many :creators, through: :place_creators
+
 end

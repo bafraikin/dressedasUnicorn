@@ -10,27 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2018_06_12_103145) do
-
-  create_table "fav_places", force: :cascade do |t|
-    t.integer "place_id"
-    t.integer "liker_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["liker_id"], name: "index_fav_places_on_liker_id"
-    t.index ["place_id"], name: "index_fav_places_on_place_id"
-  end
-
-  create_table "place_creators", force: :cascade do |t|
-    t.integer "creator_id"
-    t.integer "place_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["creator_id"], name: "index_place_creators_on_creator_id"
-    t.index ["place_id"], name: "index_place_creators_on_place_id"
-=======
-ActiveRecord::Schema.define(version: 2018_06_12_142145) do
+ActiveRecord::Schema.define(version: 2018_06_12_164954) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -51,7 +31,24 @@ ActiveRecord::Schema.define(version: 2018_06_12_142145) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
->>>>>>> front
+  end
+
+  create_table "fav_places", force: :cascade do |t|
+    t.integer "place_id"
+    t.integer "liker_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["liker_id"], name: "index_fav_places_on_liker_id"
+    t.index ["place_id"], name: "index_fav_places_on_place_id"
+  end
+
+  create_table "place_creators", force: :cascade do |t|
+    t.integer "creator_id"
+    t.integer "place_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["creator_id"], name: "index_place_creators_on_creator_id"
+    t.index ["place_id"], name: "index_place_creators_on_place_id"
   end
 
   create_table "places", force: :cascade do |t|
