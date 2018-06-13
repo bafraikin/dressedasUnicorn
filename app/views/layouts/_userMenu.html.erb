@@ -6,23 +6,26 @@
         <i class="fa fa-cog"></i>
         <%else%>
         <i class="fa fa-sign-in"></i>
+      <p style = "text-align:center;font-size: 14px;font-style: oblique;">Bienvenue, connecte toi pour commencer !</p>
         <%end%>
 
         </h2>
 
     <br><br> <br>
     <% if user_signed_in? %>
-    <%= link_to created_path do%> MODIFIER MES BOUTIQUES <i class="fa fa-angle-right"></i><%end%> 
+    <%= link_to created_path do%> Modifier mes boutiques <i class="fa fa-angle-right"></i><%end%> 
       <hr class="style13">
-    <%= link_to edit_user_registration_path do%> ÉDITER MON PROFIL <i class="fa fa-angle-right"></i><%end%> 
+    <%= link_to edit_user_registration_path do%> Éditer mon profil <i class="fa fa-angle-right"></i><%end%> 
       <hr class="style13">
+    <%= link_to "" , class: "disabled" do%><i class="fa fa-ban"></i> Changer ma ville  <i class="fa fa-angle-right"></i><%end%> 
+
       
       <br><br> <br><br><br><br> <br><br>
-      <%= link_to('ME DECONNECTER', destroy_user_session_path, method: :delete) %> <i class="fa fa-angle-right"></i>
+      <%= link_to('Déconnexion', destroy_user_session_path, method: :delete) %> <i class="fa fa-angle-right"></i>
     <% else %>
-      <%= link_to('ME CONNECTER', new_user_session_path)  %>  <i class="fa fa-angle-right"></i>
+      <%= link_to('Connexion', new_user_session_path)  %>  <i class="fa fa-angle-right"></i>
         <hr class="style13">
-      <%= link_to new_user_registration_path do%> M'INSCRIRE <i class="fa fa-angle-right"></i> <%end%> 
+      <%= link_to new_user_registration_path do%> Inscription <i class="fa fa-angle-right"></i> <%end%> 
          <hr class="style13">
     <% end %>
 

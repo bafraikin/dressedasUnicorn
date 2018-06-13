@@ -5,6 +5,7 @@ a{
     text-decoration:none;
     color:orange;
     margin-top:3px;
+    font-size:20px;
 }
 .fa-angle-right{
     float: right;
@@ -12,9 +13,18 @@ a{
     margin-left: -8%;
     font-size: 18px!important;
 }
+.disabled{
+    cursor: not-allowed;
+    opacity:0.5;
+}
 /*******************************/
         /* LOADER */
 /*******************************/
+/* COUNTDOWN */
+#demo{
+    text-align: center;
+}
+
 #loader-wrapper {
     position: fixed;
     top: 0;
@@ -452,7 +462,7 @@ input[type=submit] {
 {
     width:100%;
     height:100%;
-    background-color:rgba(47, 18, 76, 0.9);
+    background-color:rgba(47, 18, 76, 0.8);
     z-index:5;
     top:0;
     position: fixed;

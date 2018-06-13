@@ -1,34 +1,28 @@
 <!-- COMMUNAUTE -->
 <div class="user-menu" id="settings-user" style="display:none" >
 <%= render 'layouts/closecross'%>
-<!-- Affichage de l'avatar uniquement si le user à un avatar -->
-         <% if user_signed_in? && current_user.avatar.attached? %>
-  
-            <%= image_tag current_user.avatar, :style => "width:60%" %></div>
- 
-        <% else %> 
-            <%=image_tag("photos/purple(1).jpg", class: "profile-pic")%> 
-        <%end%>
 
-    <% if user_signed_in? %>
-      <h2 style = "text-align:center"><i>Salut <%= current_user.username.capitalize%> !</i></h2>
-      <%else%>
-       <h2><i>Bienvenue</i></h2>
+     <h2 style="text-align:center;font-size:60px; float: none;margin-right:0%;margin-bottom:-10px;">
+        <i class="fa fa-user-circle"></i>
+      </h2>
 
-    <%end%>
-   
+
+      <% if user_signed_in? %>
+      <p style = "text-align:center;font-size: 14px;font-style: oblique;">Salut <%= current_user.username.capitalize%> !</p>
+      
+      <%end%>
+    <br><br> <br>
     
 
-      <%= link_to list_path do%> TOUTES LES BOUTIQUES <i class="fa fa-angle-right"></i><%end%> 
+      <%= link_to list_path do%> Toutes les boutiques <i class="fa fa-angle-right"></i><%end%> 
       <hr class="style13">
-      <%= link_to do%> PLUS A VENIR <%end%> 
-<!-- Loader -->
-      <div id="loader-wrapper">
-          <div id="loader"></div>
-      </div>
+      <%= link_to "" , class: "disabled" do%> <i class="fa fa-ban"></i> Mes amis  <i class="fa fa-angle-right"></i><%end%> 
+      <hr class="style13">
+      <%= link_to "" , class: "disabled" do%><i class="fa fa-ban"></i> Commentaires  <i class="fa fa-angle-right"></i><%end%> 
+      <hr class="style13">
+
 
     
       
       
-    </ul>
   </div>
