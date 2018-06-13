@@ -3,7 +3,7 @@
 
 <%= render 'layouts/navbar'%>
 
-<% if Place.count == 0 %>
+<% if current_user.place_createds.count == 0 %>
   <div class="wrap-list">
     <div id='liste'>
       <%= image_tag("photos/purple(2).jpg", class: "img-bg") %>
