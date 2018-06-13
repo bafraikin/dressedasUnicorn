@@ -1,2 +1,56 @@
 <!-- ceci est une page TEST -->
+
+
+<!-- bouton add -->
+<% if user_signed_in? %>
+  <button class="add" onclick="toggleModal()"><i class="fa fa-plus"></i></button>
+<%end%>
+<!-- DEBUT FENETRE MODALE -->
+<div id="modal-add-shop" style="display:none;">
+<%= render 'layouts/closecross'%>    
+  <div class="form-modale">
+    <h2>Ajouter une boutique</h2>
+    <hr class="style13">
+      Nom de la boutique: </br> <%= text_field_tag(:name, '', placeholder: 'Nom de la boutique') %> <br>
+      <!-- Description de la boutique: <br> <%= text_area_tag(:description, nil, placeholder: 'Description')%> <br> 
+      MISE DE COTE AU CAS OU DE BESOIN D'AJOUT DESCRIPTION
+      -->
+      Adresse de la boutique: </br> <%= text_field_tag(:address, nil, placeholder: "Saisir l\'adresse") %> <br>
+
+      <div> Ajouter des tags <br>
+            <div class="control-group">
+                  <label class="control control-checkbox">
+                  Femme
+                  <input type="checkbox" checked="checked"/><div class="control_indicator"></div>
+                  </label>
+                  <label class="control control-checkbox">
+                  Homme
+                  <input type="checkbox" checked="checked"/><div class="control_indicator"></div>
+                  </label>
+                  <label class="control control-checkbox">
+                  Enfants
+                  <input type="checkbox" checked="checked"/><div class="control_indicator"></div>
+                  </label>
+            </div>
+
+
+       </div>
+           
+          <!--  <input id="checkBox" type="checkbox">
+            <input id="checkBox" type="checkbox">
+            <input id="checkBox" type="checkbox">
+            <input id="checkBox" type="checkbox">
+            <input id="checkBox" type="checkbox">
+            <input id="checkBox" type="checkbox"> -->
+     
+
+      <%= submit_tag"Ajouter", :class => "add_places", :id => "add", :style => "width:30%;" %>
+  </div>
+</div>
+<%= javascript_include_tag "place" %>
+<%= render 'layouts/modale'%>
+<!-- FIN DE LA FENETRE MODALE -->
+      
+
+
       <%= render 'layouts/footer' %>

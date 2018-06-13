@@ -113,13 +113,9 @@ GEM
       railties (>= 3.0.0)
     faker (1.8.7)
       i18n (>= 0.7)
-<<<<<<< HEAD
-    ffi (1.9.25)
-=======
     faraday (0.15.2)
       multipart-post (>= 1.2, < 3)
-    ffi (1.9.23)
->>>>>>> d08b41292cf9b34721e1aba7b133a6bd34023dfe
+    ffi (1.9.25)
     font-awesome-rails (4.7.0.4)
       railties (>= 3.2, < 6.0)
     forest_liana (2.8.0)
