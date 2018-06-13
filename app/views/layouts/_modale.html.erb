@@ -3,13 +3,13 @@
 <div id="modal-add-shop" style="display:none;">
   <%= render 'layouts/closecross'%>    
   <div class="form-modale">
-    <h3>Ajouter une boutique</h3>
+    <h2 align="center" >Ajouter une boutique</h2>
     <hr class="style13">
      <!-- Nom de la boutique: </br>--> <%= text_field_tag(:name, '', placeholder: 'Nom de la boutique') %> <br>
     <!-- Description de la boutique: <br> <%= text_area_tag(:description, nil, placeholder: 'Description')%> <br> 
       MISE DE COTE AU CAS OU DE BESOIN D'AJOUT DESCRIPTION
     -->
-    <!-- Adresse de la boutique:  </br>--> <%= text_field_tag(:address, nil, placeholder: "Saisir l\'adresse") %> <br>
+    <!-- Adresse de la boutique:  </br>--> <%= text_field_tag(:address, nil, placeholder: "Saisir l\'adresse de la boutique") %> <br>
       <div class="control-group">
         <%  @tagi.each do |cat| %>
           <label class="control control-checkbox">
@@ -19,7 +19,10 @@
         <% end %>
       </div>
     </div>
-    <%= submit_tag"Ajouter", :class => "add_places", :id => "add", :style => "width:30%;" %>
+    <br>
+      <div class="ici">
+      <%= submit_tag"Ajouter", :class => "add_places", :id => "add", :style => "width:30%;" %>
+      </div>
   </div>
 
 </div>
