@@ -1,7 +1,8 @@
 <div class="navbar" id="navbar">
-  <li><a onclick="toggleSettingsMenu()">COMMUNAUTÉ <i class="fa fa-user"></i></a>
+ <% if user_signed_in? %>
+  <li><a onclick="toggleSettingsMenu()">COMMUNAUTÉ <i class="fa fa-users"></i></a>
+<%end%>
   <li><a href="<%=root_path%>">CARTE <i class="fa fa-map"></i></a>
-  <!-- <li><a href="<%=list_path%>">LISTE <i class="fa fa-list"></i></a> -->
   <% if user_signed_in? %>
     <li><a href="<%=created_path%>">MES BOUTIQUES <i class="fa fa-list"></i></a> 
   <%end%>
@@ -16,13 +17,16 @@
 </div>
 
 <div class="navbar-mobile" id="navbar">
-  <li><a onclick="toggleSettingsMenu()"><i class="fa fa-user"></i></a>
   <li><a href="/"><i class="fa fa-map"></i></a>
- <!-- <li><a href="<%=list_path%>"><i class="fa fa-list"></i></a> -->
+  <li><a href="<%=created_path%>"><i class="fa fa-list"></i></a>
   <% if user_signed_in? %>
-   <li><a href="<%=created_path%>"><i class="fa fa-list"></i></a>
+    <li><a onclick="toggleSettingsMenu()"><i class="fa fa-users"></i></a>
   <%end%>
-  <li><a onclick="toggleUserMenu()"><i class="fa fa-cog"></i></a>
+  <% if user_signed_in? %>
+    <li><a onclick="toggleUserMenu()"><i class="fa fa-cog"></i></a>
+    <%else%>
+    <li><a onclick="toggleUserMenu()"><i class="fa fa-sign-in"></i></a>
+  <%end%>
   <% if current_user.try(:admin?) %>
     <li><a href="<%= admin_path%>"><i class="fa fa-bug"></i></a>
   <%end%>

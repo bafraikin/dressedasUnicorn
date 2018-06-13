@@ -15,9 +15,7 @@
 //= require turbolinks
 //= require jquery
 //= require leaflet/dist/leaflet.js
-
-
-
+//= require activestorage
 
 
 //declaration de certaine variable ici pour que la carte se recharge quand on clique sur l'onglet carte.
@@ -45,13 +43,13 @@ let toggleModal = function() {
 
 // Sidenav des boutiques
 function openViewShop() {
-    document.getElementById("viewshop").style.width = "250px";
-    document.getElementById("index").style.marginRight = "250px";
+  document.getElementById("viewshop").style.width = "250px";
+  document.getElementById("index").style.marginRight = "250px";
 }
 
 function closeViewShop() {
-    document.getElementById("viewshop").style.width = "0";
-    document.getElementById("index").style.marginRight = "0";
+  document.getElementById("viewshop").style.width = "0";
+  document.getElementById("index").style.marginRight = "0";
 }
 
 // Affichage du menu User, qui se cache si on ouvre le menu settings
@@ -129,7 +127,6 @@ function openPage(pageName,elmnt,color,font,border) {
 
 }
 
-
 // Fonction pour changer le rôle d'un USER vers Admin et inverse
 let admin = function(id){
   $.ajax({
@@ -140,9 +137,8 @@ let admin = function(id){
 
   });
   location.reload();
-
-
 };
+
 /* FADE OUT DES ALERTES ET NOTICES */
 $(document).ready(function(){
   setTimeout(function(){
@@ -150,7 +146,6 @@ $(document).ready(function(){
       $(this).remove();
     })
   }, 3500);
-
 });
 
 $(document).ready(function(){
@@ -159,6 +154,4 @@ $(document).ready(function(){
       $(this).remove();
     })
   }, 3500);
-
 });
-

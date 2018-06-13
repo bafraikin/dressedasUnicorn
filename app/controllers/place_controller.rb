@@ -30,32 +30,17 @@ class PlaceController < ApplicationController
     render json: {put: @a}
   end
 
-  def new
-    @place = Place.new
-  end
 
-  def created
-    @place = Place.new(place_params)
-    @place.save
-  end
-
-  def show
-    @place = Place.find(params[:id])
-  end
-
-
-  def edit
-    @place = Place.find(params[:id])
-  end
 
   def update
-    @place = Place.find(params[:id])
-    if @place.update(place_params)
-      redirect_to place_path(@place)
-    else redirect_to place_path(@place)
-      flash[:error] = "La boutique n''a pas été mise à jour ! "
-    end
-  end
+   @place = Place.find(params[:id])
+      if @place.update(place_params)
+        redirect_to place_path(@place)
+      else redirect_to place_path(@place)
+        flash[:alert] = "La boutique n''a pas été mise à jour ! "
+      end
+end
+
 
   def destroy
     @place = Place.find(params[:id])
@@ -74,8 +59,7 @@ class PlaceController < ApplicationController
     end
   end
 
-
-  private
+private
 
   def place_params
     params.require(:place).permit(:name, :longitude, :latitude, :address, :average_price, :description, :map, :town, :creator,

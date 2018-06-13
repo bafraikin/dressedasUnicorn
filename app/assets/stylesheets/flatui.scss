@@ -5,7 +5,103 @@ a{
     text-decoration:none;
     color:orange;
     margin-top:3px;
+    font-size:20px;
 }
+.fa-angle-right{
+    float: right;
+    margin-right: 8%;
+    margin-left: -8%;
+    font-size: 18px!important;
+}
+.disabled{
+    cursor: not-allowed;
+    opacity:0.5;
+}
+/*******************************/
+        /* LOADER */
+/*******************************/
+/* COUNTDOWN */
+#demo{
+    text-align: center;
+}
+
+#loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+}
+#loader {
+    display: block;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
+    z-index: 1500;
+    border: 3px solid transparent;
+    border-top-color: #3498db;
+    border-radius: 50%;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+
+}
+#loader:before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border: 3px solid transparent;
+    border-top-color: #e74c3c;
+    border-radius: 50%;
+    -webkit-animation: spin 3s linear infinite;
+    animation: spin 3s linear infinite;
+
+}
+#loader:after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border: 3px solid transparent;
+    border-top-color: #f9c922;
+    border-radius: 50%;
+    -webkit-animation: spin 1.5s linear infinite;
+    animation: spin 1.5s linear infinite;
+
+}
+@-webkit-keyframes spin {
+    0%   {
+        -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(0deg);  /* IE 9 */
+        transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+    }
+    100% {
+        -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(360deg);  /* IE 9 */
+        transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+    }
+}
+@keyframes spin {
+    0%   {
+        -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(0deg);  /* IE 9 */
+        transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+    }
+    100% {
+        -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(360deg);  /* IE 9 */
+        transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+    }
+}
+
 /*******************************/
         /* ALERTES */
 /*******************************/
@@ -153,63 +249,58 @@ input[type=submit] {
 
 /* Boutons modifier  */
 .button-orange {
-color: #fef4e9;
-border: solid 1px #da7c0c;
-background: -moz-linear-gradient(top, #faa51a, #f47a20);display: inline-block;
-vertical-align: baseline;
-margin: 0 2px;
-outline: none;
-cursor: pointer;
-text-align: center;
-text-decoration: none;
-font: 14px/100% Arial, Helvetica, sans-serif;
-padding: .5em 2em .55em;
-text-shadow: 0 1px 1px rgba(0,0,0,.3);border-radius: .5em;box-shadow: 0 1px 2px rgba(0,0,0,.2);
+
+    border: none;
+    border-radius: 4px;
+    font-family: Lato-light;
+    color: white;
+    background-color: #e67e22;
+    height: 40px;
+    margin-bottom: 10px;
+    padding: .3em 2em .20em;
+    text-shadow: 0 1px 1px rgba(0,0,0,.3);box-shadow: 0 1px 2px rgba(0,0,0,.2);
 }
 
-.button-orange:hover {
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-}
+
 
 
 /* Boutons supprimer  */
 .button-red {
-    color: #faddde;
-    border: solid 1px #980c10;
-    background: -moz-linear-gradient(top, #ed1c24, #aa1317);display: inline-block;
-    vertical-align: baseline;
-    margin: 0 2px;
-    outline: none;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    font: 14px/100% Arial, Helvetica, sans-serif;
-    padding: .5em 2em .55em;
-    text-shadow: 0 1px 1px rgba(0,0,0,.3);border-radius: .5em;box-shadow: 0 1px 2px rgba(0,0,0,.2);
+    border: none;
+    border-radius: 4px;
+    font-family: Lato-light;
+    color: white;
+    background-color: #c0392b;
+    height: 40px;
+    margin-bottom: 10px;
+    padding: .3em 2em .20em;
+    text-shadow: 0 1px 1px rgba(0,0,0,.3); box-shadow: 0 1px 2px rgba(0,0,0,.2);
 }
 
-.button-red:hover {
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-}
+
 /* Bouton ajouter boutique */
 .button-green {
-    color: #e8f0de;
-    border: solid 1px #538312;
-    background: -moz-linear-gradient(top, #7db72f, #4e7d0e);display: inline-block;
-    vertical-align: baseline;
-    margin: 0 2px;
-    outline: none;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    font: 14px/100% Arial, Helvetica, sans-serif;
-    padding: .5em 2em .55em;
-    text-shadow: 0 1px 1px rgba(0,0,0,.3);
-    border-radius: .5em;box-shadow: 0 1px 2px rgba(0,0,0,.2);
+    border: none;
+    font-family: Lato-light;
+    border-radius: 4px;
+    color: white;
+    background-color: #00b894;
+    height: 40px;
+    padding: .3em 1em .30em;
+    margin-bottom: 10px;
 }
-
-.button-green:hover {
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+/* bouton retour sur edit*/
+.button-back {
+    border: none;
+    font-size: 18px;
+    font-weight: lighter;
+    border-radius: 4px;
+    color: white;
+    background-color: #e67e22;
+    height: 40px;
+    padding: .7em 11em .50em;
+    margin-bottom: 10px;
+    text-shadow: 0 1px 1px rgba(0,0,0,.3); box-shadow: 0 1px 2px rgba(0,0,0,.2);
 }
 
 /* Boutons annuler / ajouter */
@@ -256,7 +347,7 @@ text-shadow: 0 1px 1px rgba(0,0,0,.3);border-radius: .5em;box-shadow: 0 1px 2px 
     font-weight: lighter;
     border-radius: 4px;
     color: white;
-    background-color: red;
+    background-color: #2980b9;
     padding-top: 8px;
     padding-bottom: 8px;
     width: 30%;
@@ -371,7 +462,7 @@ text-shadow: 0 1px 1px rgba(0,0,0,.3);border-radius: .5em;box-shadow: 0 1px 2px 
 {
     width:100%;
     height:100%;
-    background-color:rgba(47, 18, 76, 0.9);
+    background-color:rgba(47, 18, 76, 0.8);
     z-index:5;
     top:0;
     position: fixed;
