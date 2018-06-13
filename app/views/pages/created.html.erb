@@ -31,7 +31,7 @@
             <h3><%= fiche.name %> </h3>
             <hr>
             <p>Adresse : <%= fiche.address %> </p>
-             <%= link_to 'Modifier', edit_path, class: "button-orange"%>
+             <!--%= link_to 'Modifier', edit_path, class: "button-orange"%-->
             <%= link_to 'Supprimer', '/place/' + fiche.id.to_s,  method: :delete, class: "button-red", data: {confirm: 'Tu es sûr.e ?'} %> </p>
 
         </div>
