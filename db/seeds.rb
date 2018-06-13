@@ -18,16 +18,16 @@
 
 Tag.destroy_all
 tags = Tag.create([
-  {id: 1, name: 'Femme'},
-  {id: 2, name: 'Homme'},
+  {id: 1, name: 'Hommes'},
+  {id: 2, name: 'Femmes'},
   {id: 3, name: 'Enfants'},
   {id: 4, name: 'Mode'},
   {id: 5, name: 'Déco'},
-  {id: 6, name: 'Vêtements'},
-  {id: 7, name: 'Accessoires'},
+  {id: 6, name: 'ConceptStore'},
+  {id: 7, name: 'Vêtements'},
   {id: 8, name: 'Chaussures'},
-  {id: 9, name: 'Concept Store'},
-  {id: 10, name: 'Friperie'}
+  {id: 9, name: 'Accessoires'},
+  #{id: 10, name: 'Friperie'}
 ])
 
 
