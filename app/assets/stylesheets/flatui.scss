@@ -1,6 +1,30 @@
 /*******************************/
         /* LINKS */
 /*******************************/
+#infobulle{
+    z-index: 2;
+     right: 80px;
+     position: fixed;
+     margin-top: 40px;
+     background-color: white;
+     border-radius: 5px;
+     color: black;
+     opacity: 0.9;
+     border: none;
+     max-height: 150px;
+     padding: 15px;
+     max-width:300px;
+     font-size:18px;
+     margin-right:10px;
+ }
+ @media screen and (min-width: 801px) {
+     #infobulle{ 
+         margin-top: 90px;
+      }  
+}
+/*******************************/
+        /* LINKS */
+/*******************************/
 a{
     text-decoration:none;
     color:orange;
@@ -20,10 +44,7 @@ a{
 /*******************************/
         /* LOADER */
 /*******************************/
-/* COUNTDOWN */
-#demo{
-    text-align: center;
-}
+
 
 #loader-wrapper {
     position: fixed;
@@ -112,6 +133,7 @@ a{
     z-index: 100000;
     text-align: center;
     width: 100%;
+    font-size: 20px;
     p{
       padding: 17px;
       text-align: center;
@@ -126,6 +148,8 @@ a{
     z-index: 100000;
     text-align: center;
     width: 100%;
+    font-size: 20px;
+
     p{
       padding: 17px;
       text-align: center;
@@ -316,6 +340,7 @@ input[type=submit] {
         color:white;
         border-radius: 5px;
         font-size: 16px;
+        border:none;
     
     }
     .cancel-position{
@@ -323,6 +348,8 @@ input[type=submit] {
         background-color: rgb(185, 9, 9);
         color:white;
         border-radius: 5px;
+        font-size:16px;
+        border:none;
     }
 }
 @media screen and (min-width: 801px) {

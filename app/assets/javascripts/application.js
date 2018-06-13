@@ -146,7 +146,7 @@ $(document).ready(function(){
     $('#notice_wrapper').fadeOut("Slow",function(){
       $(this).remove();
     })
-  }, 3500);
+  }, 500);
 
 });
 
@@ -155,7 +155,7 @@ $(document).ready(function(){
     $('#alert_wrapper').fadeOut("Slow",function(){
       $(this).remove();
     })
-  }, 3500);
+  }, 500);
 
 });
 

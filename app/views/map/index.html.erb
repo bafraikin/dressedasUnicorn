@@ -2,9 +2,16 @@
 
 <% if user_signed_in? %>
   <button class="add" onclick="toggleModal()"><i class="fa fa-plus"></i></button>
+  <% @places_count = current_user.place_createds.count  %>
+  <% if @places_count == 0%>
+    <span id="infobulle"><b><%= current_user.username.capitalize%></b>, tu n'as aucune boutique :( <br> Ajoutes-en une  utilisant <i class="fa fa-plus-circle" style="font-size:30px;color:rebeccapurple;"></i></span>
+  <%else%>
+  <%= @places_count %>
+  <%end%>
 <%end%>
 
 <%= render 'layouts/modale'%>
+ 
 
 
 <div id='mapid'></div>
