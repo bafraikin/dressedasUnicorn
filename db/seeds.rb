@@ -7,13 +7,14 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 #Place.create(name: "blabla", address: "chouchou")
-require 'csv'
+#require 'csv'
 
-csv_text = File.read(Rails.root.join('lib', 'seeds', 'shopz.csv'))
-csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
-csv.each do |row|
-  puts row.to_hash
-  end
+
+#csv_text = File.read(Rails.root.join('lib', 'seeds', 'shopz.csv'))
+#csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
+#csv.each do |row|
+#  puts row.to_hash
+#  end
 
 
 # run rails db:seed pour le scrap/seed  faire en sorte que ça match les données d'une table
