@@ -1,7 +1,16 @@
 
 
-a = $("div.control-group").children();
-for( b of a) {
-  console.log($(b).children().attr('id'));
-  console.log($(b)[0].control.checked);
+
+let getId = () => {
+  let a = $("div.control-group").children();
+  let tab = new Array;
+  let count = 0;
+  for( b of a; count++) {
+    tab[count] = new Array;
+    tab[count].push($(b).children().attr('id'));
+    tab[count].push($(b)[0].control.checked);
+  }
 }
+
+
+
