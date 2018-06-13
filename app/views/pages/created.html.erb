@@ -27,11 +27,12 @@
       <% current_user.place_createds.reverse_each do |fiche| %>
         <div id="list_show">
           <i class="fa fa-bookmark"></i>
-          <h3><%= fiche.name %> </h3>
-          <hr>
-          <p>Adresse : <%= fiche.address %> </p>
-          <p><%= link_to 'Modifier', edit_path, class: "button-orange"%>
-        <%= link_to 'Supprimer', '/place/' + fiche.id.to_s,  method: :delete, class: "button-red", data: {confirm: 'Tu es sûr.e ?'} %> </p>
+
+            <h3><%= fiche.name %> </h3>
+            <hr>
+            <p>Adresse : <%= fiche.address %> </p>
+             <%= link_to 'Modifier', edit_path, class: "button-orange"%>
+            <%= link_to 'Supprimer', '/place/' + fiche.id.to_s,  method: :delete, class: "button-red", data: {confirm: 'Tu es sûr.e ?'} %> </p>
 
         </div>
       <%end%>
