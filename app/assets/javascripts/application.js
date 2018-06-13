@@ -44,15 +44,14 @@ let toggleModal = function() {
     }
 }
 
-// Sidenav des boutiques
-function openViewShop() {
-    document.getElementById("viewshop").style.width = "250px";
-    document.getElementById("index").style.marginRight = "250px";
+/* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
+function openNav() {
+    document.getElementById("mySidenav").style.width = "30%";
 }
 
-function closeViewShop() {
-    document.getElementById("viewshop").style.width = "0";
-    document.getElementById("index").style.marginRight = "0";
+/* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
 }
 
 // Affichage du menu User, qui se cache si on ouvre le menu settings

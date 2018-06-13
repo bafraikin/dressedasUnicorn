@@ -2,9 +2,11 @@
 
 <% if user_signed_in? %>
   <button class="add" onclick="toggleModal()"><i class="fa fa-plus"></i></button>
+  <button class="sidenav" onclick="openNav()"><i class="fa fa-plus"></i> </button>
 <%end%>
 
 <%= render 'layouts/modale'%>
+<%= render 'layouts/viewshop' %>
 
 
 <div id='mapid'></div>
