@@ -10,11 +10,11 @@ class MapController < ApplicationController
   end
 
   def index
+
   end
 
   def list
     @places = Place.all
-
   end
 
   def index
