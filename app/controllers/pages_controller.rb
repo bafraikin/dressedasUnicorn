@@ -26,9 +26,7 @@ class PagesController < ApplicationController
   def test
   end
 
-  def tags
-    
-  end 
+
   #Methode pour le dashboard admin qui récupère users et boutiques
     def admin
       @users = User.all
