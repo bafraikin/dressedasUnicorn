@@ -12,17 +12,17 @@
 
     <br><br> <br>
     <% if user_signed_in? %>
-    <%= link_to created_path do%> MODIFIER MES BOUTIQUES <%end%> 
+    <%= link_to created_path do%> MODIFIER MES BOUTIQUES <i class="fa fa-angle-right"></i><%end%> 
       <hr class="style13">
-    <%= link_to edit_user_registration_path do%> ÉDITER MON PROFIL <%end%> 
+    <%= link_to edit_user_registration_path do%> ÉDITER MON PROFIL <i class="fa fa-angle-right"></i><%end%> 
       <hr class="style13">
       
       <br><br> <br><br><br><br> <br><br>
-      <%= link_to('ME DECONNECTER', destroy_user_session_path, method: :delete) %> 
+      <%= link_to('ME DECONNECTER', destroy_user_session_path, method: :delete) %> <i class="fa fa-angle-right"></i>
     <% else %>
-      <%= link_to('ME CONNECTER', new_user_session_path)  %>  
+      <%= link_to('ME CONNECTER', new_user_session_path)  %>  <i class="fa fa-angle-right"></i>
         <hr class="style13">
-      <%= link_to new_user_registration_path do%> M'INSCRIRE <%end%> 
+      <%= link_to new_user_registration_path do%> M'INSCRIRE <i class="fa fa-angle-right"></i> <%end%> 
          <hr class="style13">
     <% end %>
 
