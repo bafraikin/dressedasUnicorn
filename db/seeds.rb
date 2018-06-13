@@ -16,6 +16,20 @@
 #  puts row.to_hash
 #  end
 
+Tag.destroy_all
+tags = Tag.create([
+  {id: 1, name: 'Femme'},
+  {id: 2, name: 'Homme'},
+  {id: 3, name: 'Enfants'},
+  {id: 4, name: 'Mode'},
+  {id: 5, name: 'Déco'},
+  {id: 6, name: 'Vêtements'},
+  {id: 7, name: 'Accessoires'},
+  {id: 8, name: 'Chaussures'},
+  {id: 9, name: 'Concept Store'},
+  {id: 10, name: 'Friperie'}
+])
+
 
 # run rails db:seed pour le scrap/seed  faire en sorte que ça match les données d'une table
 

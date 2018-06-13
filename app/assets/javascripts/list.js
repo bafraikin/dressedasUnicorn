@@ -1,6 +1,4 @@
 // Favoriser une boutique
-
-
 let tamer = (idplace, userId) => {
   $.ajax({
     url : '/place/favplaces',
@@ -9,14 +7,19 @@ let tamer = (idplace, userId) => {
     data : 'id=' + idplace + '&iduser=' + userId 
   });
 }; 
-
+    // Changement de couleur de l'icone
 $('i#fav').click(function() {
   if ($(this).css("color") == "rgb(128, 128, 128)") {
     $(this).css("color", 'red');
-    // call ajax fav a entrer BDD
   }
   else {
     $(this).css("color", 'grey');
-    // call ajax sup de la BDD
   }
 });
+
+// Ajouter un tag
+$('input#tag').click(function() {
+  });
+
+let tagit
+  
