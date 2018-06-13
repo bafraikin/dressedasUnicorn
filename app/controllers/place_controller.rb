@@ -1,3 +1,4 @@
+require 'pry'
 class PlaceController < ApplicationController
 
   def add_imhere
@@ -29,7 +30,6 @@ class PlaceController < ApplicationController
     @a = current_user.place_createds.last
     render json: {put: @a}
   end
-
 
 
   def update
