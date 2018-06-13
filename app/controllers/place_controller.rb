@@ -40,36 +40,12 @@ class PlaceController < ApplicationController
       @place = Place.find(params[:id])
     end
 
-    @place = Place.new
-  end
-
-  def created
-    @place = Place.new(place_params)
-    @place.save
-  end
-
-  def show
-    @place = Place.find(params[:id])
-  end
-
 
   def edit
     @place = Place.find(params[:id])
   end
 
-    def update
-      @place = Place.find(params[:id])
-      if @place.update(place_params)
-        redirect_to place_path(@place)
-      else redirect_to place_path(@place)
-        flash[:alert] = "La boutique n''a pas été mise à jour ! "
-      end
-
-    end
-
-
-end
-
+ 
 
   def update
     @place = Place.find(params[:id])
@@ -78,7 +54,6 @@ end
     else redirect_to place_path(@place)
       flash[:error] = "La boutique n''a pas été mise à jour ! "
     end
-  end
 
 
   def destroy
@@ -97,5 +72,7 @@ private
       params.require(:place).permit(:name, :longitude, :latitude, :address, :average_price, :description, :map, :town, :creator,
       :tag_to_places_count)
     end
-    
+
 end
+
+end 
