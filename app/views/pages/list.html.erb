@@ -1,30 +1,25 @@
 <%= render 'layouts/navbar'%>
 
-<%= render 'layouts/modale'%>
+
 
 
 
 <div class="wrap-list">
   <div id='liste'>
-    <%= image_tag("photos/purple(2).jpg", class: "img-bg") %>
-<%@places.reverse.each_with_index do |fact,index|%>
-  <div id="list_show">
+  <%= image_tag("photos/purple(2).jpg", class: "img-bg") %>
 
-    <% if @ids.include?(fact.id) %>
-
-    <i class="fa fa-heart" id="fav" onclick="tamer(<%= fact.id %>, <%= current_user.id %>)" style="color: rgb(255,0,0);" ></i>
-    <% else %>
-    <i class="fa fa-heart" id="fav" onclick="tamer(<%= fact.id %>, <%= current_user.id %>)" style="color: rgb(128,128,128);" ></i>  
-  <%end %>
-        <h3><%=fact.name%></h3>
+    <%current_user.liked_places.each do |shop|%>
+      <div id="list_show">
+      <i class="fa fa-heart" id="fav" onclick="tamer(<%=shop.id%>,<%= current_user.id %>)" style="color: rgb(255,0,0);" ></i>
+        <h3><%=shop.name%></h3>
         <hr>
-        <p class="shop_body"><%= fact.description %></p>
-        <p><%=fact.address%></p>
-    </div>
-<% end %>
+        <p class="shop_body"><%= shop.description %></p>
+        <p><%=shop.address%></p>
+      </div>
+    <% end %>
+    
   </div>
 </div>
+
 <%= javascript_include_tag 'list' %> 
 
-  <script>
-  </script>
