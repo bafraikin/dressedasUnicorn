@@ -15,13 +15,7 @@
 	<%= submit_tag"Mettre à jour", :class => "add_places", :id => "add", :style => "width:30%;" %>
     <%= link_to "Retour", created_path, class: "button-back" %>
 
-    <%= form_for(:name, placeholder: 'Nom de la boutique')do |f| %> 
-      <%= f.label :nom,  placeholder: 'Nom de la boutique' %>
-      <%= f.text_field :nom %><br>
-  <%= form_for(:address, placeholder: "Saisir l\'adresse")do |f| %> 
-      <%= f.label :Adresse, placeholder: "Saisir l\'adresse" %>
-      <%= f.text_field :Adresse %>
-      <%= f.submit "Mettre à jour ma boutique" %>
+   
 
      <% end %>
 

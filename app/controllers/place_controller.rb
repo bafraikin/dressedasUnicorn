@@ -30,22 +30,6 @@ class PlaceController < ApplicationController
     render json: {put: @a}
   end
 
-  def new
-    @place = Place.new
-  end
-
-  def created
-    @place = Place.new(place_params)
-    @place.save
-  end
-
-  def show
-    @place = Place.find(params[:id])
-  end
-
-  def edit
-    @place = Place.find(params[:id])
-  end
 
 
   def update
