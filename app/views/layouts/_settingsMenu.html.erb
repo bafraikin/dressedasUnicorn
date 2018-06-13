@@ -14,15 +14,15 @@
       <h2 style = "text-align:center"><i>Salut <%= current_user.username.capitalize%> !</i></h2>
       <%else%>
        <h2><i>Bienvenue</i></h2>
+
     <%end%>
    
     
 
       <%= link_to list_path do%> TOUTES LES BOUTIQUES <%end%> 
       <hr class="style13">
-      <%= link_to created_path do%> MES AMI(E)S <%end%> 
-     <!-- > <%= link_to edit_user_registration_path do%> ÉDITER MON PROFIL <%end%> -->
-      <hr class="style13">
+      <a> Plus à venir ;) <a>
+    
       
       
     </ul>
