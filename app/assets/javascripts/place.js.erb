@@ -1,9 +1,18 @@
-// Place all the behaviors and hooks related to the matching controller here.
-// All this logic will automatically be available in application.js.
 
+let getId = () => {
+  let a = $("div.control-group").children();
+  let tab = new Array;
+  let count = 0;
+  for( b of a ) {
+    if ($(b)[0].control.checked == true)  { 
+      tab.push($(b).children().attr('id'));
+    }
+  }
+    return (tab);
+}
 
 callDeux = function() {
-  $.ajax({url: '/put_address', type: 'POST', data: 'address=' + $("#address")[0].value + '&long=' + markerTmp._latlng.lng + '&lati=' + markerTmp._latlng.lat + '&nom=' + $("#name")[0].value, dataType: 'JSON', complete: (function(data) {
+  $.ajax({url: '/put_address', type: 'POST', data: 'address=' + $("#address")[0].value + '&long=' + markerTmp._latlng.lng + '&lati=' + markerTmp._latlng.lat + '&nom=' + $("#name")[0].value + "&tag=" + getId(), dataType: 'JSON', complete: (function(data) {
     let locali = data.responseJSON.put;
     let newAdd = new L.latLng(locali.latitude, locali.longitude);
     let myIcon = new L.icon({ iconUrl: "<%= asset_path("pin-mark.png") %>", iconSize: [50, 50]});

@@ -1,4 +1,3 @@
-require 'pry'
 class PlaceController < ApplicationController
 
   def add_imhere
@@ -24,9 +23,15 @@ class PlaceController < ApplicationController
   end
 
   def put_address
+    tag = params[:"tag"].split(',')
     lat = params[:"lati"]
     lng = params[:"long"]
     current_user.place_createds << Place.create(latitude: lat, longitude: lng, address: Geocoder.search([lat,lng])[0].address, name: params[:"nom"], description: params["description"])
+
+    tag.each do | id |
+      current_user.place_createds.last.tags << Tag.find(id)
+    end
+
     @a = current_user.place_createds.last
     render json: {put: @a}
   end
