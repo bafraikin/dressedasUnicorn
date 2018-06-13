@@ -1,23 +1,22 @@
-// Change the icon-heart color 
-$('i#fav').click(function() {
-    if (!favcolor) {
-        $(this).css("color", 'rgba(103,8,135,1)');
-        favcolor = true;
-    }
-    else {
-        $(this).css("color", 'grey');
-        favcolor = false;
+// Favoriser une boutique
 
-    }
-        
-}); 
-// Favorise a place
-let tamer = function(idplace, userId) {
-    console.log("coucou");
-    $.ajax({
-        url : '/place/favplaces',
-        type : 'POST',
-        datatype: 'JSON',
-        data : 'id=' + idplace + '&iduser=' + userId 
-    });
-};
+
+let tamer = (idplace, userId) => {
+  $.ajax({
+    url : '/place/favplaces',
+    type : 'POST',
+    datatype: 'JSON',
+    data : 'id=' + idplace + '&iduser=' + userId 
+  });
+}; 
+
+$('i#fav').click(function() {
+  if ($(this).css("color") == "rgb(128, 128, 128)") {
+    $(this).css("color", 'red');
+    // call ajax fav a entrer BDD
+  }
+  else {
+    $(this).css("color", 'grey');
+    // call ajax sup de la BDD
+  }
+});

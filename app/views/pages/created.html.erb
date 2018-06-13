@@ -4,42 +4,41 @@
 <%= render 'layouts/navbar'%>
 
 <% if Place.count == 0 %>
-<div class="wrap-list">
-  <div id='liste'>
-    <%= image_tag("photos/purple(2).jpg", class: "img-bg") %>
-    
-  <%= javascript_include_tag "place" %>
-        <div id="list_show">
-          <i class="fa fa-location-arrow"></i>
-            <h3>Vous avez 0 boutique enregistrée :( <br><br>
-            <%= link_to 'Ajouter une boutique', '/', class: "button-green" %> </h3>
-            <br>
+  <div class="wrap-list">
+    <div id='liste'>
+      <%= image_tag("photos/purple(2).jpg", class: "img-bg") %>
 
-        </div>
+      <%= javascript_include_tag "place" %>
+      <div id="list_show">
+        <i class="fa fa-location-arrow"></i>
+        <h3>Vous avez 0 boutique enregistrée :( <br><br>
+          <%= link_to 'Ajouter une boutique', '/', class: "button-green" %> </h3>
+        <br>
+      </div>
+    </div>
   </div>
-</div>
-
-</div>
+  </div>
 
 <% else %>
-<div class="wrap-list">
-  <div id='liste'>
-    <%= image_tag("photos/purple(2).jpg", class: "img-bg") %>
-    
-    <% current_user.place_createds.reverse_each do |fiche| %>
+  <div class="wrap-list">
+    <div id='liste'>
+      <%= image_tag("photos/purple(2).jpg", class: "img-bg") %>
+
+      <% current_user.place_createds.reverse_each do |fiche| %>
         <div id="list_show">
           <i class="fa fa-bookmark"></i>
+
             <h3><%= fiche.name %> </h3>
             <hr>
             <p>Adresse : <%= fiche.address %> </p>
-            <p><%= link_to 'Modifier', edit_path, class: "button-orange"%>
-              <%= link_to 'Supprimer', '/place/' + fiche.id.to_s,  method: :delete, class: "button-red", data: {confirm: 'Tu es sûr.e ?'} %> </p>
+             <%= link_to 'Modifier', edit_path, class: "button-orange"%>
+            <%= link_to 'Supprimer', '/place/' + fiche.id.to_s,  method: :delete, class: "button-red", data: {confirm: 'Tu es sûr.e ?'} %> </p>
 
         </div>
       <%end%>
-   <%end%>
+    <%end%>
 
     </div>
   </div>
-    
-</div>
+
+  </div>
