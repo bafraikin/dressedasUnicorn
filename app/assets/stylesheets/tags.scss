@@ -3,7 +3,7 @@ label.control.control-checkbox{
     display: inline-flex;
     overflow: visible;
     width: 25%;
-    font-size: 13px;
+    font-size: 15px;
 }
 .control-group{
     text-align: center;
@@ -26,12 +26,13 @@ label.control.control-checkbox{
     }
 .control_indicator {
     position: absolute;
-    top: 4px;
+    top: 2px;
     left: 0;
-    height: 12px;
-    width: 12px;
+    height: 11px;
+    width: 11px;
     background: #e6e6e6;
-    border: 0px solid #000000;
+    border: 1px solid rebeccapurple;
+    border-radius:50%;
 }
 .control-radio .control_indicator {
     border-radius: 3px;
