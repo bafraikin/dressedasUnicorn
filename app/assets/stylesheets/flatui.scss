@@ -164,6 +164,23 @@ a{
         /* BOUTONS */
 /*******************************/
 $main-color:rgba(102, 51, 153,1);
+/* Bouton recentrer */
+#maj-position{
+    height: 50px;
+    width: 50px;
+    background-color:#4a69bd ;
+    z-index: 3;
+    position: fixed;
+    border-radius: 50%;
+    margin-top: 110px;
+    opacity:0.9;
+    border:none;
+    margin-left:50%;
+    font-size: 30px;
+    color:white;
+    right: 15px;
+
+}
 /* Bouton en haut à gauche + pour ajouter une boutique */
 .add {
     height: 50px;
