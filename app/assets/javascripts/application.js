@@ -37,7 +37,6 @@ let favorite;             // ajoute la boutique au favoris
 let  getId = (idplace, userId) => {
    $.ajax({
      url : '/place/favplaces',
-@@ -9,14 +7,12 @@ let tamer = (idplace, userId) => {
      data : 'id=' + idplace + '&iduser=' + userId 
    });
  }; 
@@ -170,7 +169,4 @@ $(document).ready(function(){
   }, 1000);
 
 });
-
-
-
 
