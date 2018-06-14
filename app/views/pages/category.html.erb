@@ -1,34 +1,38 @@
 <%= render 'layouts/navbar'%>
 
 
-        <div class="wrap-list">
+<div class="wrap-list">
     <div id='liste'>
       <%= image_tag("photos/purple(2).jpg", class: "img-bg") %>
       <div id="list_show">
       <h1 align="center">Rechercher par catégories</h1>
         <div >
             <div class="control-group">
-                    <%  @tagz.each do |cat| %>
-                    <label class="control control-checkbox">
-                        <%=  cat.name %>
-                        <input type="checkbox" id="<%= cat.id  %>"/><div class="control_indicator"></div>
-                    </label>
-                    <% end %>
-                </div>
-        <br>
-         <%= submit_tag "Rechercher", :id => "add" %>
-      </div>
+                <%  @tagz.each do |cat| %>
+                <label class="control control-checkbox">
+                    <%=  cat.name %>
+                    <input type="checkbox" id="<%= cat.id  %>"/><div class="control_indicator"></div>
+                </label>
+                <% end %>
+            </div>
+            <br>
+            <%= submit_tag "Rechercher", :id => "add" %>
+        </div>
     </div>
-  </div>
-  </div>
-<!-- JARRIVE FUCKING PAS A RENDER UNE LOOP -->
-            <% @places.each do |boutique|%>
-                <div id="list_show">
-                <h3></h3>
-                <hr>
-                <p></p>
-                </div>
-            <% end %>
-    </div>      
-</div>
+  
 
+
+    <div id="list_show">      
+    <i class="fa fa-heart" id="fav" onclick="favorite()" style="color: rgb(255,0,0);" ></i>
+
+        <h3>NOM boutique</h3>
+        <hr>
+        <div id="distance">Distance</div>
+        <p>Adresse</p>
+        <div class='tags'><p>Tag 1</p></div>
+        <div class='tags'><p>Tag 2</p></div>
+        <div class='tags'><p>Tag 2</p></div>
+        
+    </div>
+
+</div>

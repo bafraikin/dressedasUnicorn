@@ -19,6 +19,7 @@ class PagesController < ApplicationController
     @tagz = Tag.all
     @places = Place.all
   end
+
   def list_by_tag
     user = [48.866667, 2.333333]
     tab = [1,2,5]
@@ -36,8 +37,8 @@ class PagesController < ApplicationController
           places[index][1] = place.tags
           places[index][2] = calcul
           index +=1
+        end
       end
-    end
     @a = places.sort! {| a, b |  b[2] <=> a[2] }
   end
 
@@ -85,4 +86,4 @@ class PagesController < ApplicationController
     end
   end
 end
-
+end
