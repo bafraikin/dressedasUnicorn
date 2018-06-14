@@ -57,14 +57,17 @@ masuperfonction = function() {
           $(marker).click(function() {
             openNav();
             $("#mainSidenav").html("");
+            o = document.getElementById('i');
             m = document.createElement("p");
             l = document.createElement("p");
             k = document.createElement("a");
             j = document.createElement("h1");
             i = document.createElement("h1");
             if(local.name == "") {
-              
-              favorite(local.id, data.responseJSON.rendu[1]);
+              $(o).click(favorite(local.id, data.responseJSON.rendu[1]));
+              $(o).addClass("fa");
+              $(o).addClass("fa-heart");
+              $(o).appendTo("#favSidenav");
               $(k).html("Ajouter un nom");
               $(k).appendTo($("#mainSidenav"));
               $(j).html("Adresse :");
