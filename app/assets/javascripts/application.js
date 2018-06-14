@@ -29,8 +29,18 @@ let timestamp;            // tableau qui accueille tout les lieux chargé par l'
 let masuperfonction;      // fonction qui charge les lieux renseignés
 let getLocation;          // fonction récuperer la localisation de l'utilisateur 
 let errorHandler;         // fonction n'a pas pu recuperer la localisation de l'utilisateur
-let getId;                // recupere les id des tags validé
 let favorite;             // ajoute la boutique au favoris
+
+
+
+// recupere les id des tags validé
+let  getId = (idplace, userId) => {
+   $.ajax({
+     url : '/place/favplaces',
+@@ -9,14 +7,12 @@ let tamer = (idplace, userId) => {
+     data : 'id=' + idplace + '&iduser=' + userId 
+   });
+ }; 
 
 // Affichage de la fenêtre d'ajout d'une boutique
 let toggleModal = function() {
