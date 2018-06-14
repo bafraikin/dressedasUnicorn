@@ -29,8 +29,22 @@ let timestamp;            // tableau qui accueille tout les lieux chargé par l'
 let masuperfonction;      // fonction qui charge les lieux renseignés
 let getLocation;          // fonction récuperer la localisation de l'utilisateur 
 let errorHandler;         // fonction n'a pas pu recuperer la localisation de l'utilisateur
-let getId;                // recupere les id des tags validé
-let favorite;             // ajoute la boutique au favoris
+let favorite;      // ajoute la boutique au favoris
+
+
+
+// recupere les id des tags validé
+let getId = () => {
+  let a = $("div.control-group").children();
+  let tab = new Array;
+  let count = 0;
+  for( b of a ) {
+    if ($(b)[0].control.checked == true)  { 
+      tab.push($(b).children().attr('id'));
+    }
+  }
+  return (tab);
+}
 
 // Affichage de la fenêtre d'ajout d'une boutique
 let toggleModal = function() {
@@ -51,12 +65,12 @@ let toggleModal = function() {
 
 /* Set the width of the side navigation to 30% and the left margin of the page content to 30% */
 function openNav() {
-    document.getElementById("mySidenav").style.width = "30%";
+  document.getElementById("mySidenav").style.width = "30%";
 }
 
 /* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
 function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("mySidenav").style.width = "0";
 }
 
 
@@ -175,7 +189,7 @@ $(document).ready(function(){
     $('#notice_wrapper').fadeOut("Slow",function(){
       $(this).remove();
     })
-  }, 1000);
+  }, 500);
 
 });
 
@@ -184,10 +198,6 @@ $(document).ready(function(){
     $('#alert_wrapper').fadeOut("Slow",function(){
       $(this).remove();
     })
-  }, 1000);
+  }, 500);
 
 });
-
-
-
-

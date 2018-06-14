@@ -3,18 +3,18 @@ Rails.application.routes.draw do
   devise_scope :user do
     get "/sign-in" => "devise/sessions#new", :as => :login
   end
-  resources :pages
-  get "admin", to: "pages#admin", as: "admin"
   get "/pages/AdminRole", to: "pages#changeAdminRole"
   post "/pages/AdminRole", to: "pages#changeAdminRole"
-
+  get "admin", to: "pages#admin"
   resources :place, only: [:destroy, :update]
   post "update", to: "pages#edit"
   get "favoris", to: "pages#favoris"
   get "created", to: "pages#created"
+  get "category", to: "pages#category"
   get "edit", to: "pages#edit"
   put "edit", to: "pages#edit"
   get "test", to: "pages#test"
+  get "contact", to: "pages#contact"
 
   devise_for :users
   root to: "map#index"
