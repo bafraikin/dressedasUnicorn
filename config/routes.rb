@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get "/pages/AdminRole", to: "pages#changeAdminRole"
   post "/pages/AdminRole", to: "pages#changeAdminRole"
   get "admin", to: "pages#admin"
+  delete "admin/:id", to: "pages#destroy"
   resources :place, only: [:destroy, :update]
   post "update", to: "pages#edit"
   get "favoris", to: "pages#favoris"

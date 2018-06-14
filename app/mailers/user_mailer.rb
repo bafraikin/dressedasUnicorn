@@ -1,4 +1,5 @@
 class UserMailer < ApplicationMailer
+  
     default from: 'broussolle.paul@gmail.com'
  @mail_admin = 'urbemporium@gmail.com'
 
@@ -27,7 +28,7 @@ class UserMailer < ApplicationMailer
       flash.now[:error] = nil 
     else
       flash.now[:error] = "Impossible d'envoyer le message"
-  end 
-
+    end 
+  end
 
 end
