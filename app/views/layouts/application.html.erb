@@ -11,6 +11,29 @@
     <%= javascript_include_tag "application", "data-turbolinks-track" => "reload" %>
     <%= favicon_link_tag asset_path('logo.png'), :rel => 'icon', :type =>  'image/png' %>
 
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+<script>
+window.addEventListener("load", function(){
+window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#343c66",
+      "text": "#cfcfe8"
+      },
+    "button": {
+      "background": "#f71559"
+    }
+  },
+  "theme": "edgeless",
+  "position": "bottom-right",
+  "content": {
+    "message": "Ce site internet utilise des cookies pour une expérience optimale sur notre site.",
+    "dismiss": "C'est parti !",
+    "link": "En savoir plus"
+  }
+})});
+</script>
 
   </head>
   <body>

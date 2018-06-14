@@ -16,7 +16,6 @@
 #  puts row.to_hash
 #  end
 
-Tag.destroy_all
 tags = Tag.create([
   {id: 1, name: 'Femme'},
   {id: 2, name: 'Homme'},

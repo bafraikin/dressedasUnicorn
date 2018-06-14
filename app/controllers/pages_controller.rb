@@ -11,7 +11,8 @@ class PagesController < ApplicationController
     end
   end
 
-  def list
+  def favoris
+    
   end
 
   def test
@@ -61,3 +62,4 @@ class PagesController < ApplicationController
     end
   end
 end
+
