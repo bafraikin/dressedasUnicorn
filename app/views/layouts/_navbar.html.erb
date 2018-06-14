@@ -12,6 +12,8 @@
   <% if current_user.try(:admin?) %>
     <li><a href="<%= admin_path%>">DASHBOARD ADMIN <i class="fa fa-bug"></i></a>
   <%end%>
+    <li><a href="<%=phone_path%>">PHONE <i class="fa fa-phone"></i></a>
+
 </div>
 
 <div class="navbar-mobile" id="navbar">

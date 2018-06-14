@@ -77,16 +77,23 @@
   }
 }
 
-// sdfghjklkjhgfghjkljhgfdfgjkhgfdfjkjhgf
-
+// DIV GLOBAL POUR PAGE CATEGORY
+#adresse{
+  margin-top: 30px;
+}
 #global {
   position: fixed; 
   min-width: 100%; 
-  height:95%;
-  overflow: auto;
+  height: 58%;
+    overflow: auto;
 
 }
-
+#distance{
+  padding-right: 10px;
+  float: right;
+  font-style: oblique;
+  color: #4a4848;
+}
 .img-bg {
   position: fixed; 
   top: 0; 
@@ -143,6 +150,17 @@
   .leaflet-top .leaflet-control {
     margin-top:40px!important;
   }
+  
+  .img-bg {
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0; 
+    margin: auto; 
+    min-width: 100%;
+    min-height: 100%;
+    z-index:-1;
   #global{
     height:90%;
   }
@@ -161,11 +179,12 @@
     margin-top:40px!important;
   }
   #global{
-    height:90%;
+    height: 53%;
   }
 
   #list_show{
     width:95%;
     margin-left:10px;
   }
+}
 }
