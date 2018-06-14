@@ -179,7 +179,9 @@ $main-color:rgba(102, 51, 153,1);
     font-size: 30px;
     color:white;
     right: 15px;
-
+    @media screen and (min-width: 0px) and (min-width: 800px) {
+        margin-top:160px;   
+      }
 }
 /* Bouton en haut à gauche + pour ajouter une boutique */
 .add {
