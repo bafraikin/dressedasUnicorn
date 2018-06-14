@@ -27,21 +27,23 @@ $(document).ready(function() {
   $(i).appendTo($(d));
   $(d).appendTo($("div.form-modale"));
     $(d).click(function() {
-  navigator.geolocation.getCurrentPosition(getLocation, errorHandler);
-  $.ajax({url: "/imhere", type: 'POST', data: 'long=' + userLoc[1] + '&lati=' + userLoc[0], dataType: 'JSON', complete: (function(data) {
-    let local = data.responseJSON.rendu;
-    $("input#address").val(local);
-  })
-  });});
+      navigator.geolocation.getCurrentPosition(getLocation, errorHandler);
+      $.ajax({url: "/imhere", type: 'POST', data: 'long=' + userLoc[1] + '&lati=' + userLoc[0], dataType: 'JSON', complete: (function(data) {
+        let local = data.responseJSON.rendu;
+        $("input#address").val(local);
+      })
+      });});
   } 
   else {
     alert('Votre navigateur ne prend malheureusement pas en charge la géolocalisation.');
   }
 });
 
-
 // cette fonction sert à charger les lieux qui sont present à l'endroit ou l'utilisateur regarde la carte
 masuperfonction = function() {
+  if (mymap._zoom < 9) {
+  return (0);
+  }
   bound = mymap.getBounds();
   $.ajax({url: "/", type: 'POST', data: 'Nlat=' + bound.getNorth() + "&Nlong=" + bound.getWest() + "&Slat=" + bound.getSouth() + "&Slong=" + bound.getEast() + '&test1=' + mymap.getCenter().lat + '&test2=' + mymap.getCenter().lng  , dataType: 'JSON', body: 'rendu', complete: ( 
     function(data) {
@@ -98,7 +100,7 @@ layer = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access
   maxZoom: 15,
   transparent: true,
   id: 'mapbox.streets',
-  accessToken: 'pk.eyJ1IjoiYmZyYWlraW4iLCJhIjoiY2podWxwc21pMG5udjNqdDZpZGluaGhxeSJ9.WaMLYylJhk6ULiaGSWNuAA',
+  accessToken: 'pk.eyJ1IjoiYmZyYWlraW4iLCJhIjoiY2podWxwc21pMG5udjNqdDZpZGluaGhxeSJ9.WaMLYylJhk6ULiaGSWNuAA'
 }).addTo(mymap);
 /* -------------------------------------------------------------------   */
 

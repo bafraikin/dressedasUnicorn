@@ -19,6 +19,7 @@ class User < ApplicationRecord
 
 
 validates :username, presence: { message: "veuillez entrer votre prénom" }, format: { without: /\s/, message: "ton prénom ne peut pas contenir d'espace" }, uniqueness: { message: "ce pseudo est déjà pris" }
+#validates :avatar, presence: { message: "Veuillez ajouter un avatar" }
 
 
 
