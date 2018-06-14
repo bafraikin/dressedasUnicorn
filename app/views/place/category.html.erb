@@ -1,9 +1,8 @@
 <%= render 'layouts/navbar'%>
 
-
 <div class="wrap-list">
-  <div id='global'>
-    <%= image_tag("photos/purple(2).jpg", class: "img-bg") %>
+  <%= image_tag("photos/purple(2).jpg", class: "img-bg") %>
+  <div id='liste'>
     <div id="list_show">
       <h1 align="center">Rechercher par catégories</h1>
       <div >
@@ -19,20 +18,10 @@
         <%= submit_tag "Rechercher", :id => "add" %>
       </div>
     </div>
+    <div id="global">
 
-    <div id="list_show">      
-      <i class="fa fa-heart" id="fav" onclick="favorite()" style="color: rgb(255,0,0);" ></i>
-
-        <h3> NOM boutique</h3>
-        <hr>
-        <div class="distance">Distance</div>
-        <p>Adresse</p>
-        <div style="text-align: center;" >
-            <p class='tags'>Tag 1</p>
-            <p class='tags'>Tag 2</p>
-            <p class='tags'>Tag 2</p>
-        </div>
-        
     </div>
-
   </div>
+</div>
+
+<%= javascript_include_tag 'category' %> 
