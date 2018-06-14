@@ -16,7 +16,8 @@ class PagesController < ApplicationController
   end
 
   def category
-    @tagi = Tag.all
+    @tagz = Tag.all
+    @places = Place.all
   end
 
 
