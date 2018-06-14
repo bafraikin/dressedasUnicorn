@@ -51,7 +51,6 @@ tags = Tag.create([
 #  ])
 
 
-
 # run rails db:seed pour le scrap/seed  faire en sorte que ça match les données d'une table
 
 =begin require 'csv'

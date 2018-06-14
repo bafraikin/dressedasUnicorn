@@ -98,12 +98,14 @@ masuperfonction = function() {
               favorite(local.id, data.responseJSON.rendu[1]);
               if ($(this).css("color") == "rgb(128, 128, 128)") {
                 $(this).css("color", 'red');
+
               }
               else {
                 $(this).css("color", 'grey');
               }});
 
             $(favori).addClass("fa");
+            $(favori).css("font-size", "30px");
             $(favori).addClass("fa-heart");
             $(favori).appendTo($(favori_nav));
 

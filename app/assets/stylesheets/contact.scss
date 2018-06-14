@@ -1,7 +1,4 @@
 
-
-
-
 /*//////////////////////////////////////////////////////////////////
 [ RESTYLE TAG ]*/
 
@@ -20,10 +17,10 @@ ul, li {
 }
 
 
+>>>>>>> master
 /*---------------------------------------------*/
 input {
     outline: none;
-    border: none;
 }
 
 textarea {
@@ -32,7 +29,6 @@ textarea {
 }
 
 textarea:focus, input:focus {
-  border-color: transparent !important;
 }
 
 input:focus::-webkit-input-placeholder { color:transparent; }
