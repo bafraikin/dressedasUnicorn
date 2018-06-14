@@ -17,7 +17,7 @@ csv.each do |row|
   puts row.to_hash
   end
 =end
-Tag.destroy_all
+ Tag.destroy_all
 tags = Tag.create([
   {id: 1, name: 'Homme'},
   {id: 2, name: 'Femme'},
@@ -29,7 +29,6 @@ tags = Tag.create([
   {id: 8, name: 'Chaussures'},
   {id: 9, name: 'Accessoire'},
 ])
-
 
 #csv_text = File.read(Rails.root.join('lib', 'seeds', 'shopz.csv'))
 #csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
@@ -51,7 +50,10 @@ tags = Tag.create([
 #    {id: 9, name: 'Accessoires'},
 #  ])
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> front
 
 # run rails db:seed pour le scrap/seed  faire en sorte que ça match les données d'une table
 

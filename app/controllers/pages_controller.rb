@@ -15,6 +15,9 @@ class PagesController < ApplicationController
   def favoris
   end
 
+  def phone
+  end
+
   def category
     @tagz = Tag.all
     @places = Place.all
