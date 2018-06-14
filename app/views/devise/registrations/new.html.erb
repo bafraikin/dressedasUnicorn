@@ -33,7 +33,13 @@
         <% if @minimum_password_length %>
         <i><em>(<%= @minimum_password_length %> caractères minimum)</em></i>
         <% end %><br />
-        <%= f.password_field :password, autocomplete: "off", placeholder: "Votre mot de passe", id: "text-field" %>
+        <%= f.password_field :password, autocomplete: "off", placeholder: "Votre mot de passe", id: "text-field", class:"input-1" %>
+        <div class="progress-bar_wrap">
+        <div class="progress-bar_item progress-bar_item-1"></div>
+        <div class="progress-bar_item progress-bar_item-2"></div>
+        <div class="progress-bar_item progress-bar_item-3"></div>
+      </div>
+    <span class="progress-bar_text">Password is blank</span>
       </div>
       <br>      
       <div class="field">
@@ -41,11 +47,163 @@
         <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirmez votre mot de passe", id: "text-field" %>
       </div>
       <br>      
-      <div class="actions">
+ 
         <%= f.submit "S'inscrire" %>
       </div>
     <% end %>
 
     <%= render "devise/shared/links" %>
   </div>
+
 </div>
+</div>
+<script>
+$( document ).ready(function() {
+  
+  const changeText = function (el, text, color) {
+    el.text(text).css('color', color);
+  };
+  
+$('.input-1').keyup(function(){
+    let len = this.value.length;
+    const pbText = $('.form_connection .progress-bar_text');
+
+    if (len === 0) {
+      $('.form_connection .progress-bar_item').each(function() {
+        $(this).removeClass('active')
+      });
+      $('.active').css('background-color', 'transparent');
+      changeText(pbText, 'Aucun mot de passe');
+    } else if (len > 0 && len <= 4) {
+      $('.form_connection .progress-bar_item-1').addClass('active');
+      $('.form_connection .progress-bar_item-2').removeClass('active');
+      $('.form_connection .progress-bar_item-3').removeClass('active');
+      $('.form_connection .active').css('background-color', '#FF4B47!important');
+      changeText(pbText, 'Too weak');
+    } else if (len > 4 && len <= 8) {
+      $('.form_connection .progress-bar_item-2').addClass('active');
+      $('.form_connection .progress-bar_item-3').removeClass('active');
+      $('.form_connection .active').css('background-color', '#F9AE35!important');
+      changeText(pbText, 'Could be stronger');
+    } else {
+      $('.form_connection .progress-bar_item').each(function() {
+        $(this).addClass('active');
+      });
+      $('.form_connection .active').css('background-color', '#2DAF7D!important');
+      changeText(pbText, 'Strong password');
+    } 
+  });
+  
+});
+  
+
+
+
+</script>
+<style>
+lable {
+  display: block;
+  position: relative;
+  text-transform: uppercase;
+  color: #aaa;
+}
+
+input[type='password'] {
+  width: 100%;
+  box-sizing: border-box;
+  height: 55px;
+  display: inline-block;
+  border: 3px solid #2F96EF;
+  border-radius: 5px;
+  padding: 0 15px;
+  margin: 10px 0;
+  transition: .2s;
+}
+
+input[type='password']:focus {
+  outline: none;
+   -moz-outline: none;
+   -webkit-outline: none;
+}
+
+lable:before {
+  content: "\f070";
+  color: #aaa;
+  font-size: 22px;
+  font-family: FontAwesome;
+  position: absolute;
+  right: 25px;
+  top: 44px;
+}
+
+.progress-bar_wrap {
+  width: 300px;
+  height: 5px;
+  background: #F6F6FA;
+  display: inline-block;
+  vertical-align: middle;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+
+
+.form-1 .progress-bar_item {
+  display: inline-block;
+  height: 100%;
+  width: 33.33%;
+  float: left;
+  visibility: hidden;
+  transition: background-color .2s, visisility .1s;
+}
+
+.form-1 .active {
+  visibility: visible;
+}
+
+.progress-bar_item-1 {
+  
+}
+
+.progress-bar_item-2 {
+
+}
+
+.progress-bar_item-3 {
+
+}
+
+.progress-bar_text {
+  display: inline-block;
+  color: #aaa;
+  margin-left: 5px;
+  transition: .2s;
+}
+
+
+
+.form-2 .progress-bar_item {
+  display: inline-block;
+  height: 100%;
+  width: 32.5%;
+  margin-right: .8%;
+  border-radius: 5px;
+  float: left;
+  
+  transition: background-color .2s, visisility .1s;
+}
+
+.form-2 .progress-bar_item-1.active {
+  background-color: #FF4B47;
+}
+
+.form-2 .progress-bar_item-2.active {
+  background-color: #F9AE35;
+}
+
+.form-2 .progress-bar_item-3.active {
+  background-color: #2DAF7D;
+}
+
+
+</style>
