@@ -54,12 +54,18 @@ $("#add").click(function () {
             }
             if (local[2]) {
               let distance = document.createElement("div");
-              $(distance).html( "la boutique est à " + Math.round((Number(local[2]) * 1000)) + " mètre" );
+              if (Number(local[2])< 1){
+                  $(distance).html( "Distance : " + Number(local[2]).toFixed(2) + " mètres" );
+              }
+              else {
+                $(distance).html( "Distance : " + Math.round(Number(local[2])) + " kilomètres" );
+              }
+                
               $(distance).attr("id", 'distance');
               $(distance).appendTo($(miniDiv)); 
             }
             let adresse = document.createElement("p");
-            $(adresse).attr('id', 'addrreeesse');
+            $(adresse).attr('id', 'adresse');
             $(adresse).html(local[0].address);
             $(adresse).appendTo($(miniDiv));
             for (let tag of local[1]) {
