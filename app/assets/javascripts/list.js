@@ -1,5 +1,5 @@
 // Favoriser une boutique
-let tamer = (idplace, userId) => {
+favorite = (idplace, userId) => {
   $.ajax({
     url : '/place/favplaces',
     type : 'POST',

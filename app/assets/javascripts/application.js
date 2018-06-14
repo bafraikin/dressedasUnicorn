@@ -29,7 +29,8 @@ let timestamp;            // tableau qui accueille tout les lieux chargé par l'
 let masuperfonction;      // fonction qui charge les lieux renseignés
 let getLocation;          // fonction récuperer la localisation de l'utilisateur 
 let errorHandler;         // fonction n'a pas pu recuperer la localisation de l'utilisateur
-let favcolor;             // boolean pour changement couleur fav boutique
+let getId;                // recupere les id des tags validé
+let favorite;             // ajoute la boutique au favoris
 
 // Affichage de la fenêtre d'ajout d'une boutique
 let toggleModal = function() {
