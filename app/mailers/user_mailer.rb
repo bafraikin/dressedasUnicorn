@@ -12,4 +12,11 @@ class UserMailer < ApplicationMailer
     @user = user
     mail(:to => 'urbemporium@gmail.com', :subject => "Compte utilisateur détruit")
   end 
+
+  def welcome
+    @user = User.last
+    @login  = 'https://urban-emporium.herokuapp.com/users/sign_in'
+    @myshops = 'https://urban-emporium.herokuapp.com/created'
+    mail(to: @user.email, subject: 'Bienvenue :D !')
+  end
 end

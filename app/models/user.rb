@@ -25,6 +25,7 @@ validates :username, presence: { message: "veuillez entrer votre prénom" }, for
 
   def new_user_created_mail
     UserMailer.new_user_email(self).deliver
+    UserMailer.welcome().deliver
   end
 # Lorsqu'un user supprime son compte
   def user_deleted_mail

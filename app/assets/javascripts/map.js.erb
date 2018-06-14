@@ -53,10 +53,39 @@ masuperfonction = function() {
           let place = new L.latLng(local.latitude, local.longitude);
           let myIcon = new L.icon({ iconUrl: "<%= asset_path("pin-mark.png") %>" , iconSize: [45, 50] });
           let marker = new L.Marker(place, {icon: myIcon, autoPan: true});
-          marker.bindPopup( '<p>' + '' + `${local.name}` + '<br />' + ''  + `${local.address}` + '</p>');
+
           $(marker).click(function() {
-            this.openPopup();
+            openNav();
+            $("#mainSidenav").html("");
+            m = document.createElement("p");
+            l = document.createElement("p");
+            k = document.createElement("a");
+            j = document.createElement("h1");
+            i = document.createElement("h1");
+            if(local.name == "") {
+              $(k).html("Ajouter un nom");
+              $(k).appendTo($("#mainSidenav"));
+              $(j).html("Adresse :");
+              $(m).html(local.address);
+              $(j).appendTo($("#mainSidenav"));
+              $(m).appendTo($("#mainSidenav"));
+            }
+            else {
+              $(i).html("Nom :");
+              $(i).attr('id', 'name_id');
+              $(l).html(local.name); 
+              $(j).html("Adresse :");
+              $(m).html(local.address);
+              $(i).appendTo($("#mainSidenav"));
+              $(l).appendTo($("#mainSidenav"));              
+              $(j).appendTo($("#mainSidenav"));            
+              $(m).appendTo($("#mainSidenav"));
+            }
           });
+          // marker.bindPopup( '<p>' + '' + `${local.name}` + '<br />' + ''  + `${local.address}` + '</p>');
+          // $(marker).click(function() {
+          // this.openPopup();
+          // });
           marker.addTo(mymap);
         }}})});}
 

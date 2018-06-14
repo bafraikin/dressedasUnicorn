@@ -2,6 +2,11 @@
 
 <% if user_signed_in? %>
   <button class="add" onclick="toggleModal()"><i class="fa fa-plus"></i></button>
+
+
+<%= render 'layouts/modale'%>
+<%= render 'layouts/viewshop' %>
+
   <% @places_count = current_user.place_createds.count  %>
   <% if @places_count == 0%>
     <span id="infobulle"><b><%= current_user.username.capitalize%></b>, tu n'as aucune boutique :( <br> Ajoutes-en une en utilisant <i class="fa fa-arrow-right" style="font-size:20px;"></i></span>
@@ -9,13 +14,11 @@
   <%= @places_count %>
   <%end%>
 <%end%>
-
-<%= render 'layouts/modale'%>
- 
-
+<button id="maj-position" onclick="majposition();"><i class="fa fa-location-arrow"></i>  </button>
 
 <div id='mapid'></div>
 
 <%= javascript_include_tag "map" %>
 <%= javascript_include_tag "place" %>
+
 
