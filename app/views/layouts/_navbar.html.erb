@@ -2,7 +2,7 @@
  
   <li><a href="<%=root_path%>">CARTE <i class="fa fa-map"></i></a>
   <% if user_signed_in? %>
-    <li><a href="<%=list_path%>">FAVORIS <i class="fa fa-heart"></i></a> 
+    <li><a href="<%=favoris_path%>">FAVORIS <i class="fa fa-heart"></i></a> 
     <li><a onclick="toggleSettingsMenu()">COMMUNAUTÉ <i class="fa fa-users"></i></a>
     <li><a onclick="toggleUserMenu()">PARAMÈTRES <i class="fa fa-cog"></i></a>
     <%else%>
@@ -15,7 +15,7 @@
 
 <div class="navbar-mobile" id="navbar">
   <li><a href="/"><i class="fa fa-map"></i></a>
-  <li><a href="<%=list_path%>"><i class="fa fa-heart"></i></a>
+  <li><a href="<%=favoris_path%>"><i class="fa fa-heart"></i></a>
   <% if user_signed_in? %>
     <li><a onclick="toggleSettingsMenu()"><i class="fa fa-users"></i></a>
   <%end%>
