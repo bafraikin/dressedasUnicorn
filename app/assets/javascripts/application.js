@@ -32,7 +32,6 @@ let errorHandler;         // fonction n'a pas pu recuperer la localisation de l'
 let favorite;      // ajoute la boutique au favoris
 
 
-
 // recupere les id des tags validé
 let getId = () => {
   let a = $("div.control-group").children();

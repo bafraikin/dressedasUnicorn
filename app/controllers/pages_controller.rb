@@ -1,3 +1,5 @@
+require 'pry'
+
 class PagesController < ApplicationController
   before_action :authenticate_user!, only: [:admin, :destroy]
 
@@ -21,10 +23,10 @@ class PagesController < ApplicationController
   end
 
   def list_by_tag
-    user = [48.866667, 2.333333]
-    tab = [1,2,5]
+    user = params[:"user"].split(',')
+    tab = params[:"tags"].split(',')
     longueur = []
-    places = [[]]
+    placee = []
     index = 0
     tab.each do |tag|
       tags = Tag.find(tag)
@@ -32,14 +34,24 @@ class PagesController < ApplicationController
         calcul = Geocoder::Calculations.distance_between([user[0], user[1]], [place.latitude, place.longitude])
         unless longueur.include?(calcul)
           longueur[index] = calcul
-          places[index] = []
-          places[index][0] = place
-          places[index][1] = place.tags
-          places[index][2] = calcul
+          placee[index] = []
+          placee[index][0] = place
+          placee[index][1] = place.tags
+          if user[0] != "false"
+            placee[index][2] = calcul
+          else
+            placee[index][2] = false
+            puts "ici"
+          end
+          if user_signed_in?
+            placee[index][3] = current_user.id
+          end
           index +=1
         end
       end
-    @a = places.sort! {| a, b |  a[2] <=> b[2] }
+    end
+    @a = placee.sort! {| a, b |  a[2] <=> b[2] }
+    render json: {data: @a }
   end
 
 
@@ -85,5 +97,4 @@ class PagesController < ApplicationController
       end
     end
   end
-end
 end
