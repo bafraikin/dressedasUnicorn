@@ -1,3 +1,4 @@
+
 class PagesController < ApplicationController
   before_action :authenticate_user!, only: [:admin, :destroy]
 
@@ -12,7 +13,6 @@ class PagesController < ApplicationController
   end
 
   def favoris
-
   end
 
   def category
@@ -20,38 +20,12 @@ class PagesController < ApplicationController
     @places = Place.all
   end
 
-  def list_by_tag
-    user = [48.866667, 2.333333]
-    tab = [1,2,5]
-    longueur = []
-    places = [[]]
-    index = 0
-    tab.each do |tag|
-      tags = Tag.find(tag)
-      tags.places.each do |place|
-        calcul = Geocoder::Calculations.distance_between([user[0], user[1]], [place.latitude, place.longitude])
-        unless longueur.include?(calcul)
-          longueur[index] = calcul
-          places[index] = []
-          places[index][0] = place
-          places[index][1] = place.tags
-          places[index][2] = calcul
-          index +=1
-        end
-      end
-    @a = places.sort! {| a, b |  a[2] <=> b[2] }
-  end
-
-
   #Methode pour le dashboard admin qui récupère users et boutiques
   def admin
+
     @users = User.all
     @places = Place.all
-    @creator = []
-    @places.each_with_index do |place,index| 
-      @creator[index] = place.creators[0].username
-    end
-  end
+  end 
 
   def update_user
     @user = User.find(params[:id])
@@ -65,7 +39,6 @@ class PagesController < ApplicationController
   def show
     @user = User.find(params[:id])
   end
-
 
   def destroy
     User.find(params[:id]).destroy
@@ -86,5 +59,4 @@ class PagesController < ApplicationController
       end
     end
   end
-end
 end

@@ -25,6 +25,7 @@ $(document).ready(function() {
     $(i).addClass("fa fa-crosshairs");
     $(d).html("Ici  ");
     $(i).appendTo($(d));
+    localisable = true;
     $(d).appendTo($("div#tags"));
     $(d).click(function() {
       navigator.geolocation.getCurrentPosition(getLocation, errorHandler);
