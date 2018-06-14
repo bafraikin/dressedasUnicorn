@@ -1,9 +1,23 @@
 <%= render 'layouts/navbar'%>
 
 
+<% if current_user.liked_places.count == 0 %>
+  <div class="wrap-list">
+    <div id='liste'>
+      <%= image_tag("photos/purple(2).jpg", class: "img-bg") %>
 
+      <%= javascript_include_tag "place" %>
+      <div id="list_show">
+      <h3>Oh non :(</h3>
+        <h3>Vous n'avez pas de boutiques favorites.<br><br>
+        Selectionne une boutique sur la carte ou dans la liste, puis appuie sur le petit<i class="fa fa-heart"></i> </h3>
+        <br>
+      </div>
+    </div>
+  </div>
+  </div>
 
-
+<% else %>
 <div class="wrap-list">
   <div id='liste'>
   <%= image_tag("photos/purple(2).jpg", class: "img-bg") %>
@@ -17,7 +31,7 @@
         <p><%=shop.address%></p>
       </div>
     <% end %>
-    
+  <%end%>
   </div>
 </div>
 

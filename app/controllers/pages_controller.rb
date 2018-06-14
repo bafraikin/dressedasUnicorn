@@ -39,7 +39,7 @@ class PagesController < ApplicationController
           index +=1
         end
       end
-    @a = places.sort! {| a, b |  b[2] <=> a[2] }
+    @a = places.sort! {| a, b |  a[2] <=> b[2] }
   end
 
 
@@ -65,6 +65,7 @@ class PagesController < ApplicationController
   def show
     @user = User.find(params[:id])
   end
+
 
   def destroy
     User.find(params[:id]).destroy
