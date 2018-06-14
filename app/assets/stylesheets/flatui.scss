@@ -22,6 +22,9 @@
          margin-top: 90px;
       }  
 }
+.cc-revoke, .cc-window{
+    z-index:9999999!important;
+}
 /*******************************/
         /* LINKS */
 /*******************************/
@@ -296,9 +299,9 @@ input[type=submit] {
     color: white;
     background-color: #c0392b;
     height: 40px;
-    margin-bottom: 10px;
     padding: .3em 2em .20em;
     text-shadow: 0 1px 1px rgba(0,0,0,.3); box-shadow: 0 1px 2px rgba(0,0,0,.2);
+    margin-left:10px;
 }
 
 
@@ -396,7 +399,7 @@ input[type=submit] {
     position: fixed;
     background-color: white;
     border-radius: 10px;
-    margin-top: 150px;
+    margin-top: 115px;
     margin-left: 4px;
     max-width: 100%;
     min-width: 98%;
@@ -409,6 +412,7 @@ input[type=submit] {
     padding-top: 30px;
     text-align: center;
     height:auto;
+    
     .close-modal{
         top: -20px!important;
         
@@ -434,7 +438,8 @@ input[type=submit] {
         margin-top: 17%;
         height: auto;
      }  
-  }
+}
+
 
 /****** VIEWSHOP *****/
 

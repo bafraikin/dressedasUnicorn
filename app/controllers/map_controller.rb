@@ -9,15 +9,12 @@ class MapController < ApplicationController
     end
   end
 
-  def index
-
-  end
-
   def list
     @places = Place.all
   end
 
   def index
+    @tagi = Tag.all
   end
 
   def explore
@@ -30,9 +27,9 @@ class MapController < ApplicationController
     @a = Place.where("latitude <= #{north_lat} AND latitude >= #{south_lat} AND longitude <= #{south_long} AND longitude >= #{north_long}")
     render json: {rendu: @a}
   end
-  
-def find_place
-  @a = Place.find(params[:"id"])
-  redirect_to "/:#{@a.latitude}&#{@a.longitude}"
-end
+
+  def find_place
+    @a = Place.find(params[:"id"])
+    redirect_to "/:#{@a.latitude}&#{@a.longitude}"
+  end
 end

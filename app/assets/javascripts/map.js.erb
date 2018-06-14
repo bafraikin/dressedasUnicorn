@@ -6,7 +6,7 @@ getLocation = (position) => {
   localisable = true;
   mymap.setView([userLoc[0],userLoc[1]], 15);
   let place = new L.latLng(userLoc[0], userLoc[1]);
-  let myIcon = new L.icon({ iconUrl: "<%= asset_path("utilisateur.png") %>" , iconSize: [60, 60] });
+  let myIcon = new L.icon({ iconUrl: "<%= asset_path("utilisateur_dot.png") %>" , iconSize: [15, 15] });
   let marker = new L.Marker(place, {icon: myIcon, autoPan: true});
   marker.addTo(mymap);
 }
@@ -23,9 +23,9 @@ $(document).ready(function() {
     $(d).addClass("imhere");
     i = document.createElement("i");
     $(i).addClass("fa fa-crosshairs");
-    $(d).html("Géocalise-moi  ");
+    $(d).html("Ici  ");
     $(i).appendTo($(d));
-    $(d).appendTo($("div.form-modale"));
+    $(d).appendTo($("div#tags"));
     $(d).click(function() {
       navigator.geolocation.getCurrentPosition(getLocation, errorHandler);
       $.ajax({url: "/imhere", type: 'POST', data: 'long=' + userLoc[1] + '&lati=' + userLoc[0], dataType: 'JSON', complete: (function(data) {
