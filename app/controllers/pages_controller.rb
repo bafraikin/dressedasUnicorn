@@ -12,24 +12,45 @@ class PagesController < ApplicationController
   end
 
   def favoris
-    
+
   end
 
   def category
     @tagz = Tag.all
     @places = Place.all
   end
+  def list_by_tag
+    user = [48.866667, 2.333333]
+    tab = [1,2,5]
+    longueur = []
+    places = [[]]
+    index = 0
+    tab.each do |tag|
+      tags = Tag.find(tag)
+      tags.places.each do |place|
+        calcul = Geocoder::Calculations.distance_between([user[0], user[1]], [place.latitude, place.longitude])
+        unless longueur.include?(calcul)
+          longueur[index] = calcul
+          places[index] = []
+          places[index][0] = place
+          places[index][1] = place.tags
+          places[index][2] = calcul
+          index +=1
+      end
+    end
+    @a = places.sort! {| a, b |  b[2] <=> a[2] }
+  end
 
 
   #Methode pour le dashboard admin qui récupère users et boutiques
-    def admin
-      @users = User.all
-      @places = Place.all
-      @creator = []
-      @places.each_with_index do |place,index| 
-        @creator[index] = place.creators[0].username
-      end
+  def admin
+    @users = User.all
+    @places = Place.all
+    @creator = []
+    @places.each_with_index do |place,index| 
+      @creator[index] = place.creators[0].username
     end
+  end
 
   def update_user
     @user = User.find(params[:id])
