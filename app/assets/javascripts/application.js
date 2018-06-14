@@ -19,7 +19,6 @@
 
 
 //declaration de certaine variable ici pour que la carte se recharge quand on clique sur l'onglet carte.
-let getId;
 let callDeux;             // fonction de l'ajout definitif d'une addresse par addresse   
 let callUn;               // fonction de la 1ere phase d'ajout par addresse
 let userLoc = new Array;  // localité de l'utilisateur
@@ -30,7 +29,8 @@ let timestamp;            // tableau qui accueille tout les lieux chargé par l'
 let masuperfonction;      // fonction qui charge les lieux renseignés
 let getLocation;          // fonction récuperer la localisation de l'utilisateur 
 let errorHandler;         // fonction n'a pas pu recuperer la localisation de l'utilisateur
-let favcolor;             // boolean pour changement couleur fav boutique
+let getId;                // recupere les id des tags validé
+let favorite;             // ajoute la boutique au favoris
 
 // Affichage de la fenêtre d'ajout d'une boutique
 let toggleModal = function() {
@@ -148,7 +148,7 @@ $(document).ready(function(){
     $('#notice_wrapper').fadeOut("Slow",function(){
       $(this).remove();
     })
-  }, 500);
+  }, 1000);
 
 });
 
@@ -157,7 +157,7 @@ $(document).ready(function(){
     $('#alert_wrapper').fadeOut("Slow",function(){
       $(this).remove();
     })
-  }, 500);
+  }, 1000);
 
 });
 
