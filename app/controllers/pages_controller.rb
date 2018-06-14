@@ -41,8 +41,10 @@ class PagesController < ApplicationController
   end
 
   def destroy
-    User.find(params[:id]).destroy
-    redirect :back
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_back(fallback_location: root_path)
+    flash[:alert] = "Utilisateur supprimé !"
   end
 
   #Fonction pour changer le rôle d'un user vers admin ou user normal. Impossible de changer l'admin avec mon adresse mail pour avoir au moins 1 admin

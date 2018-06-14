@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get "/pages/AdminRole", to: "pages#changeAdminRole"
   post "/pages/AdminRole", to: "pages#changeAdminRole"
   get "admin", to: "pages#admin"
+  delete "admin/:id", to: "pages#destroy"
   resources :place, only: [:destroy, :update]
   post "update", to: "pages#edit"
   get "favoris", to: "pages#favoris"
@@ -30,4 +31,7 @@ Rails.application.routes.draw do
 
   #root to: "home#index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  #resources :contacts, only: [:new, :create]
+  
 end
