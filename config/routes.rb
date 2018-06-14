@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   put "edit", to: "pages#edit"
   get "test", to: "pages#test"
   get "contact", to: "pages#contact"
+  get "phone", to: "pages#phone"
+
 
   devise_for :users
   root to: "map#index"
