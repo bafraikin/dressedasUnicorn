@@ -15,7 +15,8 @@ class PagesController < ApplicationController
     
   end
 
-  def test
+  def category
+    @tagi = Tag.all
   end
 
 

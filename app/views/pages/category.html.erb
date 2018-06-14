@@ -1,1 +1,10 @@
 <%= render 'layouts/navbar'%>
+<div class="control-group">
+        <%  @tagi.each do |cat| %>
+          <label class="control control-checkbox">
+            <%=  cat.name %>
+            <input type="checkbox" id="<%= cat.id  %>"/><div class="control_indicator"></div>
+          </label>
+        <% end %>
+      </div>
+    </div>
