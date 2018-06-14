@@ -1,23 +1,10 @@
-// Place all the styles related to the Map controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-/*
- */
-/* Affichage des listes */
+
+
 .wrap-list{
-  max-height:300px;
-  overflow: scroll;
-
+    max-height:300px;
+      overflow: scroll;
 }
-
 #liste {
-  position: fixed; 
-  min-width: 100%; 
-  height:95%;
-  overflow: auto;
-}
-
-#global {
   position: fixed; 
   min-width: 100%; 
   height:95%;
@@ -84,6 +71,95 @@
     height:90%;
   }
 
+  #list_show{
+    width:95%;
+    margin-left:10px;
+  }
+}
+
+// sdfghjklkjhgfghjkljhgfdfgjkhgfdfjkjhgf
+
+#global {
+  position: fixed; 
+  min-width: 100%; 
+  height:95%;
+  overflow: auto;
+
+}
+
+.img-bg {
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0; 
+  margin: auto; 
+  min-width: 100%;
+  min-height: 100%;
+  z-index:-1;
+}
+#list_show{
+  z-index:10;
+  width:60%;
+  height: 200px;
+  background-color:#ffffffda;
+  margin-left: 20%;
+  height: auto;
+  margin-top:5%;
+  h3{
+    text-align: center;
+    padding-top:6px;
+    i{
+      float:none;
+      padding:0px;
+      color:red;
+      font-size:inherit;
+      padding-right: 0px; 
+    }
+  }
+  i{
+    float:right;
+    padding:6px;
+    color:grey;
+    font-size:35px;
+    padding-right:10px;
+  }
+  p{
+    text-align: justify;
+    font-size: 16px;
+    overflow:scroll;
+    margin-right:10px;
+    margin-left:10px;
+    padding-bottom: 10px;
+  }
+}
+
+
+
+/*******************************/
+/* MEDIA QUERIES */
+/*******************************/
+@media screen and (min-width: 0px) and (max-width: 800px) {
+  .leaflet-top .leaflet-control {
+    margin-top:40px!important;
+  }
+  #global{
+    height:90%;
+  }
+
+  #list_show{
+    width:95%;
+    margin-left:10px;
+  }
+}
+
+/*******************************/
+/* MEDIA QUERIES */
+/*******************************/
+@media screen and (min-width: 0px) and (max-width: 800px) {
+  .leaflet-top .leaflet-control {
+    margin-top:40px!important;
+  }
   #global{
     height:90%;
   }
