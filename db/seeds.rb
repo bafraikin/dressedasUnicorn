@@ -9,26 +9,27 @@
 #Place.create(name: "blabla", address: "chouchou")
 #require 'csv'
 
-
-#csv_text = File.read(Rails.root.join('lib', 'seeds', 'shopz.csv'))
-#csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
-#csv.each do |row|
-#  puts row.to_hash
-#  end
-
+=begin
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'shopz.csv'))
+csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
+csv.each do |row|
+  puts row.to_hash
+  end
+=end
+=begin Tag.destroy_all
 tags = Tag.create([
-  {id: 1, name: 'Femme'},
-  {id: 2, name: 'Homme'},
+  {id: 1, name: 'Homme'},
+  {id: 2, name: 'Femme'},
   {id: 3, name: 'Enfants'},
   {id: 4, name: 'Mode'},
   {id: 5, name: 'Déco'},
-  {id: 6, name: 'Vêtements'},
-  {id: 7, name: 'Accessoires'},
+  {id: 6, name: 'Concept Store'},
+  {id: 7, name: 'Vêtements'},
   {id: 8, name: 'Chaussures'},
-  {id: 9, name: 'Concept Store'},
-  {id: 10, name: 'Friperie'}
+  {id: 9, name: 'Accessoire'},
 ])
 
+=end
 
 # run rails db:seed pour le scrap/seed  faire en sorte que ça match les données d'une table
 

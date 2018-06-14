@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get "/pages/AdminRole", to: "pages#changeAdminRole"
   post "/pages/AdminRole", to: "pages#changeAdminRole"
 
+
   resources :place, only: [:destroy, :update]
   post "update", to: "pages#edit"
   get "favoris", to: "pages#favoris"
@@ -15,6 +16,7 @@ Rails.application.routes.draw do
   get "edit", to: "pages#edit"
   put "edit", to: "pages#edit"
   get "test", to: "pages#test"
+  get "contact", to: "pages#contact"
 
   devise_for :users
   root to: "map#index"
