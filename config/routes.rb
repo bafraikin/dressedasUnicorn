@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   resources :place, only: [:destroy, :update]
   post "update", to: "pages#edit"
-  get "list", to: "pages#list"
+  get "favoris", to: "pages#favoris"
   get "created", to: "pages#created"
   get "edit", to: "pages#edit"
   put "edit", to: "pages#edit"

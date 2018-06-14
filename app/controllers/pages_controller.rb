@@ -11,7 +11,7 @@ class PagesController < ApplicationController
     end
   end
 
-  def list
+  def favoris
     
   end
 
