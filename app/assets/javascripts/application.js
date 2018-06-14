@@ -57,12 +57,6 @@ let toggleModal = function() {
 }
 
 
-// let majPosition = function() {
-//   var x = document.getElementById("majposition");
-//   $(x).click();
-// } 
-
-
 /* Set the width of the side navigation to 30% and the left margin of the page content to 30% */
 function openNav() {
   document.getElementById("mySidenav").style.width = "30%";
