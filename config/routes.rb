@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   post "update", to: "pages#edit"
   get "favoris", to: "pages#favoris"
   get "created", to: "pages#created"
+  get "category", to: "pages#category"
   get "edit", to: "pages#edit"
   put "edit", to: "pages#edit"
   get "test", to: "pages#test"

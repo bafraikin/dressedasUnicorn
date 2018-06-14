@@ -29,7 +29,22 @@ let timestamp;            // tableau qui accueille tout les lieux chargé par l'
 let masuperfonction;      // fonction qui charge les lieux renseignés
 let getLocation;          // fonction récuperer la localisation de l'utilisateur 
 let errorHandler;         // fonction n'a pas pu recuperer la localisation de l'utilisateur
-let favcolor;             // boolean pour changement couleur fav boutique
+let favorite;      // ajoute la boutique au favoris
+
+
+
+// recupere les id des tags validé
+let getId = () => {
+  let a = $("div.control-group").children();
+  let tab = new Array;
+  let count = 0;
+  for( b of a ) {
+    if ($(b)[0].control.checked == true)  { 
+      tab.push($(b).children().attr('id'));
+    }
+  }
+  return (tab);
+}
 
 // Affichage de la fenêtre d'ajout d'une boutique
 let toggleModal = function() {
@@ -41,19 +56,20 @@ let toggleModal = function() {
   }
 }
 
-// Sidenav des boutiques
-function openViewShop() {
-  document.getElementById("viewshop").style.width = "250px";
-  document.getElementById("index").style.marginRight = "250px";
+
+/* Set the width of the side navigation to 30% and the left margin of the page content to 30% */
+function openNav() {
+  document.getElementById("mySidenav").style.width = "30%";
 }
 
-function closeViewShop() {
-  document.getElementById("viewshop").style.width = "0";
-  document.getElementById("index").style.marginRight = "0";
+/* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
 }
+
 
 // Affichage du menu User, qui se cache si on ouvre le menu settings
-function toggleUserMenu() {
+let toggleUserMenu = () => {
   var z = document.getElementById("menu-user");
   var y = document.getElementById("settings-user");
   if (z.style.display === "none") {
