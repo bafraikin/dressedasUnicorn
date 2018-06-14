@@ -1,0 +1,74 @@
+//coucou nouveeau fichier js, toi et moi on va faire des trucs fantastics
+
+$("#add").click(function () {
+  if (localisable) {
+    navigator.geolocation.getCurrentPosition(getLocationApp,errorHandla);
+  }
+  else {
+    userLoc = [false,false];
+  }
+  $.ajax({ 
+    url: "/sort_by_tag",  beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+    data:"tags=" + getId() + "&user=" + userLoc, method: 'POST', datatype: 'JSON', complete: (function(rendu) {
+      let place = rendu.responseJSON.data;
+      $("#global").html("");
+      let globalDiv = $("#global");
+
+      for (let local of place) {
+        let  miniDiv = document.createElement("div");
+        $(miniDiv).attr('id', "list_show");
+        $(miniDiv).appendTo($(globalDiv));
+
+        if (local[3]) {
+          let boole = false;
+          for (let liked of local[3]) {
+            if (liked.id == local[0].id ) {
+              boole = true;
+            }
+          }
+          let coeur =  document.createElement("i");
+          if (boole) {
+            $(coeur).css("color", 'red');
+          }
+
+          $(coeur).click(function() {
+            favorite(local[0].id, local[4]);
+            if ($(this).css("color") == "rgb(128, 128, 128)") {
+              $(this).css("color", 'red');
+            }
+            else {
+              $(this).css("color", 'grey');
+            }});
+
+          $(coeur).addClass("fa");
+          $(coeur).addClass("fa-heart");
+          $(coeur).attr("id", 'fav');
+          $(coeur).appendTo($(miniDiv));
+        }
+            if (local[0].name) {
+              let name =  document.createElement("h3");
+              $(name).html(local[0].name);
+              $(name).appendTo($(miniDiv));
+              let ligne = document.createElement("hr");
+              $(ligne).appendTo($(miniDiv));
+            }
+            if (local[2]) {
+              let distance = document.createElement("div");
+              $(distance).html( "la boutique est à " + Math.round((Number(local[2]) * 1000)) + " mètre" );
+              $(distance).attr("id", 'distance');
+              $(distance).appendTo($(miniDiv)); 
+            }
+            let adresse = document.createElement("p");
+            $(adresse).attr('id', 'addrreeesse');
+            $(adresse).html(local[0].address);
+            $(adresse).appendTo($(miniDiv));
+            for (let tag of local[1]) {
+              let tagDiv  = document.createElement("div");
+              $(tagDiv).appendTo($(miniDiv));
+              $(tagDiv).addClass("tags");
+              $(tagDiv).html(tag.name);
+            }
+        }
+      }) 
+    });
+  });

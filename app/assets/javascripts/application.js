@@ -29,9 +29,20 @@ let timestamp;            // tableau qui accueille tout les lieux chargé par l'
 let masuperfonction;      // fonction qui charge les lieux renseignés
 let getLocation;          // fonction récuperer la localisation de l'utilisateur 
 let errorHandler;         // fonction n'a pas pu recuperer la localisation de l'utilisateur
-let favorite;      // ajoute la boutique au favoris
+let favorite;             // ajoute la boutique au favoris
 
 
+
+
+favorite = (idplace, userId) => {
+  $.ajax({
+    url : '/place/favplaces',
+    beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+    type : 'POST',
+    datatype: 'JSON',
+    data : 'id=' + idplace + '&iduser=' + userId 
+  });
+} 
 
 // recupere les id des tags validé
 let getId = () => {
@@ -56,7 +67,6 @@ let toggleModal = function() {
   }
 }
 
-
 /* Set the width of the side navigation to 30% and the left margin of the page content to 30% */
 function openNav() {
   document.getElementById("mySidenav").style.width = "30%";
@@ -66,28 +76,6 @@ function openNav() {
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
 }
-
-
-// Favoriser une boutique
-favorite = (idplace, userId) => {
-  $.ajax({
-    url : '/place/favplaces',
-    type : 'POST',
-    datatype: 'JSON',
-    data : 'id=' + idplace + '&iduser=' + userId 
-  }); 
-  console.log("yeah");
-}; 
-    // Changement de couleur de l'icone
-$('i#fav').click(function() {
-  if ($(this).css("color") == "rgb(128, 128, 128)") {
-    $(this).css("color", 'red');
-  }
-  else {
-    $(this).css("color", 'grey');
-  }
-});
-
 
 // Affichage du menu User, qui se cache si on ouvre le menu settings
 let toggleUserMenu = () => {
@@ -117,6 +105,25 @@ function toggleSettingsMenu() {
   }
 }
 
+let getLocationApp = (position) => {
+  localisable = true;
+  userLoc = new Array;
+  userLoc.push(parseFloat(position.coords.latitude));
+  userLoc.push(parseFloat(position.coords.longitude));
+}
+
+let errorHandla = () => {
+  alert("pas de geolocalisation, le site ne fonctionnera pas optimalement");
+}
+
+$(document).ready(function() {
+  if(navigator.geolocation) {
+    localisable = true;
+    navigator.geolocation.getCurrentPosition(getLocationApp, errorHandla);
+  }
+});
+
+
 // Bouton pour fermer toutes les modales
 function closeModal() {
   var z = document.getElementById("menu-user");
@@ -134,7 +141,7 @@ function closeModal() {
   }
 }
 
-var $htmlOrBody = $('html, body'), // scrollTop works on <body> for some browsers, <html> for others
+var $htmlOrBody = $('html, body'); // scrollTop works on <body> for some browsers, <html> for others
   scrollTopPadding = 8;
 
 $('textarea').on('focus', function() {
@@ -161,7 +168,6 @@ function openPage(pageName,elmnt,color,font,border) {
   elmnt.style.backgroundColor = color;
   elmnt.style.color = font;
   elmnt.style.borderBottom = border;
-
 }
 
 
@@ -169,7 +175,8 @@ function openPage(pageName,elmnt,color,font,border) {
 let admin = function(id){
   $.ajax({
     type    : "POST",
-    url     : "/pages/AdminRole", 
+    url     : "/pages/AdminRole",
+     beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
     dataType: 'script',
     data    : 'id=' + id  
 
@@ -184,7 +191,6 @@ $(document).ready(function(){
       $(this).remove();
     })
   }, 500);
-
 });
 
 $(document).ready(function(){
@@ -193,5 +199,4 @@ $(document).ready(function(){
       $(this).remove();
     })
   }, 500);
-
 });
