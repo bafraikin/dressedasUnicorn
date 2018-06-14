@@ -50,7 +50,7 @@ end
   def destroy
     @place = Place.find(params[:id])
     @place.destroy
-    redirect_to '/created'
+    redirect_back(fallback_location: root_path)
     flash[:notice] = "Boutique supprimée !"
   end
 
