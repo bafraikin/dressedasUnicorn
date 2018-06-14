@@ -19,6 +19,7 @@
 
 
 //declaration de certaine variable ici pour que la carte se recharge quand on clique sur l'onglet carte.
+let getId;
 let callDeux;             // fonction de l'ajout definitif d'une addresse par addresse   
 let callUn;               // fonction de la 1ere phase d'ajout par addresse
 let userLoc = new Array;  // localité de l'utilisateur
@@ -50,10 +51,11 @@ function openNav() {
 /* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
 function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
+}
 
 
 // Affichage du menu User, qui se cache si on ouvre le menu settings
-function toggleUserMenu() {
+let toggleUserMenu = () => {
   var z = document.getElementById("menu-user");
   var y = document.getElementById("settings-user");
   if (z.style.display === "none") {
