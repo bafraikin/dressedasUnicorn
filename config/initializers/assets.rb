@@ -16,4 +16,5 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 Rails.application.config.assets.precompile += %w( place.js )
 Rails.application.config.assets.precompile += %w( map.js )
 Rails.application.config.assets.precompile += %w( list.js )
+Rails.application.config.assets.precompile += %w( category.js )
 

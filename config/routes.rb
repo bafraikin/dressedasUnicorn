@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   post "update", to: "pages#edit"
   get "favoris", to: "pages#favoris"
   get "created", to: "pages#created"
-  get "category", to: "pages#category"
   get "edit", to: "pages#edit"
   put "edit", to: "pages#edit"
   get "test", to: "pages#test"
@@ -26,6 +25,9 @@ Rails.application.routes.draw do
   post "/put_address", to: "place#put_address"
   post "/imhere", to: "place#add_imhere"
   post "/place/favplaces", to: "place#favplaces"
+  get  "/category", to: "place#category"
+  post "/sort_by_tag", to: "place#list_by_tag"
+
   #devise_for :users, :controllers => {:omniauth_callbacks => "users/omniauth_callbacks"}
 
   #root to: "home#index"

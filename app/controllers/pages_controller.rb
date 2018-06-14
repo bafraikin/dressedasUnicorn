@@ -1,3 +1,4 @@
+
 class PagesController < ApplicationController
   before_action :authenticate_user!, only: [:admin, :destroy]
 
@@ -22,9 +23,6 @@ class PagesController < ApplicationController
     @places = Place.all
   end
 
-
-
-
   #Methode pour le dashboard admin qui récupère users et boutiques
   def admin
 
@@ -32,7 +30,6 @@ class PagesController < ApplicationController
     @places = Place.all
   end 
 
-    
   def update_user
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
@@ -46,12 +43,10 @@ class PagesController < ApplicationController
     @user = User.find(params[:id])
   end
 
-
   def destroy
     User.find(params[:id]).destroy
     redirect :back
   end
-
 
   #Fonction pour changer le rôle d'un user vers admin ou user normal. Impossible de changer l'admin avec mon adresse mail pour avoir au moins 1 admin
   def changeAdminRole
@@ -67,28 +62,4 @@ class PagesController < ApplicationController
       end
     end
   end
-
-  def list_by_tag
-    user = [48.866667, 2.333333]
-    tab = [1,2,5]
-    longueur = []
-    places = [[]]
-    index = 0
-    tab.each do |tag|
-      tags = Tag.find(tag)
-      tags.places.each do |place|
-        calcul = Geocoder::Calculations.distance_between([user[0], user[1]], [place.latitude, place.longitude])
-        unless longueur.include?(calcul)
-          longueur[index] = calcul
-          places[index] = []
-          places[index][0] = place
-          places[index][1] = place.tags
-          places[index][2] = calcul
-          index +=1
-        end
-      end
-    @a = places.sort! {| a, b |  a[2] <=> b[2] }
-  end
-end
-
 end
