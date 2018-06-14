@@ -12,15 +12,6 @@ class PagesController < ApplicationController
   end
 
   def list
-    @places = Place.all
-    @creators = []
-    @ids = []
-    @places.each_with_index do |place, index|
-      @creators[index] = place.creators[0].username
-    end
-    current_user.liked_places.each_with_index do |like,index |
-      @ids[index] = like.id
-    end
   end
 
   def test
