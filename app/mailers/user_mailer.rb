@@ -19,4 +19,15 @@ class UserMailer < ApplicationMailer
     @myshops = 'https://urban-emporium.herokuapp.com/created'
     mail(to: @user.email, subject: 'Bienvenue :D !')
   end
+
+  def contact
+    @contact = Contact.new(params[:contact])  
+    @contact.request = request 
+    if @contact.deliver 
+      flash.now[:error] = nil 
+    else
+      flash.now[:error] = "Impossible d'envoyer le message"
+  end 
+
+
 end
