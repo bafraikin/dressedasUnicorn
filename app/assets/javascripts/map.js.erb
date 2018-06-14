@@ -58,10 +58,11 @@ masuperfonction = function() {
             openNav();
             $("#mainSidenav").html("");
             m = document.createElement("p");
-            l = document.createElement("p");
+            l = document.createElement("h3");
             k = document.createElement("a");
-            j = document.createElement("h1");
+            j = document.createElement("p");
             i = document.createElement("h1");
+            p = document.createElement("hr");
             if(local.name == "") {
               $(k).html("Ajouter un nom");
               $(k).appendTo($("#mainSidenav"));
@@ -71,18 +72,21 @@ masuperfonction = function() {
               $(m).appendTo($("#mainSidenav"));
             }
             else {
-              $(i).html("Nom :");
+              
               $(i).attr('id', 'name_id');
+              $(i).html("Informations");
+              $(p).html("");
               $(l).html(local.name); 
-              $(j).html("Adresse :");
-              $(m).html(local.address);
+              $(j).html("Adresse :" + local.address);
+              $(i).html("Catégories");
+              $(i).html("Commentaires");
               $(i).appendTo($("#mainSidenav"));
               $(l).appendTo($("#mainSidenav"));              
               $(j).appendTo($("#mainSidenav"));            
               $(m).appendTo($("#mainSidenav"));
             }
           });
-          // marker.bindPopup( '<p>' + '' + `${local.name}` + '<br />' + ''  + `${local.address}` + '</p>');
+          // marker.bindPopup( '<p>' + '' + `${local.name}` + '<br />' + ''  + `${local.address}` + '');
           // $(marker).click(function() {
           // this.openPopup();
           // });
