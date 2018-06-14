@@ -34,12 +34,17 @@ let favorite;             // ajoute la boutique au favoris
 
 
 // recupere les id des tags validé
-let  getId = (idplace, userId) => {
-   $.ajax({
-     url : '/place/favplaces',
-     data : 'id=' + idplace + '&iduser=' + userId 
-   });
- }; 
+getId = () => {
+  let a = $("div.control-group").children();
+  let tab = new Array;
+  let count = 0;
+  for( b of a ) {
+    if ($(b)[0].control.checked == true)  { 
+      tab.push($(b).children().attr('id'));
+    }
+  }
+    return (tab);
+}
 
 // Affichage de la fenêtre d'ajout d'une boutique
 let toggleModal = function() {
