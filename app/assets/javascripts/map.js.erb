@@ -47,7 +47,7 @@ masuperfonction = function() {
   bound = mymap.getBounds();
   $.ajax({url: "/", type: 'POST', data: 'Nlat=' + bound.getNorth() + "&Nlong=" + bound.getWest() + "&Slat=" + bound.getSouth() + "&Slong=" + bound.getEast() + '&test1=' + mymap.getCenter().lat + '&test2=' + mymap.getCenter().lng  , dataType: 'JSON', body: 'rendu', complete: ( 
     function(data) {
-      for (let local of data.responseJSON.rendu) {
+      for (let local of data.responseJSON.rendu[0]) {
         if (timestamp.includes(local["created_at"]) != true ) {
           timestamp.push(local["created_at"]);
           let place = new L.latLng(local.latitude, local.longitude);
@@ -63,6 +63,8 @@ masuperfonction = function() {
             j = document.createElement("h1");
             i = document.createElement("h1");
             if(local.name == "") {
+              
+              favorite(local.id, data.responseJSON.rendu[1]);
               $(k).html("Ajouter un nom");
               $(k).appendTo($("#mainSidenav"));
               $(j).html("Adresse :");

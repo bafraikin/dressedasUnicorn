@@ -43,6 +43,12 @@ let toggleModal = function() {
 }
 
 
+// let majPosition = function() {
+//   var x = document.getElementById("majposition");
+//   $(x).click();
+// } 
+
+
 /* Set the width of the side navigation to 30% and the left margin of the page content to 30% */
 function openNav() {
     document.getElementById("mySidenav").style.width = "30%";
@@ -52,6 +58,27 @@ function openNav() {
 function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
 }
+
+
+// Favoriser une boutique
+favorite = (idplace, userId) => {
+  $.ajax({
+    url : '/place/favplaces',
+    type : 'POST',
+    datatype: 'JSON',
+    data : 'id=' + idplace + '&iduser=' + userId 
+  }); 
+  console.log("yeah");
+}; 
+    // Changement de couleur de l'icone
+$('i#fav').click(function() {
+  if ($(this).css("color") == "rgb(128, 128, 128)") {
+    $(this).css("color", 'red');
+  }
+  else {
+    $(this).css("color", 'grey');
+  }
+});
 
 
 // Affichage du menu User, qui se cache si on ouvre le menu settings
