@@ -161,7 +161,7 @@ $(document).ready(function(){
     $('#notice_wrapper').fadeOut("Slow",function(){
       $(this).remove();
     })
-  }, 1000);
+  }, 500);
 
 });
 
@@ -170,7 +170,6 @@ $(document).ready(function(){
     $('#alert_wrapper').fadeOut("Slow",function(){
       $(this).remove();
     })
-  }, 1000);
+  }, 500);
 
 });
-

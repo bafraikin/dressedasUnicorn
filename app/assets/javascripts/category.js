@@ -1,9 +1,5 @@
 //coucou nouveeau fichier js, toi et moi on va faire des trucs fantastics
 
-
-
-
-
 $("#add").click(function () {
   if (localisable) {
     navigator.geolocation.getCurrentPosition(getLocation,errorHandler);
@@ -13,10 +9,11 @@ $("#add").click(function () {
   }
   $.ajax({ 
     url: "/sort_by_tag", data:"tags=" + getId() + "&user=" + userLoc, method: 'POST', datatype: 'JSON', complete: (function(rendu) {
+
+      $("#global").html("")
       let place = rendu.responseJSON.data;
-      
       let globalDiv = document.createElement("div");
-      $(globalDiv).attr('id', 'liste');
+      $(globalDiv).attr('id', 'global');
       $(globalDiv).appendTo($('body'));
       for (let local of place) {
         let  miniDiv = document.createElement("div");
@@ -50,12 +47,11 @@ $("#add").click(function () {
         $(adresse).attr('id', 'addrreeesse');
         $(adresse).html($(local[0].address));
         $(adresse).appendTo($(miniDiv));
-        let tagDiv  = document.createElement("div");
-        $(tagDiv).appendTo($(miniDiv));
         for (let tag of local[1]) {
-          let tagP = document.createElement("p");
-          $(tagP).html(tag.name);
-          $(tagP).appendTo($(tagDiv));
+          let tagDiv  = document.createElement("div");
+          $(tagDiv).appendTo($(miniDiv));
+          $(tagDiv).addClass("tags");
+          $(tagDiv).html(tag.name);
         }
       }
     }) 

@@ -14,7 +14,6 @@ class PagesController < ApplicationController
   end
 
   def favoris
-
   end
 
   def category
@@ -57,14 +56,12 @@ class PagesController < ApplicationController
 
   #Methode pour le dashboard admin qui récupère users et boutiques
   def admin
+
     @users = User.all
     @places = Place.all
-    @creator = []
-    @places.each_with_index do |place,index| 
-      @creator[index] = place.creators[0].username
-    end
-  end
+  end 
 
+    
   def update_user
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
@@ -78,10 +75,12 @@ class PagesController < ApplicationController
     @user = User.find(params[:id])
   end
 
+
   def destroy
     User.find(params[:id]).destroy
     redirect :back
   end
+
 
   #Fonction pour changer le rôle d'un user vers admin ou user normal. Impossible de changer l'admin avec mon adresse mail pour avoir au moins 1 admin
   def changeAdminRole
