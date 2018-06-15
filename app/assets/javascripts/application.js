@@ -69,7 +69,14 @@ let toggleModal = function() {
 
 /* Set the width of the side navigation to 30% and the left margin of the page content to 30% */
 function openNav() {
+  if ($(window).width() < 960) {
+    document.getElementById("mySidenav").style.width = "110%";
+    document.getElementById("mySidenav").style.marginTop = "0px";
+ }
+ else {
   document.getElementById("mySidenav").style.width = "30%";
+ }
+  
 }
 
 /* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
