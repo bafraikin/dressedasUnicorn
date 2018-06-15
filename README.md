@@ -10,7 +10,7 @@ lance juste ./bumigraseedrveur
 
 ## Le Liens Heroku qui marche est ici
 
-[LIENS]('https://pintiq.herokuapp.com/')
+[LIENS](https://pintiq.herokuapp.com/)
 
 Le projet c'est bien passé, c'etait cool.
 
