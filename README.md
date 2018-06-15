@@ -8,6 +8,10 @@ Il y a un petit script shell à la racine qui va lancer toute les bonnes command
 lance juste ./bumigraseedrveur
 ```
 
+## Le Liens Heroku qui marche est ici
+
+[LIENS]('pintiq.herokuapp.com')
+
 Le projet c'est bien passé, c'etait cool.
 
 
