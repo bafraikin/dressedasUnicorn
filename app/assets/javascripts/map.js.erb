@@ -12,7 +12,20 @@ getLocation = (position) => {
 }
 
 errorHandler = () => {
-  
+
+}
+closeNav = ()  => {
+  document.getElementById("mySidenav").style.width = "0";
+}
+
+openNav = () =>  {
+  if ($(window).width() < 960) {
+    document.getElementById("mySidenav").style.width = "110%";
+    document.getElementById("mySidenav").style.marginTop = "0px";
+ }
+ else {
+    document.getElementById("mySidenav").style.width = "30%";
+ }
 }
 
 //poser la question lorsque l'utilisateur se connecte
@@ -34,6 +47,7 @@ $(document).ready(function() {
         $("input#address").val(local);
       })
       });});
+    $('#maj-position').click
   } 
   else {
     alert('Votre navigateur ne prend malheureusement pas en charge la géolocalisation.');
@@ -46,76 +60,71 @@ masuperfonction = function() {
     return (0);
   }
   bound = mymap.getBounds();
-  $.ajax({url: "/", type: 'POST', data: 'Nlat=' + bound.getNorth() + "&Nlong=" + bound.getWest() + "&Slat=" + bound.getSouth() + "&Slong=" + bound.getEast() + '&test1=' + mymap.getCenter().lat + '&test2=' + mymap.getCenter().lng  , dataType: 'JSON', body: 'rendu', complete: ( 
-    function(data) {
-      for (let local of data.responseJSON.rendu[0]) {
-        if (timestamp.includes(local["created_at"]) != true ) {
-          timestamp.push(local["created_at"]);
-          let place = new L.latLng(local.latitude, local.longitude);
-          let myIcon = new L.icon({ iconUrl: "<%= asset_path("pin-mark.png") %>" , iconSize: [45, 50] });
-          let marker = new L.Marker(place, {icon: myIcon, autoPan: true});
+  $.ajax({url: "/", type: 'POST', data: 'Nlat=' + bound.getNorth() + "&Nlong=" + bound.getWest() + "&Slat=" + bound.getSouth() + "&Slong=" + bound.getEast()  ,
+    beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+    dataType: 'JSON', body: 'rendu', complete: ( 
+      function(data) {
+        for (let local of data.responseJSON.rendu[0]) {
+          if (timestamp.includes(local["created_at"]) != true ) {
+            timestamp.push(local["created_at"]);
+            let place = new L.latLng(local.latitude, local.longitude);
+            let myIcon = new L.icon({ iconUrl: "<%= asset_path("pin-mark.png") %>" , iconSize: [45, 50] });
+            let marker = new L.Marker(place, {icon: myIcon, autoPan: true});
 
-          $(marker).click(function() {
-            openNav();
-            $("#mainSidenav").html("");
-            favori = document.createElement("i");
-            address_shop = document.createElement("p");
-            name_shop = document.createElement("p");
-            add_name_shop = document.createElement("a");
-            favori_nav = document.createElement("p");
-            if(local.name == "") {
-              $(add_name_shop).html("Ajouter un nom");
-              $(add_name_shop).appendTo($("#mainSidenav"));
-              $(address_shop).html(local.address);
-              $(address_shop).appendTo($("#mainSidenav"));
-              $(favori_nav).appendTo($("#mainSidenav"));
-            }
-            else {
-              $(favori_nav).attr('id', 'name_id');
-              $(name_shop).html("Nom : " + local.name); 
-              $(address_shop).html("Addresse : " + local.address);
-              $(name_shop).appendTo($("#mainSidenav"));              
-              
-              $(address_shop).appendTo($("#mainSidenav"));
-            }
-            $(favori_nav).html("Ajouter aux favoris ? ");
-            $(favori_nav).appendTo($("#mainSidenav"));
-
-            let bolle = false;
-            for (let place of data.responseJSON.rendu[2]) {
-              if ( place.id == local.id ) 
-                bolle = true;
-            }
-
-            if (bolle) {
-              $(favori).css("color", "red");
-            }
-            else {
-              $(favori).css("color", "grey");
-            }
-
-            $(favori).click(function () {
-              favorite(local.id, data.responseJSON.rendu[1]);
-              if ($(this).css("color") == "rgb(128, 128, 128)") {
-                $(this).css("color", 'red');
-
+            $(marker).click(function() {
+              openNav();
+              $("#mainSidenav").html("");
+              favori = document.createElement("i");
+              address_shop = document.createElement("p");
+              name_shop = document.createElement("p");
+              add_name_shop = document.createElement("a");
+              favori_nav = document.createElement("p");
+              if(local.name == "") {
+                $(add_name_shop).html("Ajouter un nom");
+                $(add_name_shop).appendTo($("#mainSidenav"));
+                $(address_shop).html(local.address);
+                $(address_shop).appendTo($("#mainSidenav"));
+                $(favori_nav).appendTo($("#mainSidenav"));
               }
               else {
-                $(this).css("color", 'grey');
+                $(favori_nav).attr('id', 'name_id');
+                $(name_shop).html("Nom : " + local.name); 
+                $(address_shop).html("Addresse : " + local.address);
+                $(name_shop).appendTo($("#mainSidenav"));              
+
+                $(address_shop).appendTo($("#mainSidenav"));
+              }
+
+              if (data.responseJSON.rendu[1]) {
+              $(favori_nav).html("Ajouter aux favoris ? ");
+              $(favori_nav).appendTo($("#mainSidenav"));
+              let bolle = false;
+              for (let place of data.responseJSON.rendu[2]) {
+                if ( place.id == local.id ) {
+                  bolle = true;
+                }
+              }
+              if (bolle) {
+                $(favori).css("color", "red");
+              }
+              else {
+                $(favori).css("color", "grey");
+              }
+              $(favori).click(function () {
+                favorite(local.id, data.responseJSON.rendu[1]);
+                if ($(this).css("color") == "rgb(128, 128, 128)") {
+                  $(this).css("color", 'red');
+                }
+                else {
+                  $(this).css("color", 'grey');
+                }});
+              $(favori).addClass("fa");
+              $(favori).css("font-size", "30px");
+              $(favori).addClass("fa-heart");
+              $(favori).appendTo($(favori_nav));
               }});
-
-            $(favori).addClass("fa");
-            $(favori).css("font-size", "30px");
-            $(favori).addClass("fa-heart");
-            $(favori).appendTo($(favori_nav));
-
-          });
-          // marker.bindPopup( '<p>' + '' + `${local.name}` + '<br />' + ''  + `${local.address}` + '</p>');
-          // $(marker).click(function() {
-          // this.openPopup();
-          // });
-          marker.addTo(mymap);
-        }}})});}
+            marker.addTo(mymap);
+          }}})});}
 
 /* ----------------------------------------------------------------- */
 // Cree la map
@@ -125,7 +134,8 @@ timestamp = 0
 timestamp = new Array; 
 layer = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
   attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-  maxZoom: 15,
+  maxZoom: 19,
+  minZoom: 6,
   transparent: true,
   id: 'mapbox.streets',
   accessToken: 'pk.eyJ1IjoiYmZyYWlraW4iLCJhIjoiY2podWxwc21pMG5udjNqdDZpZGluaGhxeSJ9.WaMLYylJhk6ULiaGSWNuAA'
