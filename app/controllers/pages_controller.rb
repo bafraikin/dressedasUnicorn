@@ -28,6 +28,7 @@ class PagesController < ApplicationController
 
     @users = User.all
     @places = Place.all
+    @tags = Tag.all
   end 
 
   def update_user

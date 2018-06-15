@@ -2,9 +2,11 @@
 
 <div class="wrap-admin">
 <!-- Bouton haut du panel admin -->
-    <button class="tablink" onclick="openPage('Users', this, '#686de0','white','3px solid #474787')" id="defaultOpen">Utilisateurs <br><i class="fa fa-user"></i></button>
-    <button class="tablink" onclick="openPage('Shops', this, '#6ab04c','white','3px solid #218c74')" >Boutiques <br><i class="fa fa-flag"></i></i></button>
-    <button class="tablink" onclick="openPage('Admins', this, '#f0932b','white','3px solid #cd6133')">Admins<br> <i class="fa fa-bug"></i></button>
+    <button class="tablink" onclick="openPage('Users', this, '#686de0','white','3px solid #474787','rgba(104, 109, 224, 0.9)')" id="defaultOpen">Users <br><i class="fa fa-user"></i></button>
+    <button class="tablink" onclick="openPage('Shops', this, '#16a085','white','3px solid #218c74','rgba(22, 160, 133,0.9)')" >Shops <br><i class="fa fa-flag"></i></i></button>
+    <button class="tablink" onclick="openPage('Category', this, '#B53471','white','3px solid #833471','rgba(181, 52, 113, 0.91)')">Tags<br> <i class="fa fa-tags"></i></button>
+    <button class="tablink" onclick="openPage('Admins', this, '#f0932b','white','3px solid #cd6133','rgba(240, 147, 43, 0.9)')">Admins<br> <i class="fa fa-bug"></i></button>
+
  <!-- Division d'affichage de tous les users avec possibilité de modifier le user vers admin-->   
     <div id="Users" class="tabcontent">
         <%@users.reverse.each do |user|%>
@@ -43,6 +45,8 @@
         <h3 class="accordion"> <%=shop.name%></h3>
         <div class="panel" >
           <p><%=shop.address%></p>
+          <p><%=shop.tags%></p>
+
           <%= link_to '/place/' + shop.id.to_s,  method: :delete, data: {confirm: 'Tu es sûr.e ?'} do %> <i class="fa fa-trash"></i><%end%></p>
 
         </div>
@@ -68,16 +72,22 @@
       <%end%>
     <% end %>
   </div>
+
+  <div id="Category" class="tabcontent">
+    <%@tags.each do |tag|%>
+         <div class="wrap-shop-admin">
+          <h3 class="accordion"> <%=tag.name%></h3>
+        </div>
+        <hr>
+    <% end %>
+  </div>
 </div>
 
 <script>
-
-
-
 //Définit le premier onglet ouvert
 document.getElementById("defaultOpen").click();
-// Affichage de l'accordeon
 
+// Affichage de l'accordeon
 var acc = document.getElementsByClassName("accordion");
 var i;
 for (i = 0; i < acc.length; i++) {
@@ -91,7 +101,4 @@ for (i = 0; i < acc.length; i++) {
     }
   });
 };;
-
-
-
 </script>

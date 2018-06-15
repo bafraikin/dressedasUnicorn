@@ -24,7 +24,10 @@ class MapController < ApplicationController
     south_long = params[:"Slong"].to_f
     # latitude = 100 / 111.111
     # longitude =  100 / (lat * Math.cos(lat))
-    @a = Place.where("latitude <= #{north_lat} AND latitude >= #{south_lat} AND longitude <= #{south_long} AND longitude >= #{north_long}")
+    @a = []
+    @a[0] = Place.where("latitude <= #{north_lat} AND latitude >= #{south_lat} AND longitude <= #{south_long} AND longitude >= #{north_long}")
+    @a[1] = current_user.id
+    @a[2] = current_user.liked_places
     render json: {rendu: @a}
   end
 
