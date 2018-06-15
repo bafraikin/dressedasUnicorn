@@ -67,7 +67,7 @@ let toggleModal = function() {
   }
 }
 
-/* Set the width of the side navigation to 30% and the left margin of the page content to 30% */
+/* Ouverture de la sidebar */
 function openNav() {
   if ($(window).width() < 960) {
     document.getElementById("mySidenav").style.width = "110%";
@@ -159,8 +159,8 @@ $('text-field').on('focus', function() {
 });
 
 // Gestion des tabs page administrateurs
-function openPage(pageName,elmnt,color,font,border) {
-  var i, tabcontent, tablinks;
+function openPage(pageName,elmnt,color,font,border,bg_color) {
+  var i, tabcontent, tablinks, accordion;
   tabcontent = document.getElementsByClassName("tabcontent");
   for (i = 0; i < tabcontent.length; i++) {
     tabcontent[i].style.display = "none";
@@ -170,6 +170,11 @@ function openPage(pageName,elmnt,color,font,border) {
     tablinks[i].style.backgroundColor = "";
     tablinks[i].style.color = "";
     tablinks[i].style.border = "none";
+  }
+  accordion = document.getElementsByClassName("accordion"); // Par défaut
+  for (i = 0; i < accordion.length; i++) {
+    accordion[i].style.backgroundColor = bg_color;
+    accordion[i].style.color = "white";
   }
   document.getElementById(pageName).style.display = "block"; // Actif
   elmnt.style.backgroundColor = color;
