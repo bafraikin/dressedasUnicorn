@@ -59,7 +59,7 @@ class PlaceController < ApplicationController
     placee = Place.find(params[:id])
     usera = User.find(params[:iduser])
     unless usera.liked_places.where(id: placee.id) == []
-      FavPlace.where("liker_id == #{usera.id} AND place_id == #{placee.id}")[0].destroy
+      FavPlace.where("liker_id = #{usera.id} AND place_id = #{placee.id}")[0].destroy
     else
       usera.liked_places << placee 
     end

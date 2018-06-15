@@ -22,7 +22,7 @@
   <div id='liste'>
   <%= image_tag("photos/purple(2).jpg", class: "img-bg") %>
 
-    <%current_user.liked_places.each do |shop|%>
+    <%current_user.liked_places.reverse.each do |shop|%>
       <div id="list_show">
       <i class="fa fa-heart" id="fav" onclick="favorite(<%=shop.id%>,<%= current_user.id %>)" style="color: rgb(255,0,0);" ></i>
         <h3><%=shop.name%></h3>

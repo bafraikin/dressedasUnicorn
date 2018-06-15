@@ -61,12 +61,13 @@ class PagesController < ApplicationController
     user = User.find(params[:id])
     if user.admin == false
       user.update_attribute :admin, true      
-      flash[:notice] = "Impossible de supprimer cet utilisateur"
+      flash[:notice] = "Nouvel admin ajouté"
     else
       if user.email == 'broussolle.paul@gmail.com'
         puts "Impossible de changer le rôle de cet admin"
       else
         user.update_attribute :admin, false
+        flash[:alert] = "Rôle admin retiré"
       end
     end
   end
