@@ -15,9 +15,27 @@ ul, li {
     margin: 0px;
     list-style-type: none;
 }
+/*----------RESPONSIVE PART 1-------------*/
+@media screen and (min-width: 0px) and (max-width: 800px) {
+  .contactform{ 
+      margin-top: -15px;
+      padding: 0;
+      //padding-bottom: 20px!important;
+      margin-left: 3%;
+      width: 85%;
+      height : 85%;
+      
+  }
+      .container-contact2 {
+        padding: 0px!important;
+  }
+
+  .wrap-contact2 {
+      padding: 0px 0px 0px 20px!important;
+  }
+}
 
 
->>>>>>> master
 /*---------------------------------------------*/
 input {
     outline: none;
@@ -114,11 +132,12 @@ iframe {
 .contact2-form-title {
   display: block;
   font-family: Lato-light;
-  font-size: 39px;
+  font-size: 30px;
+  font-style: oblique;
   color: #333333;
   line-height: 1.2;
   text-align: center;
-  padding-bottom: 90px;
+  padding-bottom: 30px;
 }
 
 
@@ -291,14 +310,8 @@ textarea.input2 {
   left: 0;
 }
 
-/*------------------------------------------------------------------
-[ Responsive ]*/
+/*------------RESPONSIVE PART 2--------------------------------------*/
 
-@media (max-width: 576px) {
-  .wrap-contact2 {
-    padding: 72px 15px 90px 15px;
-  }
-}
 
 
 
