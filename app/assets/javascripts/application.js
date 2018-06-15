@@ -31,9 +31,6 @@ let getLocation;          // fonction récuperer la localisation de l'utilisateu
 let errorHandler;         // fonction n'a pas pu recuperer la localisation de l'utilisateur
 let favorite;             // ajoute la boutique au favoris
 
-
-
-
 favorite = (idplace, userId) => {
   $.ajax({
     url : '/place/favplaces',

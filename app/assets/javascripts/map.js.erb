@@ -34,6 +34,7 @@ $(document).ready(function() {
         $("input#address").val(local);
       })
       });});
+    $('#maj-position').click
   } 
   else {
     alert('Votre navigateur ne prend malheureusement pas en charge la géolocalisation.');
@@ -46,7 +47,7 @@ masuperfonction = function() {
   return (0);
   }
   bound = mymap.getBounds();
-  $.ajax({url: "/", type: 'POST', data: 'Nlat=' + bound.getNorth() + "&Nlong=" + bound.getWest() + "&Slat=" + bound.getSouth() + "&Slong=" + bound.getEast() + '&test1=' + mymap.getCenter().lat + '&test2=' + mymap.getCenter().lng  , dataType: 'JSON', body: 'rendu', complete: ( 
+  $.ajax({url: "/", type: 'POST', data: 'Nlat=' + bound.getNorth() + "&Nlong=" + bound.getWest() + "&Slat=" + bound.getSouth() + "&Slong=" + bound.getEast()  , dataType: 'JSON', body: 'rendu', complete: ( 
     function(data) {
       for (let local of data.responseJSON.rendu) {
         if (timestamp.includes(local["created_at"]) != true ) {
