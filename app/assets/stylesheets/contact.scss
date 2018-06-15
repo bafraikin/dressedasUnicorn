@@ -1,15 +1,9 @@
-
-/*//////////////////////////////////////////////////////////////////
-[ RESTYLE TAG ]*/
-
-
+/*//////////////////////[ RESTYLE TAG ]*/
 
 body, html {
     height: 100%;
     font-family: Lato-light;
 }
-
-
 
 ul, li {
     margin: 0px;
@@ -24,18 +18,14 @@ ul, li {
       margin-left: 3%;
       width: 85%;
       height : 85%;
-      
   }
-      .container-contact2 {
-        padding: 0px!important;
+  .container-contact2 {
+      padding: 0px!important;
   }
-
   .wrap-contact2 {
       padding: 0px 0px 0px 20px!important;
   }
 }
-
-
 /*---------------------------------------------*/
 input {
     outline: none;
@@ -84,12 +74,7 @@ iframe {
     border: none !important;
 }
 
-
-
-
-
-/*//////////////////////////////////////////////////////////////////
-[ Contact 2 ]*/
+/*//////////////////////////[ Contact 2 ]*/
 .bg-contact2 {
   width: 100%;  
   background-repeat: no-repeat;
@@ -121,9 +106,7 @@ iframe {
   border-color: purple;
 }
 
-
-/*------------------------------------------------------------------
-[  ]*/
+/*----------------------------------------------[  ]*/
 
 .contact2-form {
   width: 100%;
@@ -140,10 +123,7 @@ iframe {
   padding-bottom: 30px;
 }
 
-
-
-/*------------------------------------------------------------------
-[  ]*/
+/*-----------------------------------------------[  ]*/
 
 .wrap-input2 {
   width: 100%;
@@ -216,15 +196,11 @@ input.input2 {
   height: 45px;
 }
 
-
-
 textarea.input2 {
   min-height: 115px;
   padding-top: 13px;
   padding-bottom: 13px;
 }
-
-
 
 .input2:focus + .focus-input2::after {
   top: -13px;
@@ -242,8 +218,7 @@ textarea.input2 {
   width: 100%;
 }
 
-/*------------------------------------------------------------------
-[ Button ]*/
+/*---------------------------------------------[ Button ]*/
 .container-contact2-form-btn {
   display: -webkit-box;
   display: -webkit-flex;
@@ -295,28 +270,17 @@ textarea.input2 {
   padding: 0 20px;
   min-width: 244px;
   height: 50px;
-
- 
-
   font-family: Poppins-Medium;
   font-size: 16px;
   color: #fff;
   line-height: 1.2;
-  
-
 }
 
 .wrap-contact2-form-btn:hover .contact2-form-bgbtn {
   left: 0;
 }
 
-/*------------RESPONSIVE PART 2--------------------------------------*/
-
-
-
-
-/*------------------------------------------------------------------
-[ Alert validate ]*/
+/*--------------------------------------------[ Alert validate ]*/
 
 .validate-input {
   position: relative;
