@@ -26,8 +26,11 @@ class MapController < ApplicationController
     # longitude =  100 / (lat * Math.cos(lat))
     @a = []
     @a[0] = Place.where("latitude <= #{north_lat} AND latitude >= #{south_lat} AND longitude <= #{south_long} AND longitude >= #{north_long}")
+    
+    if current_user
     @a[1] = current_user.id
     @a[2] = current_user.liked_places
+    end
     render json: {rendu: @a}
   end
 

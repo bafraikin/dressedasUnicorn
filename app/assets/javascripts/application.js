@@ -30,6 +30,8 @@ let masuperfonction;      // fonction qui charge les lieux renseignés
 let getLocation;          // fonction récuperer la localisation de l'utilisateur 
 let errorHandler;         // fonction n'a pas pu recuperer la localisation de l'utilisateur
 let favorite;             // ajoute la boutique au favoris
+let openNav;
+let closeNav;
 
 favorite = (idplace, userId) => {
   $.ajax({
@@ -65,21 +67,8 @@ let toggleModal = function() {
 }
 
 /* Ouverture de la sidebar */
-function openNav() {
-  if ($(window).width() < 960) {
-    document.getElementById("mySidenav").style.width = "110%";
-    document.getElementById("mySidenav").style.marginTop = "0px";
- }
- else {
-  document.getElementById("mySidenav").style.width = "30%";
- }
-  
-}
 
 /* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
-function closeNav() {
-  document.getElementById("mySidenav").style.width = "0";
-}
 
 // Affichage du menu User, qui se cache si on ouvre le menu settings
 let toggleUserMenu = () => {
