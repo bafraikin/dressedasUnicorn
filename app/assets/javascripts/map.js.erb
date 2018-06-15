@@ -43,12 +43,12 @@ $(document).ready(function() {
 // cette fonction sert à charger les lieux qui sont present à l'endroit ou l'utilisateur regarde la carte
 masuperfonction = function() {
   if (mymap._zoom < 9) {
-  return (0);
+    return (0);
   }
   bound = mymap.getBounds();
   $.ajax({url: "/", type: 'POST', data: 'Nlat=' + bound.getNorth() + "&Nlong=" + bound.getWest() + "&Slat=" + bound.getSouth() + "&Slong=" + bound.getEast() + '&test1=' + mymap.getCenter().lat + '&test2=' + mymap.getCenter().lng  , dataType: 'JSON', body: 'rendu', complete: ( 
     function(data) {
-      for (let local of data.responseJSON.rendu) {
+      for (let local of data.responseJSON.rendu[0]) {
         if (timestamp.includes(local["created_at"]) != true ) {
           timestamp.push(local["created_at"]);
           let place = new L.latLng(local.latitude, local.longitude);
@@ -58,30 +58,57 @@ masuperfonction = function() {
           $(marker).click(function() {
             openNav();
             $("#mainSidenav").html("");
-            m = document.createElement("p");
-            l = document.createElement("p");
-            k = document.createElement("a");
-            j = document.createElement("h1");
-            i = document.createElement("h1");
+            favori = document.createElement("i");
+            address_shop = document.createElement("p");
+            name_shop = document.createElement("p");
+            add_name_shop = document.createElement("a");
+            favori_nav = document.createElement("p");
             if(local.name == "") {
-              $(k).html("Ajouter un nom");
-              $(k).appendTo($("#mainSidenav"));
-              $(j).html("Adresse :");
-              $(m).html(local.address);
-              $(j).appendTo($("#mainSidenav"));
-              $(m).appendTo($("#mainSidenav"));
+              $(add_name_shop).html("Ajouter un nom");
+              $(add_name_shop).appendTo($("#mainSidenav"));
+              $(address_shop).html(local.address);
+              $(address_shop).appendTo($("#mainSidenav"));
+              $(favori_nav).appendTo($("#mainSidenav"));
             }
             else {
-              $(i).html("Nom :");
-              $(i).attr('id', 'name_id');
-              $(l).html(local.name); 
-              $(j).html("Adresse :");
-              $(m).html(local.address);
-              $(i).appendTo($("#mainSidenav"));
-              $(l).appendTo($("#mainSidenav"));              
-              $(j).appendTo($("#mainSidenav"));            
-              $(m).appendTo($("#mainSidenav"));
+              $(favori_nav).attr('id', 'name_id');
+              $(name_shop).html("Nom : " + local.name); 
+              $(address_shop).html("Addresse : " + local.address);
+              $(name_shop).appendTo($("#mainSidenav"));              
+              
+              $(address_shop).appendTo($("#mainSidenav"));
             }
+            $(favori_nav).html("Ajouter aux favoris, clique ");
+            $(favori_nav).appendTo($("#mainSidenav"));
+
+            let bolle = false;
+            for (let place of data.responseJSON.rendu[2]) {
+              if ( place.id == local.id ) 
+                bolle = true;
+            }
+
+            if (bolle) {
+              $(favori).css("color", "red");
+            }
+            else {
+              $(favori).css("color", "grey");
+            }
+
+            $(favori).click(function () {
+              favorite(local.id, data.responseJSON.rendu[1]);
+              if ($(this).css("color") == "rgb(128, 128, 128)") {
+                $(this).css("color", 'red');
+
+              }
+              else {
+                $(this).css("color", 'grey');
+              }});
+
+            $(favori).addClass("fa");
+            $(favori).css("font-size", "30px");
+            $(favori).addClass("fa-heart");
+            $(favori).appendTo($(favori_nav));
+
           });
           // marker.bindPopup( '<p>' + '' + `${local.name}` + '<br />' + ''  + `${local.address}` + '</p>');
           // $(marker).click(function() {
