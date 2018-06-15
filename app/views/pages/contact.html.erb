@@ -1,8 +1,8 @@
 <%= render 'layouts/navbar'%> 
 
-
+<div class= "contactform">
    <%= form_tag '/' do%>
-	<div class="bg-contact2" style="background-image: url('images/bg-01.jpg');">
+	<div class="bg-contact2">
 		<div class="container-contact2">
 			<div class="wrap-contact2">
 				<form class="contact2-form validate-form">
@@ -27,10 +27,10 @@
 
 					<div class="container-contact2-form-btn">
 						<div class="wrap-contact2-form-btn">
-							<div class="contact2-form-bgbtn"></div>
+							<!-- <div class="contact2-form-bgbtn"></div>
 							<button class="contact2-form-btn">
 								Envoyer 
-							</button>
+							</button> -->
 							<button> <%= submit_tag "Envoyer", class: "contact2-form-btn" %></button>
 							<%end%>
 						</div>
@@ -39,4 +39,5 @@
 			</div>
 		</div>
 	</div>
+</div>
 
