@@ -2,7 +2,7 @@
 
 .wrap-list{
     max-height:300px;
-      overflow: scroll;
+      overflow: auto;
 }
 #liste {
   position: fixed; 
@@ -51,7 +51,7 @@
   p{
     text-align: justify;
     font-size: 16px;
-    overflow:scroll;
+    overflow:auto;
     margin-right:10px;
     margin-left:10px;
     padding-bottom: 10px;
@@ -134,7 +134,7 @@
   p{
     text-align: justify;
     font-size: 16px;
-    overflow:scroll;
+    overflow:auto;
     margin-right:10px;
     margin-left:10px;
     padding-bottom: 10px;
