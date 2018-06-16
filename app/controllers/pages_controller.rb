@@ -12,12 +12,15 @@ class PagesController < ApplicationController
     end
   end
 
+  #controller pour la page des favoris
   def favoris
   end
 
+  #version telephone
   def phone
   end
 
+  #controller pour afficher les elements dans la partie admin du site 
   def category
     @tagz = Tag.all
     @places = Place.all
@@ -25,12 +28,12 @@ class PagesController < ApplicationController
 
   #Methode pour le dashboard admin qui récupère users et boutiques
   def admin
-
     @users = User.all
     @places = Place.all
     @tags = Tag.all
   end 
 
+  #permet à un utilisateur de modifier son compte
   def update_user
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
@@ -40,10 +43,12 @@ class PagesController < ApplicationController
     end
   end
 
+  #la page de l'utilisateur
   def show
     @user = User.find(params[:id])
   end
 
+  #permet à un admin de supprimer un compte
   def destroy
     @user = User.find(params[:id])
     @user.destroy

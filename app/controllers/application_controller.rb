@@ -6,8 +6,11 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:username])
   end
 
+  
+  #on garde les lignes suivantes par nostalgie, ça nous a accompagné pendant tout le projet.
+  #ça a pour fonction d'afficher des faux messages d'erreurs quand on lance 
+  #une commande rails
   cache = ActiveSupport::Cache::MemoryStore.new
-
   cache.write("city", Faker::Hacker.say_something_smart + " " + Faker::RickAndMorty.quote)
   cache.write("city1", Faker::Hacker.say_something_smart)
   cache.write("city2", Faker::Hacker.say_something_smart)
