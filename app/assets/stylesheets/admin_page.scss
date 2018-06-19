@@ -2,6 +2,16 @@
 /*****************************************/
 /************** TABS      ****************/
 /*****************************************/
+.data-wrap{
+    width:50%;
+    border-right: 2px solid grey;
+@media screen and (min-width: 801px){
+    width:25%;
+    }    
+}
+/*****************************************/
+/************** TABS      ****************/
+/*****************************************/
 /* Style tab links */
 .tablink {
     background-color: white;
@@ -10,8 +20,8 @@
     outline: none;
     cursor: pointer;
     padding: 14px 16px;
-    font-size: 17px;
-    width: 25%;
+    font-size: 12px;
+    width: 20%;
 }
 @media screen and (min-width: 801px) {
     .tablink{

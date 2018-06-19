@@ -2,13 +2,35 @@
 
 <div class="wrap-admin">
 <!-- Bouton haut du panel admin -->
-    <button class="tablink" onclick="openPage('Users', this, '#686de0','white','3px solid #474787','rgba(104, 109, 224, 0.9)')" id="defaultOpen">Users <br><i class="fa fa-user"></i></button>
+    <button class="tablink" onclick="openPage('Datas', this, '#273c75','white','3px solid #192a56','rgba(25, 42, 86, 0.9)')" id="defaultOpen">Datas <br><i class="fa fa-database"></i></button>
+    <button class="tablink" onclick="openPage('Users', this, '#686de0','white','3px solid #474787','rgba(104, 109, 224, 0.9)')" >Users<br><i class="fa fa-user"></i></button>
     <button class="tablink" onclick="openPage('Shops', this, '#16a085','white','3px solid #218c74','rgba(22, 160, 133,0.9)')" >Shops <br><i class="fa fa-flag"></i></i></button>
     <button class="tablink" onclick="openPage('Category', this, '#B53471','white','3px solid #833471','rgba(181, 52, 113, 0.91)')">Tags<br> <i class="fa fa-tags"></i></button>
     <button class="tablink" onclick="openPage('Admins', this, '#f0932b','white','3px solid #cd6133','rgba(240, 147, 43, 0.9)')">Admins<br> <i class="fa fa-bug"></i></button>
 
  <!-- Division d'affichage de tous les users avec possibilité de modifier le user vers admin-->   
+    <div id="Datas" class="tabcontent">
+      <div class="data-wrap">
+        <p>Total Users <i class="fa fa-user"></i> </p><br>
+        <p><%=@users.size%></p>
+      </div>
+      <div class="data-wrap">
+        <p>Total Users <i class="fa fa-user"></i> </p><br>
+        <p><%=@users.size%></p>
+      </div>
+      <div class="data-wrap">
+        <p>Total Users <i class="fa fa-user"></i> </p><br>
+        <p><%=@users.size%></p>
+      </div>
+      <div class="data-wrap">
+        <p>Total Users <i class="fa fa-user"></i> </p><br>
+        <p><%=@users.size%></p>
+      </div>
+    </div>
+ <!-- Division d'affichage de tous les users avec possibilité de modifier le user vers admin-->   
     <div id="Users" class="tabcontent">
+    
+    <span>Dernier utilisateur créé le <%=@places.last.created_at%></span>
         <%@users.reverse.each do |user|%>
             <div class="wrap-shop-admin">
                 <h3 class="accordion"> <%=user.username.capitalize%> 
@@ -39,6 +61,9 @@
     </div>
 <!-- Division affichage des boutiques, avec CRUD -->
   <div id="Shops" class="tabcontent">
+      <h1>Nombre de magasins : <%=@places.size%></h1>
+      <span>Dernier ajout le <%=@places.last.created_at%></span>
+
     <%@places.reverse.each do |shop|%>
       <div class="wrap-shop-admin">
 
@@ -73,6 +98,7 @@
   </div>
 
   <div id="Category" class="tabcontent">
+      <h1><%=@tags.size%></h1>
     <%@tags.each do |tag|%>
          <div class="wrap-shop-admin">
           <h3 class="accordion"> <%=tag.name%></h3>
