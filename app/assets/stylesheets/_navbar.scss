@@ -85,12 +85,15 @@ $main-color-opacity:rgba(102, 51, 153,0.8);
         display: inline;
     }
      a {
-        display:inline-block;
-        color: #f2f2f2;
-        text-align: center;
-        padding: 12px;
-        text-decoration: none;
-        font-size: 20px;
+      display: inline-block;
+      color: #f2f2f2;
+      text-align: center;
+      text-decoration: none;
+      font-size: 21px;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      padding-right: 4px;
+      padding-left: 4px;
 
 
       }

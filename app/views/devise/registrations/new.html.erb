@@ -3,8 +3,10 @@
 <div class="page">
   <%= image_tag("photos/purple(2).jpg") %>
   <div class="form_connection">
-    <h2>URBAN EMPORIUM</h2>
-    <h4><i>Bienvenue ! Inscrivez-vous pour commencer.</i></h4>
+    <br>
+    <h2>BIENVENUE SUR PINTIQ</h2>
+    <br>
+    <h4><i>Inscrivez-vous pour commencer.</i></h4>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= devise_error_messages! %>
@@ -27,11 +29,13 @@
       <br>  
 
       <div class="field">
-        <%= f.label :MOT_DE_PASSE %>
+        <%= f.label :MOT_DE_PASSE, class: "pwd_form"%>
         <% if @minimum_password_length %>
-        <i><em>(<%= @minimum_password_length %> caractères minimum)</em></i>
+        <i><em><span class="pwd_form progress-bar_text">(Aucun mot de passe)</span></em></i>
         <% end %><br />
-        <%= f.password_field :password, autocomplete: "off", placeholder: "Votre mot de passe", id: "text-field" %>
+        <lable>
+        <%= f.password_field :password, autocomplete: "off", placeholder: "Votre mot de passe", id: "text-field", class:"input-1" %><span class='fa fa-low-vision' onclick="showpwd();"></span>
+        </lable>
       </div>
       <br>      
       <div class="field">
@@ -39,11 +43,63 @@
         <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirmez votre mot de passe", id: "text-field" %>
       </div>
       <br>      
-      <div class="actions">
+ 
         <%= f.submit "S'inscrire" %>
       </div>
     <% end %>
 
     <%= render "devise/shared/links" %>
   </div>
+
 </div>
+</div>
+<script>
+$( document ).ready(function() {
+  
+  const changeText = function (el, text, color) {
+    el.text(text).css('color', color);
+  };
+  
+$('.input-1').keyup(function(){
+    let len = this.value.length;
+    const pbText = $('.progress-bar_text');
+
+    if (len === 0) {
+      $(' .progress-bar_item').each(function() {
+        $(this).removeClass('active')
+      });
+      $('.active').css('background-color', 'transparent');
+      changeText(pbText, '(Aucun mot de passe)');
+    } else if (len > 0 && len <= 4) {
+      $('.pwd_form').css('color', '#FF4B47');
+      changeText(pbText, '(Trop faible :/)');
+    } else if (len > 4 && len <= 8) {
+      $('.pwd_form').css('color', '#F9AE35');
+      changeText(pbText, '(Encore un peu faible)');
+    } else {
+      $('.pwd_form').css('color', '#2DAF7D');
+      changeText(pbText, '(Parfait !)');
+    } 
+  });
+  
+});
+  
+function showpwd() {
+    var x = document.getElementById("text-field");
+    if (x.type === "password") {
+        x.type = "text";
+    } else {
+        x.type = "password";
+    }
+}
+
+
+</script>
+
+<style>
+lable:before {
+  content: "";
+  color: #aaa;
+  font-size: 22px;
+}
+</style>

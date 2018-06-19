@@ -29,7 +29,32 @@ let timestamp;            // tableau qui accueille tout les lieux chargé par l'
 let masuperfonction;      // fonction qui charge les lieux renseignés
 let getLocation;          // fonction récuperer la localisation de l'utilisateur 
 let errorHandler;         // fonction n'a pas pu recuperer la localisation de l'utilisateur
-let favcolor;             // boolean pour changement couleur fav boutique
+let favorite;             // ajoute la boutique au favoris
+let openNav;
+let closeNav;
+
+favorite = (idplace, userId) => {
+  $.ajax({
+    url : '/place/favplaces',
+    beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+    type : 'POST',
+    datatype: 'JSON',
+    data : 'id=' + idplace + '&iduser=' + userId 
+  });
+} 
+
+// recupere les id des tags validé
+let getId = () => {
+  let a = $("div.control-group").children();
+  let tab = new Array;
+  let count = 0;
+  for( b of a ) {
+    if ($(b)[0].control.checked == true)  { 
+      tab.push($(b).children().attr('id'));
+    }
+  }
+  return (tab);
+}
 
 // Affichage de la fenêtre d'ajout d'une boutique
 let toggleModal = function() {
@@ -41,19 +66,12 @@ let toggleModal = function() {
   }
 }
 
-// Sidenav des boutiques
-function openViewShop() {
-  document.getElementById("viewshop").style.width = "250px";
-  document.getElementById("index").style.marginRight = "250px";
-}
+/* Ouverture de la sidebar */
 
-function closeViewShop() {
-  document.getElementById("viewshop").style.width = "0";
-  document.getElementById("index").style.marginRight = "0";
-}
+/* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
 
 // Affichage du menu User, qui se cache si on ouvre le menu settings
-function toggleUserMenu() {
+let toggleUserMenu = () => {
   var z = document.getElementById("menu-user");
   var y = document.getElementById("settings-user");
   if (z.style.display === "none") {
@@ -80,6 +98,25 @@ function toggleSettingsMenu() {
   }
 }
 
+let getLocationApp = (position) => {
+  localisable = true;
+  userLoc = new Array;
+  userLoc.push(parseFloat(position.coords.latitude));
+  userLoc.push(parseFloat(position.coords.longitude));
+}
+
+let errorHandla = () => {
+  alert("pas de geolocalisation, le site ne fonctionnera pas optimalement");
+}
+
+$(document).ready(function() {
+  if(navigator.geolocation) {
+    localisable = true;
+    navigator.geolocation.getCurrentPosition(getLocationApp, errorHandla);
+  }
+});
+
+
 // Bouton pour fermer toutes les modales
 function closeModal() {
   var z = document.getElementById("menu-user");
@@ -97,7 +134,7 @@ function closeModal() {
   }
 }
 
-var $htmlOrBody = $('html, body'), // scrollTop works on <body> for some browsers, <html> for others
+var $htmlOrBody = $('html, body'); // scrollTop works on <body> for some browsers, <html> for others
   scrollTopPadding = 8;
 
 $('textarea').on('focus', function() {
@@ -108,8 +145,8 @@ $('text-field').on('focus', function() {
 });
 
 // Gestion des tabs page administrateurs
-function openPage(pageName,elmnt,color,font,border) {
-  var i, tabcontent, tablinks;
+function openPage(pageName,elmnt,color,font,border,bg_color) {
+  var i, tabcontent, tablinks, accordion;
   tabcontent = document.getElementsByClassName("tabcontent");
   for (i = 0; i < tabcontent.length; i++) {
     tabcontent[i].style.display = "none";
@@ -120,18 +157,23 @@ function openPage(pageName,elmnt,color,font,border) {
     tablinks[i].style.color = "";
     tablinks[i].style.border = "none";
   }
+  accordion = document.getElementsByClassName("accordion"); // Par défaut
+  for (i = 0; i < accordion.length; i++) {
+    accordion[i].style.backgroundColor = bg_color;
+    accordion[i].style.color = "white";
+  }
   document.getElementById(pageName).style.display = "block"; // Actif
   elmnt.style.backgroundColor = color;
   elmnt.style.color = font;
   elmnt.style.borderBottom = border;
-
 }
 
 // Fonction pour changer le rôle d'un USER vers Admin et inverse
 let admin = function(id){
   $.ajax({
     type    : "POST",
-    url     : "/pages/AdminRole", 
+    url     : "/pages/AdminRole",
+     beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
     dataType: 'script',
     data    : 'id=' + id  
 
@@ -145,7 +187,7 @@ $(document).ready(function(){
     $('#notice_wrapper').fadeOut("Slow",function(){
       $(this).remove();
     })
-  }, 3500);
+  }, 500);
 });
 
 $(document).ready(function(){
@@ -153,5 +195,5 @@ $(document).ready(function(){
     $('#alert_wrapper').fadeOut("Slow",function(){
       $(this).remove();
     })
-  }, 3500);
+  }, 500);
 });

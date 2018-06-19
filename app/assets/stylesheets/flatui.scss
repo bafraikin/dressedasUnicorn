@@ -1,4 +1,31 @@
 /*******************************/
+    /* Pop-ups & info bulle */
+/*******************************/
+#infobulle{
+    z-index: 2;
+     right: 80px;
+     position: fixed;
+     margin-top: 40px;
+     background-color: white;
+     border-radius: 5px;
+     color: black;
+     opacity: 0.9;
+     border: none;
+     max-height: 150px;
+     padding: 15px;
+     max-width:300px;
+     font-size:18px;
+     margin-right:10px;
+ }
+ @media screen and (min-width: 801px) {
+     #infobulle{ 
+         margin-top: 90px;
+      }  
+}
+.cc-revoke, .cc-window{
+    z-index:9999999!important;
+}
+/*******************************/
         /* LINKS */
 /*******************************/
 a{
@@ -20,10 +47,7 @@ a{
 /*******************************/
         /* LOADER */
 /*******************************/
-/* COUNTDOWN */
-#demo{
-    text-align: center;
-}
+
 
 #loader-wrapper {
     position: fixed;
@@ -112,6 +136,7 @@ a{
     z-index: 100000;
     text-align: center;
     width: 100%;
+    font-size: 20px;
     p{
       padding: 17px;
       text-align: center;
@@ -126,6 +151,8 @@ a{
     z-index: 100000;
     text-align: center;
     width: 100%;
+    font-size: 20px;
+
     p{
       padding: 17px;
       text-align: center;
@@ -137,6 +164,25 @@ a{
         /* BOUTONS */
 /*******************************/
 $main-color:rgba(102, 51, 153,1);
+/* Bouton recentrer */
+#maj-position{
+    height: 50px;
+    width: 50px;
+    background-color:#4a69bd ;
+    z-index: 3;
+    position: fixed;
+    border-radius: 50%;
+    margin-top: 110px;
+    opacity:0.9;
+    border:none;
+    margin-left:50%;
+    font-size: 30px;
+    color:white;
+    right: 15px;
+    @media screen and (min-width: 0px) and (min-width: 800px) {
+        margin-top:160px;   
+      }
+}
 /* Bouton en haut à gauche + pour ajouter une boutique */
 .add {
     height: 50px;
@@ -272,9 +318,9 @@ input[type=submit] {
     color: white;
     background-color: #c0392b;
     height: 40px;
-    margin-bottom: 10px;
     padding: .3em 2em .20em;
     text-shadow: 0 1px 1px rgba(0,0,0,.3); box-shadow: 0 1px 2px rgba(0,0,0,.2);
+    margin-left:10px;
 }
 
 
@@ -316,6 +362,7 @@ input[type=submit] {
         color:white;
         border-radius: 5px;
         font-size: 16px;
+        border:none;
     
     }
     .cancel-position{
@@ -323,6 +370,8 @@ input[type=submit] {
         background-color: rgb(185, 9, 9);
         color:white;
         border-radius: 5px;
+        font-size:16px;
+        border:none;
     }
 }
 @media screen and (min-width: 801px) {
@@ -369,7 +418,7 @@ input[type=submit] {
     position: fixed;
     background-color: white;
     border-radius: 10px;
-    margin-top: 150px;
+    margin-top: 115px;
     margin-left: 4px;
     max-width: 100%;
     min-width: 98%;
@@ -382,6 +431,7 @@ input[type=submit] {
     padding-top: 30px;
     text-align: center;
     height:auto;
+    
     .close-modal{
         top: -20px!important;
         
@@ -407,53 +457,66 @@ input[type=submit] {
         margin-top: 17%;
         height: auto;
      }  
-  }
+}
+
 
 /****** VIEWSHOP *****/
 
-#modal-view-shop{
-    position: fixed;
-    background-color: white;
-    border-radius: 10px;
-    margin-top: 150px;
-    margin-left: 4px;
-    max-width: 100%;
-    min-width: 98%;
-    z-index: 5;
-    -webkit-box-shadow: 6px 7px 5px 0px rgba(0,0,0,0.36);
-    -moz-box-shadow: 6px 7px 5px 0px rgba(0,0,0,0.36);
-    box-shadow: 6px 7px 5px 0px rgba(0,0,0,0.36);
-    color:rgba(47, 18, 76, 0.9);
-    display: block;
-    padding-top: 30px;
-    text-align: center;
-    height:auto;
-    .close-view-shop{
-        top: -20px!important;
-        
+/* The side navigation menu */
+.sidenav {
+    margin-top: 45px;
+    height: 100%; 
+    width: 0; 
+    position: fixed; 
+    z-index: 1000; 
+    top: 0; 
+    left: -17px;
+    background-color: rgba(255, 255, 255, 0.9); 
+    overflow-x: hidden; 
+    padding-top: 60px; 
+    transition: 0.3s; 
+     a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: rebeccapurple;
+        display: block;
+        transition: 0.3s;
     }
-    
+
+    h3 {
+        text-align: center;
+        font-style: oblique;
+        color: rebeccapurple;
+        
+        transition: 0.3s;
+    }
+    h2{
+        padding-left:32px;
+    } 
+    h1{
+            padding-left:32px;  
+    }  
+
+     p {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+    }
+
+    .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+    }
 }
 
-    textarea{
-        height: 60px;
-        border: none;
-        border-width:1px;  
-        border-bottom-style:ridge;
-        border-color: $main-color;
-        width:80%;
-        margin-bottom: 20px;
-        line-height: 4;
-    }
-
-@media screen and (min-width: 801px) {
-    #modal-view-shop { 
-        min-width:800px!important;
-        margin-left: 20%;
-        margin-top: 17%;
-        height: auto;
-     }  
-  }
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 
 
 
@@ -542,7 +605,6 @@ h1, h2, h3, h4, h5{
         /* HR LIGNES */
 /*******************************/
 hr.style13{
-    width: 70%;
     border: 0; 
   height: 1px; 
   opacity:0.6;
@@ -558,3 +620,4 @@ background: -moz-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,
 background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%,rgba(255,255,255,0.8) 31%,rgba(255,255,255,1) 37%,rgba(255,255,255,1) 44%,rgba(255,255,255,1) 50%,rgba(255,255,255,1) 59%,rgba(255,255,255,1) 66%,rgba(255,255,255,0.8) 72%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
 background: linear-gradient(to right, rgba(255,255,255,0) 0%,rgba(255,255,255,0.8) 31%,rgba(255,255,255,1) 37%,rgba(255,255,255,1) 44%,rgba(255,255,255,1) 50%,rgba(255,255,255,1) 59%,rgba(255,255,255,1) 66%,rgba(255,255,255,0.8) 72%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
+

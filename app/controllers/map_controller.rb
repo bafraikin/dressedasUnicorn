@@ -9,17 +9,17 @@ class MapController < ApplicationController
     end
   end
 
-  def index
-  end
 
   def list
     @places = Place.all
-
   end
+
 
   def index
+    @tagi = Tag.all
   end
 
+  #recherche dans la database les lieux présent dans le champs de l'écran de l'user
   def explore
     north_lat = params[:"Nlat"].to_f
     north_long = params[:"Nlong"].to_f
@@ -27,12 +27,20 @@ class MapController < ApplicationController
     south_long = params[:"Slong"].to_f
     # latitude = 100 / 111.111
     # longitude =  100 / (lat * Math.cos(lat))
-    @a = Place.where("latitude <= #{north_lat} AND latitude >= #{south_lat} AND longitude <= #{south_long} AND longitude >= #{north_long}")
+    @a = []
+    @a[0] = Place.where("latitude <= #{north_lat} AND latitude >= #{south_lat} AND longitude <= #{south_long} AND longitude >= #{north_long}")
+    
+    if current_user
+    @a[1] = current_user.id
+    @a[2] = current_user.liked_places
+    end
     render json: {rendu: @a}
   end
-  
-def find_place
-  @a = Place.find(params[:"id"])
-  redirect_to "/:#{@a.latitude}&#{@a.longitude}"
-end
+
+=begin fonction qui serivra plus tard
+  def find_place
+    @a = Place.find(params[:"id"])
+    redirect_to "/:#{@a.latitude}&#{@a.longitude}"
+  end
+=end
 end

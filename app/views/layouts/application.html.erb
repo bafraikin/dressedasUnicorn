@@ -1,16 +1,39 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>UrbEmp</title>
+    <title>Pintiq</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href='http://fonts.googleapis.com/css?family=Lato:200,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lato:200,700' rel='stylesheet' type='text/css'>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag "application", "data-turbolinks-track" => "reload" %>
     <%= favicon_link_tag asset_path('logo.png'), :rel => 'icon', :type =>  'image/png' %>
 
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+<script>
+window.addEventListener("load", function(){
+window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#343c66",
+      "text": "#cfcfe8"
+      },
+    "button": {
+      "background": "#f71559"
+    }
+  },
+  "theme": "edgeless",
+  "position": "bottom-right",
+  "content": {
+    "message": "Ce site internet utilise des cookies pour une expérience optimale sur notre site.",
+    "dismiss": "C'est parti !",
+    "link": "En savoir plus"
+  }
+})});
+</script>
 
   </head>
   <body>
@@ -25,8 +48,10 @@
         <p id="alert"><%= alert %></p>
       </div>
     <%end%>
+    
     <%= render 'layouts/userMenu' %>
     <%= render 'layouts/settingsMenu' %>
+
   </body>
 
 

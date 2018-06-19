@@ -14,4 +14,7 @@ class Place < ApplicationRecord
   has_many :place_creators
   has_many :creators, through: :place_creators
 
+  has_many :user_comments
+  has_many :commentors, through: :user_comments
+
 end

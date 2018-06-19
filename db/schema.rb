@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_12_164954) do
+ActiveRecord::Schema.define(version: 2018_06_19_120011) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 2018_06_12_164954) do
     t.integer "place_creators_count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "count_of_comments"
     t.index ["map_id"], name: "index_places_on_map_id"
     t.index ["town_id"], name: "index_places_on_town_id"
   end
@@ -82,6 +83,16 @@ ActiveRecord::Schema.define(version: 2018_06_12_164954) do
     t.integer "tag_to_places_count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "user_comments", force: :cascade do |t|
+    t.integer "place_id"
+    t.integer "commentor_id"
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["commentor_id"], name: "index_user_comments_on_commentor_id"
+    t.index ["place_id"], name: "index_user_comments_on_place_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -105,6 +116,7 @@ ActiveRecord::Schema.define(version: 2018_06_12_164954) do
     t.string "uid"
     t.string "name"
     t.text "image"
+    t.integer "comment_posteds"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

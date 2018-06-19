@@ -1,15 +1,30 @@
 <!-- bouton add -->
 <!-- DEBUT FENETRE MODALE -->
 <div id="modal-add-shop" style="display:none;">
-<%= render 'layouts/closecross'%>    
+  <%= render 'layouts/closecross'%>    
   <div class="form-modale">
-    <h2>Ajouter une boutique</h2>
+    <h3>Ajouter une boutique</h3>
     <hr class="style13">
-      Nom de la boutique: </br> <%= text_field_tag(:name, '', placeholder: 'Nom de la boutique') %> <br>
-      Description de la boutique: <br> <%= text_area_tag(:description, nil, placeholder: 'Description')%> <br>
-      Adresse de la boutique: </br> <%= text_field_tag(:address, nil, placeholder: "Saisir l\'adresse") %> <br>
-      <%= submit_tag"Ajouter", :class => "add_places", :id => "add" %> 
+     <!-- Nom de la boutique: </br>--> <%= text_field_tag(:name, '', placeholder: 'Nom de la boutique') %> <br>
+    <!-- Description de la boutique: <br> <%= text_area_tag(:description, nil, placeholder: 'Description')%> <br> 
+      MISE DE COTE AU CAS OU DE BESOIN D'AJOUT DESCRIPTION
+    -->
+    <!-- Adresse de la boutique:  </br>--> <%= text_field_tag(:address, nil, placeholder: "Saisir l\'adresse") %> <br>
+      <div class="control-group">
+        <%  @tagi.each do |cat| %>
+          <label class="control control-checkbox">
+            <%=  cat.name %>
+            <input type="checkbox" id="<%= cat.id  %>"/><div class="control_indicator"></div>
+          </label>
+        <% end %>
+      </div>
+    </div>
+    <br>
+    <div id="tags">
+      <%= submit_tag"Ajouter", :class => "add_places", :id => "add", :style => "width:30%;" %>
+    </div>
   </div>
+
 </div>
 
 <!-- FIN DE LA FENETRE MODALE -->

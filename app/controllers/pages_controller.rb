@@ -1,3 +1,4 @@
+
 class PagesController < ApplicationController
   before_action :authenticate_user!, only: [:admin, :destroy]
 
@@ -11,30 +12,28 @@ class PagesController < ApplicationController
     end
   end
 
-  def list
-    @places = Place.all
-    @creators = []
-    @ids = []
-    @places.each_with_index do |place, index|
-      @creators[index] = place.creators[0].username
-    end
-    current_user.liked_places.each_with_index do |like,index |
-      @ids[index] = like.id
-    end
+  #controller pour la page des favoris
+  def favoris
   end
 
-  def test
+  #version telephone
+  def phone
   end
+
+  #controller pour afficher les elements dans la partie admin du site 
+  def category
+    @tagz = Tag.all
+    @places = Place.all
+  end
+
   #Methode pour le dashboard admin qui récupère users et boutiques
   def admin
     @users = User.all
     @places = Place.all
-    @creator = []
-    @places.each_with_index do |place,index| 
-      @creator[index] = place.creators[0].username
-    end
-  end
+    @tags = Tag.all
+  end 
 
+  #permet à un utilisateur de modifier son compte
   def update_user
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
@@ -44,13 +43,17 @@ class PagesController < ApplicationController
     end
   end
 
+  #la page de l'utilisateur
   def show
     @user = User.find(params[:id])
   end
 
+  #permet à un admin de supprimer un compte
   def destroy
-    User.find(params[:id]).destroy
-    redirect :back
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_back(fallback_location: root_path)
+    flash[:alert] = "Utilisateur supprimé !"
   end
 
   #Fonction pour changer le rôle d'un user vers admin ou user normal. Impossible de changer l'admin avec mon adresse mail pour avoir au moins 1 admin
@@ -58,12 +61,13 @@ class PagesController < ApplicationController
     user = User.find(params[:id])
     if user.admin == false
       user.update_attribute :admin, true      
-      flash[:notice] = "Impossible de supprimer cet utilisateur"
+      flash[:notice] = "Nouvel admin ajouté"
     else
       if user.email == 'broussolle.paul@gmail.com'
         puts "Impossible de changer le rôle de cet admin"
       else
         user.update_attribute :admin, false
+        flash[:alert] = "Rôle admin retiré"
       end
     end
   end

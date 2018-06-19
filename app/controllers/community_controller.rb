@@ -1,2 +1,0 @@
-class CommunityController < ApplicationController
-end

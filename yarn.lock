@@ -1128,6 +1128,10 @@ capture-stack-trace@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/capture-stack-trace/-/capture-stack-trace-1.0.0.tgz#4a6fa07399c26bba47f0b2496b4d0fb408c5550d"
 
+carrier@0.1.7:
+  version "0.1.7"
+  resolved "https://registry.yarnpkg.com/carrier/-/carrier-0.1.7.tgz#e3fc3c76941a7fb6bbe0f2415e5ef6663fd64958"
+
 case-sensitive-paths-webpack-plugin@^2.1.2:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/case-sensitive-paths-webpack-plugin/-/case-sensitive-paths-webpack-plugin-2.1.2.tgz#c899b52175763689224571dad778742e133f0192"
@@ -2144,7 +2148,7 @@ extsprintf@1.3.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/extsprintf/-/extsprintf-1.3.0.tgz#96918440e3041a7a414f8c52e3c574eb3c3e1e05"
 
-extsprintf@^1.2.0:
+extsprintf@^1.2.0, extsprintf@^1.3.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/extsprintf/-/extsprintf-1.4.0.tgz#e2689f8f356fad62cca65a3a91c5df5f9551692f"
 
@@ -4026,6 +4030,10 @@ p-try@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/p-try/-/p-try-1.0.0.tgz#cbc79cdbaf8fd4228e13f621f2b1a237c1b207b3"
 
+pack@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/pack/-/pack-2.1.0.tgz#d575c48bf8749dfe6a1a20085328b6f2c6c8f441"
+
 package-json-path@^1.0.0:
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/package-json-path/-/package-json-path-1.0.7.tgz#c257909c4701a9b35fce303064d4ce988489dd2d"
@@ -5697,6 +5705,10 @@ strip-json-comments@~2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
 
+strsplit@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/strsplit/-/strsplit-1.0.0.tgz#0fdedc68e91addcfcb2e6be9c262581a6e8c28aa"
+
 style-loader@^0.20.3:
   version "0.20.3"
   resolved "https://registry.yarnpkg.com/style-loader/-/style-loader-0.20.3.tgz#ebef06b89dec491bcb1fdb3452e913a6fd1c10c4"
@@ -5741,6 +5753,15 @@ svgo@^0.7.0:
     mkdirp "~0.5.1"
     sax "~1.2.1"
     whet.extend "~0.9.9"
+
+tab@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/tab/-/tab-1.0.0.tgz#3a19bc009249b9dbd6c406b4e40b2bece0b2b88f"
+  dependencies:
+    assert-plus "1.0.0"
+    carrier "0.1.7"
+    extsprintf "^1.3.0"
+    strsplit "^1.0.0"
 
 tapable@^0.2.7:
   version "0.2.8"

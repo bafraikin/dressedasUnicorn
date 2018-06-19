@@ -3,18 +3,20 @@ Rails.application.routes.draw do
   devise_scope :user do
     get "/sign-in" => "devise/sessions#new", :as => :login
   end
-  resources :pages
-  get "admin", to: "pages#admin", as: "admin"
   get "/pages/AdminRole", to: "pages#changeAdminRole"
   post "/pages/AdminRole", to: "pages#changeAdminRole"
-
+  get "admin", to: "pages#admin"
+  delete "admin/:id", to: "pages#destroy"
   resources :place, only: [:destroy, :update]
   post "update", to: "pages#edit"
-  get "list", to: "pages#list"
+  get "favoris", to: "pages#favoris"
   get "created", to: "pages#created"
   get "edit", to: "pages#edit"
   put "edit", to: "pages#edit"
   get "test", to: "pages#test"
+  get "contact", to: "pages#contact"
+  get "phone", to: "pages#phone"
+
 
   devise_for :users
   root to: "map#index"
@@ -24,8 +26,14 @@ Rails.application.routes.draw do
   post "/put_address", to: "place#put_address"
   post "/imhere", to: "place#add_imhere"
   post "/place/favplaces", to: "place#favplaces"
+  get  "/category", to: "place#category"
+  post "/sort_by_tag", to: "place#list_by_tag"
+
   #devise_for :users, :controllers => {:omniauth_callbacks => "users/omniauth_callbacks"}
 
   #root to: "home#index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  #resources :contacts, only: [:new, :create]
+  
 end

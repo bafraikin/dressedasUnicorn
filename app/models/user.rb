@@ -6,6 +6,10 @@ class User < ApplicationRecord
 
   has_many :fav_places, foreign_key: 'liker_id'
   has_many :liked_places, through: :fav_places, source: :place
+
+has_many :user_comments, foreign_key: 'commentor_id'
+  has_many :place_commenteds, through: :user_comments, source: :place
+
   has_many :place_creators, foreign_key: 'creator_id'
   has_many :place_createds, through: :place_creators, source: :place
   has_one_attached :avatar
@@ -19,11 +23,13 @@ class User < ApplicationRecord
 
 
 validates :username, presence: { message: "veuillez entrer votre prénom" }, format: { without: /\s/, message: "ton prénom ne peut pas contenir d'espace" }, uniqueness: { message: "ce pseudo est déjà pris" }
+#validates :avatar, presence: { message: "Veuillez ajouter un avatar" }
 
 
 
   def new_user_created_mail
     UserMailer.new_user_email(self).deliver
+    UserMailer.welcome().deliver
   end
 # Lorsqu'un user supprime son compte
   def user_deleted_mail
