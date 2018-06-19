@@ -4,6 +4,7 @@
 user is creator of many places. So >>
 
 `user.places_createds` give places that user has created, it's an array
+`user.places_createds << Place.find(<id_of_place>)` if you want to add a place to his array 
 
 user give you the number of places he created by >>
 
@@ -12,6 +13,11 @@ user give you the number of places he created by >>
 In the other way, if you want to know wich users had created the place >>
 
 `place.creators` Still an array.
+`place.creators << User.find(<id_of_user>)` To add a creator to a places.
+
+
+NO NEED TO DO BOTH ! One of them make the job, it's a relation
+
 
 The number of creator is given by >>
 
