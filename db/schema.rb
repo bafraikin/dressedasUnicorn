@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 2018_06_19_200257) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "count_of_comments"
-    t.integer "liked_places_count"
+    t.integer "fav_places_count"
     t.index ["map_id"], name: "index_places_on_map_id"
     t.index ["town_id"], name: "index_places_on_town_id"
   end
@@ -117,7 +117,7 @@ ActiveRecord::Schema.define(version: 2018_06_19_200257) do
     t.string "name"
     t.text "image"
     t.integer "comment_posteds"
-    t.integer "liked_places_count"
+    t.integer "fav_places_count"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
