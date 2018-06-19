@@ -71,9 +71,9 @@ class PlaceController < ApplicationController
     longueur = []
     placee = []
     index = 0
-    tab.each do |tag|
+    tab.each do | tag |
       tags = Tag.find(tag)
-      tags.places.each do |place|
+      tags.places.each do | place |
         calcul = Geocoder::Calculations.distance_between([usera[0], usera[1]], [place.latitude, place.longitude])
         unless longueur.include?(calcul)
           longueur[index] = calcul
@@ -84,12 +84,10 @@ class PlaceController < ApplicationController
             placee[index][2] = calcul
           else
             placee[index][2] = false
-            puts "ici"
           end
           if user_signed_in?
             placee[index][3] = current_user.liked_places
             placee[index][4] = current_user.id
-
           end
           index +=1
         end
