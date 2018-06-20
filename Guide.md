@@ -6,9 +6,6 @@ user is creator of many places. So >>
 `user.places_createds` give places that user has created, it's an array
 `user.places_createds << Place.find(<id_of_place>)` if you want to add a place to his array 
 
-user give you the number of places he created by >>
-
-`user.place_creators_count` [ more efficiancy than  `user.places_createds.count` ]
 
 In the other way, if you want to know wich users had created the place >>
 
@@ -18,6 +15,9 @@ In the other way, if you want to know wich users had created the place >>
 
 NO NEED TO DO BOTH ! One of them make the job, it's a relation
 
+user give you the number of places he created by >>
+
+`user.place_creators_count` [ more efficiancy than  `user.places_createds.count` ]
 
 The number of creator is given by >>
 
@@ -27,6 +27,10 @@ The number of creator is given by >>
 User has also many places that he want to keep in his favorite >>
 
 `user.liked_places` An array
+To put in >>
+`user.liked_places << Place.find(<id_of_places>)`
+Or >>
+` place.likers << User.find(<id_of_user>)`
 
 The count of places that he likes >> 
 
