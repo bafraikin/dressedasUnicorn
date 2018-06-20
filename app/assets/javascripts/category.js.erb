@@ -44,36 +44,36 @@ $("#add").click(function () {
           $(coeur).attr("id", 'fav');
           $(coeur).appendTo($(miniDiv));
         }
-            if (local[0].name) {
-              let name =  document.createElement("h3");
-              $(name).html(local[0].name);
-              $(name).appendTo($(miniDiv));
-              let ligne = document.createElement("hr");
-              $(ligne).appendTo($(miniDiv));
-            }
-            if (local[2]) {
-              let distance = document.createElement("div");
-              if (Number(local[2])< 1){
-                  $(distance).html( "Distance : " + Number(local[2]).toFixed(2) + " mètres" );
-              }
-              else {
-                $(distance).html( "Distance : " + Math.round(Number(local[2])) + " kilomètres" );
-              }
-                
-              $(distance).attr("id", 'distance');
-              $(distance).appendTo($(miniDiv)); 
-            }
-            let adresse = document.createElement("p");
-            $(adresse).attr('id', 'adresse');
-            $(adresse).html(local[0].address);
-            $(adresse).appendTo($(miniDiv));
-            for (let tag of local[1]) {
-              let tagDiv  = document.createElement("div");
-              $(tagDiv).appendTo($(miniDiv));
-              $(tagDiv).addClass("tags");
-              $(tagDiv).html(tag.name);
-            }
+        if (local[0].name) {
+          let name =  document.createElement("h3");
+          $(name).html(local[0].name);
+          $(name).appendTo($(miniDiv));
+          let ligne = document.createElement("hr");
+          $(ligne).appendTo($(miniDiv));
         }
-      }) 
-    });
+        if (local[2]) {
+          let distance = document.createElement("div");
+          if (Number(local[2])< 1){
+            $(distance).html( "Distance : " + Number(local[2]).toFixed(2) + " mètres" );
+          }
+          else {
+            $(distance).html( "Distance : " + Math.round(Number(local[2])) + " kilomètres" );
+          }
+
+          $(distance).attr("id", 'distance');
+          $(distance).appendTo($(miniDiv)); 
+        }
+        let adresse = document.createElement("p");
+        $(adresse).attr('id', 'adresse');
+        $(adresse).html(local[0].address);
+        $(adresse).appendTo($(miniDiv));
+        for (let tag of local[1]) {
+          let tagDiv  = document.createElement("div");
+          $(tagDiv).appendTo($(miniDiv));
+          $(tagDiv).addClass("tags");
+          $(tagDiv).html(tag.name);
+        }
+      }
+    }) 
   });
+});
